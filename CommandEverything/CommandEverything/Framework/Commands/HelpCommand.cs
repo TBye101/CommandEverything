@@ -67,7 +67,7 @@ namespace CommandEverything.Framework.Commands
         }
 
         /// <summary>
-        /// Writes to the console the names of all availible commands.
+        /// Writes to the console the names of all available commands.
         /// </summary>
         private void SpitOutCommandNames()
         {
@@ -78,7 +78,7 @@ namespace CommandEverything.Framework.Commands
         }
 
         /// <summary>
-        /// Determins if this command should run.
+        /// Determines if this command should run.
         /// </summary>
         /// <param name="Input"></param>
         /// <returns></returns>
