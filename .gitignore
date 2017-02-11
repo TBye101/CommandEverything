@@ -250,3 +250,5 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/CommandEverything/CommandEverything/Framework/Util/Error.cs
+/CommandEverything/CommandEverything/Framework/Util/Secure.cs
