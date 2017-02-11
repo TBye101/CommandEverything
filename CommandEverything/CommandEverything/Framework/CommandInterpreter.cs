@@ -61,6 +61,7 @@ namespace CommandEverything.Framework
         {
             AddCommand(new ExitCommand());
             AddCommand(new HelpCommand());
+            AddCommand(new TimeCommand());
         }
     }
 }
