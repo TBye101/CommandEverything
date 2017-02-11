@@ -6,12 +6,12 @@ using System.Linq;
 namespace CommandEverything.Framework
 {
     /// <summary>
-    /// Holds all availible commands and deals with input/command execution.
+    /// Holds all available commands and deals with input/command execution.
     /// </summary>
     public static class CommandInterpreter
     {
         /// <summary>
-        /// Holds all availible commands.
+        /// Holds all available commands.
         /// </summary>
         public static List<ICommand> AllCommands = new List<ICommand>();
 
