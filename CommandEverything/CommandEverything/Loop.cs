@@ -1,4 +1,5 @@
 ﻿using CommandEverything.Framework;
+using CommandEverything.Framework.Util;
 using System;
 
 namespace CommandEverything
@@ -15,10 +16,16 @@ namespace CommandEverything
         public static void Main(string[] args)
         {
             CommandInterpreter.StartUp();
-
             while (true)
             {
-                CommandInterpreter.RecieveInput(Console.ReadLine());
+                try
+                {
+                    CommandInterpreter.RecieveInput(Console.ReadLine());
+                }
+                catch (Exception TheException)
+                {
+                    Error.Report(TheException);
+                }
             }
         }
     }

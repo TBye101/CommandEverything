@@ -28,7 +28,7 @@ namespace CommandEverything.Framework.Util
         /// </summary>
         private static string RepositoryName = "CommandEverything";
 
-        private static string GitHubRepoToken = "[Your Access Token Goes Here]";
+        private static string GitHubRepoToken = Secure.Token;
 
         /// <summary>
         /// Used to interact with Github.
@@ -161,7 +161,7 @@ namespace CommandEverything.Framework.Util
                 Process Current = Process.GetCurrentProcess();
 
                 Report.Add("\r\n");
-                Report.Add("Some Card Games application information: ");
+                Report.Add("Application information: ");
                 Report.Add("Handles: " + Current.HandleCount.ToString());
                 Report.Add("Non paged system memory: " + Current.NonpagedSystemMemorySize64.ToString());
                 Report.Add("Paged memory: " + Current.PagedMemorySize64.ToString());
