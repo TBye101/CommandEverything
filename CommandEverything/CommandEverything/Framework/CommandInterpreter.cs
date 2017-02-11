@@ -34,24 +34,18 @@ namespace CommandEverything.Framework
         /// <param name="Input"></param>
         public static void RecieveInput(string Input)
         {
-            bool Found = false;
-
             foreach (ICommand item in AllCommands)
             {
                 if (item.ShouldRunThisCommand(Input.ToLower().Trim()))
                 {
-                    Found = true;
-
                     Console.WriteLine("-------------------- " + item.GetName() + " --------------------");
                     item.Run(Input.ToLower().Trim());
                     Console.WriteLine("-------------------- " + item.GetName() + " --------------------");
+                    return;
                 }
             }
 
-            if (!Found)
-            {
-                Console.WriteLine("Command not found");
-            }
+            Console.WriteLine("Command not found");
         }
 
         /// <summary>

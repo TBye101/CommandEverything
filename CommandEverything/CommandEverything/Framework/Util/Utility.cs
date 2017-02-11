@@ -14,11 +14,12 @@
         public static string RemoveWordFromString(string FullString, string WordToRemove)
         {
             int index = FullString.IndexOf(WordToRemove);
-            int index2 = FullString.LastIndexOf(WordToRemove);
+            int index2 = index + WordToRemove.Length;
 
             if (index != -1)
             {
                 string Result = FullString.Remove(index, index2 - index);
+                Result.Trim();
                 return Result;
             }
 
