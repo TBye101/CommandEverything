@@ -53,7 +53,7 @@ namespace CommandEverything.Framework.Commands
 
             foreach (ICommand item in CommandInterpreter.AllCommands)
             {
-                if (item.GetName() == ProcessedInput.Trim())
+                if (item.GetName().ToLower() == ProcessedInput.Trim())
                 {
                     Console.WriteLine(item.GetHelp());
                     Found = true;

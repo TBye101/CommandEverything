@@ -19,7 +19,7 @@
             if (index != -1)
             {
                 string Result = FullString.Remove(index, index2 - index);
-                Result.Trim();
+                Result = Result.Trim();
                 return Result;
             }
 
