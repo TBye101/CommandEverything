@@ -9,7 +9,27 @@ namespace CommandEverything.Framework.Commands
     /// <summary>
     /// Changes the directory this program is operating out of.
     /// </summary>
-    public class ChangeDirectory
+    public class ChangeDirectory : ICommand
     {
+        public string GetHelp()
+        {
+            return "Changes the directory that this program is operating out of.";
+        }
+
+        public string GetName()
+        {
+            return "CD";
+        }
+
+        public void Run(string Input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ShouldRunThisCommand(string Input)
+        {
+            string[] Valid = { "cd", "change directory", "change folder" };
+            return Input.Contains(Valid);
+        }
     }
 }

@@ -74,6 +74,7 @@
     <Compile Include="Framework\Util\Error.cs" />
     <Compile Include="Framework\Util\Secure.cs" />
     <Compile Include="Framework\Util\Utility.cs" />
+    <Compile Include="Framework\Util\VariableStorage.cs" />
     <Compile Include="Loop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

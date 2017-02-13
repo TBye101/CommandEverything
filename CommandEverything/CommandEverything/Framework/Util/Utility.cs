@@ -25,5 +25,24 @@
 
             return "Error";
         }
+
+        /// <summary>
+        /// Returns true if any of the words in DoesItContain are in DoIContain.
+        /// </summary>
+        /// <param name="DoIContain"></param>
+        /// <param name="DoesItContain"></param>
+        /// <returns></returns>
+        public static bool DoesStringContain(string DoIContain, string[] DoesItContain)
+        {
+            foreach (string item in DoesItContain)
+            {
+                if (DoIContain.Contains(item))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
