@@ -1,0 +1,7 @@
+﻿Corrupt Data
+Recover Corrupt Data
+Encrypt
+Decrypt
+Shutdown
+Startup
+Crash
