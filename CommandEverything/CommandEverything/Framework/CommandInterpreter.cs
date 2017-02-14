@@ -57,6 +57,7 @@ namespace CommandEverything.Framework
             AddCommand(new HelpCommand());
             AddCommand(new ExitCommand());
             AddCommand(new TimeCommand());
+            AddCommand(new FreezeProgram());
         }
     }
 }

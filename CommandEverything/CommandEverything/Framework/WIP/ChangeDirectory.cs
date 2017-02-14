@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandEverything.Framework.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace CommandEverything.Framework.Commands
         public bool ShouldRunThisCommand(string Input)
         {
             string[] Valid = { "cd", "change directory", "change folder" };
-            return Input.Contains(Valid);
+            return Utility.DoesStringContain(Input, Valid);
         }
     }
 }
