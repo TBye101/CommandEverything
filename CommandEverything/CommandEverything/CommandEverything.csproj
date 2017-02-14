@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Framework\CommandInterpreter.cs" />
+    <Compile Include="Framework\WIP\FreezeProgram.cs" />
     <Compile Include="Framework\WIP\ChangeDirectory.cs" />
     <Compile Include="Framework\Commands\ExitCommand.cs" />
     <Compile Include="Framework\Commands\HelpCommand.cs" />
