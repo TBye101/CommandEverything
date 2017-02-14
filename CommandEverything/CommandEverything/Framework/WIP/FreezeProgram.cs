@@ -26,9 +26,16 @@ namespace CommandEverything.Framework.Commands
 
         public void Run(string Input)
         {
-            foreach (Process item in Process.GetProcesses())
+            if (Utility.DoesStringContain(Input, new string[] {"all", "everything", "all processes", "all programs", }))
             {
-                this.SuspendProcess(item.Id);
+                foreach (Process item in Process.GetProcesses())
+                {
+                    this.SuspendProcess(item.Id);
+                }
+            }
+            else
+            {
+                //Get Program ID here, then freeze it
             }
         }
 
