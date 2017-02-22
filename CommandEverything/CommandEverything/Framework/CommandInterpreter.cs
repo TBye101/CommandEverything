@@ -58,7 +58,6 @@ namespace CommandEverything.Framework
             //Order matters. The higher on this list you are, the sooner you get to decide if you take the input and don't share it with others.
             AddCommand(new HelpCommand());
             AddCommand(new ExitCommand());
-            AddCommand(new TimeCommand());
             AddCommand(new FreezeProgram());
         }
     }

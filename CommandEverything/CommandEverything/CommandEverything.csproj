@@ -73,7 +73,6 @@
     <Compile Include="Framework\WIP\ChangeDirectory.cs" />
     <Compile Include="Framework\Commands\ExitCommand.cs" />
     <Compile Include="Framework\Commands\HelpCommand.cs" />
-    <Compile Include="Framework\Commands\TimeCommand.cs" />
     <Compile Include="Framework\ICommand.cs" />
     <Compile Include="Framework\Util\Error.cs" />
     <Compile Include="Framework\Util\Secure.cs" />
