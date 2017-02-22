@@ -45,6 +45,9 @@ namespace CommandEverything.Framework.Commands
             return Utility.DoesStringContain(Input, Valid);
         }
 
+        /// <summary>
+        /// Tells us at what memory location thread stuff is accessible at.
+        /// </summary>
         [Flags]
         public enum ThreadAccess : int
         {

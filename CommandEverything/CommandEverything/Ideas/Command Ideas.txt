@@ -5,3 +5,4 @@ Decrypt
 Shutdown
 Startup
 Crash
+Download file
