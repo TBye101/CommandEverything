@@ -1,7 +1,5 @@
 ﻿using CommandEverything.Framework.Commands;
-using CommandEverything.Framework.Util;
 using CommandEverything.Framework.Util.Text;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

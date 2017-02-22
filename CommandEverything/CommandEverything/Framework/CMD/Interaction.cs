@@ -1,12 +1,7 @@
-﻿using CommandEverything.Framework.Util;
-using CommandEverything.Framework.Util.Text;
+﻿using CommandEverything.Framework.Util.Text;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CommandEverything.Framework.CMD
 {
@@ -15,12 +10,12 @@ namespace CommandEverything.Framework.CMD
     /// </summary>
     public class Interaction
     {
-        public void Go()
+        public void LaunchCmdCommand(string Command)
         {
             string output = string.Empty;
             string error = string.Empty;
 
-            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd", "/c dir");
+            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd", Command);
             processStartInfo.RedirectStandardOutput = true;
             processStartInfo.RedirectStandardError = true;
             processStartInfo.WindowStyle = ProcessWindowStyle.Normal;
@@ -37,16 +32,13 @@ namespace CommandEverything.Framework.CMD
                 error = streamReader.ReadToEnd();
             }
 
-            ConsoleWriter.WriteLine("The following output was detected:");
-            ConsoleWriter.WriteLine(output);
+            ConsoleWriter.WriteLine(output, "CMD");
 
             if (!string.IsNullOrEmpty(error))
             {
                 ConsoleWriter.WriteLine("The following error was detected:");
-                ConsoleWriter.WriteLine(error);
+                ConsoleWriter.WriteLine(error, "CMD");
             }
-
-            Console.Read();
         }
     }
 }
