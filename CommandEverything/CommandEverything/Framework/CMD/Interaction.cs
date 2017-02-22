@@ -12,18 +12,19 @@ namespace CommandEverything.Framework.CMD
     {
         public static void LaunchCmdCommand(string Command)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo("cmd", Command)
+            ProcessStartInfo startInfo = new ProcessStartInfo("cmd", Command + "& exit")
             {
-                WindowStyle = ProcessWindowStyle.Hidden,
+                WindowStyle = ProcessWindowStyle.Normal,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
-                CreateNoWindow = true
+                CreateNoWindow = false
             };
 
             Process process = Process.Start(startInfo);
             process.OutputDataReceived += (sender, e) => ConsoleWriter.WriteLine(e.Data);
             process.BeginOutputReadLine();
             process.Start();
+            
             //Need to make this run concurrently and clean up afterwards.
         }
 
