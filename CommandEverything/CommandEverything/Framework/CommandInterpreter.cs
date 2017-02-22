@@ -54,6 +54,7 @@ namespace CommandEverything.Framework
         public static void StartUp()
         {
             //Order matters. The higher on this list you are, the sooner you get to decide if you take the input and don't share it with others.
+            AddCommand(new CMDCommands());
             AddCommand(new HelpCommand());
             AddCommand(new ExitCommand());
             AddCommand(new FreezeProgram());

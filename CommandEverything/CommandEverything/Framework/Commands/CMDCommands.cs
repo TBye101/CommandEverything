@@ -1,11 +1,12 @@
-﻿using CommandEverything.Framework.Util;
+﻿using CommandEverything.Framework.CMD;
+using CommandEverything.Framework.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandEverything.Framework.WIP
+namespace CommandEverything.Framework.Commands
 {
     /// <summary>
     /// Runs CMD commands if they are found.
@@ -24,12 +25,13 @@ namespace CommandEverything.Framework.WIP
 
         public void Run(string Input)
         {
-            Utility.RemoveWordFromString(Input, "CMD");
+            Interaction.LaunchCmdCommand(Utility.RemoveWordFromString(Input, "CMD"));
+
         }
 
         public bool ShouldRunThisCommand(string Input)
         {
-            string[] Valid = { "CMD" };
+            string[] Valid = { "cmd" };
 
             return Utility.DoesStringContain(Input, Valid);
         }

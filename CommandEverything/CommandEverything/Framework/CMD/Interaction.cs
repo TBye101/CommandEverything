@@ -10,7 +10,7 @@ namespace CommandEverything.Framework.CMD
     /// </summary>
     public class Interaction
     {
-        public void LaunchCmdCommand(string Command)
+        public static void LaunchCmdCommand(string Command)
         {
             string output = string.Empty;
             string error = string.Empty;
