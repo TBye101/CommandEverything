@@ -22,6 +22,15 @@ namespace CommandEverything.Framework.Util
         }
 
         /// <summary>
+        /// Same thing as the other Writeline, except this assumes this is internal and doesn't display what program it is from.
+        /// </summary>
+        /// <param name="ToWrite"></param>
+        public void WriteLine(Writable ToWrite)
+        {
+
+        }
+
+        /// <summary>
         /// Writes the messages to the console.
         /// </summary>
         /// <param name="ToWrite">The message</param>
@@ -32,11 +41,29 @@ namespace CommandEverything.Framework.Util
         }
 
         /// <summary>
+        /// Same thing as the other WriteAll, except this assumes this is internal and doesn't display what program it is from.
+        /// </summary>
+        /// <param name="ToWrite"></param>
+        public void WriteAll(Writable[] ToWrite)
+        {
+
+        }
+
+        /// <summary>
         /// Writes the messages to the console.
         /// </summary>
         /// <param name="ToWrite">The message</param>
         /// <param name="Program">Name of the program this message should be displayed as coming from.</param>
         public void WriteAll(List<Writable> ToWrite, string Program)
+        {
+
+        }
+
+        /// <summary>
+        /// Same thing as the other WriteAll, except this assumes this is internal and doesn't display what program it is from.
+        /// </summary>
+        /// <param name="ToWrite"></param>
+        public void WriteAll(List<Writable> ToWrite)
         {
 
         }
