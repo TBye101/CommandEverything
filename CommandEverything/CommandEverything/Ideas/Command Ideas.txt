@@ -6,3 +6,5 @@ Shutdown
 Startup
 Crash
 Download file
+Delete file
+Create accounts on all supported websites
