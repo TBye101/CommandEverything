@@ -1,4 +1,5 @@
 ﻿using CommandEverything.Framework.Commands;
+using CommandEverything.Framework.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,14 +39,14 @@ namespace CommandEverything.Framework
             {
                 if (item.ShouldRunThisCommand(Input.ToLower().Trim()))
                 {
-                    Console.WriteLine("-------------------- " + item.GetName() + " --------------------");
+                    ConsoleWriter.WriteLine("-------------------- " + item.GetName() + " --------------------");
                     item.Run(Input.ToLower().Trim());
-                    Console.WriteLine("-------------------- " + item.GetName() + " --------------------");
+                    ConsoleWriter.WriteLine("-------------------- " + item.GetName() + " --------------------");
                     return;
                 }
             }
 
-            Console.WriteLine("Command not found");
+            ConsoleWriter.WriteLine("Command not found");
         }
 
         /// <summary>

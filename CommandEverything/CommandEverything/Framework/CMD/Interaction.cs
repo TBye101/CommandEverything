@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandEverything.Framework.Util;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -35,13 +36,13 @@ namespace CommandEverything.Framework.CMD
                 error = streamReader.ReadToEnd();
             }
 
-            Console.WriteLine("The following output was detected:");
-            Console.WriteLine(output);
+            ConsoleWriter.WriteLine("The following output was detected:");
+            ConsoleWriter.WriteLine(output);
 
             if (!string.IsNullOrEmpty(error))
             {
-                Console.WriteLine("The following error was detected:");
-                Console.WriteLine(error);
+                ConsoleWriter.WriteLine("The following error was detected:");
+                ConsoleWriter.WriteLine(error);
             }
 
             Console.Read();

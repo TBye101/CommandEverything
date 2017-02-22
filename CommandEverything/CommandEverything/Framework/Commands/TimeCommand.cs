@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandEverything.Framework.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,7 @@ namespace CommandEverything.Framework.Commands
         /// <param name="Input"></param>
         public void Run(string Input)
         {
-            Console.WriteLine(DateTime.UtcNow);
+            ConsoleWriter.WriteLine(DateTime.UtcNow.ToString());
         }
 
         /// <summary>

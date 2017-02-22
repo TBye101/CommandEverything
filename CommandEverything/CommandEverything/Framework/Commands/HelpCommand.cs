@@ -55,14 +55,14 @@ namespace CommandEverything.Framework.Commands
             {
                 if (item.GetName().ToLower() == ProcessedInput.Trim())
                 {
-                    Console.WriteLine(item.GetHelp());
+                    ConsoleWriter.WriteLine(item.GetHelp());
                     Found = true;
                 }
             }
 
             if (!Found)
             {
-                Console.WriteLine("Command not found");
+                ConsoleWriter.WriteLine("Command not found");
             }
         }
 
@@ -73,7 +73,7 @@ namespace CommandEverything.Framework.Commands
         {
             foreach (ICommand item in CommandInterpreter.AllCommands)
             {
-                Console.WriteLine(item.GetName());
+                ConsoleWriter.WriteLine(item.GetName());
             }
         }
 

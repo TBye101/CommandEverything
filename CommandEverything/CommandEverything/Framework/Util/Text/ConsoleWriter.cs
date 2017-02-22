@@ -11,7 +11,7 @@ namespace CommandEverything.Framework.Util
     /// </summary>
     public class ConsoleWriter
     {
-        public string Time
+        private static string Time
         {
             get
             {
@@ -24,7 +24,7 @@ namespace CommandEverything.Framework.Util
         /// </summary>
         /// <param name="ToWrite">The message</param>
         /// <param name="Program">Name of the program this message should be displayed as coming from.</param>
-        public void WriteLine(Writable ToWrite, string Program)
+        public static void WriteLine(Writable ToWrite, string Program)
         {
             ConsoleColor Old = Console.BackgroundColor;
             Console.BackgroundColor = ToWrite.Color;
@@ -39,7 +39,7 @@ namespace CommandEverything.Framework.Util
         /// Same thing as the other Writeline, except this assumes this is internal and doesn't display what program it is from.
         /// </summary>
         /// <param name="ToWrite"></param>
-        public void WriteLine(Writable ToWrite)
+        public static void WriteLine(Writable ToWrite)
         {
             ConsoleColor Old = Console.BackgroundColor;
             Console.BackgroundColor = ToWrite.Color;
@@ -47,12 +47,25 @@ namespace CommandEverything.Framework.Util
             Console.BackgroundColor = Old;
         }
 
+        public static void WriteLine(string ToWrite)
+        {
+            Console.WriteLine(Time + " " + ToWrite);
+        }
+
+        public static void WriteLine(string ToWrite, string Program)
+        {
+            Console.WriteLine("______________________________________________________");
+            Console.WriteLine(Time + "(" + Program + ")");
+            Console.WriteLine(Time + " " + ToWrite);
+            Console.WriteLine("______________________________________________________");
+        }
+
         /// <summary>
         /// Writes the messages to the console.
         /// </summary>
         /// <param name="ToWrite">The message</param>
         /// <param name="Program">Name of the program this message should be displayed as coming from.</param>
-        public void WriteAll(Writable[] ToWrite, string Program)
+        public static void WriteAll(Writable[] ToWrite, string Program)
         {
             ConsoleColor Old = Console.BackgroundColor;
 
@@ -72,7 +85,7 @@ namespace CommandEverything.Framework.Util
         /// Same thing as the other WriteAll, except this assumes this is internal and doesn't display what program it is from.
         /// </summary>
         /// <param name="ToWrite"></param>
-        public void WriteAll(Writable[] ToWrite)
+        public static void WriteAll(Writable[] ToWrite)
         {
             foreach (Writable item in ToWrite)
             {
@@ -85,7 +98,7 @@ namespace CommandEverything.Framework.Util
         /// </summary>
         /// <param name="ToWrite">The message</param>
         /// <param name="Program">Name of the program this message should be displayed as coming from.</param>
-        public void WriteAll(List<Writable> ToWrite, string Program)
+        public static void WriteAll(List<Writable> ToWrite, string Program)
         {
             WriteAll(ToWrite.ToArray(), Program);
         }
@@ -94,7 +107,7 @@ namespace CommandEverything.Framework.Util
         /// Same thing as the other WriteAll, except this assumes this is internal and doesn't display what program it is from.
         /// </summary>
         /// <param name="ToWrite"></param>
-        public void WriteAll(List<Writable> ToWrite)
+        public static void WriteAll(List<Writable> ToWrite)
         {
             WriteAll(ToWrite.ToArray());
         }

@@ -27,5 +27,10 @@ namespace CommandEverything.Framework.Util
             this.Color = TheColor;
             this.Message = TheMessage;
         }
+        public Writable(string TheMessage)
+        {
+            this.Message = TheMessage;
+            this.Color = ConsoleColor.Gray;
+        }
     }
 }
