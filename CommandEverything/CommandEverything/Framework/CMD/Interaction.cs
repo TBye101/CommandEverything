@@ -12,33 +12,35 @@ namespace CommandEverything.Framework.CMD
     {
         public static void LaunchCmdCommand(string Command)
         {
-            string output = string.Empty;
-            string error = string.Empty;
-
-            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd", Command);
-            processStartInfo.RedirectStandardOutput = true;
-            processStartInfo.RedirectStandardError = true;
-            processStartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            processStartInfo.UseShellExecute = false;
-
-            Process process = Process.Start(processStartInfo);
-            using (StreamReader streamReader = process.StandardOutput)
+            ProcessStartInfo startInfo = new ProcessStartInfo("cmd", Command)
             {
-                output = streamReader.ReadToEnd();
-            }
+                WindowStyle = ProcessWindowStyle.Hidden,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            };
 
-            using (StreamReader streamReader = process.StandardError)
-            {
-                error = streamReader.ReadToEnd();
-            }
+            Process process = Process.Start(startInfo);
+            process.OutputDataReceived += (sender, e) => ConsoleWriter.WriteLine(e.Data);
+            process.BeginOutputReadLine();
+            process.Start();
+            //Need to make this run concurrently and clean up afterwards.
+        }
 
-            ConsoleWriter.WriteLine(output, "CMD");
+        private static void p_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            Process p = sender as Process;
+            if (p == null)
+                return;
+            Console.WriteLine(e.Data);
+        }
 
-            if (!string.IsNullOrEmpty(error))
-            {
-                ConsoleWriter.WriteLine("The following error was detected:");
-                ConsoleWriter.WriteLine(error, "CMD");
-            }
+        private static void p_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            Process p = sender as Process;
+            if (p == null)
+                return;
+            Console.WriteLine(e.Data);
         }
     }
 }
