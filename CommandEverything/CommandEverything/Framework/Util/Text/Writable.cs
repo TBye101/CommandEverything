@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandEverything.Framework.Util
+namespace CommandEverything.Framework.Util.Text
 {
     /// <summary>
     /// Used to store information that is used by the ConsoleWriter.

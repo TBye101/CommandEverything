@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandEverything.Framework.Util
+namespace CommandEverything.Framework.Util.Text
 {
     /// <summary>
     /// Knows how to do more advanced kinds of output to the console.

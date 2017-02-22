@@ -1,4 +1,5 @@
 ﻿using CommandEverything.Framework.Util;
+using CommandEverything.Framework.Util.Text;
 using System;
 
 namespace CommandEverything.Framework.Commands
