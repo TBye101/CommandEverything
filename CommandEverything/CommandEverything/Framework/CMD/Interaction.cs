@@ -10,38 +10,21 @@ namespace CommandEverything.Framework.CMD
     /// </summary>
     public class Interaction
     {
-        public static void LaunchCmdCommand(string Command)
+        /// <summary>
+        /// Launches a CMD window.
+        /// </summary>
+        /// <param name="Command"></param>
+        public static void NewCMD()
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo("cmd", Command)
+            ProcessStartInfo startInfo = new ProcessStartInfo("cmd")
             {
                 WindowStyle = ProcessWindowStyle.Normal,
-                UseShellExecute = false,
+                UseShellExecute = true,
                 RedirectStandardOutput = false,
-                CreateNoWindow = false
+                CreateNoWindow = true
             };
 
             Process process = Process.Start(startInfo);
-            process.OutputDataReceived += (sender, e) => ConsoleWriter.WriteLine(e.Data);
-            process.BeginOutputReadLine();
-            process.Start();
-            
-            //Need to make this run concurrently and clean up afterwards.
-        }
-
-        private static void p_ErrorDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            Process p = sender as Process;
-            if (p == null)
-                return;
-            Console.WriteLine(e.Data);
-        }
-
-        private static void p_OutputDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            Process p = sender as Process;
-            if (p == null)
-                return;
-            Console.WriteLine(e.Data);
         }
     }
 }

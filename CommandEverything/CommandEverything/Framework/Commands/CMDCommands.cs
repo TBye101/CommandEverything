@@ -15,7 +15,7 @@ namespace CommandEverything.Framework.Commands
     {
         public string GetHelp()
         {
-            return "Used to run a CMD command from this command prompt. Just do 'CMD' followed by your arguments to CMD and it will receive your command";
+            return "Used to open a CMD command from this command prompt.";
         }
 
         public string GetName()
@@ -25,7 +25,7 @@ namespace CommandEverything.Framework.Commands
 
         public void Run(string Input)
         {
-            Interaction.LaunchCmdCommand(Utility.RemoveWordFromString(Input, "cmd"));
+            Interaction.NewCMD();
 
         }
 
