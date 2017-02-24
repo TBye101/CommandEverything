@@ -8,13 +8,13 @@ Date:   Fri Feb 24 16:50:48 2017 -0600
 Author: SneakyTactician <sneakytactician@outlook.com>
 Date:   Fri Feb 24 16:28:16 2017 -0600
 
-    Fixed a bug with the word remover
+    Fixed a bug with the word remover utility.
 
 [33mcommit 7be0b828268305259dfdab6978bbe506fe8bae78[m
 Author: SneakyTactician <sneakytactician@outlook.com>
 Date:   Wed Feb 22 17:47:28 2017 -0600
 
-    married them a bit too well.
+    Trying to marry CMD to my console. Married them a bit too well.
 
 [33mcommit 28e3aa116419ba28e2c978f6cd5bde521f741f9d[m
 Author: SneakyTactician <sneakytactician@outlook.com>
