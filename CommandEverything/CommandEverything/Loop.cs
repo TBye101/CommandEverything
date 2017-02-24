@@ -1,5 +1,6 @@
 ﻿using CommandEverything.Framework;
 using CommandEverything.Framework.Util;
+using CommandEverything.Framework.Util.Text;
 using System;
 
 namespace CommandEverything
@@ -15,6 +16,13 @@ namespace CommandEverything
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
+            ConsoleWriter.WriteLine("Command Everything is initiating startup with " + args.Length + " arguments:");
+            
+            foreach (string item in args)
+            {
+                ConsoleWriter.WriteLine(item);
+            }
+
             CommandInterpreter.StartUp();
             while (true)
             {
