@@ -12,11 +12,11 @@ namespace CommandEverything.Framework.CMD
     {
         public static void LaunchCmdCommand(string Command)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo("cmd", Command + "& exit")
+            ProcessStartInfo startInfo = new ProcessStartInfo("cmd", Command)
             {
                 WindowStyle = ProcessWindowStyle.Normal,
                 UseShellExecute = false,
-                RedirectStandardOutput = true,
+                RedirectStandardOutput = false,
                 CreateNoWindow = false
             };
 

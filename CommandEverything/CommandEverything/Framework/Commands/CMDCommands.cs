@@ -25,7 +25,7 @@ namespace CommandEverything.Framework.Commands
 
         public void Run(string Input)
         {
-            Interaction.LaunchCmdCommand(Utility.RemoveWordFromString(Input, "CMD"));
+            Interaction.LaunchCmdCommand(Utility.RemoveWordFromString(Input, "cmd"));
 
         }
 
