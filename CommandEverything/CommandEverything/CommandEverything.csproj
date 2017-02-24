@@ -79,6 +79,7 @@
     <Compile Include="Framework\Util\Secure.cs" />
     <Compile Include="Framework\Util\Utility.cs" />
     <Compile Include="Framework\Util\VariableStorage.cs" />
+    <Compile Include="Framework\Commands\NewWindow.cs" />
     <Compile Include="Loop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

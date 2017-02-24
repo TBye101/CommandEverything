@@ -1,5 +1,6 @@
 ﻿using CommandEverything.Framework.Commands;
 using CommandEverything.Framework.Util.Text;
+using CommandEverything.Framework.WIP;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -58,6 +59,7 @@ namespace CommandEverything.Framework
             AddCommand(new HelpCommand());
             AddCommand(new ExitCommand());
             AddCommand(new FreezeProgram());
+            AddCommand(new NewWindow());
         }
     }
 }
