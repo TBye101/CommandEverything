@@ -72,9 +72,9 @@ namespace CommandEverything.Framework.Util
                 }
                 var Observable = Client.Issue.Create(UserName, RepositoryName, ToReport);
             }
-#pragma warning disable CS0168 // Variable is declared but never used
+            #pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception E)
-#pragma warning restore CS0168 // Variable is declared but never used
+            #pragma warning restore CS0168 // Variable is declared but never used
             {
                 //Eat it
                 if (IsUnitTesting)
@@ -172,9 +172,9 @@ namespace CommandEverything.Framework.Util
                 {
                     Report.Add("Screen Size: " + Screen.PrimaryScreen.Bounds.ToString());
                 }
-#pragma warning disable CS0168 // Variable is declared but never used
+                #pragma warning disable CS0168 // Variable is declared but never used
                 catch (Exception E)
-#pragma warning restore CS0168 // Variable is declared but never used
+                #pragma warning restore CS0168 // Variable is declared but never used
                 {
                     //Needed to catch this, as it goes outside of this class. If variable storage, or Util is too corrupt, this would fail.
                 }
@@ -185,9 +185,9 @@ namespace CommandEverything.Framework.Util
 
                 return ConvertListToString(Report);
             }
-#pragma warning disable CS0168 // Variable is declared but never used
+            #pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception E)
-#pragma warning restore CS0168 // Variable is declared but never used
+            #pragma warning restore CS0168 // Variable is declared but never used
             {
                 //Eat it
                 return "**Report Generation Failed**";
@@ -260,9 +260,9 @@ namespace CommandEverything.Framework.Util
 
                 return ConvertListToString(Report);
             }
-#pragma warning disable CS0168 // Variable is declared but never used
+            #pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception TheException)
-#pragma warning restore CS0168 // Variable is declared but never used
+            #pragma warning restore CS0168 // Variable is declared but never used
             {
                 Debug.Assert(false);
                 return "**Error while generating inner exception data**";
