@@ -16,4 +16,5 @@ Your entire command line history for each instance of the command line is saved 
 ##Dependencies
 
 [Octokit] (http://octokit.github.io/)
+
 -For GitHub auto error reporting
