@@ -13,7 +13,7 @@ namespace CommandEverything.Framework.Util.Text
     /// </summary>
     public static class Logging
     {
-        private static string LogFilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Logs\\" + Path.GetRandomFileName() + ".txt";
+        private static string LogFilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Logs\\" + DateTimeForFileName + ".txt";
         private static StreamWriter a = CreateStreamWriter(LogFilePath);
 
         /// <summary>
@@ -36,6 +36,15 @@ namespace CommandEverything.Framework.Util.Text
         public static void Log(string ToLog)
         {
             a.WriteLine(ToLog);
+        }
+
+        private static string DateTimeForFileName
+        {
+            get
+            {
+                string Time = DateTime.Now.ToString("yyyy-MM-dd HH#mm#ss");
+                return Time;
+            }
         }
     }
 }
