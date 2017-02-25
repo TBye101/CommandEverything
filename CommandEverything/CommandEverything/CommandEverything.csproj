@@ -162,6 +162,7 @@
     <Compile Include="Framework\Util\VariableStorage.cs" />
     <Compile Include="Framework\Commands\NewWindow.cs" />
     <Compile Include="Framework\Commands\ShutdownCommand.cs" />
+    <Compile Include="Framework\WIP\GenerateReflectionData.cs" />
     <Compile Include="Loop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
