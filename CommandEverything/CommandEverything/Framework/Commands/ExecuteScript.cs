@@ -1,6 +1,8 @@
 ﻿using CommandEverything.Framework.Util;
+using CommandEverything.Framework.Util.Text;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +30,6 @@ namespace CommandEverything.Framework.Commands
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.FileName = "Document"; // Default file name
             dlg.DefaultExt = ".txt"; // Default file extension
-            dlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
 
             // Show open file dialog box
             DialogResult result = dlg.ShowDialog();
@@ -37,7 +38,24 @@ namespace CommandEverything.Framework.Commands
             if (result == DialogResult.OK)
             {
                 // Open document
-                string filename = dlg.FileName;
+                string[] script = File.ReadAllLines(dlg.FileName, Encoding.Default);
+                this.AttemptToExecuteAll(script);
+            }
+            else
+            {
+                ConsoleWriter.WriteLine("File invalid!");
+            }
+        }
+
+        /// <summary>
+        /// Runs each command through the command interpreter.
+        /// </summary>
+        /// <param name="Inputs"></param>
+        private void AttemptToExecuteAll(string[] Inputs)
+        {
+            foreach (string item in Inputs)
+            {
+                CommandInterpreter.RecieveInput(item);
             }
         }
 
