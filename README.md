@@ -11,3 +11,9 @@ Any command that is valid in the console is valid in the file.
 
 ###Logging
 Your entire command line history for each instance of the command line is saved to a text file under the "Logs" folder, in the same directory as your executable.
+
+
+##Dependencies
+
+[Octokit] (http://octokit.github.io/)
+-For GitHub auto error reporting
