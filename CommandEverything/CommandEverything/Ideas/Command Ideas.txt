@@ -8,7 +8,7 @@ Crash
 Download file
 Delete file
 Create accounts on all supported websites
-
+Log external program std output.
 
 
 ***Concept Ideas***

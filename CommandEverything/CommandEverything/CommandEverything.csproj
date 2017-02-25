@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,6 +81,7 @@
     <Compile Include="Framework\Util\Utility.cs" />
     <Compile Include="Framework\Util\VariableStorage.cs" />
     <Compile Include="Framework\Commands\NewWindow.cs" />
+    <Compile Include="Framework\Commands\ShutdownCommand.cs" />
     <Compile Include="Loop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

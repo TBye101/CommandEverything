@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandEverything.Framework.WIP
+namespace CommandEverything.Framework.Commands
 {
     /// <summary>
     /// Opens a new command window.

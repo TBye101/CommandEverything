@@ -1,6 +1,5 @@
 ﻿using CommandEverything.Framework.Commands;
 using CommandEverything.Framework.Util.Text;
-using CommandEverything.Framework.WIP;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,7 +25,7 @@ namespace CommandEverything.Framework
             {
                 AllCommands.Add(Command);
                 AllCommands = AllCommands.OrderBy(o => o.GetName()).ToList();
-            }
+            } 
         }
 
         /// <summary>
@@ -60,6 +59,7 @@ namespace CommandEverything.Framework
             AddCommand(new ExitCommand());
             AddCommand(new FreezeProgram());
             AddCommand(new NewWindow());
+            AddCommand(new ShutdownCommand());
         }
     }
 }
