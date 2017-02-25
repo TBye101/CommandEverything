@@ -16,15 +16,15 @@ namespace CommandEverything
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
+            Startup Init = new Startup();
+            Init.Go();
+
             ConsoleWriter.WriteLine("Command Everything is initiating startup with " + args.Length + " arguments:");
             
             foreach (string item in args)
             {
                 ConsoleWriter.WriteLine(item);
             }
-
-            Startup Init = new Startup();
-            Init.Go();
 
             ConsoleWriter.WriteLine("Startup complete");
 

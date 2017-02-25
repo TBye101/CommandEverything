@@ -17,6 +17,7 @@ namespace CommandEverything
         {
             this.VerifyFolder(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Logs");
             StreamWriter a = File.CreateText(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Logs" + Guid.NewGuid());
+            Console.SetOut(a);
         }
 
         /// <summary>
