@@ -34,6 +34,7 @@ namespace CommandEverything.Framework
         /// <param name="Input"></param>
         public static void RecieveInput(string Input)
         {
+            Logging.Log(Input);
             foreach (ICommand item in AllCommands)
             {
                 if (item.ShouldRunThisCommand(Input.ToLower().Trim()))

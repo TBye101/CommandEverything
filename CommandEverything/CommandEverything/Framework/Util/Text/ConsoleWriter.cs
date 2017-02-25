@@ -28,11 +28,21 @@ namespace CommandEverything.Framework.Util.Text
         {
             ConsoleColor Old = Console.BackgroundColor;
             Console.BackgroundColor = ToWrite.Color;
-            Console.WriteLine("______________________________________________________");
-            Console.WriteLine(Time + "(" + Program + ")");
-            Console.WriteLine(Time + " " + ToWrite.Message);
-            Console.WriteLine("______________________________________________________");
+            BasicWriteLine("______________________________________________________");
+            BasicWriteLine(Time + "(" + Program + ")");
+            BasicWriteLine(Time + " " + ToWrite.Message);
+            BasicWriteLine("______________________________________________________");
             Console.BackgroundColor = Old;
+        }
+
+        /// <summary>
+        /// Writes the line to the console and logs it.
+        /// </summary>
+        /// <param name="ToWrite"></param>
+        private static void BasicWriteLine(string ToWrite)
+        {
+            Logging.Log(ToWrite);
+            Console.WriteLine(ToWrite);
         }
 
         /// <summary>
@@ -43,21 +53,21 @@ namespace CommandEverything.Framework.Util.Text
         {
             ConsoleColor Old = Console.BackgroundColor;
             Console.BackgroundColor = ToWrite.Color;
-            Console.WriteLine(Time + " " + ToWrite.Message);
+            BasicWriteLine(Time + " " + ToWrite.Message);
             Console.BackgroundColor = Old;
         }
 
         public static void WriteLine(string ToWrite)
         {
-            Console.WriteLine(Time + " " + ToWrite);
+            BasicWriteLine(Time + " " + ToWrite);
         }
 
         public static void WriteLine(string ToWrite, string Program)
         {
-            Console.WriteLine("______________________________________________________");
-            Console.WriteLine(Time + "(" + Program + ")");
-            Console.WriteLine(Time + " " + ToWrite);
-            Console.WriteLine("______________________________________________________");
+            BasicWriteLine("______________________________________________________");
+            BasicWriteLine(Time + "(" + Program + ")");
+            BasicWriteLine(Time + " " + ToWrite);
+            BasicWriteLine("______________________________________________________");
         }
 
         /// <summary>
@@ -69,15 +79,15 @@ namespace CommandEverything.Framework.Util.Text
         {
             ConsoleColor Old = Console.BackgroundColor;
 
-            Console.WriteLine("______________________________________________________");
-            Console.WriteLine(Time + "(" + Program + ")");
+            BasicWriteLine("______________________________________________________");
+            BasicWriteLine(Time + "(" + Program + ")");
 
             foreach (Writable item in ToWrite)
             {
                 WriteLine(item);
             }
 
-            Console.WriteLine("______________________________________________________");
+            BasicWriteLine("______________________________________________________");
             Console.BackgroundColor = Old;
         }
 
