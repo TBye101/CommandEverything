@@ -18,5 +18,11 @@ Defend this exe
 Kill Program
 Treat program like virus.
 Sandbox run program.
+Delete logs
+Pandora client
+Spotify client
+Github client
+Change system time.
+
 ***Concept Ideas***
 Auto complete/tabbing/intellisense
