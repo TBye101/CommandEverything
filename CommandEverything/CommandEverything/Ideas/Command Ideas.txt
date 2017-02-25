@@ -23,6 +23,7 @@ Pandora client
 Spotify client
 Github client
 Change system time.
+Delete logs
 
 ***Concept Ideas***
 Auto complete/tabbing/intellisense
