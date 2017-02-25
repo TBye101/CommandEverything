@@ -1,6 +1,7 @@
 ﻿using CommandEverything.Framework.Util;
 using System;
 using System.IO;
+using System.Reflection;
 
 namespace CommandEverything
 {
@@ -14,7 +15,7 @@ namespace CommandEverything
         /// </summary>
         public void Go()
         {
-
+            this.VerifyFolder(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Logs");
         }
 
         /// <summary>

@@ -23,6 +23,11 @@ namespace CommandEverything
                 ConsoleWriter.WriteLine(item);
             }
 
+            Startup Init = new Startup();
+            Init.Go();
+
+            ConsoleWriter.WriteLine("Startup complete");
+
             CommandInterpreter.StartUp();
             while (true)
             {
