@@ -26,13 +26,13 @@ namespace CommandEverything.Framework.Util.Text
         /// <param name="Program">Name of the program this message should be displayed as coming from.</param>
         public static void WriteLine(Writable ToWrite, string Program)
         {
-            ConsoleColor Old = Console.BackgroundColor;
-            Console.BackgroundColor = ToWrite.Color;
+            ConsoleColor Old = Console.ForegroundColor;
+            Console.ForegroundColor = ToWrite.Color;
             BasicWriteLine("______________________________________________________");
             BasicWriteLine(Time + "(" + Program + ")");
             BasicWriteLine(Time + " " + ToWrite.Message);
             BasicWriteLine("______________________________________________________");
-            Console.BackgroundColor = Old;
+            Console.ForegroundColor = Old;
         }
 
         /// <summary>
@@ -51,10 +51,10 @@ namespace CommandEverything.Framework.Util.Text
         /// <param name="ToWrite"></param>
         public static void WriteLine(Writable ToWrite)
         {
-            ConsoleColor Old = Console.BackgroundColor;
-            Console.BackgroundColor = ToWrite.Color;
+            ConsoleColor Old = Console.ForegroundColor;
+            Console.ForegroundColor = ToWrite.Color;
             BasicWriteLine(Time + " " + ToWrite.Message);
-            Console.BackgroundColor = Old;
+            Console.ForegroundColor = Old;
         }
 
         public static void WriteLine(string ToWrite)
@@ -77,7 +77,7 @@ namespace CommandEverything.Framework.Util.Text
         /// <param name="Program">Name of the program this message should be displayed as coming from.</param>
         public static void WriteAll(Writable[] ToWrite, string Program)
         {
-            ConsoleColor Old = Console.BackgroundColor;
+            ConsoleColor Old = Console.ForegroundColor;
 
             BasicWriteLine("______________________________________________________");
             BasicWriteLine(Time + "(" + Program + ")");
@@ -88,7 +88,7 @@ namespace CommandEverything.Framework.Util.Text
             }
 
             BasicWriteLine("______________________________________________________");
-            Console.BackgroundColor = Old;
+            Console.ForegroundColor = Old;
         }
 
         /// <summary>
@@ -120,6 +120,23 @@ namespace CommandEverything.Framework.Util.Text
         public static void WriteAll(List<Writable> ToWrite)
         {
             WriteAll(ToWrite.ToArray());
+        }
+
+        /// <summary>
+        /// Just another WriteAll implimentation.
+        /// </summary>
+        /// <param name="ToWrite"></param>
+        /// <param name="Program"></param>
+        public static void WriteAll(string[] ToWrite, string Program)
+        {
+            List<Writable> Write = new List<Writable>();
+
+            foreach (string item in ToWrite)
+            {
+                Write.Add(new Writable(item));
+            }
+
+            WriteAll(Write, Program);
         }
     }
 }

@@ -62,6 +62,7 @@ namespace CommandEverything.Framework
             AddCommand(new NewWindow());
             AddCommand(new ShutdownCommand());
             AddCommand(new RestartCommand());
+            AddCommand(new ExecuteScript());
         }
     }
 }
