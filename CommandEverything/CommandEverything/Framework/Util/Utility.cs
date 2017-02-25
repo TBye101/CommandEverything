@@ -44,5 +44,14 @@
 
             return false;
         }
+
+        /// <summary>
+        /// Logs the specified line to a text file.
+        /// </summary>
+        /// <param name="ToLog"></param>
+        public static void Log(string ToLog)
+        {
+
+        }
     }
 }
