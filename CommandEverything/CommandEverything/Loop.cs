@@ -14,6 +14,7 @@ namespace CommandEverything
         /// The entry point for this program.
         /// </summary>
         /// <param name="args"></param>
+        [STAThreadAttribute]
         public static void Main(string[] args)
         {
             Startup Init = new Startup();
