@@ -60,6 +60,7 @@ namespace CommandEverything.Framework
             AddCommand(new FreezeProgram());
             AddCommand(new NewWindow());
             AddCommand(new ShutdownCommand());
+            AddCommand(new RestartCommand());
         }
     }
 }

@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Framework\CMD\Interaction.cs" />
     <Compile Include="Framework\CommandInterpreter.cs" />
+    <Compile Include="Framework\Commands\RestartCommand.cs" />
     <Compile Include="Framework\Util\Text\ConsoleWriter.cs" />
     <Compile Include="Framework\Util\Text\Writable.cs" />
     <Compile Include="Framework\Commands\CMDCommands.cs" />
