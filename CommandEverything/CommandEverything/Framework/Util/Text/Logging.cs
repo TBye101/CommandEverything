@@ -13,6 +13,7 @@ namespace CommandEverything.Framework.Util.Text
     /// </summary>
     public static class Logging
     {
+        private static string LogDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Logs";
         private static string LogFilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Logs\\" + DateTimeForFileName + ".txt";
         private static StreamWriter a = CreateStreamWriter(LogFilePath);
 
@@ -45,6 +46,26 @@ namespace CommandEverything.Framework.Util.Text
                 string Time = DateTime.Now.ToString("yyyy-MM-dd HH#mm#ss");
                 return Time;
             }
+        }
+
+        /// <summary>
+        /// Deletes all logs created by this program during any of it's sessions.
+        /// </summary>
+        public static void DeleteLogs()
+        {
+            int i = 0;
+            DirectoryInfo di = new DirectoryInfo(LogDirectory);
+
+            foreach (FileInfo file in di.GetFiles())
+            {
+                if (file.FullName != LogFilePath)
+                {
+                    file.Delete();
+                    i++;
+                }
+            }
+
+            ConsoleWriter.WriteLine("Deleted " + i.ToString() + " logs");
         }
     }
 }

@@ -145,6 +145,7 @@
   <ItemGroup>
     <Compile Include="Framework\CMD\Interaction.cs" />
     <Compile Include="Framework\CommandInterpreter.cs" />
+    <Compile Include="Framework\Commands\DeleteLogs.cs" />
     <Compile Include="Framework\Commands\ExecuteScript.cs" />
     <Compile Include="Framework\Commands\RestartCommand.cs" />
     <Compile Include="Framework\Util\Text\ConsoleWriter.cs" />
