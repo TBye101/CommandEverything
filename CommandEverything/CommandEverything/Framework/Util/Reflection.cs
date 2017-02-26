@@ -32,6 +32,7 @@ namespace CommandEverything.Framework.Util
             this.CustomAttributes();
             this.DeclaredTypes();
             this.ReferencedAssemblies();
+            this.Log("-Entry Point: " + Asm.EntryPoint.Name);
         }
 
         private void ReferencedAssemblies()
@@ -50,7 +51,15 @@ namespace CommandEverything.Framework.Util
         private void TypeInfo(TypeInfo Typ)
         {
             this.Log(Typ.FullName);
-            this.Log("--Base type: " + Typ.BaseType); 
+            this.Log("--Base type: " + Typ.BaseType);
+            this.Log("--Type: " + Typ.GetType());
+            this.Log("--Type size: " + System.Runtime.InteropServices.Marshal.SizeOf(Typ));
+            this.Log("**Nested Types:**");
+
+            foreach (TypeInfo item in Typ.GetNestedTypes())
+            {
+                this.TypeInfo(item);
+            }
         }
 
         private void DeclaredTypes()
