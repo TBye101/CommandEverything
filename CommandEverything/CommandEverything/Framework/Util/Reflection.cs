@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,12 +49,19 @@ namespace CommandEverything.Framework.Util
             }
         }
 
+        private unsafe int CalcSize(object obj)
+        {
+            RuntimeTypeHandle th = obj.GetType().TypeHandle;
+            int size = *(*(int**)&th + 1);
+            return size;
+        }
+
         private void TypeInfo(TypeInfo Typ)
         {
             this.Log(Typ.FullName);
             this.Log("--Base type: " + Typ.BaseType);
-            this.Log("--Type: " + Typ.GetType());
-            this.Log("--Type size: " + System.Runtime.InteropServices.Marshal.SizeOf(Typ));
+            this.Log("--Type: " + Typ.GetType().FullName);
+            this.Log("--Type size: " + this.CalcSize(Typ));
             this.Log("**Nested Types:**");
 
             foreach (TypeInfo item in Typ.GetNestedTypes())
@@ -68,7 +76,14 @@ namespace CommandEverything.Framework.Util
 
             foreach (TypeInfo item in Asm.DefinedTypes)
             {
-                this.TypeInfo(item);
+                try
+                {
+                    this.TypeInfo(item);
+                }
+                catch (Exception TheException)
+                {
+                    //Eat it, cause its probably just a null object.
+                }
             }
         }
 

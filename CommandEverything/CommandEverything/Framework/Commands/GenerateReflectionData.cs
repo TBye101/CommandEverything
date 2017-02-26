@@ -57,13 +57,16 @@ namespace CommandEverything.Framework.Commands
 
             if (Sv.ShowDialog() == DialogResult.OK)
             {
-                using (Stream s = File.Open(Sv.FileName, FileMode.CreateNew))
-                using (StreamWriter sw = new StreamWriter(s))
-                {
-                    Reflection a;
-                    a = new Reflection();
-                    a.GenerateData(sw, o);
-                }
+                Stream s = File.Open(Sv.FileName, FileMode.CreateNew);
+                StreamWriter sw = new StreamWriter(s);
+                Reflection a;
+                a = new Reflection();
+                a.GenerateData(sw, o);
+
+                s.Flush();
+                s.Close();
+                sw.Flush();
+                sw.Close();
             }
         }
 
