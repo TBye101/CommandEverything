@@ -16,6 +16,9 @@ namespace CommandEverything.Framework.Commands
     /// </summary>
     public class GenerateReflectionData : ICommand
     {
+        private Stream s;
+        private StreamWriter sw;
+
         public string GetHelp()
         {
             return "Generates reflection data about a chosen assembly and saves that data to a file.";
@@ -54,19 +57,15 @@ namespace CommandEverything.Framework.Commands
             Sv.AddExtension = true;
             Sv.CheckPathExists = true;
             Sv.DefaultExt = ".txt";
+            Sv.OverwritePrompt = true;
 
             if (Sv.ShowDialog() == DialogResult.OK)
             {
-                Stream s = File.Open(Sv.FileName, FileMode.CreateNew);
-                StreamWriter sw = new StreamWriter(s);
+                s = File.Open(Sv.FileName, FileMode.Create);
+                sw = new StreamWriter(s);
                 Reflection a;
                 a = new Reflection();
                 a.GenerateData(sw, o);
-
-                s.Flush();
-                s.Close();
-                sw.Flush();
-                sw.Close();
             }
         }
 

@@ -1,12 +1,7 @@
 ﻿using CommandEverything.Framework.Util.Text;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CommandEverything.Framework.Util
 {
@@ -15,8 +10,8 @@ namespace CommandEverything.Framework.Util
     /// </summary>
     public class Reflection
     {
-        StreamWriter Stream;
-        Assembly Asm;
+        private StreamWriter Stream;
+        private Assembly Asm;
 
         /// <summary>
         /// Generates data about the specified assembly, and saves it to the specified file.
@@ -33,7 +28,16 @@ namespace CommandEverything.Framework.Util
             this.CustomAttributes();
             this.DeclaredTypes();
             this.ReferencedAssemblies();
-            this.Log("-Entry Point: " + Asm.EntryPoint.Name);
+
+            try
+            {
+                this.Log("-Entry Point: " + Asm.EntryPoint.Name);
+            }
+            catch (Exception e)
+            {}
+
+            Stream.Flush();
+            Stream.Close();
         }
 
         private void ReferencedAssemblies()
@@ -42,10 +46,34 @@ namespace CommandEverything.Framework.Util
 
             foreach (AssemblyName item in Asm.GetReferencedAssemblies())
             {
-                this.Log(item.FullName);
-                this.Log("---" + item.ProcessorArchitecture.ToString());
-                this.Log("---" + item.Version.ToString());
-                this.Log("---" + item.CodeBase.ToString());
+                try
+                {
+                    this.Log(item.FullName);
+                }
+                catch (Exception e)
+                {
+                }
+                //try
+                //{
+                //    this.Log("---" + item.ProcessorArchitecture.ToString());
+                //}
+                //catch (Exception e)
+                //{
+                //}
+                try
+                {
+                    this.Log("---" + item.Version.ToString());
+                }
+                catch (Exception e)
+                {
+                }
+                try
+                {
+                    this.Log("---" + item.CodeBase.ToString());
+                }
+                catch (Exception e)
+                {
+                }
             }
         }
 
@@ -60,7 +88,15 @@ namespace CommandEverything.Framework.Util
         {
             this.Log(Typ.FullName);
             this.Log("--Base type: " + Typ.BaseType);
-            this.Log("--Type: " + Typ.GetType().FullName);
+            this.Log("--Type: " + Typ.FullName);
+            this.Log("--Sub Types:");
+
+            foreach (Type item in Typ.GetNestedTypes())
+            {
+                this.Log("---" + item.FullName);
+                this.TypeInfo(item.GetTypeInfo());
+            }
+
             this.Log("--Type size: " + this.CalcSize(Typ));
             this.Log("**Nested Types:**");
 
