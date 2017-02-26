@@ -36,6 +36,7 @@ namespace CommandEverything.Framework.Commands
 
             dlg.FileName = "Library"; // Default file name
             dlg.DefaultExt = ".dll"; // Default file extension
+            dlg.Multiselect = true;
 
             // Show open file dialog box
             DialogResult result = dlg.ShowDialog();
@@ -46,26 +47,38 @@ namespace CommandEverything.Framework.Commands
                 // Open document
                 //string[] script = File.ReadAllLines(dlg.FileName, Encoding.Default);
                 //this.AttemptToExecuteAll(script);
-                o = Assembly.LoadFile(dlg.FileName);
+
+
+                SaveFileDialog Sv = new SaveFileDialog();
+                Sv.AddExtension = true;
+                Sv.CheckPathExists = true;
+                Sv.DefaultExt = ".txt";
+                Sv.OverwritePrompt = true;
+
+                if (Sv.ShowDialog() == DialogResult.OK)
+                {
+                    s = File.Open(Sv.FileName, FileMode.Create);
+                    sw = new StreamWriter(s);
+                    Reflection a;
+                    a = new Reflection();
+
+                    foreach (string item in dlg.FileNames)
+                    {
+                        try
+                        {
+                            o = Assembly.LoadFile(item);
+                            a.GenerateData(sw, o);
+                        }
+                        catch (BadImageFormatException e)
+                        {
+                            ConsoleWriter.WriteLine("Library is not .net based or does not contain a manifest!!!");
+                        }
+                    }
+                }
             }
             else
             {
                 ConsoleWriter.WriteLine("File invalid!");
-            }
-
-            SaveFileDialog Sv = new SaveFileDialog();
-            Sv.AddExtension = true;
-            Sv.CheckPathExists = true;
-            Sv.DefaultExt = ".txt";
-            Sv.OverwritePrompt = true;
-
-            if (Sv.ShowDialog() == DialogResult.OK)
-            {
-                s = File.Open(Sv.FileName, FileMode.Create);
-                sw = new StreamWriter(s);
-                Reflection a;
-                a = new Reflection();
-                a.GenerateData(sw, o);
             }
         }
 

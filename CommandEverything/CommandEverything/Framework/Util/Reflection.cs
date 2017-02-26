@@ -21,105 +21,131 @@ namespace CommandEverything.Framework.Util
         /// <param name="Asm"></param>
         public void GenerateData(StreamWriter File, Assembly Asmm)
         {
-            this.Stream = File;
-            Asm = Asmm;
-
-            this.Log("-Assembly Location: " + Asmm.CodeBase);
-            this.CustomAttributes();
-            this.DeclaredTypes();
-            this.ReferencedAssemblies();
-
             try
             {
-                this.Log("-Entry Point: " + Asm.EntryPoint.Name);
+                this.Stream = File;
+                Asm = Asmm;
+
+                this.Log("-Assembly Location: " + Asmm.CodeBase);
+                this.CustomAttributes();
+                this.DeclaredTypes();
+                this.ReferencedAssemblies();
+
+                try
+                {
+                    this.Log("-Entry Point: " + Asm.EntryPoint.Name);
+                }
+                catch (Exception e)
+                { }
             }
             catch (Exception e)
-            {}
-
-            Stream.Flush();
-            Stream.Close();
+            {
+                Error.Report(e);
+            }
         }
 
         private void ReferencedAssemblies()
         {
-            this.Log("--Referenced Assemblies:");
-
-            foreach (AssemblyName item in Asm.GetReferencedAssemblies())
+            try
             {
-                try
+                this.Log("--Referenced Assemblies:");
+
+                foreach (AssemblyName item in Asm.GetReferencedAssemblies())
                 {
-                    this.Log(item.FullName);
+                    try
+                    {
+                        this.Log(item.FullName);
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                    try
+                    {
+                        this.Log("---" + item.Version.ToString());
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                    try
+                    {
+                        this.Log("---" + item.CodeBase.ToString());
+                    }
+                    catch (Exception e)
+                    {
+                    }
                 }
-                catch (Exception e)
-                {
-                }
-                //try
-                //{
-                //    this.Log("---" + item.ProcessorArchitecture.ToString());
-                //}
-                //catch (Exception e)
-                //{
-                //}
-                try
-                {
-                    this.Log("---" + item.Version.ToString());
-                }
-                catch (Exception e)
-                {
-                }
-                try
-                {
-                    this.Log("---" + item.CodeBase.ToString());
-                }
-                catch (Exception e)
-                {
-                }
+            }
+            catch (Exception TheException)
+            {
+                Error.Report(TheException);
             }
         }
 
         private unsafe int CalcSize(object obj)
         {
-            RuntimeTypeHandle th = obj.GetType().TypeHandle;
-            int size = *(*(int**)&th + 1);
-            return size;
+            try
+            {
+                RuntimeTypeHandle th = obj.GetType().TypeHandle;
+                int size = *(*(int**)&th + 1);
+                return size;
+            }
+            catch (Exception TheException)
+            {
+                Error.Report(TheException);
+                return 0;
+            }
         }
 
         private void TypeInfo(TypeInfo Typ)
         {
-            this.Log(Typ.FullName);
-            this.Log("--Base type: " + Typ.BaseType);
-            this.Log("--Type: " + Typ.FullName);
-            this.Log("--Sub Types:");
-
-            foreach (Type item in Typ.GetNestedTypes())
+            try
             {
-                this.Log("---" + item.FullName);
-                this.TypeInfo(item.GetTypeInfo());
+                this.Log(Typ.FullName);
+                this.Log("--Base type: " + Typ.BaseType);
+                this.Log("--Type: " + Typ.FullName);
+                this.Log("--Sub Types:");
+
+                foreach (Type item in Typ.GetNestedTypes())
+                {
+                    this.Log("---" + item.FullName);
+                    this.TypeInfo(item.GetTypeInfo());
+                }
+
+                this.Log("--Type size: " + this.CalcSize(Typ));
+                this.Log("**Nested Types:**");
+
+                foreach (TypeInfo item in Typ.GetNestedTypes())
+                {
+                    this.TypeInfo(item);
+                }
             }
-
-            this.Log("--Type size: " + this.CalcSize(Typ));
-            this.Log("**Nested Types:**");
-
-            foreach (TypeInfo item in Typ.GetNestedTypes())
+            catch (Exception TheException)
             {
-                this.TypeInfo(item);
+                Error.Report(TheException);
             }
         }
 
         private void DeclaredTypes()
         {
-            this.Log("-Declared Types:");
-
-            foreach (TypeInfo item in Asm.DefinedTypes)
+            try
             {
-                try
+                this.Log("-Declared Types:");
+
+                foreach (TypeInfo item in Asm.DefinedTypes)
                 {
-                    this.TypeInfo(item);
+                    try
+                    {
+                        this.TypeInfo(item);
+                    }
+                    catch (Exception TheException)
+                    {
+                        //Eat it, cause its probably just a null object.
+                    }
                 }
-                catch (Exception TheException)
-                {
-                    //Eat it, cause its probably just a null object.
-                }
+            }
+            catch (Exception TheException)
+            {
+                Error.Report(TheException);
             }
         }
 
@@ -128,13 +154,20 @@ namespace CommandEverything.Framework.Util
         /// </summary>
         private void CustomAttributes()
         {
-            this.Log("-Custom Attributes: ");
-
-            foreach (CustomAttributeData item in Asm.CustomAttributes)
+            try
             {
-                this.Log("--" + item.AttributeType.FullName);
-                this.Log("---" + item.Constructor.Name);
-                this.Log("---" + item.Constructor.GetParameters().ToString());
+                this.Log("-Custom Attributes: ");
+
+                foreach (CustomAttributeData item in Asm.CustomAttributes)
+                {
+                    this.Log("--" + item.AttributeType.FullName);
+                    this.Log("---" + item.Constructor.Name);
+                    this.Log("---" + item.Constructor.GetParameters().ToString());
+                }
+            }
+            catch (Exception TheException)
+            {
+                Error.Report(TheException);
             }
         }
 
@@ -144,8 +177,15 @@ namespace CommandEverything.Framework.Util
         /// <param name="ToLog"></param>
         private void Log(string ToLog)
         {
-            Stream.WriteLine(ToLog);
-            ConsoleWriter.WriteLine(ToLog);
+            try
+            {
+                Stream.WriteLine(ToLog);
+                ConsoleWriter.WriteLine(ToLog);
+            }
+            catch (Exception TheException)
+            {
+                Error.Report(TheException);
+            }
         }
     }
 }
