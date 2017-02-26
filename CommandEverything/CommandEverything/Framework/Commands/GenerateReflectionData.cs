@@ -1,13 +1,15 @@
 ﻿using CommandEverything.Framework.Util;
+using CommandEverything.Framework.Util.Text;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CommandEverything.Framework.WIP
+namespace CommandEverything.Framework.Commands
 {
     /// <summary>
     /// Generates as much data as it can about the specified dll/exe.
@@ -26,7 +28,7 @@ namespace CommandEverything.Framework.WIP
 
         public void Run(string Input)
         {
-            Assembly o;
+            Assembly o = null;
             OpenFileDialog dlg = new OpenFileDialog();
 
             dlg.FileName = "Library"; // Default file name
@@ -45,7 +47,23 @@ namespace CommandEverything.Framework.WIP
             }
             else
             {
-                //ConsoleWriter.WriteLine("File invalid!");
+                ConsoleWriter.WriteLine("File invalid!");
+            }
+
+            SaveFileDialog Sv = new SaveFileDialog();
+            Sv.AddExtension = true;
+            Sv.CheckPathExists = true;
+            Sv.DefaultExt = ".txt";
+
+            if (Sv.ShowDialog() == DialogResult.OK)
+            {
+                using (Stream s = File.Open(Sv.FileName, FileMode.CreateNew))
+                using (StreamWriter sw = new StreamWriter(s))
+                {
+                    Reflection a;
+                    a = new Reflection();
+                    a.GenerateData(sw, o);
+                }
             }
         }
 

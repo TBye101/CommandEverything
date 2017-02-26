@@ -64,6 +64,7 @@ namespace CommandEverything.Framework
             AddCommand(new RestartCommand());
             AddCommand(new ExecuteScript());
             AddCommand(new DeleteLogs());
+            AddCommand(new GenerateReflectionData());
         }
     }
 }

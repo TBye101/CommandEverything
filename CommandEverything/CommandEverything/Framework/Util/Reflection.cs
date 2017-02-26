@@ -42,7 +42,7 @@ namespace CommandEverything.Framework.Util
             foreach (AssemblyName item in Asm.GetReferencedAssemblies())
             {
                 this.Log(item.FullName);
-                this.Log("---" + item.ProcessorArchitecture.ToString()));
+                this.Log("---" + item.ProcessorArchitecture.ToString());
                 this.Log("---" + item.Version.ToString());
                 this.Log("---" + item.CodeBase.ToString());
             }
