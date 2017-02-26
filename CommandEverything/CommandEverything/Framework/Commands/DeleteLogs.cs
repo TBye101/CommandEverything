@@ -15,7 +15,7 @@ namespace CommandEverything.Framework.Commands
     {
         public string GetHelp()
         {
-            return "Deletes all logs created by all sessions of this program.";
+            return "Deletes all logs created by all sessions of this program except for the currently running session.";
         }
 
         public string GetName()

@@ -81,7 +81,6 @@ namespace CommandEverything.Framework.Util
             catch (Exception E)
             #pragma warning restore CS0168 // Variable is declared but never used
             {
-                //Eat it
                 if (IsUnitTesting)
                 {
                     throw Ex;
@@ -106,9 +105,9 @@ namespace CommandEverything.Framework.Util
                 Ret.Credentials = Creds;
                 return Ret;
             }
-#pragma warning disable CS0168 // Variable is declared but never used
+            #pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception E)
-#pragma warning restore CS0168 // Variable is declared but never used
+            #pragma warning restore CS0168 // Variable is declared but never used
             {
                 //Eat it
                 Debug.Assert(false);
