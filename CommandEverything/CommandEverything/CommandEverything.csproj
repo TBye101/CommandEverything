@@ -100,6 +100,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -174,8 +175,13 @@
   <ItemGroup>
     <Compile Include="Framework\CMD\Interaction.cs" />
     <Compile Include="Framework\CommandInterpreter.cs" />
+    <Compile Include="Framework\Commands\DeleteLogs.cs" />
+    <Compile Include="Framework\Commands\ExecuteScript.cs" />
+    <Compile Include="Framework\Commands\GenerateReflectionData.cs" />
     <Compile Include="Framework\Commands\RestartCommand.cs" />
+    <Compile Include="Framework\Util\Reflection.cs" />
     <Compile Include="Framework\Util\Text\ConsoleWriter.cs" />
+    <Compile Include="Framework\Util\Text\Logging.cs" />
     <Compile Include="Framework\Util\Text\Writable.cs" />
     <Compile Include="Framework\Commands\CMDCommands.cs" />
     <Compile Include="Framework\WIP\FreezeProgram.cs" />

@@ -80,7 +80,7 @@ namespace CommandEverything.Framework.Util
                 Error.Report(TheException);
             }
         }
-
+        
         private unsafe int CalcSize(object obj)
         {
             try
