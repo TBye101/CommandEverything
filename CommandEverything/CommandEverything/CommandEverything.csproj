@@ -166,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CHANGELOG.md" />
     <None Include="CommandEverything_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
