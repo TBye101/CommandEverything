@@ -34,6 +34,7 @@ namespace CommandEverything.Framework
         /// <param name="Input"></param>
         public static void RecieveInput(string Input)
         {
+            Logging.Log(Input);
             foreach (ICommand item in AllCommands)
             {
                 if (item.ShouldRunThisCommand(Input.ToLower().Trim()))
@@ -61,6 +62,9 @@ namespace CommandEverything.Framework
             AddCommand(new NewWindow());
             AddCommand(new ShutdownCommand());
             AddCommand(new RestartCommand());
+            AddCommand(new ExecuteScript());
+            AddCommand(new DeleteLogs());
+            AddCommand(new GenerateReflectionData());
         }
     }
 }

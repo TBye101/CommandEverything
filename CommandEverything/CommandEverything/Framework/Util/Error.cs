@@ -1,4 +1,5 @@
-﻿using Octokit;
+﻿using CommandEverything.Framework.Util.Text;
+using Octokit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -49,6 +50,10 @@ namespace CommandEverything.Framework.Util
                 }
 
                 string Report = GenerateReport(Ex);
+
+                string[] Write = { "An Error has occured", Report };
+                ConsoleWriter.WriteAll(Write, "Error!");
+
                 string IssueTitle = "Error in method: " + Ex.TargetSite.Name + ", error code: " + Ex.HResult + " Assembly Version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
                 NewIssue ToReport = new NewIssue(IssueTitle) { Body = Report };
@@ -76,7 +81,6 @@ namespace CommandEverything.Framework.Util
             catch (Exception E)
             #pragma warning restore CS0168 // Variable is declared but never used
             {
-                //Eat it
                 if (IsUnitTesting)
                 {
                     throw Ex;
@@ -101,9 +105,9 @@ namespace CommandEverything.Framework.Util
                 Ret.Credentials = Creds;
                 return Ret;
             }
-#pragma warning disable CS0168 // Variable is declared but never used
+            #pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception E)
-#pragma warning restore CS0168 // Variable is declared but never used
+            #pragma warning restore CS0168 // Variable is declared but never used
             {
                 //Eat it
                 Debug.Assert(false);
