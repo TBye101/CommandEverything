@@ -96,9 +96,9 @@ namespace DataStorage {
         ///1111111, y
         ///00000000, z.
         /// </summary>
-        internal static string CompressionDictionary {
+        internal static string CompressionDictionaryA {
             get {
-                return ResourceManager.GetString("CompressionDictionary", resourceCulture);
+                return ResourceManager.GetString("CompressionDictionaryA", resourceCulture);
             }
         }
     }
