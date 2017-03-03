@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandEverything", "CommandEverything\CommandEverything.csproj", "{C47EB01C-4121-4CD4-BC0D-4F9A12F32F4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorage", "DataStorage\DataStorage.csproj", "{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{C47EB01C-4121-4CD4-BC0D-4F9A12F32F4C}.Release|x64.Build.0 = Release|x86
 		{C47EB01C-4121-4CD4-BC0D-4F9A12F32F4C}.Release|x86.ActiveCfg = Release|x64
 		{C47EB01C-4121-4CD4-BC0D-4F9A12F32F4C}.Release|x86.Build.0 = Release|x64
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Debug|x64.Build.0 = Debug|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Debug|x86.Build.0 = Debug|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Release|x64.ActiveCfg = Release|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Release|x64.Build.0 = Release|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Release|x86.ActiveCfg = Release|Any CPU
+		{7E7BF1A3-4FEA-44A5-8DB0-BEE1B197AA8E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
