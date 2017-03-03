@@ -50,7 +50,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Decompression\" />
     <Folder Include="Decryption\" />
     <Folder Include="Encryption\" />
   </ItemGroup>
