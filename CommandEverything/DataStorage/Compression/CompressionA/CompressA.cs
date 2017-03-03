@@ -30,18 +30,22 @@ namespace DataStorage.Compression.CompressionA
 
             while (i != size)
             {
-                string item = CompressionDictionary.ElementAt(size - 1).Key;
-                //search for it and replace it.
+                string key = CompressionDictionary.ElementAt(size - 1).Key;
+                string value = CompressionDictionary.ElementAt(size - 1).Value;
+
+                Binary = Binary.Replace(key, value);
+
                 i++;
             }
 
-            foreach (string item in CompressionDictionary.ElementAt Reverse())
-            {
-
-            }
-            //Write compression logic here
+            return Binary;
         }
 
+        /// <summary>
+        /// Decompresses the given string.
+        /// </summary>
+        /// <param name="ToDecompress"></param>
+        /// <returns></returns>
         public static string Decompress(string ToDecompress)
         {
 
