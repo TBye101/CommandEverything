@@ -48,7 +48,22 @@ namespace DataStorage.Compression.CompressionA
         /// <returns></returns>
         public static string Decompress(string ToDecompress)
         {
+            string Binary = Encoding.ASCII.GetBytes(ToDecompress).ToString();
 
+            int i = 0;
+            int size = CompressionDictionary.Count;
+
+            while (i != size)
+            {
+                string key = CompressionDictionary.ElementAt(size - 1).Key;
+                string value = CompressionDictionary.ElementAt(size - 1).Value;
+
+                Binary = Binary.Replace(value, key);
+
+                i++;
+            }
+
+            return Binary;
         }
     }
 }
