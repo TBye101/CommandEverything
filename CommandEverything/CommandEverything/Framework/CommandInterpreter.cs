@@ -1,5 +1,6 @@
 ﻿using CommandEverything.Framework.Commands;
 using CommandEverything.Framework.Util.Text;
+using CommandEverything.Framework.WIP;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -65,6 +66,7 @@ namespace CommandEverything.Framework
             AddCommand(new ExecuteScript());
             AddCommand(new DeleteLogs());
             AddCommand(new GenerateReflectionData());
+            AddCommand(new CompressCommand());
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Linq;
+using System.Text;
 
 namespace CommandEverything.Framework.Util
 {
@@ -54,15 +56,25 @@ namespace CommandEverything.Framework.Util
         /// <returns></returns>
         public static string ConvertArray(string[] Array)
         {
-            StringBuilder bld = new StringBuilder();
+            StringBuilder Ret = new StringBuilder();
 
             foreach (string item in Array)
             {
-                bld.Append(item);
-                bld.Append("\r\n");
+                Ret.Append(item);
+                Ret.Append("\r\n");
             }
 
-            return bld.ToString();
+            return Ret.ToString();
+        }
+
+        /// <summary>
+        /// Converts a byte array to binary.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static string ToBinary(byte[] data)
+        {
+            return string.Join(" ", data.Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
         }
     }
 }

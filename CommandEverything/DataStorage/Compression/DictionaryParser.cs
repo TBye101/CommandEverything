@@ -26,9 +26,8 @@ namespace DataStorage.Compression
             foreach (string item in Lines)
             {
                 Values = item.Split(',');
+                Ret.Add(Values[0], Values[1]);
             }
-
-            Ret.Add(Values[0], Values[1]);
 
             return Ret;
         }

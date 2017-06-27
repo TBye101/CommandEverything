@@ -23,15 +23,15 @@ namespace DataStorage.Compression.CompressionA
         /// <returns></returns>
         public static string Compress(string ToCompress)
         {
-            string Binary = Encoding.ASCII.GetBytes(ToCompress).ToString();
+            string Binary = ToBinary(ConvertToByteArray(ToCompress, Encoding.ASCII));
 
             int i = 0;
             int size = CompressionDictionary.Count;
 
             while (i != size)
             {
-                string key = CompressionDictionary.ElementAt(size - 1).Key;
-                string value = CompressionDictionary.ElementAt(size - 1).Value;
+                string key = CompressionDictionary.ElementAt(i).Key;
+                string value = CompressionDictionary.ElementAt(i).Value;
 
                 Binary = Binary.Replace(key, value);
 
@@ -64,6 +64,21 @@ namespace DataStorage.Compression.CompressionA
             }
 
             return Binary;
+        }
+
+        private static byte[] ConvertToByteArray(string str, Encoding encoding)
+        {
+            return encoding.GetBytes(str);
+        }
+
+        /// <summary>
+        /// Converts a byte array to binary.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        private static string ToBinary(byte[] data)
+        {
+            return string.Join(" ", data.Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
         }
     }
 }

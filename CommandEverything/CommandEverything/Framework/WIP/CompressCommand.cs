@@ -37,18 +37,21 @@ namespace CommandEverything.Framework.WIP
             {
                 // Open document
                 string[] file = File.ReadAllLines(dlg.FileName, Encoding.Default);
-                string compressed = CompressA.Compress(Utility.ConvertArray(file));
                 ConsoleWriter.WriteLine("Opened file");
+                string compressed = CompressA.Compress(Utility.ConvertArray(file));
+                ConsoleWriter.WriteLine("Compressed file");
 
                 SaveFileDialog sv = new SaveFileDialog();
-                sv.DefaultExt = "ce";
                 sv.FileName = dlg.FileName;
+                sv.DefaultExt = "ce";
                 DialogResult res = sv.ShowDialog();
 
-                if (sv.ShowDialog() == DialogResult.OK)
+                if (res == DialogResult.OK)
                 {
                     StreamWriter sw = new StreamWriter(sv.FileName);
                     sw.WriteLine(compressed);
+                    sw.Flush();
+                    sw.Dispose();
                 }
             }
             else
