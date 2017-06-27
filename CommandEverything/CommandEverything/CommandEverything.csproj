@@ -133,6 +133,9 @@
       <HintPath>..\packages\Colorful.Console.1.0.7\lib\net461\Colorful.Console.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\Libs\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Octokit, Version=0.24.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Octokit.0.24.0\lib\net45\Octokit.dll</HintPath>
       <Private>True</Private>
@@ -190,6 +193,7 @@
     <Compile Include="Framework\Util\Text\Logging.cs" />
     <Compile Include="Framework\Util\Text\Writable.cs" />
     <Compile Include="Framework\Commands\CMDCommands.cs" />
+    <Compile Include="Framework\Util\ZipUtils.cs" />
     <Compile Include="Framework\WIP\CompressCommand.cs" />
     <Compile Include="Framework\WIP\FreezeProgram.cs" />
     <Compile Include="Framework\WIP\ChangeDirectory.cs" />
