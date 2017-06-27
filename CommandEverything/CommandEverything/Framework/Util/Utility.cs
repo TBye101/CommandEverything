@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -75,6 +76,23 @@ namespace CommandEverything.Framework.Util
         public static string ToBinary(byte[] data)
         {
             return string.Join(" ", data.Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
+        }
+
+        /// <summary>
+        /// Creates a string from a collection of numbers.
+        /// </summary>
+        /// <param name="Numbers"></param>
+        /// <returns></returns>
+        public static string StringFrom(List<int> Numbers)
+        {
+            StringBuilder Ret = new StringBuilder();
+
+            foreach (int item in Numbers)
+            {
+                Ret.Append(item.ToString());
+            }
+
+            return Ret.ToString();
         }
     }
 }
