@@ -1,12 +1,66 @@
-﻿using System;
+﻿using CommandEverything.Framework.Util;
+using CommandEverything.Framework.Util.Text;
+using DataStorage.Compression.CompressionA;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CommandEverything.Framework.WIP
 {
-    class CompressCommand
+    public class CompressCommand : ICommand
     {
+        public string GetHelp()
+        {
+            return "Used to compress a file.";
+        }
+
+        public string GetName()
+        {
+            return "Compress File";
+        }
+
+        public void Run(string Input)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.FileName = "File"; // Default file name
+            dlg.DefaultExt = ".txt"; // Default file extension
+
+            // Show open file dialog box
+            DialogResult result = dlg.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == DialogResult.OK)
+            {
+                // Open document
+                string[] file = File.ReadAllLines(dlg.FileName, Encoding.Default);
+                string compressed = CompressA.Compress(Utility.ConvertArray(file));
+                ConsoleWriter.WriteLine("Opened file");
+
+                SaveFileDialog sv = new SaveFileDialog();
+                sv.DefaultExt = "ce";
+                sv.FileName = dlg.FileName;
+                DialogResult res = sv.ShowDialog();
+
+                if (sv.ShowDialog() == DialogResult.OK)
+                {
+                    StreamWriter sw = new StreamWriter(sv.FileName);
+                    sw.WriteLine(compressed);
+                }
+            }
+            else
+            {
+                ConsoleWriter.WriteLine("File invalid!");
+            }
+        }
+
+        public bool ShouldRunThisCommand(string Input)
+        {
+            string[] Valid = { "compress", "compress file", "shrink file"};
+            return Utility.DoesStringContain(Input, Valid);
+        }
     }
 }

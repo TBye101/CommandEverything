@@ -1,4 +1,6 @@
-﻿namespace CommandEverything.Framework.Util
+﻿using System.Text;
+
+namespace CommandEverything.Framework.Util
 {
     /// <summary>
     /// A utility class.
@@ -43,6 +45,24 @@
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Converts a string array to a string. Assuming that each line needs a line terminator.
+        /// </summary>
+        /// <param name="Array"></param>
+        /// <returns></returns>
+        public static string ConvertArray(string[] Array)
+        {
+            StringBuilder bld = new StringBuilder();
+
+            foreach (string item in Array)
+            {
+                bld.Append(item);
+                bld.Append("\r\n");
+            }
+
+            return bld.ToString();
         }
     }
 }
