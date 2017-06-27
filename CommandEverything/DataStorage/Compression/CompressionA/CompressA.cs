@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DataStorage.Compression.CompressionA
@@ -24,14 +25,15 @@ namespace DataStorage.Compression.CompressionA
         public static string Compress(string ToCompress)
         {
             string Binary = ToBinary(ConvertToByteArray(ToCompress, Encoding.ASCII));
+            Binary = Binary.Replace(" ", "");
 
             int i = 0;
             int size = CompressionDictionary.Count;
 
             while (i != size)
             {
-                string key = CompressionDictionary.ElementAt(i).Key;
-                string value = CompressionDictionary.ElementAt(i).Value;
+                string key = CompressionDictionary.ElementAt(i).Key.Trim();
+                string value = CompressionDictionary.ElementAt(i).Value.Trim();
 
                 Binary = Binary.Replace(key, value);
 
