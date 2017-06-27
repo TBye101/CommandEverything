@@ -243,12 +243,6 @@
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataStorage\DataStorage.csproj">
-      <Project>{7e7bf1a3-4fea-44a5-8db0-bee1b197aa8e}</Project>
-      <Name>DataStorage</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
