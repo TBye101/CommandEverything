@@ -23,7 +23,7 @@ namespace CommandEverything.Framework.WIP
 
         public void Run(string Input)
         {
-            throw new NotImplementedException();
+            
         }
 
         public bool ShouldRunThisCommand(string Input)
