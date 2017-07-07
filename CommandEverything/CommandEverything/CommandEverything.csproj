@@ -194,7 +194,7 @@
     <Compile Include="Framework\Util\Text\Writable.cs" />
     <Compile Include="Framework\Commands\CMDCommands.cs" />
     <Compile Include="Framework\Util\ZipUtils.cs" />
-    <Compile Include="Framework\WIP\CompressCommand.cs" />
+    <Compile Include="Framework\Commands\CompressCommand.cs" />
     <Compile Include="Framework\WIP\FreezeProgram.cs" />
     <Compile Include="Framework\WIP\ChangeDirectory.cs" />
     <Compile Include="Framework\Commands\ExitCommand.cs" />
