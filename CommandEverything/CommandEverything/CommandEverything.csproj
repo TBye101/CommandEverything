@@ -129,9 +129,8 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="Colorful.Console, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Colorful.Console.1.0.7\lib\net461\Colorful.Console.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Colorful.Console, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Colorful.Console.1.1.2\lib\net461\Colorful.Console.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\Libs\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -195,6 +194,7 @@
     <Compile Include="Framework\Commands\CMDCommands.cs" />
     <Compile Include="Framework\Util\ZipUtils.cs" />
     <Compile Include="Framework\Commands\CompressCommand.cs" />
+    <Compile Include="Framework\WIP\Disassemble.cs" />
     <Compile Include="Framework\WIP\FreezeProgram.cs" />
     <Compile Include="Framework\WIP\ChangeDirectory.cs" />
     <Compile Include="Framework\Commands\ExitCommand.cs" />
