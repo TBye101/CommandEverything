@@ -1,0 +1,29 @@
+﻿Corrupt Data
+Recover Corrupt Data
+Encrypt
+Decrypt
+Shutdown
+Startup
+Crash
+Download file
+Delete file
+Create accounts on all supported websites
+Log external program std output.
+Powershell support
+CMD support
+Reflection data gatherer
+File delete (Hard)
+Suppress Sound
+Defend this exe
+Kill Program
+Treat program like virus.
+Sandbox run program.
+Delete logs
+Pandora client
+Spotify client
+Github client
+Change system time.
+Delete logs
+
+***Concept Ideas***
+Auto complete/tabbing/intellisense
