@@ -39,9 +39,6 @@
     <ClInclude Include="TermColor.hpp">
       <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="cmdparser.hpp">
-      <Filter>External</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

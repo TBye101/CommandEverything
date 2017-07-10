@@ -6,7 +6,6 @@
 
 int main(int argc, char** argv)
 {
-	cli::Parser parser(argc, argv);
     return 0;
 }
 
