@@ -4,6 +4,13 @@
 #include <time.h>
 #include <cstdio>
 #include <ctime>
+#include <fstream>
+#include <iostream>
+#include <locale>
+#include <codecvt>
+#include <iostream>
+
+#include "Filing.h"
 
 using namespace std;
 
@@ -29,5 +36,12 @@ public:
 	/// The last message to leave this class.
 	/// </summary>
 	string* Last;
+
+private:
+
+	// notice that IIRC on modern Windows machines if you aren't admin 
+	// you can't write in the root directory of the system drive; 
+	// you should instead write e.g. in the current directory
+	ofstream Log;
 };
 

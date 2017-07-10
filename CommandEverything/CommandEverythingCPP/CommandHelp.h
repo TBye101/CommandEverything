@@ -1,4 +1,8 @@
 #pragma once
+
+/// <summary>
+/// Shows some help information about commands.
+/// </summary>
 class CommandHelp : ICommand
 {
 public:
