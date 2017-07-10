@@ -39,6 +39,12 @@
     <ClInclude Include="TermColor.hpp">
       <Filter>External</Filter>
     </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Framework\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ParsedCommand.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +54,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ICommand.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Framework\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="ParsedCommand.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
