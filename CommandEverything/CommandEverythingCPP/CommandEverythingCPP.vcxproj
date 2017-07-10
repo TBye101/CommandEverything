@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ICommand.h" />
+    <ClInclude Include="Loop.h" />
     <ClInclude Include="ParsedCommand.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -151,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="CommandEverythingCPP.cpp" />
     <ClCompile Include="ICommand.cpp" />
+    <ClCompile Include="Loop.cpp" />
     <ClCompile Include="ParsedCommand.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

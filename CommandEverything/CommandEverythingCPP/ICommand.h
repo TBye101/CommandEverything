@@ -11,7 +11,7 @@ class ICommand
 public:
 	
 	virtual bool ShouldRunThisCommand(ParsedCommand* Parsed) = 0;
-	virtual void Run(string* Input) = 0;
+	virtual void Run(ParsedCommand* Parsed) = 0;
 	virtual string* GetName() = 0;
 	virtual string* GetHelp() = 0;
 };

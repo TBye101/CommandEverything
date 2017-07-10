@@ -15,5 +15,7 @@
 // TODO: reference additional headers your program requires here
 #include "Util.h"
 #include <vector>
+#include "Writer.h"
 
 vector<void*>* ToDelete = new vector<void*>();
+Writer* Console = new Writer();

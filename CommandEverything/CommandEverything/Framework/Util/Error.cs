@@ -59,7 +59,7 @@ namespace CommandEverything.Framework.Util
                 NewIssue ToReport = new NewIssue(IssueTitle) { Body = Report };
                 ToReport.Labels.Add("bug");
 
-                var AllIssues = Client.Issue.GetAllForRepository(UserName, RepositoryName).Result;
+                IReadOnlyList<Issue> AllIssues = Client.Issue.GetAllForRepository(UserName, RepositoryName).Result;
 
                 List<Issue> Issues = AllIssues.ToList<Issue>();
 
@@ -75,7 +75,7 @@ namespace CommandEverything.Framework.Util
 
                     I++;
                 }
-                var Observable = Client.Issue.Create(UserName, RepositoryName, ToReport);
+                System.Threading.Tasks.Task<Issue> Observable = Client.Issue.Create(UserName, RepositoryName, ToReport);
             }
             #pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception E)
