@@ -54,6 +54,9 @@
     <ClInclude Include="Loop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Filing.h">
+      <Filter>Framework\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -76,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="Loop.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Filing.cpp">
+      <Filter>Framework\Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
