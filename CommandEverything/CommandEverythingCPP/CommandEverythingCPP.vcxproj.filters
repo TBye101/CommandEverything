@@ -57,6 +57,9 @@
     <ClInclude Include="Filing.h">
       <Filter>Framework\Util</Filter>
     </ClInclude>
+    <ClInclude Include="CommandHelp.h">
+      <Filter>Framework\Commands</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="Filing.cpp">
       <Filter>Framework\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandHelp.cpp">
+      <Filter>Framework\Commands</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

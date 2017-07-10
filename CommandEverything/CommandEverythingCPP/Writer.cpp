@@ -12,6 +12,7 @@ Writer::~Writer()
 }
 
 void Writer::WriteLine(string *Str)
+
 {
 	time_t ti = time(NULL);
 	this->Last = new string("");

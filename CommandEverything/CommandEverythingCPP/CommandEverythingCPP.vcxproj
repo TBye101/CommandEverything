@@ -140,6 +140,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommandHelp.h" />
     <ClInclude Include="Filing.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Loop.h" />
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommandEverythingCPP.cpp" />
+    <ClCompile Include="CommandHelp.cpp" />
     <ClCompile Include="Filing.cpp" />
     <ClCompile Include="ICommand.cpp" />
     <ClCompile Include="Loop.cpp" />
