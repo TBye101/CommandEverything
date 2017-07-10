@@ -17,7 +17,10 @@ public:
 	ParsedCommand(string* input);
 	~ParsedCommand();
 
-	string* CommandName;
-	string** OptionalParameters[];
+	/// <summary>
+	///The first word of this is the command name.
+	/// Everything after that is optional parameters.
+	/// </summary>
+	string* Words;
 };
 
