@@ -146,6 +146,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TermColor.hpp" />
     <ClInclude Include="Util.h" />
+    <ClInclude Include="Writer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommandEverythingCPP.cpp" />
@@ -158,6 +159,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Util.cpp" />
+    <ClCompile Include="Writer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
