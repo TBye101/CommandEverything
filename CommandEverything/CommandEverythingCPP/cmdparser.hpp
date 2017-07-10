@@ -24,9 +24,11 @@ Copyright (c) 2015 - 2016 Florian Rappl
 
 
 
-namespace cli {
+namespace cli
+{
 
-	struct CallbackArgs {
+	struct CallbackArgs
+	{
 
 		const std::vector<std::string>& arguments;
 
@@ -36,11 +38,13 @@ namespace cli {
 
 	};
 
-	class Parser {
+	class Parser
+	{
 
 	private:
 
-		class CmdBase {
+		class CmdBase
+		{
 
 		public:
 
@@ -136,21 +140,25 @@ namespace cli {
 
 		template<typename T>
 
-		class CmdFunction final : public CmdBase {
+		class CmdFunction final : public CmdBase
+		{
 
 		public:
 
 			explicit CmdFunction(const std::string& name, const std::string& alternative, const std::string& description, bool required, bool dominant) :
 
-				CmdBase(name, alternative, description, required, dominant, ArgumentCountChecker<T>::Variadic) {
+				CmdBase(name, alternative, description, required, dominant, ArgumentCountChecker<T>::Variadic)
+			{
 
 			}
 
 
 
-			virtual bool parse(std::ostream& output, std::ostream& error) {
+			virtual bool parse(std::ostream& output, std::ostream& error)
+			{
 
-				try {
+				try
+				{
 
 					CallbackArgs args{ arguments, output, error };
 
@@ -159,7 +167,8 @@ namespace cli {
 					return true;
 
 				}
-				catch (...) {
+				catch (...) 
+				{
 
 					return false;
 
@@ -169,7 +178,8 @@ namespace cli {
 
 
 
-			virtual std::string print_value() const {
+			virtual std::string print_value() const
+			{
 
 				return "";
 
@@ -187,13 +197,15 @@ namespace cli {
 
 		template<typename T>
 
-		class CmdArgument final : public CmdBase {
+		class CmdArgument final : public CmdBase
+		{
 
 		public:
 
 			explicit CmdArgument(const std::string& name, const std::string& alternative, const std::string& description, bool required, bool dominant) :
 
-				CmdBase(name, alternative, description, required, dominant, ArgumentCountChecker<T>::Variadic) {
+				CmdBase(name, alternative, description, required, dominant, ArgumentCountChecker<T>::Variadic)
+			{
 
 			}
 
