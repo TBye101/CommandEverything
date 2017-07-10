@@ -20,33 +20,33 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{6A9EA248-C5FD-4FAE-B434-27D1C5050F35}</ProjectGuid>
+    <ProjectGuid>{427FC843-DFB5-4D8D-9CDB-D50D3A868BA4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>CommandEverythingCPP</RootNamespace>
+    <RootNamespace>ExternalsSpdlog</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -70,18 +70,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -89,10 +78,10 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
@@ -102,10 +91,10 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -113,10 +102,10 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -126,10 +115,10 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
@@ -138,15 +127,45 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cmdparser.hpp" />
-    <ClInclude Include="ICommand.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\async_logger.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\common.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\async_logger_impl.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\async_log_helper.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\file_helper.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\logger_impl.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\log_msg.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\mpmc_bounded_q.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\null_mutex.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\os.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\pattern_formatter_impl.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\registry.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\details\spdlog_impl.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\fmt\bundled\format.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\fmt\bundled\ostream.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\fmt\bundled\posix.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\fmt\bundled\time.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\fmt\fmt.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\fmt\ostr.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\formatter.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\logger.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\file_sinks.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\spdlog.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\spdlog-master\spdlog-master\include\spdlog\tweakme.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="TermColor.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CommandEverythingCPP.cpp" />
-    <ClCompile Include="ICommand.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -155,5 +174,6 @@
     </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
 </Project>
