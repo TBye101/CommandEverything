@@ -30,14 +30,18 @@ public:
 	/// <param name="Str"></param>
 	void WriteLine(string* Str);
 
+	/// <summary>
+	/// Logs a line, but does not write it to the console.
+	/// </summary>
+	/// <param name="Str"></param>
+	void LogLine(string* Str);
+
 	const char* GetTime();
 
 	/// <summary>
 	/// The last message to leave this class.
 	/// </summary>
 	string* Last;
-
-private:
 
 	// notice that IIRC on modern Windows machines if you aren't admin 
 	// you can't write in the root directory of the system drive; 

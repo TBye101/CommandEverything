@@ -54,6 +54,17 @@ void Writer::WriteLine(string *Str)
 	this->Log.flush();
 }
 
+void Writer::LogLine(string *Str)
+{
+	this->Last = new string("");
+	this->Last->append(this->GetTime());
+	this->Last->append(": ");
+	this->Last->append(Str->c_str());
+	this->Last->append("\r\n");
+	this->Log << this->Last->substr(0, this->Last->size());
+	this->Log.flush();
+}
+
 const char * Writer::GetTime()
 {
 	string* Formatted = new string("[");

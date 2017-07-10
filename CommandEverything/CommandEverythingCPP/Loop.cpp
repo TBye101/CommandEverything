@@ -26,6 +26,8 @@ void Loop::MainLoop()
 		try
 		{
 			getline(cin, Input);
+			Console->LogLine(&Input);
+
 			parsed = new ParsedCommand(&Input);
 
 			register size_t length = Commands->size();
