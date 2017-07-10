@@ -2,10 +2,11 @@
 //
 
 #include "stdafx.h"
+#include "cmdparser.hpp"
 
-
-int main()
+int main(int argc, char** argv)
 {
+	cli::Parser parser(argc, argv);
     return 0;
 }
 
