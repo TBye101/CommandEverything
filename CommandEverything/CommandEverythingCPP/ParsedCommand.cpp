@@ -28,7 +28,7 @@ ParsedCommand::ParsedCommand(string *Input)
 		}
 	}
 
-	OptionalParameters = new string[WordsFound];
+	Words = new string[WordsFound];
 
 	//Resetting the variables
 	Three = 0; //false
@@ -57,7 +57,7 @@ ParsedCommand::ParsedCommand(string *Input)
 				if (Three == 1)
 				{
 					Three = 0;
-					OptionalParameters[WordsFound - 1] = Input->substr(start, i - 1);
+					Words[WordsFound - 1] = Input->substr(start, i - 1);
 					--WordsFound;
 				}
 			}
@@ -67,4 +67,5 @@ ParsedCommand::ParsedCommand(string *Input)
 
 ParsedCommand::~ParsedCommand()
 {
+	ToDelete->push_back(this->Words);
 }

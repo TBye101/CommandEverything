@@ -14,3 +14,6 @@
 
 // TODO: reference additional headers your program requires here
 #include "Util.h"
+#include <vector>
+
+vector<void*>* ToDelete = new vector<void*>();
