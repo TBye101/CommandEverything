@@ -27,11 +27,6 @@ public:
 	/// </summary>
 	void Startup();
 
-	/// <summary>
-	/// All known commands.
-	/// </summary>
-	vector<ICommand*>* Commands = new vector<ICommand*>();
-
 private:
 	/// <summary>
 	/// Adds all of the known commands at startup.

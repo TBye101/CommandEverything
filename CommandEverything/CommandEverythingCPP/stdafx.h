@@ -17,7 +17,13 @@
 #include <vector>
 #include "Writer.h"
 #include "Util.h"
+#include "ICommand.h"
 
 extern vector<void*>* ToDelete;
 extern Writer* Console;
 extern Util* Utility;
+
+/// <summary>
+/// All known commands.
+/// </summary>
+extern vector<ICommand*>* Commands;

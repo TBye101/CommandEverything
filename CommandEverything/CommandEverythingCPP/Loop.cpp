@@ -12,7 +12,6 @@ Loop::Loop()
 
 Loop::~Loop()
 {
-	ToDelete->push_back(this->Commands);
 	ToDelete->push_back(this->parsed);
 }
 
