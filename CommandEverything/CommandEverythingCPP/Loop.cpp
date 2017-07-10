@@ -3,6 +3,7 @@
 #include "ParsedCommand.h"
 #include <Windows.h>
 #include "Filing.h"
+#include <algorithm>
 
 
 Loop::Loop()
@@ -27,6 +28,7 @@ void Loop::MainLoop()
 		{
 			getline(cin, Input);
 			Console->LogLine(&Input);
+			std::transform(Input.begin(), Input.end(), Input.begin(), ::tolower);
 
 			parsed = new ParsedCommand(&Input);
 
@@ -70,6 +72,7 @@ void Loop::Startup()
 	ToDelete->push_back(fil);
 
 	AddAllCommands();
+	this->FreeUpMemory();
 }
 
 /// <summary>

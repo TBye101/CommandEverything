@@ -1,5 +1,12 @@
 #pragma once
 
+#include <iostream>
+#include <string>
+#include <locale>
+#include <algorithm>
+
+using namespace std;
+
 /// <summary>
 /// Shows some help information about commands.
 /// </summary>

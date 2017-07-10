@@ -11,7 +11,7 @@ CommandHelp::~CommandHelp()
 {
 }
 
-bool CommandHelp::ShouldRunThisCommand(ParsedCommand * Parsed)
+bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return false;
 }
