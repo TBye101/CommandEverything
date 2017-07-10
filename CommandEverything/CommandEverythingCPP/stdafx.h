@@ -17,5 +17,5 @@
 #include <vector>
 #include "Writer.h"
 
-vector<void*>* ToDelete = new vector<void*>();
+extern vector<void*>* ToDelete;
 Writer* Console = new Writer();
