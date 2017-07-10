@@ -18,6 +18,7 @@ public:
 
 	/// <summary>
 	/// Writes a line to the console.
+	/// This will NOT put the string passed in up for deletion. Handle your own memory.
 	/// </summary>
 	/// <param name="Str"></param>
 	void WriteLine(string* Str);

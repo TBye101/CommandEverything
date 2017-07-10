@@ -37,5 +37,8 @@ private:
 	/// Adds all of the known commands at startup.
 	/// </summary>
 	void AddAllCommands();
+
+	string Input;
+	ParsedCommand* parsed;
 };
 

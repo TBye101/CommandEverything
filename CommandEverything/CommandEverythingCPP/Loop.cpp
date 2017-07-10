@@ -12,6 +12,8 @@ Loop::Loop()
 
 Loop::~Loop()
 {
+	ToDelete->push_back(this->Commands);
+	ToDelete->push_back(this->parsed);
 }
 
 
@@ -20,9 +22,6 @@ Loop::~Loop()
 /// </summary>
 void Loop::MainLoop()
 {
-	string Input;
-	ParsedCommand* parsed;
-
 	while (true)
 	{
 		try
@@ -44,7 +43,9 @@ void Loop::MainLoop()
 		}
 		catch (exception e)
 		{
-			//TODO: write this to the console.
+			string *message = new string(e.what());
+			Console->WriteLine(message);
+			ToDelete->push_back(message);
 			continue;
 		}
 	}
