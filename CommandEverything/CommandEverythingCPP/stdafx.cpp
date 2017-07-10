@@ -8,3 +8,5 @@
 // and not in this file
 
 vector<void*>* ToDelete = new vector<void*>();
+Writer* Console = new Writer();
+Util* Utility = new Util();

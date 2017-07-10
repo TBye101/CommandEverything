@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Loop.h"
 #include "ParsedCommand.h"
+#include <Windows.h>
+#include "Filing.h"
 
 
 Loop::Loop()
@@ -61,6 +63,10 @@ void Loop::FreeUpMemory()
 /// </summary>
 void Loop::Startup()
 {
+	Filing* fil = new Filing();
+	fil->Startup();
+	ToDelete->push_back(fil);
+
 	AddAllCommands();
 }
 
@@ -69,5 +75,5 @@ void Loop::Startup()
 /// </summary>
 void Loop::AddAllCommands()
 {
-	int a = 0;
+
 }

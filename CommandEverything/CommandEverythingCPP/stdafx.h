@@ -16,6 +16,8 @@
 #include "Util.h"
 #include <vector>
 #include "Writer.h"
+#include "Util.h"
 
 extern vector<void*>* ToDelete;
-Writer* Console = new Writer();
+extern Writer* Console;
+extern Util* Utility;

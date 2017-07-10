@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <Windows.h>
 
 using namespace std;
 
@@ -10,4 +11,12 @@ using namespace std;
 class Util
 {
 public:
+
+	/// <summary>
+	/// Converts a string to a wstring.
+	/// </summary>
+	/// <param name="Str"></param>
+	/// <returns></returns>
+	wstring StringToWString(const string& Str);
+	
 };
