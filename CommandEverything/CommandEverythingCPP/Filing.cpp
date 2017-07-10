@@ -15,33 +15,43 @@ Filing::~Filing()
 
 void Filing::Startup()
 {
-	char szTest[10];
-	sprintf_s(szTest, "%d", ExePath);
-
-	CreateDirectory(Utility->StringToWString(*LogDirectoryPath).c_str(), NULL);
+	CreateDirectory(LogDirectoryPath->c_str(), NULL);
 }
 
-string* Filing::GetPathToExe()
+wstring* Filing::GetPathToExe()
 {
-	HMODULE hModule = GetModuleHandleW(NULL);
-	WCHAR path[MAX_PATH];
-	ostringstream os;
-	os << GetModuleFileNameW(hModule, path, MAX_PATH);
-	return &os.str();
+#ifdef UNICODE
+	TCHAR ownPth[260];
+#else
+	char ownPth[MAX_Path];
+#endif // UNICODE
+
+	// Will contain exe path
+	HMODULE hModule = GetModuleHandle(NULL);
+	if (hModule != NULL)
+	{
+		// When passing NULL to GetModuleHandle, it returns handle of exe itself
+		GetModuleFileName(hModule, ownPth, (sizeof(ownPth)));
+		return new wstring(ownPth);
+	}
+	else
+	{
+		throw new exception("Error! NullPointerException!");
+	}
 }
 
-string* Filing::GetLogDirectoryPath()
+wstring* Filing::GetLogDirectoryPath()
 {
-	string directory;
+	wstring *directory;
 	const size_t last_slash_idx = ExePath->rfind('\\');
 	if (string::npos != last_slash_idx)
 	{
-		directory = ExePath->substr(0, last_slash_idx);
-		directory.append("\\Logs");
+		directory = new wstring(ExePath->substr(0, last_slash_idx));
+		directory->append(L"\\Logs");
 	}
 	else
 	{
 		throw new exception("Error! Directory not found from path!");
 	}
-	return &directory;
+	return directory;
 }

@@ -14,12 +14,12 @@ public:
 	/// <summary>
 	/// The path to this exe.
 	/// </summary>
-	string* ExePath = this->GetPathToExe();
+	wstring* ExePath = this->GetPathToExe();
 
 	/// <summary>
 	/// The path to the log folder that exists or will be created.
 	/// </summary>
-	string* LogDirectoryPath = this->GetLogDirectoryPath();
+	wstring* LogDirectoryPath = this->GetLogDirectoryPath();
 
 	/// <summary>
 	/// Kicks off some startup logic.
@@ -31,12 +31,12 @@ private:
 	/// <summary>
 	/// Returns the directory from which this executable is running from.
 	/// </summary>
-	string* GetPathToExe();
+	wstring* GetPathToExe();
 
 	/// <summary>
 	/// Gets the path to the log directory.
 	/// </summary>
 	/// <returns></returns>
-	string* GetLogDirectoryPath();
+	wstring* GetLogDirectoryPath();
 };
 
