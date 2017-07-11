@@ -42,6 +42,10 @@ Writer::~Writer()
 	ToDelete->push_back(this->Last);
 }
 
+//0 = Red
+//1 = Yellow
+//2 = Green
+//3 = Default/Grey
 void Writer::WriteLine(string *Str)
 {
 	this->Last = new string("");
@@ -50,6 +54,7 @@ void Writer::WriteLine(string *Str)
 	this->Last->append(Str->c_str());
 	this->Last->append("\r\n");
 	cout << this->Last->substr(0, this->Last->size());
+	cout.flush();
 	this->Log << this->Last->substr(0, this->Last->size());
 	this->Log.flush();
 }
@@ -83,4 +88,9 @@ const char * Writer::GetTime()
 
 	const char* Ret = Formatted->c_str();
 	return Ret;
+}
+
+const char * Writer::ConvertString(string * Str)
+{
+	return nullptr;
 }

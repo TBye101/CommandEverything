@@ -39,9 +39,6 @@
     <ClInclude Include="ICommand.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="TermColor.hpp">
-      <Filter>External</Filter>
-    </ClInclude>
     <ClInclude Include="Util.h">
       <Filter>Framework\Util</Filter>
     </ClInclude>
@@ -59,9 +56,6 @@
     </ClInclude>
     <ClInclude Include="ParsedCommand.h">
       <Filter>Framework\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Downloads\lwlog-master\lwlog-master\lwlog.h">
-      <Filter>External</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

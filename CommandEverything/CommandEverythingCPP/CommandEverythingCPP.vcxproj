@@ -140,7 +140,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Downloads\lwlog-master\lwlog-master\lwlog.h" />
     <ClInclude Include="CommandHelp.h" />
     <ClInclude Include="Filing.h" />
     <ClInclude Include="ICommand.h" />
@@ -148,7 +147,6 @@
     <ClInclude Include="ParsedCommand.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="TermColor.hpp" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Writer.h" />
   </ItemGroup>
