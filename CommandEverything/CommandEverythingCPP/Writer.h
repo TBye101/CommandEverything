@@ -27,16 +27,11 @@ public:
 	/// <summary>
 	/// Writes a line to the console.
 	/// This will NOT put the string passed in up for deletion. Handle your own memory.
-	/// Limited to 256 characters.
-	/// Log levels listed below
-	///0 = Red
-	///1 = Yellow
-	///2 = Green
-	///3 = Default/Grey
 	/// </summary>
 	/// <param name="Str"></param>
 	/// <param name="LogLevel">Represents the color and label attached to the log.</param>
 	void WriteLine(string* Str);
+	void WriteLine(const char* Str);
 
 	/// <summary>
 	/// Logs a line, but does not write it to the console.
@@ -51,6 +46,7 @@ public:
 	/// </summary>
 	string* Last;
 
+
 	// notice that IIRC on modern Windows machines if you aren't admin 
 	// you can't write in the root directory of the system drive; 
 	// you should instead write e.g. in the current directory
@@ -59,10 +55,8 @@ public:
 private:
 
 	/// <summary>
-	/// Converts a string to const char*.
+	/// Storage for a message.
 	/// </summary>
-	/// <param name="Str"></param>
-	/// <returns></returns>
-	const char* ConvertString(string* Str);
+	string* Msg = new string();
 };
 

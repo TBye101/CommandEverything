@@ -16,7 +16,7 @@ bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
 	string *b = Parsed->Words->at(0);
 	Console->WriteLine(&to_string(Parsed->Words->size()));
 	const char* a = b->c_str();
-	Console->WriteLine(b);
+	Console->WriteLine(a);
 	return (a == "help");
 }
 

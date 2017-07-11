@@ -67,6 +67,13 @@ void Writer::WriteLine(string *Str)
 	}
 }
 
+void Writer::WriteLine(const char* Str)
+{
+	delete this->Msg;
+	Msg = new string(Str);
+	this->WriteLine(this->Msg);
+}
+
 void Writer::LogLine(string *Str)
 {
 	this->Last = new string("");
@@ -96,9 +103,4 @@ const char * Writer::GetTime()
 
 	const char* Ret = Formatted->c_str();
 	return Ret;
-}
-
-const char * Writer::ConvertString(string * Str)
-{
-	return nullptr;
 }

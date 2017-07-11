@@ -58,10 +58,10 @@ void Loop::MainLoop()
 
 			delete parsed;
 		}
-		catch (exception e)
+		catch (exception* e)
 		{
 			string *message = new string("!Error!: ");
-			message->append(e.what());
+			message->append(e->what());
 			Console->WriteLine(message);
 			ToDelete->push_back(message);
 			continue;
