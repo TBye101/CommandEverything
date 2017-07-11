@@ -1,5 +1,6 @@
 #pragma once
 #include "ICommand.h"
+#include "CommandHelp.h"
 
 using namespace std;
 

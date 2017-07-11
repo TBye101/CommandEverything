@@ -48,15 +48,23 @@ Writer::~Writer()
 //3 = Default/Grey
 void Writer::WriteLine(string *Str)
 {
-	this->Last = new string("");
-	this->Last->append(this->GetTime());
-	this->Last->append(": ");
-	this->Last->append(Str->c_str());
-	this->Last->append("\r\n");
-	cout << this->Last->substr(0, this->Last->size());
-	cout.flush();
-	this->Log << this->Last->substr(0, this->Last->size());
-	this->Log.flush();
+	if (Str != NULL && Str->size() > 0)
+	{
+		this->Last = new string("");
+		this->Last->append(this->GetTime());
+		this->Last->append(": ");
+		this->Last->append(Str->c_str());
+		this->Last->append("\r\n");
+		cout << this->Last->substr(0, this->Last->size());
+		cout.flush();
+		this->Log << this->Last->substr(0, this->Last->size());
+		this->Log.flush();
+	}
+	else
+	{
+		string a = "Someone attempted to write a null or empty string to the console!";
+		this->WriteLine(&a);
+	}
 }
 
 void Writer::LogLine(string *Str)

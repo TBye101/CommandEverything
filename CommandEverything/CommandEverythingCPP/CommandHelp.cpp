@@ -13,11 +13,26 @@ CommandHelp::~CommandHelp()
 
 bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words[0] == "help");
+	string *b = Parsed->Words->at(0);
+	Console->WriteLine(&to_string(Parsed->Words->size()));
+	const char* a = b->c_str();
+	Console->WriteLine(b);
+	return (a == "help");
 }
 
 void CommandHelp::Run(ParsedCommand * Parsed)
 {
+	string help = "";
+
+	size_t length = Commands->size();
+	for (size_t i = 0; i < length; i++)
+	{
+		help = "";
+		help.append(*Commands->at(i)->GetName());
+		help.append(": ");
+		help.append(*Commands->at(i)->GetHelp());
+		Console->WriteLine(&help);
+	}
 }
 
 string * CommandHelp::GetName()

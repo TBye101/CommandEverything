@@ -33,7 +33,7 @@ void Loop::MainLoop()
 
 			parsed = new ParsedCommand(&Input);
 			//if there is valid input....
-			if ((sizeof(parsed->Words) / sizeof(string*)) > 0)
+			if (parsed->Words->size() > 0)
 			{
 
 				register size_t length = Commands->size();
@@ -42,7 +42,14 @@ void Loop::MainLoop()
 				{
 					if (Commands->at(i)->ShouldRunThisCommand(parsed))
 					{
+						string name = "-------------------- ";
+						name.append(*Commands->at(i)->GetName());
+						name.append(" --------------------");
+
+						Console->WriteLine(&name);
 						Commands->at(i)->Run(parsed);
+						Console->WriteLine(&name);
+
 						FreeUpMemory();
 						break;
 					}
@@ -87,5 +94,5 @@ void Loop::Startup()
 /// </summary>
 void Loop::AddAllCommands()
 {
-
+	Commands->push_back(new CommandHelp());
 }

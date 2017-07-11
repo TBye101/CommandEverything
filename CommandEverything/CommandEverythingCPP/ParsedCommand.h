@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -21,6 +22,6 @@ public:
 	///The first word of this is the command name.
 	/// Everything after that is optional parameters.
 	/// </summary>
-	string* Words;
+	vector<string*>* Words = new vector<string*>();
 };
 
