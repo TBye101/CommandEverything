@@ -5,6 +5,8 @@
 Writer::Writer()
 {
 	Filing* file = new Filing();
+	file->Startup();
+
 	string path;
 
 	//setup converter
