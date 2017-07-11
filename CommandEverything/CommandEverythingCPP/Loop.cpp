@@ -60,7 +60,8 @@ void Loop::MainLoop()
 		}
 		catch (exception e)
 		{
-			string *message = new string(e.what());
+			string *message = new string("!Error!: ");
+			message->append(e.what());
 			Console->WriteLine(message);
 			ToDelete->push_back(message);
 			continue;
