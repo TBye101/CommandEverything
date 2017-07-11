@@ -140,6 +140,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Downloads\lwlog-master\lwlog-master\lwlog.h" />
     <ClInclude Include="CommandHelp.h" />
     <ClInclude Include="Filing.h" />
     <ClInclude Include="ICommand.h" />

@@ -13,7 +13,7 @@ CommandHelp::~CommandHelp()
 
 bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return ( && Parsed->Words[0] == "help");
+	return (Parsed->Words[0] == "help");
 }
 
 void CommandHelp::Run(ParsedCommand * Parsed)
@@ -22,10 +22,10 @@ void CommandHelp::Run(ParsedCommand * Parsed)
 
 string * CommandHelp::GetName()
 {
-	return nullptr;
+	return new string("Help");
 }
 
 string * CommandHelp::GetHelp()
 {
-	return nullptr;
+	return new string("Shows some help information about all known commands.");
 }

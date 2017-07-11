@@ -45,20 +45,23 @@
     <ClInclude Include="Util.h">
       <Filter>Framework\Util</Filter>
     </ClInclude>
-    <ClInclude Include="ParsedCommand.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
     <ClInclude Include="Writer.h">
       <Filter>Framework\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Loop.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Filing.h">
       <Filter>Framework\Util</Filter>
     </ClInclude>
     <ClInclude Include="CommandHelp.h">
       <Filter>Framework\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Loop.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="ParsedCommand.h">
+      <Filter>Framework\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Downloads\lwlog-master\lwlog-master\lwlog.h">
+      <Filter>External</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -74,20 +77,20 @@
     <ClCompile Include="Util.cpp">
       <Filter>Framework\Util</Filter>
     </ClCompile>
-    <ClCompile Include="ParsedCommand.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
     <ClCompile Include="Writer.cpp">
       <Filter>Framework\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="Loop.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Filing.cpp">
       <Filter>Framework\Util</Filter>
     </ClCompile>
     <ClCompile Include="CommandHelp.cpp">
       <Filter>Framework\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Loop.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="ParsedCommand.cpp">
+      <Filter>Framework\Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
