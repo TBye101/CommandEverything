@@ -28,21 +28,28 @@ void Loop::MainLoop()
 		{
 			getline(cin, Input);
 			Console->LogLine(&Input);
+
 			std::transform(Input.begin(), Input.end(), Input.begin(), ::tolower);
 
 			parsed = new ParsedCommand(&Input);
-
-			register size_t length = Commands->size();
-
-			for (register size_t i = 0; i < length; ++i)
+			//if there is valid input....
+			if ((sizeof(parsed->Words) / sizeof(string*)) > 0)
 			{
-				if (Commands->at(i)->ShouldRunThisCommand(parsed))
+
+				register size_t length = Commands->size();
+
+				for (register size_t i = 0; i < length; ++i)
 				{
-					Commands->at(i)->Run(parsed);
-					FreeUpMemory();
-					break;
+					if (Commands->at(i)->ShouldRunThisCommand(parsed))
+					{
+						Commands->at(i)->Run(parsed);
+						FreeUpMemory();
+						break;
+					}
 				}
 			}
+
+			delete parsed;
 		}
 		catch (exception e)
 		{

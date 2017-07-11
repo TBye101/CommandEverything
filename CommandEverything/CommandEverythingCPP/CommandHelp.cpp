@@ -13,7 +13,7 @@ CommandHelp::~CommandHelp()
 
 bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return false;
+	return ( && Parsed->Words[0] == "help");
 }
 
 void CommandHelp::Run(ParsedCommand * Parsed)
