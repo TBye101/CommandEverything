@@ -25,6 +25,12 @@
     <Filter Include="Framework\Commands">
       <UniqueIdentifier>{ac05b093-ee44-4473-9887-0ee6703ad23c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Commands\Help">
+      <UniqueIdentifier>{4c4a3014-327c-4b59-8579-868fe6222e70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Commands\Start">
+      <UniqueIdentifier>{b08bcf77-013e-49aa-a7b7-d52353cefb35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -48,9 +54,6 @@
     <ClInclude Include="Filing.h">
       <Filter>Framework\Util</Filter>
     </ClInclude>
-    <ClInclude Include="CommandHelp.h">
-      <Filter>Framework\Commands</Filter>
-    </ClInclude>
     <ClInclude Include="Loop.h">
       <Filter>Framework</Filter>
     </ClInclude>
@@ -59,6 +62,12 @@
     </ClInclude>
     <ClInclude Include="lwlog.h">
       <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandHelp.h">
+      <Filter>Framework\Commands\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandStart.h">
+      <Filter>Framework\Commands\Start</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,14 +89,17 @@
     <ClCompile Include="Filing.cpp">
       <Filter>Framework\Util</Filter>
     </ClCompile>
-    <ClCompile Include="CommandHelp.cpp">
-      <Filter>Framework\Commands</Filter>
-    </ClCompile>
     <ClCompile Include="Loop.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="ParsedCommand.cpp">
       <Filter>Framework\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandHelp.cpp">
+      <Filter>Framework\Commands\Help</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandStart.cpp">
+      <Filter>Framework\Commands\Start</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
