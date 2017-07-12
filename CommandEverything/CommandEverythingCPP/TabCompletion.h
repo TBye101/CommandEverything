@@ -19,7 +19,8 @@ public:
 	string* Suggest(vector<string*>* PossibleValues, string* InputSoFar);
 private:
 	/// <summary>
-	/// Returns null if an error occures.
+	/// Returns null if an error occurs.
+	/// This binary search searches for which string has the most same letters consecutively at the start of the string.
 	/// </summary>
 	/// <param name="array"></param>
 	/// <param name="first"></param>
@@ -27,4 +28,12 @@ private:
 	/// <param name="search_key"></param>
 	/// <returns></returns>
 	string* binary_search(vector<string*>* array, int first, int last, string* search_key);
+
+	/// <summary>
+	/// Determines how many characters the strings have in common at the start of the string.
+	/// </summary>
+	/// <param name="One"></param>
+	/// <param name="Two"></param>
+	/// <returns></returns>
+	__int16 CharactersInCommon(string* One, string* Two);
 };

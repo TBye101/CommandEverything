@@ -19,6 +19,7 @@ string * TabCompletion::Suggest(vector<string*>* PossibleValues, string * InputS
 string * TabCompletion::binary_search(vector<string*>* array, int first, int last, string *search_key)
 {
 	string* index;
+	unsigned __int16 ClosestMatch;
 
 	if (first > last)
 	{
@@ -45,4 +46,9 @@ string * TabCompletion::binary_search(vector<string*>* array, int first, int las
 		}
 	}
 		return index;
+}
+
+__int16 TabCompletion::CharactersInCommon(string* One, string* Two)
+{
+	return 0;
 }
