@@ -82,6 +82,14 @@ void Loop::Startup()
 	ToDelete->push_back(fil);
 
 	AddAllCommands();
+
+	size_t length = Commands->size();
+	for (size_t i = 0; i < length; i++)
+	{
+		CommandNames->push_back(Commands->at(i)->GetName());
+	}
+	std::sort(CommandNames->begin(), CommandNames->end());
+
 	this->FreeUpMemory();
 }
 

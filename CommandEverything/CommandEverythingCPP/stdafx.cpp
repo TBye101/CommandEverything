@@ -11,5 +11,8 @@ vector<void*>* ToDelete = new vector<void*>();
 Writer* Console = new Writer();
 Util* Utility = new Util();
 Filing* Files = new Filing();
+TabCompletion* Complete = new TabCompletion();
+
 
 vector<ICommand*>* Commands = new vector<ICommand*>();
+vector<string*>* CommandNames = new vector<string*>();
