@@ -70,12 +70,9 @@ LRESULT WINAPI MyKeyboardCallback(int nCode, WPARAM wParam, LPARAM lParam)
 
 		switch (wParam)
 		{
-		case WM_LBUTTONUP: 
-			printf_s("LEFT CLICK UP\n");
+		case VK_TAB: 
+			printf_s("TAB \n");
 		break;
-		case WM_LBUTTONDOWN:
-			printf_s("LEFT CLICK DOWN\n");
-			break;
 		}
 
 	}
