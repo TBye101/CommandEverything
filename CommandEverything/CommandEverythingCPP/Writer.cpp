@@ -43,7 +43,6 @@ Writer::Writer()
 Writer::~Writer()
 {
 	this->Log.close();
-	ToDelete->push_back(this->Last);
 }
 
 //0 = Red

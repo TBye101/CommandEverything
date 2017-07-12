@@ -41,11 +41,6 @@ public:
 
 	const char* GetTime();
 
-	/// <summary>
-	/// The last message to leave this class.
-	/// </summary>
-	string* Last;
-
 
 	// notice that IIRC on modern Windows machines if you aren't admin 
 	// you can't write in the root directory of the system drive; 
