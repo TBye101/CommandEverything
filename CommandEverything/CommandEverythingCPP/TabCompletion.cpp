@@ -11,15 +11,18 @@ TabCompletion::~TabCompletion()
 {
 }
 
-string * TabCompletion::Suggest(vector<string*>* PossibleValues, string * InputSoFar)
+string* TabCompletion::Suggest(vector<string*>* PossibleValues, string* InputSoFar)
 {
 	return nullptr;
 }
 
-string * TabCompletion::binary_search(vector<string*>* array, int first, int last, string *search_key)
+string* TabCompletion::binary_search(vector<string*>* array, int first, int last, string *search_key)
 {
 	string* index;
-	unsigned __int16 ClosestMatch;
+	unsigned __int16 ClosestMatch = 0;
+	size_t arraylength = array->size();
+	unsigned __int16 Zero = this->CharactersInCommon(search_key, array->at(0));
+	unsigned __int16 End = this->CharactersInCommon(search_key, array->at(array->size()));
 
 	if (first > last)
 	{
@@ -29,18 +32,30 @@ string * TabCompletion::binary_search(vector<string*>* array, int first, int las
 	{
 		int mid = (first + last) / 2;
 
-		if (search_key == array->at(mid))
+		if (search_key == array->at(mid) || first == array->size() || last == 0)
 		{
 			index = array->at(mid);
 		}
 		else
 		{
-			if (search_key < array->at(mid))
+			if (Zero > End)
 			{
+				if (this->CharactersInCommon(array->at(mid), search_key) >= ClosestMatch)
+				{
+					index = array->at(mid);
+					ClosestMatch = this->CharactersInCommon(array->at(mid), search_key);
+				}
+
 				index = binary_search(array, first, mid - 1, search_key);
 			}
 			else
 			{
+				if (this->CharactersInCommon(array->at(mid), search_key) >= ClosestMatch)
+				{
+					index = array->at(mid);
+					ClosestMatch = this->CharactersInCommon(array->at(mid), search_key);
+				}
+
 				index = binary_search(array, mid + 1, last, search_key);
 			}
 		}
