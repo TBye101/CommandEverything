@@ -17,13 +17,13 @@ string* Util::GetLine()
 {
 	string* ret = new string("");
 	string suggestion = "";
-	char last[4];
+	char last[2];
 	char a;
 	
 	//The number of characters we suggested that the user didn't.
 	unsigned __int16 suggestedchars = 0;
 
-	while (last[3] != '\\' && last[2] != 'r' && last[1] != '\\' && last[0] != 'n')
+	while (last[1] != '\\' && last[0] != 'r')
 	{
 #if UNICODE
 		a = _getwch();
@@ -31,9 +31,7 @@ string* Util::GetLine()
 		a = _getch();
 #endif
 		last[0] = last[1];
-		last[1] = last[2];
-		last[2] = last[3];
-		last[3] = a;
+		last[1] = a;
 
 		if (a == '\b')
 		{

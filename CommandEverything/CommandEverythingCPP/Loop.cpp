@@ -101,3 +101,49 @@ void Loop::AddAllCommands()
 	Commands->push_back(new CommandHelp());
 	Commands->push_back(new CommandStart());
 }
+
+//
+//
+//
+//
+//// This is the callback function. Consider it the event that is raised when, in this case, 
+//// a key is pressed.
+//LRESULT CALLBACK Loop::HookCallback(int nCode, WPARAM wParam, LPARAM lParam)
+//{
+//	if (nCode >= 0)
+//	{
+//		// the action is valid: HC_ACTION.
+//		if (wParam == WM_KEYDOWN)
+//		{
+//			// lParam is the pointer to the struct containing the data needed, so cast and assign it to kdbStruct.
+//			kbdStruct = *((KBDLLHOOKSTRUCT*)lParam);
+//			// a key (non-system) is pressed.
+//			if (kbdStruct.vkCode == VK_F1)
+//			{
+//				// F1 is pressed!
+//				MessageBox(NULL, L"F1 is pressed!", L"key pressed", MB_ICONINFORMATION);
+//			}
+//		}
+//	}
+//
+//	// call the next hook in the hook chain. This is nessecary or your hook chain will break and the hook stops
+//	return CallNextHookEx(_hook, nCode, wParam, lParam);
+//}
+//
+//void Loop::SetHook()
+//{
+//	// Set the hook and set it to use the callback function above
+//	// WH_KEYBOARD_LL means it will set a low level keyboard hook. More information about it at MSDN.
+//	// The last 2 parameters are NULL, 0 because the callback function is in the same thread and window as the
+//	// function that sets and releases the hook. If you create a hack you will not need the callback function 
+//	// in another place then your own code file anyway. Read more about it at MSDN.
+//	if (!(_hook = SetWindowsHookEx(WH_KEYBOARD, HookCallback, NULL, 0)))
+//	{
+//		MessageBox(NULL, L"Failed to install hook!", L"Error", MB_ICONERROR);
+//	}
+////}
+//
+//void Loop::ReleaseHook()
+//{
+//	UnhookWindowsHookEx(_hook);
+//}

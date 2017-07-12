@@ -4,8 +4,88 @@
 #include "stdafx.h"
 #include "Loop.h"
 
+/* dmo c++ https://guidedhacking.com/ */
+
+#include <Windows.h>
+#include <iostream>
+
+using namespace std;
+
+class MyHook {
+public:
+	static MyHook& Instance() {
+		static MyHook myHook;
+		return myHook;
+	}
+
+	HHOOK hook;
+	MSLLHOOKSTRUCT mouseStruct;
+	void InstallHook();
+	void UninstallHook();
+
+	MSG msg;
+	int Messsages();
+};
+
+LRESULT WINAPI MyKeyboardCallback(int nCode, WPARAM wParam, LPARAM lParam);
+
+int MyHook::Messsages() {
+	while (MyHook::Instance().msg.message != WM_QUIT) {
+		if (PeekMessage(&MyHook::Instance().msg, NULL, 0, 0, PM_REMOVE)) {
+			TranslateMessage(&MyHook::Instance().msg);
+			DispatchMessage(&MyHook::Instance().msg);
+		}
+		Sleep(1);
+	}
+	MyHook::Instance().UninstallHook();
+	return (int)MyHook::Instance().msg.wParam;
+}
+
+void MyHook::InstallHook() {
+	if (!(MyHook::Instance().hook = SetWindowsHookEx(WH_KEYBOARD, MyKeyboardCallback, NULL, 0)))
+	{
+		Console->WriteLine("Could not install hook.");
+	}
+	else
+	{
+		Console->WriteLine("Installed hook successfully");
+	}
+}
+
+void MyHook::UninstallHook() {
+	UnhookWindowsHookEx(MyHook::Instance().hook);
+}
+
+LRESULT WINAPI MyKeyboardCallback(int nCode, WPARAM wParam, LPARAM lParam)
+{
+	KBDLLHOOKSTRUCT* pMouseStruct = (KBDLLHOOKSTRUCT *)lParam;
+
+	if (nCode >= 0) 
+	{
+
+		if (pMouseStruct != NULL) 
+		{
+
+		}
+
+		switch (wParam)
+		{
+		case WM_LBUTTONUP: 
+			printf_s("LEFT CLICK UP\n");
+		break;
+		case WM_LBUTTONDOWN:
+			printf_s("LEFT CLICK DOWN\n");
+			break;
+		}
+
+	}
+	return CallNextHookEx(MyHook::Instance().hook, nCode, wParam, lParam);
+}
+
+
 int main(int argc, char* argv[])
 {
+	MyHook::Instance().InstallHook();
 	Loop* Program = new Loop();
 	Program->Startup();
 	Program->FreeUpMemory();
