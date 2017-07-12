@@ -13,11 +13,13 @@ CommandHelp::~CommandHelp()
 
 bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
 {
-	string *b = Parsed->Words->at(0);
-	Console->WriteLine(&to_string(Parsed->Words->size()));
-	const char* a = b->c_str();
-	Console->WriteLine(a);
-	return (a == "help");
+	string* Test = Parsed->Words->at(0);
+	Console->WriteLine(Test);
+	string* name = new string("help");
+	bool ret = (*Parsed->Words->at(0) == *name);
+	Console->WriteLine(Parsed->Words->at(0));
+	ToDelete->push_back(name);
+	return ret;
 }
 
 void CommandHelp::Run(ParsedCommand * Parsed)

@@ -52,15 +52,10 @@ void Writer::WriteLine(string *Str)
 {
 	if (Str != NULL && Str->size() > 0)
 	{
-		this->Last = new string("");
-		this->Last->append(this->GetTime());
-		this->Last->append(": ");
-		this->Last->append(*Str);
-		this->Last->append("\r\n");
-		cout << this->Last->substr(0, this->Last->size());
+		cout << this->GetTime();
+		cout << *Str;
+		cout << "\r\n";
 		cout.flush();
-		this->Log << this->Last->substr(0, this->Last->size());
-		this->Log.flush();
 	}
 	else
 	{
@@ -98,7 +93,7 @@ const char * Writer::GetTime()
 
 	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", timeinfo);
 	Formatted->append(buffer);
-	Formatted->append("]");
+	Formatted->append("]: ");
 
 	ToDelete->push_back(Formatted);
 	ToDelete->push_back(timeinfo);

@@ -49,13 +49,12 @@ void Loop::MainLoop()
 						Console->WriteLine(&name);
 						Commands->at(i)->Run(parsed);
 						Console->WriteLine(&name);
-
-						FreeUpMemory();
 						break;
 					}
 				}
 			}
 
+			FreeUpMemory();
 			delete parsed;
 		}
 		catch (exception* e)
