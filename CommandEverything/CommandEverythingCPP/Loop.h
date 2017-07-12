@@ -41,5 +41,6 @@ private:
 
 	string Input;
 	ParsedCommand* parsed;
+	
 };
 

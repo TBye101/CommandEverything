@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Framework">
       <UniqueIdentifier>{a3ad1e20-3c7d-4361-8d6d-54827bdb755a}</UniqueIdentifier>
     </Filter>
@@ -33,6 +29,10 @@
     </Filter>
     <Filter Include="Framework\Util\Command">
       <UniqueIdentifier>{d72a6422-a523-4c0a-b054-3024728aa003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +73,7 @@
       <Filter>Framework\Util\Command</Filter>
     </ClInclude>
     <ClInclude Include="TabCompletion.h">
-      <Filter>Header Files</Filter>
+      <Filter>Framework\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -108,7 +108,7 @@
       <Filter>Framework\Util\Command</Filter>
     </ClCompile>
     <ClCompile Include="TabCompletion.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Framework\Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

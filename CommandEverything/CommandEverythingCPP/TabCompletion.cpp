@@ -13,7 +13,7 @@ TabCompletion::~TabCompletion()
 
 string* TabCompletion::Suggest(vector<string*>* PossibleValues, string* InputSoFar)
 {
-	return nullptr;
+	return this->binary_search(PossibleValues, 0, PossibleValues->size(), InputSoFar);
 }
 
 string* TabCompletion::binary_search(vector<string*>* array, int first, int last, string *search_key)
