@@ -50,5 +50,29 @@ string * TabCompletion::binary_search(vector<string*>* array, int first, int las
 
 __int16 TabCompletion::CharactersInCommon(string* One, string* Two)
 {
-	return 0;
+	__int16 InCommon = 0;
+	size_t length;
+
+	if (One->size() > Two->size())
+	{
+		length = Two->size();
+	}
+	else
+	{
+		length = One->size();
+	}
+
+	for (size_t i = 0; i < length; i++)
+	{
+		if (One[i] == Two[i])
+		{
+			++InCommon;
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	return InCommon;
 }
