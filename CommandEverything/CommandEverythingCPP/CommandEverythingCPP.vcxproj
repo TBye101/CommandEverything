@@ -148,6 +148,7 @@
     <ClInclude Include="lwlog.h" />
     <ClInclude Include="ParsedCommand.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TabCompletion.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Writer.h" />
@@ -166,6 +167,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TabCompletion.cpp" />
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="Writer.cpp" />
   </ItemGroup>

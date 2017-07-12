@@ -18,6 +18,8 @@ bool CommandStart::ShouldRunThisCommand(ParsedCommand *Parsed)
 
 void CommandStart::Run(ParsedCommand *Parsed)
 {
+	//https://stackoverflow.com/questions/15435994/how-do-i-open-an-exe-from-another-c-exe
+
 	// additional information
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
