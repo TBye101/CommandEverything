@@ -25,7 +25,11 @@ string* Util::GetLine()
 
 	while (last[3] != '\\' && last[2] != 'r' && last[1] != '\\' && last[0] != 'n')
 	{
-		a = getchar();
+#if UNICODE
+		a = _getwch();
+#else
+		a = _getch();
+#endif
 		last[0] = last[1];
 		last[1] = last[2];
 		last[2] = last[3];

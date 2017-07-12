@@ -22,7 +22,7 @@ void Loop::MainLoop()
 	{
 		try
 		{
-			getline(cin, Input);
+			this->Input = *Utility->GetLine();
 			Console->LogLine(&Input);
 
 			std::transform(Input.begin(), Input.end(), Input.begin(), ::tolower);
