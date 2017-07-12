@@ -22,6 +22,6 @@ public:
 	///The first word of this is the command name.
 	/// Everything after that is optional parameters.
 	/// </summary>
-	vector<string*>* Words = new vector<string*>();
+	vector<string>* Words = new vector<string>();
 };
 

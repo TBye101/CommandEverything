@@ -13,13 +13,7 @@ CommandHelp::~CommandHelp()
 
 bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
 {
-	string* Test = Parsed->Words->at(0);
-	Console->WriteLine(Test);
-	string* name = new string("help");
-	bool ret = (*Parsed->Words->at(0) == *name);
-	Console->WriteLine(Parsed->Words->at(0));
-	ToDelete->push_back(name);
-	return ret;
+	return (Parsed->Words->at(0) == "help");
 }
 
 void CommandHelp::Run(ParsedCommand * Parsed)

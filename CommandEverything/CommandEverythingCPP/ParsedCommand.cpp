@@ -13,7 +13,7 @@ ParsedCommand::ParsedCommand(string *Input)
 
 		while (ss >> buf)
 		{
-			this->Words->push_back(&buf);
+			this->Words->push_back(buf);
 		}
 	}
 }
