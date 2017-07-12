@@ -34,6 +34,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Framework\Commands\Exit">
+      <UniqueIdentifier>{4c36ee21-1a45-47f9-b64a-28b55270e768}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -75,6 +78,9 @@
     <ClInclude Include="TabCompletion.h">
       <Filter>Framework\Util</Filter>
     </ClInclude>
+    <ClInclude Include="CommandExit.h">
+      <Filter>Framework\Commands\Exit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -109,6 +115,9 @@
     </ClCompile>
     <ClCompile Include="TabCompletion.cpp">
       <Filter>Framework\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandExit.cpp">
+      <Filter>Framework\Commands\Exit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

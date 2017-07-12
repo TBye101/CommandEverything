@@ -50,10 +50,11 @@ void MyHook::InstallHook()
 {
 	if (!(MyHook::Instance().hook = SetWindowsHookEx(WH_KEYBOARD_LL, MyKeyboardCallback, NULL, GetCurrentThreadId())))
 	{
-		Console->WriteLine("Could not install hook.");
+		Console->WriteLine("Could not install keyboard hook.");
 		ostringstream stream;
 		stream << GetLastError();
-		string str = stream.str();
+		string str = "Error: ";
+		str.append(stream.str());
 		Console->WriteLine(&str);
 	}
 	else
@@ -62,7 +63,8 @@ void MyHook::InstallHook()
 	}
 }
 
-void MyHook::UninstallHook() {
+void MyHook::UninstallHook()
+{
 	UnhookWindowsHookEx(MyHook::Instance().hook);
 }
 
@@ -98,5 +100,14 @@ int main(int argc, char* argv[])
 	Program->Startup();
 	Program->FreeUpMemory();
 	Program->MainLoop();
+
+	delete ToDelete;
+	delete Console;
+	delete Utility;
+	delete Files;
+	delete Complete;
+	delete Commands;
+	delete CommandNames;
+
     return 0;
 }
