@@ -18,10 +18,12 @@
 #include "Writer.h"
 #include "Util.h"
 #include "ICommand.h"
+#include "Filing.h"
 
 extern vector<void*>* ToDelete;
 extern Writer* Console;
 extern Util* Utility;
+extern Filing* Files;
 
 /// <summary>
 /// All known commands.

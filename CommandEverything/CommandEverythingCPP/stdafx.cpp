@@ -10,4 +10,6 @@
 vector<void*>* ToDelete = new vector<void*>();
 Writer* Console = new Writer();
 Util* Utility = new Util();
+Filing* Files = new Filing();
+
 vector<ICommand*>* Commands = new vector<ICommand*>();

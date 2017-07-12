@@ -1,6 +1,11 @@
 #pragma once
 #include "ICommand.h"
+#include "Filing.h"
 #include "CommandHelp.h"
+#include "ParsedCommand.h"
+#include <Windows.h>
+#include <algorithm>
+#include "CommandStart.h"
 
 using namespace std;
 

@@ -1,9 +1,5 @@
 #include "stdafx.h"
 #include "Loop.h"
-#include "ParsedCommand.h"
-#include <Windows.h>
-#include "Filing.h"
-#include <algorithm>
 
 
 Loop::Loop()
@@ -95,4 +91,5 @@ void Loop::Startup()
 void Loop::AddAllCommands()
 {
 	Commands->push_back(new CommandHelp());
+	Commands->push_back(new CommandStart());
 }
