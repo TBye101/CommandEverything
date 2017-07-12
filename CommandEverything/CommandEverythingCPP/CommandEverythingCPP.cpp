@@ -11,9 +11,11 @@
 
 using namespace std;
 
-class MyHook {
+class MyHook
+{
 public:
-	static MyHook& Instance() {
+	static MyHook& Instance()
+	{
 		static MyHook myHook;
 		return myHook;
 	}
@@ -29,9 +31,12 @@ public:
 
 LRESULT WINAPI MyKeyboardCallback(int nCode, WPARAM wParam, LPARAM lParam);
 
-int MyHook::Messsages() {
-	while (MyHook::Instance().msg.message != WM_QUIT) {
-		if (PeekMessage(&MyHook::Instance().msg, NULL, 0, 0, PM_REMOVE)) {
+int MyHook::Messsages()
+{
+	while (MyHook::Instance().msg.message != WM_QUIT)
+	{
+		if (PeekMessage(&MyHook::Instance().msg, NULL, 0, 0, PM_REMOVE))
+		{
 			TranslateMessage(&MyHook::Instance().msg);
 			DispatchMessage(&MyHook::Instance().msg);
 		}
@@ -41,10 +46,15 @@ int MyHook::Messsages() {
 	return (int)MyHook::Instance().msg.wParam;
 }
 
-void MyHook::InstallHook() {
-	if (!(MyHook::Instance().hook = SetWindowsHookEx(WH_KEYBOARD, MyKeyboardCallback, NULL, 0)))
+void MyHook::InstallHook()
+{
+	if (!(MyHook::Instance().hook = SetWindowsHookEx(WH_KEYBOARD_LL, MyKeyboardCallback, NULL, GetCurrentThreadId())))
 	{
 		Console->WriteLine("Could not install hook.");
+		ostringstream stream;
+		stream << GetLastError();
+		string str = stream.str();
+		Console->WriteLine(&str);
 	}
 	else
 	{
@@ -59,6 +69,7 @@ void MyHook::UninstallHook() {
 LRESULT WINAPI MyKeyboardCallback(int nCode, WPARAM wParam, LPARAM lParam)
 {
 	KBDLLHOOKSTRUCT* pMouseStruct = (KBDLLHOOKSTRUCT *)lParam;
+	printf("Traffic");
 
 	if (nCode >= 0) 
 	{
