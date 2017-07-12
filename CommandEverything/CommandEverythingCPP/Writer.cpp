@@ -19,6 +19,8 @@ Writer::Writer()
 	path.append("\\");
 	string* now = new string(this->GetTime());
 	path.append(*now);
+	path.pop_back();
+	path.pop_back();
 	path.append(".txt");
 
 	this->Log.open(path, fstream::out);
@@ -56,6 +58,7 @@ void Writer::WriteLine(string *Str)
 		cout << *Str;
 		cout << "\r\n";
 		cout.flush();
+		this->LogLine(Str);
 	}
 	else
 	{
@@ -73,12 +76,9 @@ void Writer::WriteLine(const char* Str)
 
 void Writer::LogLine(string *Str)
 {
-	this->Last = new string("");
-	this->Last->append(this->GetTime());
-	this->Last->append(": ");
-	this->Last->append(Str->c_str());
-	this->Last->append("\r\n");
-	this->Log << this->Last->substr(0, this->Last->size());
+	this->Log << this->GetTime();
+	this->Log << *Str;
+	this->Log << "\r\n";
 	this->Log.flush();
 }
 
