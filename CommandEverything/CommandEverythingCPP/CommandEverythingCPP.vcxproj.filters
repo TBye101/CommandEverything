@@ -64,9 +64,6 @@
     <Filter Include="Framework\WIP Commands\Delete">
       <UniqueIdentifier>{c9b3d648-61e7-4600-b42b-cdaa0e7a7188}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\NewFilter1">
-      <UniqueIdentifier>{a1fa4a92-dc30-498b-907f-7f12093b83d2}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -111,6 +108,9 @@
     <ClInclude Include="CommandExit.h">
       <Filter>Framework\Commands\Exit</Filter>
     </ClInclude>
+    <ClInclude Include="CommandDefend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -148,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="CommandExit.cpp">
       <Filter>Framework\Commands\Exit</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandDefend.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
