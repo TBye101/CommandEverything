@@ -99,4 +99,5 @@ void Loop::AddAllCommands()
 	Commands->push_back(new CommandExit());
 	Commands->push_back(new CommandHelp());
 	Commands->push_back(new CommandStart());
+	Commands->push_back(new CommandDefend());
 }

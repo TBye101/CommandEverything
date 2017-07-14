@@ -9,6 +9,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include "CommandExit.h"
+#include "CommandDefend.h"
 
 using namespace std;
 

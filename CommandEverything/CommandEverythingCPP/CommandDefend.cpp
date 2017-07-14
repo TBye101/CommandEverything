@@ -79,6 +79,7 @@ void CommandDefend::DefendStart()
 
 void CommandDefend::DefendStop()
 {
+	delete this->DefenseThread;
 }
 
 void CommandDefend::Defend()
