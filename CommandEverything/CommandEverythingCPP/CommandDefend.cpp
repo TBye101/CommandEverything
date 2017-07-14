@@ -110,16 +110,25 @@ void CommandDefend::Defend()
 				//Get process handle.
 				hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, aProcesses[i]);
 
+				wchar_t* buffer = new wchar_t();
+				GetModuleFileNameEx(hProcess, NULL, buffer, MAX_PATH);
+				wstring ws(buffer);
+				string converted(ws.begin(), ws.end());
 				//Kill process.
 				if (TerminateProcess(hProcess, 1))
 				{
-					Console->WriteLine("Killed a process.");
+					string msg = "Killed a process: ";
+					msg.append(converted);
+					Console->WriteLine(&msg);
 				}
 				else
 				{
+					string msg = "Failed to kill a process: ";
+					msg.append(converted);
+					Console->WriteLine(&msg);
 					Console->WriteLine(&to_string(GetLastError()));
-					Console->WriteLine("Failed to kill a process.");
 				}
+				delete buffer;
 			}
 		}
 	}
