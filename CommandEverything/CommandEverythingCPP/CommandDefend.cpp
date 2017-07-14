@@ -85,7 +85,7 @@ void CommandDefend::DefendStop()
 void CommandDefend::Defend()
 {
 	// Get the list of process identifiers.  
-	DWORD aProcesses[1024];
+	register DWORD aProcesses[1024];
 	DWORD cbNeeded;
 	DWORD numberOfProcesses;
 
@@ -108,7 +108,7 @@ void CommandDefend::Defend()
 			if (!this->DoesProcessExistInList(aProcesses[i], numberOfProcesses))
 			{
 				//Get process handle.
-				hProcess = OpenProcess(PROCESS_QUERY_INFORMATION/* | PROCESS_VM_READ*/, FALSE, aProcesses[i]);
+				hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, aProcesses[i]);
 
 				//Kill process.
 				if (TerminateProcess(hProcess, 1))

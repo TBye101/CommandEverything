@@ -31,7 +31,7 @@ private:
 	/// A list of programs not to kill.
 	/// </summary>
 	DWORD AllowedProcesses[1024];
-
+	
 	/// <summary>
 	/// Determines if the given process exists in RunningProcesses.
 	/// </summary>
