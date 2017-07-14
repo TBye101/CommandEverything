@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Writer.h"
 
-
 Writer::Writer()
 {
 	Filing* file = new Filing();
@@ -24,7 +23,7 @@ Writer::Writer()
 	path.append(".txt");
 
 	this->Log.open(path, fstream::out);
-	
+
 	if (!Log)
 	{
 		throw new exception("Can't access file!");
@@ -38,7 +37,6 @@ Writer::Writer()
 	ToDelete->push_back(file);
 	ToDelete->push_back(now);
 }
-
 
 Writer::~Writer()
 {

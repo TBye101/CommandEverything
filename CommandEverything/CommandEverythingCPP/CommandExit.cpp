@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CommandExit.h"
 
-
 CommandExit::CommandExit()
 {
 }
-
 
 CommandExit::~CommandExit()
 {

@@ -73,25 +73,21 @@ LRESULT WINAPI MyKeyboardCallback(int nCode, WPARAM wParam, LPARAM lParam)
 	KBDLLHOOKSTRUCT* pMouseStruct = (KBDLLHOOKSTRUCT *)lParam;
 	printf("Traffic");
 
-	if (nCode >= 0) 
+	if (nCode >= 0)
 	{
-
-		if (pMouseStruct != NULL) 
+		if (pMouseStruct != NULL)
 		{
-
 		}
 
 		switch (wParam)
 		{
-		case VK_TAB: 
+		case VK_TAB:
 			printf_s("TAB \n");
-		break;
+			break;
 		}
-
 	}
 	return CallNextHookEx(MyHook::Instance().hook, nCode, wParam, lParam);
 }
-
 
 int main(int argc, char* argv[])
 {
@@ -109,5 +105,5 @@ int main(int argc, char* argv[])
 	delete Commands;
 	delete CommandNames;
 
-    return 0;
+	return 0;
 }

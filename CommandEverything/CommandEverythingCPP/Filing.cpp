@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "Filing.h"
 
-
 Filing::Filing()
 {
 }
-
 
 Filing::~Filing()
 {

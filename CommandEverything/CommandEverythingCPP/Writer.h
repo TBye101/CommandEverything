@@ -25,6 +25,7 @@ public:
 	~Writer();
 
 	/// <summary>
+	/// TODO: https://github.com/Akagi201/lwlog/issues/1 color logging
 	/// Writes a line to the console.
 	/// This will NOT put the string passed in up for deletion. Handle your own memory.
 	/// </summary>
@@ -41,9 +42,8 @@ public:
 
 	const char* GetTime();
 
-
-	// notice that IIRC on modern Windows machines if you aren't admin 
-	// you can't write in the root directory of the system drive; 
+	// notice that IIRC on modern Windows machines if you aren't admin
+	// you can't write in the root directory of the system drive;
 	// you should instead write e.g. in the current directory
 	ofstream Log;
 
@@ -54,4 +54,3 @@ private:
 	/// </summary>
 	string* Msg = new string();
 };
-

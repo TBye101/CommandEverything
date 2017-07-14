@@ -12,7 +12,7 @@ using namespace std;
 class ICommand
 {
 public:
-	
+
 	/// <summary>
 	/// Determines if this command should be run.
 	/// </summary>
@@ -25,7 +25,7 @@ public:
 	/// </summary>
 	/// <param name="Parsed"></param>
 	virtual void Run(ParsedCommand* Parsed) = 0;
-	
+
 	/// <summary>
 	/// Returns the name of the command.
 	/// </summary>

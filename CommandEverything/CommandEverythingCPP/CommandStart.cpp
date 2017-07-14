@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CommandStart.h"
 
-
 CommandStart::CommandStart()
 {
 }
-
 
 CommandStart::~CommandStart()
 {
@@ -37,12 +35,12 @@ void CommandStart::Run(ParsedCommand *Parsed)
 		FALSE,          // Set handle inheritance to FALSE
 		0x00000010,              // Creation flags: Open in new window
 		NULL,           // Use parent's environment block
-		NULL,           // Use parent's starting directory 
+		NULL,           // Use parent's starting directory
 		&si,            // Pointer to STARTUPINFO structure
 		&pi             // Pointer to PROCESS_INFORMATION structure (removed extra parentheses)
 	);
 
-	// Close process and thread handles. 
+	// Close process and thread handles.
 	CloseHandle(pi.hProcess);
 	CloseHandle(pi.hThread);
 }

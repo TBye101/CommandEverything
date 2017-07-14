@@ -24,4 +24,3 @@ public:
 	/// </summary>
 	vector<string>* Words = new vector<string>();
 };
-

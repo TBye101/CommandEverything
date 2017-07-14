@@ -1,17 +1,14 @@
 #include "stdafx.h"
 #include "Loop.h"
 
-
 Loop::Loop()
 {
 }
-
 
 Loop::~Loop()
 {
 	ToDelete->push_back(this->parsed);
 }
-
 
 /// <summary>
 /// The main logic loop of the console.
@@ -31,7 +28,6 @@ void Loop::MainLoop()
 			//if there is valid input....
 			if (parsed->Words->size() > 0)
 			{
-
 				register size_t length = Commands->size();
 
 				for (register size_t i = 0; i < length; ++i)

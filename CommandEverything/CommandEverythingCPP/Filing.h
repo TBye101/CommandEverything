@@ -39,4 +39,3 @@ private:
 	/// <returns></returns>
 	wstring* GetLogDirectoryPath();
 };
-

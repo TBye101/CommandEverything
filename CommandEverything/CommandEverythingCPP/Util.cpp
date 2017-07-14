@@ -3,14 +3,14 @@
 
 wstring Util::StringToWString(const string & s)
 {
-		int len;
-		int slength = (int)s.length() + 1;
-		len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, 0, 0);
-		wchar_t* buf = new wchar_t[len];
-		MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, buf, len);
-		std::wstring r(buf);
-		delete[] buf;
-		return r;
+	int len;
+	int slength = (int)s.length() + 1;
+	len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, 0, 0);
+	wchar_t* buf = new wchar_t[len];
+	MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, buf, len);
+	std::wstring r(buf);
+	delete[] buf;
+	return r;
 }
 
 string* Util::GetLine()
@@ -19,9 +19,9 @@ string* Util::GetLine()
 	string suggestion = "";
 	char last[2];
 	char a;
-	
+
 	//The number of characters we suggested that the user didn't.
-	unsigned __int16 suggestedchars = 0;
+	unsigned int suggestedchars = 0;
 
 	while (last[1] != '\\' && last[0] != 'r')
 	{

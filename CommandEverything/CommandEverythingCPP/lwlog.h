@@ -20,7 +20,7 @@
 #define LOG_COLOR (1)
 #endif
 
-// log levels the same as syslog
+ // log levels the same as syslog
 #define EMERG (0)
 #define ALERT (1)
 #define CRIT (2)

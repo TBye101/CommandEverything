@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "TabCompletion.h"
 
-
 TabCompletion::TabCompletion()
 {
 }
-
 
 TabCompletion::~TabCompletion()
 {
@@ -60,7 +58,7 @@ string* TabCompletion::binary_search(vector<string*>* array, int first, int last
 			}
 		}
 	}
-		return index;
+	return index;
 }
 
 __int16 TabCompletion::CharactersInCommon(string* One, string* Two)
