@@ -69,7 +69,7 @@ bool CommandDefend::DoesProcessExistInList(DWORD pID, DWORD numberOfProcesses)
 
 void CommandDefend::DefendStart()
 {
-	if (this->DefenseThread != NULL)
+	if (!this->DefenseThread)
 	{
 		delete this->DefenseThread;
 	}
@@ -92,32 +92,34 @@ void CommandDefend::Defend()
 	EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
 
 	numberOfProcesses = cbNeeded / sizeof(DWORD);
+	//Copies the contents of aProcesses to this->AllowedProcesses.
+	memcpy(this->AllowedProcesses, aProcesses, sizeof(this->AllowedProcesses));
 
-	size_t i = 0;
+	register size_t i = 0;
 	HANDLE hProcess;
-	for (i = 0; i < numberOfProcesses; i++)
-	{
-		hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, aProcesses[i]);
-		this->AllowedProcesses[i] = GetProcessId(hProcess);
-	}
-
 	while (true)
 	{
 		EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
-
-		numberOfProcesses = cbNeeded / sizeof(DWORD);
-
 		i = 0;
+		numberOfProcesses = cbNeeded / sizeof(DWORD);
 
 		for (i = 0; i < numberOfProcesses; i++)
 		{
-			//Get process handle.
-			hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, aProcesses[i]);
-
-			if (!this->DoesProcessExistInList(GetProcessId(hProcess), numberOfProcesses))
+			if (!this->DoesProcessExistInList(aProcesses[i], numberOfProcesses))
 			{
+				//Get process handle.
+				hProcess = OpenProcess(PROCESS_QUERY_INFORMATION/* | PROCESS_VM_READ*/, FALSE, aProcesses[i]);
+
 				//Kill process.
-				TerminateProcess(hProcess, 1);
+				if (TerminateProcess(hProcess, 1))
+				{
+					Console->WriteLine("Killed a process.");
+				}
+				else
+				{
+					Console->WriteLine(&to_string(GetLastError()));
+					Console->WriteLine("Failed to kill a process.");
+				}
 			}
 		}
 	}
