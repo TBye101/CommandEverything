@@ -1,5 +1,7 @@
 #pragma once
 
+#include <thread>
+
 /// <summary>
 /// Defends against new programs being launched.
 /// </summary>
@@ -16,4 +18,21 @@ public:
 	string* GetName();
 
 	string* GetHelp();
+private:
+	thread* DefenseThread;
+
+	/// <summary>
+	/// Starts the commands execution.
+	/// </summary>
+	void DefendStart();
+
+	/// <summary>
+	/// Stops the commands execution.
+	/// </summary>
+	void DefendStop();
+
+	/// <summary>
+	/// Does the actual defending.
+	/// </summary>
+	void Defend();
 };
