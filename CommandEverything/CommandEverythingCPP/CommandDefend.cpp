@@ -52,11 +52,29 @@ string* CommandDefend::GetHelp()
 	return new string("Kills all applications that were not running before Defend was started.\r\n Usage: Defend Start to start Defend, Defend Stop to stop Defend.");
 }
 
+bool CommandDefend::DoesProcessExistInList(DWORD pID, DWORD numberOfProcesses)
+{
+	register DWORD length = numberOfProcesses;
+
+	for (register size_t i = 0; i < numberOfProcesses; i++)
+	{
+		if (pID == this->AllowedProcesses[i])
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void CommandDefend::DefendStart()
 {
-	typedef void (CommandDefend::*funcptr)();
-	funcptr ptr = &CommandDefend::DefendStart;
-	thread neW(&this->DefendStart());
+	if (this->DefenseThread != NULL)
+	{
+		delete this->DefenseThread;
+	}
+
+	this->DefenseThread = new thread(&CommandDefend::Defend, this);
 }
 
 void CommandDefend::DefendStop()
@@ -65,4 +83,41 @@ void CommandDefend::DefendStop()
 
 void CommandDefend::Defend()
 {
+	// Get the list of process identifiers.  
+	DWORD aProcesses[1024];
+	DWORD cbNeeded;
+	DWORD numberOfProcesses;
+
+	EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
+
+	numberOfProcesses = cbNeeded / sizeof(DWORD);
+
+	size_t i = 0;
+	HANDLE hProcess;
+	for (i = 0; i < numberOfProcesses; i++)
+	{
+		hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, aProcesses[i]);
+		this->AllowedProcesses[i] = GetProcessId(hProcess);
+	}
+
+	while (true)
+	{
+		EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
+
+		numberOfProcesses = cbNeeded / sizeof(DWORD);
+
+		i = 0;
+
+		for (i = 0; i < numberOfProcesses; i++)
+		{
+			//Get process handle.
+			hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, aProcesses[i]);
+
+			if (!this->DoesProcessExistInList(GetProcessId(hProcess), numberOfProcesses))
+			{
+				//Kill process.
+				TerminateProcess(hProcess, 1);
+			}
+		}
+	}
 }

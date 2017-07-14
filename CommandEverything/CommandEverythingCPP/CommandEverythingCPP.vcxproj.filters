@@ -109,7 +109,7 @@
       <Filter>Framework\Commands\Exit</Filter>
     </ClInclude>
     <ClInclude Include="CommandDefend.h">
-      <Filter>Header Files</Filter>
+      <Filter>Framework\WIP Commands\Defend</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -150,7 +150,7 @@
       <Filter>Framework\Commands\Exit</Filter>
     </ClCompile>
     <ClCompile Include="CommandDefend.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Framework\WIP Commands\Defend</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
