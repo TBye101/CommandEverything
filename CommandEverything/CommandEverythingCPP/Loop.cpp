@@ -38,11 +38,11 @@ void Loop::MainLoop()
 						name.append(*Commands->at(i)->GetName());
 						name.append(" --------------------");
 
-						Console->WriteLine(&name, 8);
+						Console->WriteLine(&name);
 						cout << "\r\n";
 						Commands->at(i)->Run(parsed);
 						cout << "\r\n";
-						Console->WriteLine(&name, 8);
+						Console->WriteLine(&name);
 						break;
 					}
 				}
@@ -55,7 +55,7 @@ void Loop::MainLoop()
 		{
 			string *message = new string("!Error!: ");
 			message->append(e->what());
-			Console->WriteLine(message, 3);
+			Console->WriteLine(message);
 			ToDelete->push_back(message);
 			continue;
 		}

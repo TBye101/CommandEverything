@@ -50,16 +50,16 @@ void MyHook::InstallHook()
 {
 	if (!(MyHook::Instance().hook = SetWindowsHookEx(WH_KEYBOARD_LL, MyKeyboardCallback, NULL, GetCurrentThreadId())))
 	{
-		Console->WriteLine("Could not install keyboard hook.", 3);
+		Console->WriteLine("Could not install keyboard hook.");
 		ostringstream stream;
 		stream << GetLastError();
 		string str = "Error: ";
 		str.append(stream.str());
-		Console->WriteLine(&str, 3);
+		Console->WriteLine(&str);
 	}
 	else
 	{
-		Console->WriteLine("Installed hook successfully", 6);
+		Console->WriteLine("Installed hook successfully");
 	}
 }
 

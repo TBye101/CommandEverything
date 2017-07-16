@@ -31,7 +31,7 @@ Writer::Writer()
 	else
 	{
 		string message = "Log has initialized successfully";
-		this->WriteLine(&message, 6);
+		this->WriteLine(&message);
 	}
 
 	ToDelete->push_back(file);
@@ -43,76 +43,28 @@ Writer::~Writer()
 	this->Log.close();
 }
 
-// Log levels:
-// EMERG (0)
-// ALERT (1)
-// CRIT (2)
-// ERR (3)
-// WARNING (4)
-// NOTICE (5)
-// INFO (6)
-// DEBUG (7)
-// NoColoring (8)
-void Writer::WriteLine(string *Str, char LogLevel)
+void Writer::WriteLine(string *Str)
 {
 	if (Str != NULL && Str->size() > 0)
 	{
-		string logme = this->GetTime();
-		logme.append(*Str);
-		logme.append("\r\n");
-
-		if (LogLevel != 8)
-		{
-			switch (LogLevel)
-			{
-			case 0:
-				lwlog_emerg("%s", logme.c_str());
-				break;
-			case 1:
-				lwlog_alert("%s", logme.c_str());
-				break;
-			case 2:
-				lwlog_crit("%s", logme.c_str());
-				break;
-			case 3:
-				lwlog_err("%s", logme.c_str());
-				break;
-			case 4:
-				lwlog_warning("%s", logme.c_str());
-				break;
-			case 5:
-				lwlog_notice("%s", logme.c_str());
-				break;
-			case 6:
-				lwlog_info("%s", logme.c_str());
-				break;
-			case 7:
-				lwlog_debug("%s", logme.c_str());
-				break;
-			default:
-				this->WriteLine("Log level not found!", 3);
-				break;
-			}
-		}
-		else
-		{
-			cout << logme;
-			cout.flush();
-		}
+		cout << this->GetTime();
+		cout << *Str;
+		cout << "\r\n";
+		cout.flush();
 		this->LogLine(Str);
 	}
 	else
 	{
 		string a = "Someone attempted to write a null or empty string to the console!";
-		this->WriteLine(&a, 3);
+		this->WriteLine(&a);
 	}
 }
 
-void Writer::WriteLine(const char* Str, char LogLevel)
+void Writer::WriteLine(const char* Str)
 {
 	delete this->Msg;
 	Msg = new string(Str);
-	this->WriteLine(this->Msg, LogLevel);
+	this->WriteLine(this->Msg);
 }
 
 void Writer::LogLine(string *Str)
