@@ -129,10 +129,10 @@ void CommandDefend::Defend()
 				}
 				else
 				{
-					string msg = "Failed to kill a process: ";
-					msg.append(converted);
-					Console->WriteLine(&msg);
-					Console->WriteLine(&to_string(GetLastError()));
+					//string msg = "Failed to kill a process: ";
+					//msg.append(converted);
+					//Console->WriteLine(&msg);
+					//Console->WriteLine(&to_string(GetLastError()));
 				}
 				delete buffer;
 			}
