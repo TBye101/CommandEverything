@@ -25,6 +25,8 @@ public:
 
 	string* GetHelp();
 private:
+	//If this is true, the defense thread will stop execution.
+	bool StopThread = false;
 	thread* DefenseThread;
 
 	/// <summary>

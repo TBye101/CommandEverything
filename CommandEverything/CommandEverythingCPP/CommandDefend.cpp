@@ -79,11 +79,12 @@ void CommandDefend::DefendStart()
 
 void CommandDefend::DefendStop()
 {
-	delete this->DefenseThread;
+	this->StopThread = true;
 }
 
 void CommandDefend::Defend()
 {
+	this->StopThread = false;
 	// Get the list of process identifiers.  
 	register DWORD aProcesses[1024];
 	DWORD cbNeeded;
@@ -100,6 +101,10 @@ void CommandDefend::Defend()
 	DWORD CID = GetCurrentProcessId();
 	while (true)
 	{
+		if (this->StopThread)
+		{
+			break;
+		}
 		EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
 		i = 0;
 		numberOfProcesses = cbNeeded / sizeof(DWORD);
