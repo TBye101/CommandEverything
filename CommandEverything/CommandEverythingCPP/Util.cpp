@@ -21,7 +21,7 @@ string* Util::GetLine()
 	char a;
 
 	//The number of characters we suggested that the user didn't.
-	unsigned int suggestedchars = 0;
+	register unsigned int suggestedchars = 0;
 
 	while (last[1] != '\\' && last[0] != 'r')
 	{
@@ -35,7 +35,7 @@ string* Util::GetLine()
 
 		if (a == '\b')
 		{
-			for (size_t i = 0; i < suggestedchars; i++)
+			for (register size_t i = 0; i < suggestedchars; i++)
 			{
 				cout << "\b \b";
 				ret->pop_back();

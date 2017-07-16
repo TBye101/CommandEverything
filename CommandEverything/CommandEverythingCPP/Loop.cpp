@@ -81,8 +81,8 @@ void Loop::Startup()
 
 	AddAllCommands();
 
-	size_t length = Commands->size();
-	for (size_t i = 0; i < length; i++)
+	register size_t length = Commands->size();
+	for (register size_t i = 0; i < length; i++)
 	{
 		CommandNames->push_back(Commands->at(i)->GetName());
 	}
