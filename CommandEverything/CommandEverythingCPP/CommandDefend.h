@@ -1,7 +1,7 @@
 #pragma once
 
 #include <thread>
-#include <windows.h>
+#include <processthreadsapi.h>
 #include <process.h>
 #include <Tlhelp32.h>
 #include <winbase.h>
