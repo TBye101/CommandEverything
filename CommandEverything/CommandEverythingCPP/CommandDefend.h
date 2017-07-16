@@ -35,6 +35,11 @@ private:
 	DWORD AllowedProcesses[1024];
 	
 	/// <summary>
+	/// A list of programs that we failed to kill.
+	/// </summary>
+	vector<DWORD> FailedHitList;
+	
+	/// <summary>
 	/// Determines if the given process exists in RunningProcesses.
 	/// </summary>
 	/// <returns></returns>

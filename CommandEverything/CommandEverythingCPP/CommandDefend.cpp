@@ -55,10 +55,20 @@ string* CommandDefend::GetHelp()
 bool CommandDefend::DoesProcessExistInList(DWORD pID, DWORD numberOfProcesses)
 {
 	register DWORD length = numberOfProcesses;
+	register size_t i;
 
-	for (register size_t i = 0; i < numberOfProcesses; i++)
+	for (i = 0; i < numberOfProcesses; i++)
 	{
 		if (pID == this->AllowedProcesses[i])
+		{
+			return true;
+		}
+	}
+
+	length = this->FailedHitList.size();
+	for (i = 0; i < length; i++)
+	{
+		if (pID == this->FailedHitList[i])
 		{
 			return true;
 		}
@@ -120,6 +130,7 @@ void CommandDefend::Defend()
 				GetModuleFileNameEx(hProcess, NULL, buffer, MAX_PATH);
 				wstring ws(buffer);
 				string converted(ws.begin(), ws.end());
+
 				//Kill process.
 				if (TerminateProcess(hProcess, 1))
 				{
@@ -129,10 +140,11 @@ void CommandDefend::Defend()
 				}
 				else
 				{
-					//string msg = "Failed to kill a process: ";
-					//msg.append(converted);
-					//Console->WriteLine(&msg);
-					//Console->WriteLine(&to_string(GetLastError()));
+					this->FailedHitList.push_back(aProcesses[i]);
+					string msg = "Failed to kill a process: ";
+					msg.append(converted);
+					Console->WriteLine(&msg);
+					Console->WriteLine(&to_string(GetLastError()));
 				}
 				delete buffer;
 			}
