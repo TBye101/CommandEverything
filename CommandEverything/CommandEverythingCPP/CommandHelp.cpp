@@ -24,7 +24,7 @@ void CommandHelp::Run(ParsedCommand * Parsed)
 		help.append(*Commands->at(i)->GetName());
 		help.append(": ");
 		help.append(*Commands->at(i)->GetHelp());
-		Console->WriteLine(&help);
+		Console->WriteLine(&help, 8);
 	}
 }
 

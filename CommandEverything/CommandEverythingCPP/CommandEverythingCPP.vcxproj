@@ -147,7 +147,6 @@
     <ClInclude Include="Filing.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Loop.h" />
-    <ClInclude Include="lwlog.h" />
     <ClInclude Include="ParsedCommand.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TabCompletion.h" />

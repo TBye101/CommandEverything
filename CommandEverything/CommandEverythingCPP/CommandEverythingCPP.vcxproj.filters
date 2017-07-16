@@ -90,9 +90,6 @@
     <ClInclude Include="Loop.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="lwlog.h">
-      <Filter>External</Filter>
-    </ClInclude>
     <ClInclude Include="CommandHelp.h">
       <Filter>Framework\Commands\Help</Filter>
     </ClInclude>

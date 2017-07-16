@@ -31,7 +31,7 @@ Writer::Writer()
 	else
 	{
 		string message = "Log has initialized successfully";
-		this->WriteLine(&message);
+		this->WriteLine(&message, 6);
 	}
 
 	ToDelete->push_back(file);
@@ -43,32 +43,76 @@ Writer::~Writer()
 	this->Log.close();
 }
 
-//0 = Red
-//1 = Yellow
-//2 = Green
-//3 = Default/Grey
-void Writer::WriteLine(string *Str)
+// Log levels:
+// EMERG (0)
+// ALERT (1)
+// CRIT (2)
+// ERR (3)
+// WARNING (4)
+// NOTICE (5)
+// INFO (6)
+// DEBUG (7)
+// NoColoring (8)
+void Writer::WriteLine(string *Str, char LogLevel)
 {
 	if (Str != NULL && Str->size() > 0)
 	{
-		cout << this->GetTime();
-		cout << *Str;
-		cout << "\r\n";
-		cout.flush();
+		string logme = this->GetTime();
+		logme.append(*Str);
+		logme.append("\r\n");
+
+		if (LogLevel != 8)
+		{
+			switch (LogLevel)
+			{
+			case 0:
+				lwlog_emerg("%s", logme.c_str());
+				break;
+			case 1:
+				lwlog_alert("%s", logme.c_str());
+				break;
+			case 2:
+				lwlog_crit("%s", logme.c_str());
+				break;
+			case 3:
+				lwlog_err("%s", logme.c_str());
+				break;
+			case 4:
+				lwlog_warning("%s", logme.c_str());
+				break;
+			case 5:
+				lwlog_notice("%s", logme.c_str());
+				break;
+			case 6:
+				lwlog_info("%s", logme.c_str());
+				break;
+			case 7:
+				lwlog_debug("%s", logme.c_str());
+				break;
+			default:
+				this->WriteLine("Log level not found!", 3);
+				break;
+			}
+		}
+		else
+		{
+			cout << logme;
+			cout.flush();
+		}
 		this->LogLine(Str);
 	}
 	else
 	{
 		string a = "Someone attempted to write a null or empty string to the console!";
-		this->WriteLine(&a);
+		this->WriteLine(&a, 3);
 	}
 }
 
-void Writer::WriteLine(const char* Str)
+void Writer::WriteLine(const char* Str, char LogLevel)
 {
 	delete this->Msg;
 	Msg = new string(Str);
-	this->WriteLine(this->Msg);
+	this->WriteLine(this->Msg, LogLevel);
 }
 
 void Writer::LogLine(string *Str)
@@ -79,7 +123,7 @@ void Writer::LogLine(string *Str)
 	this->Log.flush();
 }
 
-const char * Writer::GetTime()
+const char* Writer::GetTime()
 {
 	string* Formatted = new string("[");
 	time_t rawtime;
