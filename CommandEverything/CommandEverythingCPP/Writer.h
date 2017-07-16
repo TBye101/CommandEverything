@@ -1,15 +1,10 @@
 #pragma once
 
 #include <iostream>
-#include <time.h>
-#include <cstdio>
-#include <ctime>
 #include <fstream>
 #include <iostream>
-#include <locale>
 #include <codecvt>
 #include <iostream>
-
 #include "Filing.h"
 #include "TermColor.hpp"
 
