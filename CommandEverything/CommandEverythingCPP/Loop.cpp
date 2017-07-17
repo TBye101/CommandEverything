@@ -22,9 +22,13 @@ void Loop::MainLoop()
 			getline(cin, Input);
 			Console->LogLine(&Input);
 
-			std::transform(Input.begin(), Input.end(), Input.begin(), ::tolower);
-
 			parsed = new ParsedCommand(&Input);
+
+			//convert the first word into the lower case
+			string first = parsed->Words->at(0);
+			transform(first.begin(), first.end(), first.begin(), ::tolower);
+			parsed->Words->at(0) = first;
+
 			//if there is valid input....
 			if (parsed->Words->size() > 0)
 			{
@@ -34,15 +38,15 @@ void Loop::MainLoop()
 				{
 					if (Commands->at(i)->ShouldRunThisCommand(parsed))
 					{
-						string name = "-------------------- ";
-						name.append(*Commands->at(i)->GetName());
-						name.append(" --------------------");
+						//string name = "-------------------- ";
+						//name.append(*Commands->at(i)->GetName());
+						//name.append(" --------------------");
 
-						Console->WriteLine(&name);
-						cout << "\r\n";
+						//Console->WriteLine(&name);
+						//cout << "\r\n";
 						Commands->at(i)->Run(parsed);
-						cout << "\r\n";
-						Console->WriteLine(&name);
+						//cout << "\r\n";
+						//Console->WriteLine(&name);
 						break;
 					}
 				}
@@ -101,4 +105,5 @@ void Loop::AddAllCommands()
 	Commands->push_back(new CommandStart());
 	Commands->push_back(new CommandDefend());
 	Commands->push_back(new CommandList());
+	Commands->push_back(new CommandCd());
 }

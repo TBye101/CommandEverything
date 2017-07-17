@@ -26,6 +26,13 @@ public:
 	/// </summary>
 	void Startup();
 
+	/// <summary>
+	/// Determines if the specified directory exists.
+	/// </summary>
+	/// <param name="Path"></param>
+	/// <returns></returns>
+	bool DoesDirectoryExist(string* Path);
+
 private:
 
 	/// <summary>

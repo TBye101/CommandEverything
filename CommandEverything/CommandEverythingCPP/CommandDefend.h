@@ -7,6 +7,7 @@
 #include <winbase.h>
 #include <string.h>
 #include <Psapi.h>
+#include <algorithm>
 
 /// <summary>
 /// Defends against new programs being launched.

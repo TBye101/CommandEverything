@@ -16,6 +16,24 @@ void Filing::Startup()
 	CreateDirectory(LogDirectoryPath->c_str(), NULL);
 }
 
+bool Filing::DoesDirectoryExist(string* Path)
+{
+	DWORD ftyp = GetFileAttributesA(Path->c_str());
+
+	if (ftyp == INVALID_FILE_ATTRIBUTES)
+	{
+		Console->WriteLine("Invalid path!");
+		return false;  //something is wrong with your path!
+	}
+
+	if (ftyp & FILE_ATTRIBUTE_DIRECTORY)
+	{
+		return true;   // this is a directory!
+	}
+
+	return false;    // this is not a directory!
+}
+
 wstring* Filing::GetPathToExe()
 {
 #ifdef UNICODE

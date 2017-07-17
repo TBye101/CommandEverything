@@ -25,14 +25,16 @@ void CommandDefend::Run(ParsedCommand* Parsed)
 		Console->WriteLine(&error);
 		return;
 	}
+	string second = Parsed->Words->at(1);
+	std::transform(second.begin(), second.end(), second.begin(), ::tolower);
 
-	if (Parsed->Words->at(1) == "start")
+	if (second == "start")
 	{
 		this->DefendStart();
 		return;
 	}
 
-	if (Parsed->Words->at(1) == "stop")
+	if (second == "stop")
 	{
 		this->DefendStop();
 		return;

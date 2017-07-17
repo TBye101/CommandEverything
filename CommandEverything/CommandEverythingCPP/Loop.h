@@ -11,6 +11,7 @@
 #include "CommandExit.h"
 #include "CommandDefend.h"
 #include "CommandList.h"
+#include "CommandCd.h"
 
 using namespace std;
 
