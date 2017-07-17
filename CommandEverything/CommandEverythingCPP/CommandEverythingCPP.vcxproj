@@ -140,6 +140,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommandCd.h" />
     <ClInclude Include="CommandDefend.h" />
     <ClInclude Include="CommandExit.h" />
     <ClInclude Include="CommandHelp.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Writer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CommandCd.cpp" />
     <ClCompile Include="CommandDefend.cpp" />
     <ClCompile Include="CommandEverythingCPP.cpp" />
     <ClCompile Include="CommandExit.cpp" />

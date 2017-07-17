@@ -111,6 +111,9 @@
     <ClInclude Include="dirent.h">
       <Filter>External</Filter>
     </ClInclude>
+    <ClInclude Include="CommandCd.h">
+      <Filter>Framework\WIP Commands\Cd</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -151,6 +154,9 @@
     </ClCompile>
     <ClCompile Include="CommandList.cpp">
       <Filter>Framework\WIP Commands\List</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandCd.cpp">
+      <Filter>Framework\WIP Commands\Cd</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
