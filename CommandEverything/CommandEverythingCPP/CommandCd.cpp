@@ -23,7 +23,7 @@ void CommandCd::Run(ParsedCommand* Parsed)
 
 	if (Files->DoesDirectoryExist(&arg))
 	{
-		FilePath->append(arg);
+		FilePath->append(Parsed->Words->at(1));
 		FilePath->append("/");
 	}
 	else

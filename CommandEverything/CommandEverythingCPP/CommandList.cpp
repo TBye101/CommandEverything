@@ -28,10 +28,13 @@ void CommandList::Run(ParsedCommand* Parsed)
 		struct dirent *ent;
 		if ((dir = opendir(FilePath->c_str())) != NULL)
 		{
-			//print all the files and directories within directory
+			//print all the directories within directory
 			while ((ent = readdir(dir)) != NULL) 
 			{
-				Console->WriteLine(ent->d_name);
+				if (ent->d_type == DT_DIR)
+				{
+					Console->WriteLine(ent->d_name);
+				}
 			}
 			closedir(dir);
 		}
