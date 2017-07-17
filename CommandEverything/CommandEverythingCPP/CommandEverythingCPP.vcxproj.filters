@@ -114,9 +114,6 @@
     <ClInclude Include="CommandCd.h">
       <Filter>Framework\WIP Commands\Cd</Filter>
     </ClInclude>
-    <ClInclude Include="TESTC.c">
-      <Filter>External</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
