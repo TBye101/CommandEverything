@@ -26,18 +26,26 @@ void CommandList::Run(ParsedCommand* Parsed)
 	{
 		DIR *dir;
 		struct dirent *ent;
-		if ((dir = opendir("c:\\src\\")) != NULL) {
-			/* print all the files and directories within directory */
-			while ((ent = readdir(dir)) != NULL) {
-				printf("%s\n", ent->d_name);
+		if ((dir = opendir(FilePath->c_str())) != NULL)
+		{
+			//print all the files and directories within directory
+			while ((ent = readdir(dir)) != NULL) 
+			{
+				Console->WriteLine(ent->d_name);
 			}
 			closedir(dir);
 		}
-		else {
-			/* could not open directory */
-			perror("");
-			return EXIT_FAILURE;
+		else
+		{
+			//could not open directory
+			string err = "Could not open directory";
+			err.append("\"");
+			err.append(*FilePath);
+			err.append("\"");
+			Console->WriteLine(&err);
 		}
+		ToDelete->push_back(dir);
+		ToDelete->push_back(ent);
 	}
 }
 
@@ -48,7 +56,7 @@ string* CommandList::GetName()
 
 string* CommandList::GetHelp()
 {
-	return new string("Lists all availible options for the current state of the cd command.\r\n [Optional Flag] \"List directory\" will show only valid directories.");
+	return new string("Lists all availible options for the current state of the cd command.\r\n");
 }
 
 void CommandList::ListDriveLetters()

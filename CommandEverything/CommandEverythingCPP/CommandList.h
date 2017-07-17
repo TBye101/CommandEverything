@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h>
-#include <dire>
+#include "dirent.h"
 
 /// <summary>
 /// Lists all availible options for the Cd command.
