@@ -100,10 +100,10 @@ void Loop::Startup()
 /// </summary>
 void Loop::AddAllCommands()
 {
+	Commands->push_back(new CommandCd());
+	Commands->push_back(new CommandDefend());
 	Commands->push_back(new CommandExit());
 	Commands->push_back(new CommandHelp());
-	Commands->push_back(new CommandStart());
-	Commands->push_back(new CommandDefend());
 	Commands->push_back(new CommandList());
-	Commands->push_back(new CommandCd());
+	Commands->push_back(new CommandStart());
 }
