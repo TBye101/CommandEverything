@@ -18,6 +18,7 @@ bool CommandCd::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandCd::Run(ParsedCommand* Parsed)
 {
+	//TODO: Handle spaces in path by wrapping " " around them. Must reparse ParsedCommand from this method to do this.
 	string arg = *FilePath;
 	arg.append(Parsed->Words->at(1));
 
