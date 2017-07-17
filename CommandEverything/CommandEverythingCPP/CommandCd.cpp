@@ -18,18 +18,34 @@ bool CommandCd::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandCd::Run(ParsedCommand* Parsed)
 {
-	//TODO: Handle spaces in path by wrapping " " around them. Must reparse ParsedCommand from this method to do this.
 	string arg = *FilePath;
-	arg.append(Parsed->Words->at(1));
+	register size_t i;
+	register size_t length = Parsed->Words->size();
+
+	//arg.append("\"");
+
+	for (i = 0; i < length; i++)
+	{
+
+		if (i != 0)
+		{
+			arg.append(Parsed->Words->at(i));
+		}
+	}
+
+	//arg.append("\"");
 
 	if (Files->DoesDirectoryExist(&arg))
 	{
 		FilePath->append(Parsed->Words->at(1));
-		FilePath->append("/");
+		FilePath->append("\\");
 	}
 	else
 	{
+		string invalid = "Invalid directory: ";
+		invalid.append(arg);
 		Console->WriteLine("Directory does not exist!");
+		Console->WriteLine(&invalid);
 	}
 }
 
@@ -40,5 +56,5 @@ string* CommandCd::GetName()
 
 string* CommandCd::GetHelp()
 {
-	return new string("Changes the directory we are working from, just like in CMD.");
+	return new string("Changes the directory we are working from, just like in CMD. Cd \"..\" goes up to the parent directory, while cd \".\" goes to the current directory.");
 }
