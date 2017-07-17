@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "CommandExit.h"
 #include "CommandDefend.h"
+#include "CommandList.h"
 
 using namespace std;
 

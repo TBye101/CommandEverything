@@ -100,4 +100,5 @@ void Loop::AddAllCommands()
 	Commands->push_back(new CommandHelp());
 	Commands->push_back(new CommandStart());
 	Commands->push_back(new CommandDefend());
+	Commands->push_back(new CommandList());
 }

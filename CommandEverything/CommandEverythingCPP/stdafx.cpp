@@ -15,4 +15,4 @@ Filing* Files = new Filing();
 
 vector<ICommand*>* Commands = new vector<ICommand*>();
 vector<string*>* CommandNames = new vector<string*>();
-string* FilePath = new string();
+string* FilePath = new string("");

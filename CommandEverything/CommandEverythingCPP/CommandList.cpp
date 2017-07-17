@@ -18,7 +18,7 @@ bool CommandList::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandList::Run(ParsedCommand* Parsed)
 {
-	if (FilePath->c_str() == "")
+	if (FilePath->empty())
 	{
 		this->ListDriveLetters();
 	}
@@ -38,7 +38,7 @@ void CommandList::Run(ParsedCommand* Parsed)
 		else
 		{
 			//could not open directory
-			string err = "Could not open directory";
+			string err = "Could not open directory ";
 			err.append("\"");
 			err.append(*FilePath);
 			err.append("\"");
@@ -61,17 +61,16 @@ string* CommandList::GetHelp()
 
 void CommandList::ListDriveLetters()
 {
-	register unsigned long mydrives = 100; // buffer length
+	unsigned long mydrives = 100; // buffer length
 	wchar_t lpBuffer[100]; // buffer for drive string storage
 	unsigned long test = GetLogicalDriveStrings(mydrives, lpBuffer);
-
+	__int8 drives = test / 4;
 	string drive = "";
 	char strbuffer[64];
-	for (register unsigned __int8 i = 0; i < mydrives; i++)
+	for (unsigned __int8 i = 0; i < drives; i++)
 	{
-		drive = "";
-		wctomb(strbuffer, lpBuffer[i]);
-		drive.append(strbuffer);
+		wctomb(strbuffer, lpBuffer[i * 4]);
+		drive = strbuffer[0];
 		drive.append(":/");
 		Console->WriteLine(&drive);
 	}
