@@ -145,6 +145,7 @@
     <ClInclude Include="CommandHelp.h" />
     <ClInclude Include="CommandList.h" />
     <ClInclude Include="CommandStart.h" />
+    <ClInclude Include="dirent.h" />
     <ClInclude Include="Filing.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Loop.h" />

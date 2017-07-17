@@ -108,6 +108,9 @@
     <ClInclude Include="CommandList.h">
       <Filter>Framework\WIP Commands\List</Filter>
     </ClInclude>
+    <ClInclude Include="dirent.h">
+      <Filter>External</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
