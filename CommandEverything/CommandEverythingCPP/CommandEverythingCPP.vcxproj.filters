@@ -105,6 +105,9 @@
     <ClInclude Include="CommandDefend.h">
       <Filter>Framework\WIP Commands\Defend</Filter>
     </ClInclude>
+    <ClInclude Include="CommandList.h">
+      <Filter>Framework\WIP Commands\List</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -142,6 +145,9 @@
     </ClCompile>
     <ClCompile Include="CommandDefend.cpp">
       <Filter>Framework\WIP Commands\Defend</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandList.cpp">
+      <Filter>Framework\WIP Commands\List</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
