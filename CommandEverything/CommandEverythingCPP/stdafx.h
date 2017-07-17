@@ -17,13 +17,13 @@
 #include "Util.h"
 #include "ICommand.h"
 #include "Filing.h"
-#include "TabCompletion.h"
+//#include "TabCompletion.h"
 
 extern vector<void*>* ToDelete;
 extern Writer* Console;
 extern Util* Utility;
 extern Filing* Files;
-extern TabCompletion* Complete;
+//extern TabCompletion* Complete;
 
 /// <summary>
 /// All known commands.
@@ -34,3 +34,11 @@ extern vector<ICommand*>* Commands;
 /// Used by the auto complete function.
 /// </summary>
 extern vector<string*>* CommandNames;
+
+
+/// <summary>
+/// The filepath that this program is currently operating in.
+/// Note: Not the filepath to the exe, but rather where the user is accessing files/directories from.
+/// In CMD terms, it would be wherever cd is.
+/// </summary>
+extern string* FilePath;

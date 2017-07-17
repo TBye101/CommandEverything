@@ -99,9 +99,6 @@
     <ClInclude Include="ParsedCommand.h">
       <Filter>Framework\Util\Command</Filter>
     </ClInclude>
-    <ClInclude Include="TabCompletion.h">
-      <Filter>Framework\Util</Filter>
-    </ClInclude>
     <ClInclude Include="CommandExit.h">
       <Filter>Framework\Commands\Exit</Filter>
     </ClInclude>
@@ -139,9 +136,6 @@
     </ClCompile>
     <ClCompile Include="ParsedCommand.cpp">
       <Filter>Framework\Util\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="TabCompletion.cpp">
-      <Filter>Framework\Util</Filter>
     </ClCompile>
     <ClCompile Include="CommandExit.cpp">
       <Filter>Framework\Commands\Exit</Filter>
