@@ -15,10 +15,12 @@ Loop::~Loop()
 /// </summary>
 void Loop::MainLoop()
 {
+	bool CommandRun = false;
 	while (true)
 	{
 		try
 		{
+			CommandRun = false;
 			getline(cin, Input);
 			Console->LogLine(&Input);
 
@@ -38,17 +40,15 @@ void Loop::MainLoop()
 				{
 					if (Commands->at(i)->ShouldRunThisCommand(parsed))
 					{
-						//string name = "-------------------- ";
-						//name.append(*Commands->at(i)->GetName());
-						//name.append(" --------------------");
-
-						//Console->WriteLine(&name);
-						//cout << "\r\n";
 						Commands->at(i)->Run(parsed);
-						//cout << "\r\n";
-						//Console->WriteLine(&name);
+						CommandRun = true;
 						break;
 					}
+				}
+
+				if (!CommandRun)
+				{
+					Console->WriteLine("Invalid Command!");
 				}
 			}
 

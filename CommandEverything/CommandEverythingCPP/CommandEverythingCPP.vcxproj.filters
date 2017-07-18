@@ -61,7 +61,7 @@
     <Filter Include="Framework\Commands\Defend">
       <UniqueIdentifier>{223279d5-59c1-4794-8998-459ec4523013}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Execute">
+    <Filter Include="Framework\Commands\Execute">
       <UniqueIdentifier>{ed7578ad-462b-4d25-97ad-f8265620986b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -112,7 +112,7 @@
       <Filter>Framework\WIP Commands\Cd</Filter>
     </ClInclude>
     <ClInclude Include="CommandExecute.h">
-      <Filter>Framework\WIP Commands\Execute</Filter>
+      <Filter>Framework\Commands\Execute</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -159,7 +159,7 @@
       <Filter>Framework\WIP Commands\Cd</Filter>
     </ClCompile>
     <ClCompile Include="CommandExecute.cpp">
-      <Filter>Framework\WIP Commands\Execute</Filter>
+      <Filter>Framework\Commands\Execute</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
