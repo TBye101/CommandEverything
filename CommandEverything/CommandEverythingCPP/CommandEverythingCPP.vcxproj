@@ -137,11 +137,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="CommandCd.h" />
     <ClInclude Include="CommandDefend.h" />
+    <ClInclude Include="CommandExecute.h" />
     <ClInclude Include="CommandExit.h" />
     <ClInclude Include="CommandHelp.h" />
     <ClInclude Include="CommandList.h" />
@@ -160,6 +158,7 @@
     <ClCompile Include="CommandCd.cpp" />
     <ClCompile Include="CommandDefend.cpp" />
     <ClCompile Include="CommandEverythingCPP.cpp" />
+    <ClCompile Include="CommandExecute.cpp" />
     <ClCompile Include="CommandExit.cpp" />
     <ClCompile Include="CommandHelp.cpp" />
     <ClCompile Include="CommandList.cpp" />
