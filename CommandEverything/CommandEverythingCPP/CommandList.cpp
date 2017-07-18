@@ -57,6 +57,8 @@ void CommandList::Run(ParsedCommand* Parsed)
 					}
 					closedir(dir);
 				}
+
+				ToDelete->push_back(ent);
 			}
 			else
 			{
@@ -68,7 +70,6 @@ void CommandList::Run(ParsedCommand* Parsed)
 				Console->WriteLine(&err);
 			}
 			ToDelete->push_back(dir);
-			ToDelete->push_back(ent);
 	}
 }
 
