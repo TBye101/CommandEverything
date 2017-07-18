@@ -13,6 +13,7 @@
 #include "CommandList.h"
 #include "CommandCd.h"
 #include "CommandExecute.h"
+#include "CommandDelete.h"
 
 using namespace std;
 

@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClInclude Include="CommandCd.h" />
     <ClInclude Include="CommandDefend.h" />
+    <ClInclude Include="CommandDelete.h" />
     <ClInclude Include="CommandExecute.h" />
     <ClInclude Include="CommandExit.h" />
     <ClInclude Include="CommandHelp.h" />
@@ -157,6 +158,7 @@
   <ItemGroup>
     <ClCompile Include="CommandCd.cpp" />
     <ClCompile Include="CommandDefend.cpp" />
+    <ClCompile Include="CommandDelete.cpp" />
     <ClCompile Include="CommandEverythingCPP.cpp" />
     <ClCompile Include="CommandExecute.cpp" />
     <ClCompile Include="CommandExit.cpp" />
