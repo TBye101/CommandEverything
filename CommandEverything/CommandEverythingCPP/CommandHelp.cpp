@@ -25,8 +25,11 @@ void CommandHelp::Run(ParsedCommand * Parsed)
 		help.append(": ");
 		help.append(*Commands->at(i)->GetHelp());
 		Console->WriteLine(&help);
-		Console->WriteLine(" ");
-		Console->WriteLine(" ");
+
+		cout << "\r\n";
+		cout << "\r\n";
+		Console->Log << "\r\n";
+		Console->Log << "\r\n";
 	}
 }
 
