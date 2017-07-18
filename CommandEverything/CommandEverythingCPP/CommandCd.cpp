@@ -17,41 +17,31 @@ bool CommandCd::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandCd::Run(ParsedCommand* Parsed)
 {
-	//If we need to go up a directory.
-	if (Parsed->Words->at(1) == "..")
+	if (Parsed->Words->size() < 2)
 	{
-		this->GotoParentDir();
-		Console->WriteLine(FilePath);
-		return;
-	}
-
-	string arg = *FilePath;
-	register size_t i;
-	register size_t length = Parsed->Words->size();
-
-	for (i = 0; i < length; i++)
-	{
-
-		if (i != 0)
-		{
-			arg.append(Parsed->Words->at(i));
-		}
-	}
-
-	if (Files->DoesDirectoryExist(&arg))
-	{
-		FilePath->append(Parsed->Words->at(1));
-		FilePath->append("\\");
+		Console->WriteLine("Missing required argument.");
 	}
 	else
 	{
-		string invalid = "Invalid directory: ";
-		invalid.append(arg);
-		Console->WriteLine("Directory does not exist!");
-		Console->WriteLine(&invalid);
-	}
+		//If we need to go up a directory.
+		if (Parsed->Words->at(1) == "..")
+		{
+			this->GotoParentDir();
+			Console->WriteLine(FilePath);
+			return;
+		}
 
-	Console->WriteLine(FilePath);
+		//If we need to stay at the same one.
+		if (Parsed->Words->at(1) == ".")
+		{
+			return;
+		}
+
+		//If we want to go deeper into a subdirectory.
+		this->CdNormal(Parsed);
+
+		Console->WriteLine(FilePath);
+	}
 }
 
 string* CommandCd::GetName()
@@ -94,5 +84,34 @@ void CommandCd::GotoParentDir()
 			}
 		}
 		--i;
+	}
+}
+
+void CommandCd::CdNormal(ParsedCommand* Parsed)
+{
+	string arg = *FilePath;
+	register size_t i;
+	register size_t length = Parsed->Words->size();
+
+	for (i = 0; i < length; i++)
+	{
+
+		if (i != 0)
+		{
+			arg.append(Parsed->Words->at(i));
+		}
+	}
+
+	if (Files->DoesDirectoryExist(&arg))
+	{
+		FilePath->append(Parsed->Words->at(1));
+		FilePath->append("\\");
+	}
+	else
+	{
+		string invalid = "Invalid directory: ";
+		invalid.append(arg);
+		Console->WriteLine("Directory does not exist!");
+		Console->WriteLine(&invalid);
 	}
 }

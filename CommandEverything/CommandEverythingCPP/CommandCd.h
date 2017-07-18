@@ -21,5 +21,10 @@ private:
 	/// Does some logic for when the user wants to go to the parent directory.
 	/// </summary>
 	void GotoParentDir();
+
+	/// <summary>
+	/// Actually cds a normal input.
+	/// </summary>
+	void CdNormal(ParsedCommand*);
 };
 
