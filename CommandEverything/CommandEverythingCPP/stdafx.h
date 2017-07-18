@@ -41,3 +41,8 @@ extern vector<string*>* CommandNames;
 /// In CMD terms, it would be wherever cd is.
 /// </summary>
 extern string* FilePath;
+
+/// <summary>
+/// The last user input.
+/// </summary>
+extern string Input;

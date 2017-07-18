@@ -48,11 +48,6 @@ private:
 	void AddAllCommands();
 
 	/// <summary>
-	/// The last user input.
-	/// </summary>
-	string Input;
-
-	/// <summary>
 	/// The current or last parsed command.
 	/// </summary>
 	ParsedCommand* parsed;

@@ -47,7 +47,6 @@ void Writer::WriteLine(string *Str)
 {
 	if (Str != NULL && Str->size() > 0)
 	{
-		cout << this->GetTime();
 		cout << *Str;
 		cout << "\r\n";
 		cout.flush();
