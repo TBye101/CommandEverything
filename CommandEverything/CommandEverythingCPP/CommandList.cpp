@@ -80,7 +80,7 @@ string* CommandList::GetName()
 
 string* CommandList::GetHelp()
 {
-	return new string("Lists all availible options for the current state of the cd command.\r\n If you use \"List files\" you get all the files within the working directory.");
+	return new string("Lists all available options for the current state of the cd command.\r\n If you use \"List files\" you get all the files within the working directory.");
 }
 
 void CommandList::ListDriveLetters()
