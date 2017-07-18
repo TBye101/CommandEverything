@@ -18,37 +18,57 @@ bool CommandList::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandList::Run(ParsedCommand* Parsed)
 {
-	if (FilePath->empty())
+	bool ShowingFilesOnly = false;
+	if (Parsed->Words->size() == 2 && Parsed->Words->at(1) == "files")
 	{
-		this->ListDriveLetters();
+		ShowingFilesOnly = true;
 	}
-	else
-	{
-		DIR *dir;
-		struct dirent *ent;
-		if ((dir = opendir(FilePath->c_str())) != NULL)
+		if (FilePath->empty())
 		{
-			//print all the directories within directory
-			while ((ent = readdir(dir)) != NULL) 
-			{
-				if (ent->d_type == DT_DIR)
-				{
-					Console->WriteLine(ent->d_name);
-				}
-			}
-			closedir(dir);
+			this->ListDriveLetters();
 		}
 		else
 		{
-			//could not open directory
-			string err = "Could not open directory ";
-			err.append("\"");
-			err.append(*FilePath);
-			err.append("\"");
-			Console->WriteLine(&err);
-		}
-		ToDelete->push_back(dir);
-		ToDelete->push_back(ent);
+			DIR *dir;
+			struct dirent *ent;
+			if ((dir = opendir(FilePath->c_str())) != NULL)
+			{
+				//print all the directories within directory
+				if (ShowingFilesOnly)
+				{
+					while ((ent = readdir(dir)) != NULL)
+					{
+						//https://www.gnu.org/software/libc/manual/html_node/Directory-Entries.html has useful information on type flags.
+						if (ent->d_type == DT_REG)
+						{
+							Console->WriteLine(ent->d_name);
+						}
+					}
+					closedir(dir);
+				}
+				else
+				{
+					while ((ent = readdir(dir)) != NULL)
+					{
+						if (ent->d_type == DT_DIR)
+						{
+							Console->WriteLine(ent->d_name);
+						}
+					}
+					closedir(dir);
+				}
+			}
+			else
+			{
+				//could not open directory
+				string err = "Could not open directory ";
+				err.append("\"");
+				err.append(*FilePath);
+				err.append("\"");
+				Console->WriteLine(&err);
+			}
+			ToDelete->push_back(dir);
+			ToDelete->push_back(ent);
 	}
 }
 
@@ -59,7 +79,7 @@ string* CommandList::GetName()
 
 string* CommandList::GetHelp()
 {
-	return new string("Lists all availible options for the current state of the cd command.\r\n");
+	return new string("Lists all availible options for the current state of the cd command.\r\n If you use \"List files\" you get all the files within the working directory.");
 }
 
 void CommandList::ListDriveLetters()

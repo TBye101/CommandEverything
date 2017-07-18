@@ -21,10 +21,5 @@ private:
 	/// Does some logic for when the user wants to go to the parent directory.
 	/// </summary>
 	void GotoParentDir();
-
-	/// <summary>
-	/// Does some logic for when the user wants to go to the same directory the user is currently in.
-	/// </summary>
-	void GotoSameDir();
 };
 

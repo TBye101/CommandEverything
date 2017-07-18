@@ -25,14 +25,6 @@ void CommandCd::Run(ParsedCommand* Parsed)
 		return;
 	}
 
-	//If we need to stay at the same directory.
-	if (Parsed->Words->at(1) == ".")
-	{
-		this->GotoSameDir();
-		Console->WriteLine(FilePath);
-		return;
-	}
-
 	string arg = *FilePath;
 	register size_t i;
 	register size_t length = Parsed->Words->size();
@@ -103,9 +95,4 @@ void CommandCd::GotoParentDir()
 		}
 		--i;
 	}
-}
-
-void CommandCd::GotoSameDir()
-{
-	Console->WriteLine("GotoSameDir() is not implemented");
 }
