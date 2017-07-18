@@ -62,7 +62,7 @@ void CommandCd::GotoParentDir()
 
 	while (i != 0)
 	{
-		if (FilePath->at(i) == '\\')
+		if (FilePath->at(i - 1) == '\\')
 		{
 			if (!Slashfound)
 			{
@@ -73,7 +73,6 @@ void CommandCd::GotoParentDir()
 			{
 				//Found the second slash, calculating how many characters to remove from the end of the path string.
 				size_t pop = FilePath->size() - i;
-				--pop;
 
 				while (pop != 0)
 				{
