@@ -12,6 +12,7 @@
 #include "CommandDefend.h"
 #include "CommandList.h"
 #include "CommandCd.h"
+#include "CommandExecute.h"
 
 using namespace std;
 

@@ -25,6 +25,8 @@ void CommandExecute::Run(ParsedCommand* Parsed)
 	else
 	{
 		wchar_t path[MAX_PATH];
+		size_t size;
+		size_t outSize;
 		STARTUPINFO info = { sizeof(info) };
 		PROCESS_INFORMATION processInfo;
 		bool success = false;
@@ -32,12 +34,14 @@ void CommandExecute::Run(ParsedCommand* Parsed)
 		//If we want to open the process in this console window or not.
 		if (Parsed->Words->at(1) == "same")
 		{
-			mbstowcs(path, Parsed->Words->at(2).c_str(), Parsed->Words->size());
+			size = strlen(Parsed->Words->at(2).c_str());;
+			mbstowcs_s(&outSize, path, Parsed->Words->at(2).c_str(), size);
 			success = CreateProcess(path, NULL, NULL, NULL, true, 0, NULL, NULL, &info, &processInfo);
 		}
 		else
 		{
-			mbstowcs(path, Parsed->Words->at(1).c_str(), Parsed->Words->size());
+			size = strlen(Parsed->Words->at(1).c_str());
+			mbstowcs_s(&outSize, path, Parsed->Words->at(1).c_str(), size);
 			success = CreateProcess(path, NULL, NULL, NULL, true, CREATE_NEW_CONSOLE, NULL, NULL, &info, &processInfo);
 		}
 
