@@ -127,9 +127,10 @@ void CommandDefend::Defend()
 			{
 				//Get process handle.
 				hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, aProcesses[i]);
+				HANDLE info = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, aProcesses[i]);
 
-				wchar_t* buffer = new wchar_t();
-				GetModuleFileNameEx(hProcess, NULL, buffer, MAX_PATH);
+				wchar_t buffer[MAX_PATH];
+				GetModuleFileNameEx(info, NULL, buffer, MAX_PATH);
 				wstring ws(buffer);
 				string converted(ws.begin(), ws.end());
 
@@ -148,7 +149,6 @@ void CommandDefend::Defend()
 					Console->WriteLine(&msg);
 					Console->WriteLine(&to_string(GetLastError()));
 				}
-				delete buffer;
 			}
 		}
 	}
