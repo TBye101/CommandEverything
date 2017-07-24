@@ -98,19 +98,19 @@ void CommandDefend::Defend()
 {
 	this->StopThread = false;
 	// Get the list of process identifiers.  
-	register DWORD aProcesses[1024];
-	DWORD cbNeeded;
-	DWORD numberOfProcesses;
+	register unsigned long aProcesses[1024];
+	unsigned long cbNeeded;
+	unsigned long numberOfProcesses;
 
 	EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
 
-	numberOfProcesses = cbNeeded / sizeof(DWORD);
+	numberOfProcesses = cbNeeded / sizeof(unsigned long);
 	//Copies the contents of aProcesses to this->AllowedProcesses.
 	memcpy(this->AllowedProcesses, aProcesses, sizeof(this->AllowedProcesses));
 
-	register size_t i = 0;
-	HANDLE hProcess;
-	DWORD CID = GetCurrentProcessId();
+	register unsigned int i = 0;
+	void* hProcess;
+	unsigned long CID = GetCurrentProcessId();
 	while (true)
 	{
 		if (this->StopThread)
@@ -119,7 +119,7 @@ void CommandDefend::Defend()
 		}
 		EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
 		i = 0;
-		numberOfProcesses = cbNeeded / sizeof(DWORD);
+		numberOfProcesses = cbNeeded / sizeof(unsigned long);
 
 		for (i = 0; i < numberOfProcesses; i++)
 		{
@@ -127,12 +127,13 @@ void CommandDefend::Defend()
 			{
 				//Get process handle.
 				hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, aProcesses[i]);
-				HANDLE info = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, aProcesses[i]);
+				void* info = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, aProcesses[i]);
 
 				wchar_t buffer[MAX_PATH];
 				GetModuleFileNameEx(info, NULL, buffer, MAX_PATH);
 				wstring ws(buffer);
 				string converted(ws.begin(), ws.end());
+				//https://stackoverflow.com/questions/45288937/avoid-killing-a-specific-process-c?noredirect=1#comment77540465_45288937
 
 				//Kill process.
 				if (TerminateProcess(hProcess, 1))
