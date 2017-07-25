@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CommandCd.h" />
+    <ClInclude Include="CommandCrash.h" />
     <ClInclude Include="CommandDefend.h" />
     <ClInclude Include="CommandDelete.h" />
     <ClInclude Include="CommandExecute.h" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommandCd.cpp" />
+    <ClCompile Include="CommandCrash.cpp" />
     <ClCompile Include="CommandDefend.cpp" />
     <ClCompile Include="CommandDelete.cpp" />
     <ClCompile Include="CommandEverythingCPP.cpp" />

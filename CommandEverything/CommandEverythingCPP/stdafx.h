@@ -36,8 +36,8 @@ extern vector<string*>* CommandNames;
 
 
 /// <summary>
-/// The filepath that this program is currently operating in.
-/// Note: Not the filepath to the exe, but rather where the user is accessing files/directories from.
+/// The file path that this program is currently operating in.
+/// Note: Not the file path to the exe, but rather where the user is accessing files/directories from.
 /// In CMD terms, it would be wherever cd is.
 /// </summary>
 extern string* FilePath;
