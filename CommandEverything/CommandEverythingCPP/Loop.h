@@ -1,13 +1,14 @@
 #pragma once
+
+#include <Windows.h>
+#include <stdio.h>
+#include <algorithm>
+
 #include "ICommand.h"
 #include "Filing.h"
 #include "CommandHelp.h"
 #include "ParsedCommand.h"
-#include <Windows.h>
-#include <algorithm>
 #include "CommandStart.h"
-#include <Windows.h>
-#include <stdio.h>
 #include "CommandExit.h"
 #include "CommandDefend.h"
 #include "CommandList.h"

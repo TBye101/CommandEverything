@@ -30,10 +30,6 @@
     <Filter Include="Framework\Util\Command">
       <UniqueIdentifier>{d72a6422-a523-4c0a-b054-3024728aa003}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Framework\Commands\Exit">
       <UniqueIdentifier>{4c36ee21-1a45-47f9-b64a-28b55270e768}</UniqueIdentifier>
     </Filter>
