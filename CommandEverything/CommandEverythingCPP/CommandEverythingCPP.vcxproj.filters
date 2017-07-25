@@ -51,11 +51,11 @@
     <Filter Include="Framework\Commands\Delete">
       <UniqueIdentifier>{c9b3d648-61e7-4600-b42b-cdaa0e7a7188}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Defend">
-      <UniqueIdentifier>{223279d5-59c1-4794-8998-459ec4523013}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\WIP Commands\Crash">
       <UniqueIdentifier>{62a10e36-0563-4911-8c1d-198029827bb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Commands\Defend">
+      <UniqueIdentifier>{223279d5-59c1-4794-8998-459ec4523013}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +93,7 @@
       <Filter>Framework\Commands\Exit</Filter>
     </ClInclude>
     <ClInclude Include="CommandDefend.h">
-      <Filter>Framework\WIP Commands\Defend</Filter>
+      <Filter>Framework\Commands\Defend</Filter>
     </ClInclude>
     <ClInclude Include="CommandList.h">
       <Filter>Framework\Commands\List</Filter>
@@ -149,7 +149,7 @@
       <Filter>Framework\Commands\Exit</Filter>
     </ClCompile>
     <ClCompile Include="CommandDefend.cpp">
-      <Filter>Framework\WIP Commands\Defend</Filter>
+      <Filter>Framework\Commands\Defend</Filter>
     </ClCompile>
     <ClCompile Include="CommandList.cpp">
       <Filter>Framework\Commands\List</Filter>
