@@ -1,4 +1,7 @@
 #pragma once
+
+#include <string>
+
 /// <summary>
 /// Hacks a input box.
 /// </summary>
@@ -25,9 +28,12 @@ private:
 	/// </summary>
 	/// <param name="attempt"></param>
 	void Attempt(char attempt[]);
+	void Attempt(string attempt);
 
 	/// <summary>
 	/// Comes up with passwords, and tells Attempt() to try them.
 	/// </summary>
-	void Crack();
+	void Crack(char supportedChars[]);
+
+	void makeCombinations(string prefix, string chars);
 };

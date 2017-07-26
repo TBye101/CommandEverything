@@ -176,4 +176,9 @@
       <Filter>Framework\WIP Commands\Hack</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="file.txt">
+      <Filter>Framework\WIP Commands\Hack</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
