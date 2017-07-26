@@ -20,17 +20,17 @@ void CommandHack::Run(ParsedCommand* Parsed)
 {
 	//32-137
 	//Acquire common characters.
-	register char Chars[96];
-	
-	register int i = 32;
+	//register char Chars[96];
+	//
+	//register int i = 32;
 
-	while (i != 128)
-	{
-		Chars[i - 32] = i;
-		++i;
-	}
-
-
+	//while (i != 128)
+	//{
+	//	Chars[i - 32] = i;
+	//	++i;
+	//}
+	Sleep(10000);
+	this->Crack();
 }
 
 string* CommandHack::GetName()
@@ -80,4 +80,51 @@ void CommandHack::Attempt(register char attempt[])
 
 void CommandHack::Crack()
 {
+	register int letterCounter[128];
+	register char validCharacters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890!@#$%^&*()_+[]{}:;<>,./?'";
+	register char bruteString[129];  // One more to null terminate
+	register int nDigits = 1;
+	register int maxDigits = 128;
+	register int letterIndex = 0;
+
+		for (register int i = 0; i < maxDigits; i++)
+		{
+			letterCounter[i] = -1;		// Initialize them all to null.
+			bruteString[i] = 0;		// Null terminate the string.
+		}
+		bruteString[128] = 0;
+		letterCounter[0] = 0;			// But we will initialize the first counter to 0.
+		register int wordLength = 0;
+
+		while (true)
+		{
+			// First thing we do, is update the text string with the character that changed.
+			bruteString[letterIndex] = validCharacters[letterCounter[letterIndex]];
+			this->Attempt(bruteString);
+			// We always start incrementing the first character.
+			letterIndex = 0;
+			// And if it overflows, then we start walking up the letterCounter stack.
+			while (++letterCounter[letterIndex] == sizeof(validCharacters) - 1)
+			{
+				letterCounter[letterIndex] = 0;
+
+				// Update the text string, at the stack position.
+				bruteString[letterIndex] = validCharacters[0];
+
+				// Let's check the next position on the stack.
+				letterIndex++;
+
+				// If we are starting a new word length.  We need to update that counter.
+				if (letterIndex > wordLength)
+				{
+					wordLength++;
+
+					// If we have searched all characters, for all word lengths, we are done.
+					if (wordLength >= maxDigits)
+					{
+						printf("No valid password found.\n");
+					}
+				}
+			}
+		}
 }
