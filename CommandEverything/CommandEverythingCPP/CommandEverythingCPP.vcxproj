@@ -158,6 +158,7 @@
     <ClInclude Include="CommandDelete.h" />
     <ClInclude Include="CommandExecute.h" />
     <ClInclude Include="CommandExit.h" />
+    <ClInclude Include="CommandHack.h" />
     <ClInclude Include="CommandHelp.h" />
     <ClInclude Include="CommandList.h" />
     <ClInclude Include="CommandStart.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="CommandEverythingCPP.cpp" />
     <ClCompile Include="CommandExecute.cpp" />
     <ClCompile Include="CommandExit.cpp" />
+    <ClCompile Include="CommandHack.cpp" />
     <ClCompile Include="CommandHelp.cpp" />
     <ClCompile Include="CommandList.cpp" />
     <ClCompile Include="CommandStart.cpp" />
