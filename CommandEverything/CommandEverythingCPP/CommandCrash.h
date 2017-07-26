@@ -26,5 +26,17 @@ public:
 	string* GetName();
 
 	string* GetHelp();
+
+private:
+	/// <summary>
+	/// Consumes memory.
+	/// </summary>
+	/// <param name="a"></param>
+	void GobbleMemory();
+
+	/// <summary>
+	/// Spawns a new thread.
+	/// </summary>
+	void DoSomething();
 };
 
