@@ -22,16 +22,15 @@ public:
 	string* GetHelp();
 
 private:
-	string* NextAttempt = new string("");
-	string* Appended = new string();
 
 	char Chars[96];
+	unsigned __int8 Length = 0;
 
 	/// <summary>
 	/// Tries a password.
 	/// </summary>
 	/// <param name="attempt"></param>
-	void Attempt(string* attempt, unsigned int length);
+	void Attempt(string* attempt);
 
 	/// <summary>
 	/// Comes up with passwords, and tells Attempt() to try them.

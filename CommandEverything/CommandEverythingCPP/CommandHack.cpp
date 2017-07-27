@@ -32,7 +32,7 @@ string* CommandHack::GetHelp()
 	return new string("In 20 seconds, it tries to hack into whatever input box the user is hovering over.");
 }
 
-void CommandHack::Attempt(string* attempt, unsigned int length)
+void CommandHack::Attempt(string* attempt)
 {
 	register char next;
 	register unsigned int size = attempt->size();
@@ -41,7 +41,7 @@ void CommandHack::Attempt(string* attempt, unsigned int length)
 	while (i != size)
 	{
 		next = attempt->at(i);
-		if (length == 3)
+ 		if (this->Length >= 3 || attempt->size() >= 2 && attempt->at(0) == '1' && attempt->at(1) == '*')
 		{
 			Sleep(500);
 		}
@@ -52,13 +52,13 @@ void CommandHack::Attempt(string* attempt, unsigned int length)
 		ip.ki.wVk = 0;
 		ip.ki.dwExtraInfo = 0;
 		SendInput(1, &ip, sizeof(INPUT));
-		ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+		ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release1*
 		SendInput(1, &ip, sizeof(INPUT));
 
 		++i;
 	}
 
-	if (length == 3)
+	if (this->Length == 3)
 	{
 		Sleep(500);
 	}
@@ -91,8 +91,9 @@ void CommandHack::Crack()
 	i = 1;
 	while (true)
 	{
+		this->Length = i;
 		// Keep growing till I get it right
-		this->makeCombinations(this->NextAttempt, i);
+		this->makeCombinations(new string(""), i);
 		++i;
 	}
 }
@@ -101,7 +102,7 @@ void CommandHack::makeCombinations(string* s, unsigned __int8 length)
 {
 	if (length == 0) // when length has been reached
 	{
-		this->Attempt(s, length); // print it out
+		this->Attempt(s); // print it out
 		return;
 	}
 
