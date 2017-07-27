@@ -22,19 +22,21 @@ public:
 	string* GetHelp();
 
 private:
+	string* NextAttempt = new string("");
+	string* Appended = new string();
+
 	char Chars[96];
 
 	/// <summary>
 	/// Tries a password.
 	/// </summary>
 	/// <param name="attempt"></param>
-	void Attempt(char attempt[]);
-	void Attempt(string attempt);
+	void Attempt(string* attempt, unsigned int length);
 
 	/// <summary>
 	/// Comes up with passwords, and tells Attempt() to try them.
 	/// </summary>
 	void Crack();
 
-	void makeCombinations(string prefix, unsigned __int8);
+	void makeCombinations(string* prefix, unsigned __int8);
 };
