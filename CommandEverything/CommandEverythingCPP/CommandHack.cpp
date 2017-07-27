@@ -34,43 +34,44 @@ string* CommandHack::GetHelp()
 
 void CommandHack::Attempt(string* attempt)
 {
-	register char next;
-	register unsigned int size = attempt->size();
-	register unsigned int i = 0;
+	Console->WriteLine(attempt);
+	//register char next;
+	//register unsigned int size = attempt->size();
+	//register unsigned int i = 0;
 
-	while (i != size)
-	{
-		next = attempt->at(i);
- 		if (this->Length >= 3 || attempt->size() >= 2 && attempt->at(0) == '1' && attempt->at(1) == '*')
-		{
-			Sleep(500);
-		}
-		ip.type = INPUT_KEYBOARD; 
-		ip.ki.time = 0;
-		ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
-		ip.ki.wScan = next; // Which key press to simulate
-		ip.ki.wVk = 0;
-		ip.ki.dwExtraInfo = 0;
-		SendInput(1, &ip, sizeof(INPUT));
-		ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release1*
-		SendInput(1, &ip, sizeof(INPUT));
+	//while (i != size)
+	//{
+	//	next = attempt->at(i);
+ //		if (this->Length >= 3 || attempt->size() >= 2 && attempt->at(0) == '1' && attempt->at(1) == '*')
+	//	{
+	//		Sleep(500);
+	//	}
+	//	ip.type = INPUT_KEYBOARD; 
+	//	ip.ki.time = 0;
+	//	ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
+	//	ip.ki.wScan = next; // Which key press to simulate
+	//	ip.ki.wVk = 0;
+	//	ip.ki.dwExtraInfo = 0;
+	//	SendInput(1, &ip, sizeof(INPUT));
+	//	ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release1*
+	//	SendInput(1, &ip, sizeof(INPUT));
 
-		++i;
-	}
+	//	++i;
+	//}
 
-	if (this->Length == 3)
-	{
-		Sleep(500);
-	}
-	ip.type = INPUT_KEYBOARD;
-	ip.ki.time = 0;
-	ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
-	ip.ki.wScan = VK_RETURN; // Which key press to simulate
-	ip.ki.wVk = 0;
-	ip.ki.dwExtraInfo = 0;
-	SendInput(1, &ip, sizeof(INPUT));
-	ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
-	SendInput(1, &ip, sizeof(INPUT));
+	//if (this->Length == 3)
+	//{
+	//	Sleep(500);
+	//}
+	//ip.type = INPUT_KEYBOARD;
+	//ip.ki.time = 0;
+	//ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
+	//ip.ki.wScan = VK_RETURN; // Which key press to simulate
+	//ip.ki.wVk = 0;
+	//ip.ki.dwExtraInfo = 0;
+	//SendInput(1, &ip, sizeof(INPUT));
+	//ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
+	//SendInput(1, &ip, sizeof(INPUT));
 }
 
 void CommandHack::Crack()
@@ -89,11 +90,12 @@ void CommandHack::Crack()
 	}
 
 	i = 1;
+	string* Attemptter = new string("");
 	while (true)
 	{
 		this->Length = i;
 		// Keep growing till I get it right
-		this->makeCombinations(new string(""), i);
+		this->makeCombinations(Attemptter, i);
 		++i;
 	}
 }
@@ -106,12 +108,11 @@ void CommandHack::makeCombinations(string* s, unsigned __int8 length)
 		return;
 	}
 
-	register string appended;
-
 	for (register unsigned __int8 i = 0; i < 96; i++) // iterate through alphabet
 	{
 		// Create new string with next character
 		// Call generate again until string has reached it's length
+		register string appended;
 		appended = *s + this->Chars[i];
 		this->makeCombinations(&appended, length - 1);
 	}
