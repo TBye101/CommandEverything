@@ -22,6 +22,7 @@ public:
 	string* GetHelp();
 
 private:
+	char Chars[96];
 
 	/// <summary>
 	/// Tries a password.
@@ -33,7 +34,7 @@ private:
 	/// <summary>
 	/// Comes up with passwords, and tells Attempt() to try them.
 	/// </summary>
-	void Crack(char supportedChars[]);
+	void Crack();
 
-	void makeCombinations(string prefix, string chars);
+	void makeCombinations(string prefix, unsigned __int8);
 };
