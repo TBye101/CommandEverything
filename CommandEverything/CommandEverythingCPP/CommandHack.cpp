@@ -18,7 +18,7 @@ bool CommandHack::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandHack::Run(ParsedCommand* Parsed)
 {
-	Sleep(5000);
+	Sleep(10000);
 	this->Crack();
 }
 
