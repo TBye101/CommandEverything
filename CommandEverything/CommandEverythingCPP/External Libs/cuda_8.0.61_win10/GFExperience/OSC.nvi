@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="OSC" title="${{title}}" version="${{version}}" versionText="${{version}}" timestamp="2016-11-16T10:42:37" disposition="default" hidden="true" installerMin="2.1002.215.1898">
+	<filter name="32BitPackage"/>
+	<constraints>
+		<os min="6.1" level="silent" text="${{title}} requires Windows 7 or later."/>
+	</constraints>
+	<strings>
+		<string name="title" value="Nvidia Share"/>
+		<string name="GFExprienceProductTitle" value="NVIDIA GeForce Experience"/>
+		<string name="version" value="1.5.0.0"/>
+		<if filter="32BitPackage">
+			<string name="InstallLocation" value="${{NvidiaProgramFilesX86}}\${{GFExprienceProductTitle}}"/>
+			<else>
+				<string name="InstallLocation" value="${{NvidiaProgramFiles}}\${{GFExprienceProductTitle}}"/>
+			</else>
+		</if>
+		<string name="ShareExeName" value="NVIDIA Share.exe"/>
+		<string name="ShareExePath" value="${{InstallLocation}}\${{ShareExeName}}"/>
+		<string name="crashDumpKey" value="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps"/>
+		<string name="GFExperienceExeName" value="NVIDIA GeForce Experience.exe"/>
+		<string name="GFExperienceExePath" value="${{InstallLocation}}\${{GFExperienceExeName}}"/>
+		<string name="UIEventForClientInit" value="NVIDIA GeForce Experience.OnLoadEnd"/>
+		<string name="JPSThumbnailHandlerRegKey" value="HKEY_CLASSES_ROOT\jpsfile\ShellEx\{e357fccd-a995-4576-b01f-234630154e96}"/>
+	</strings>
+	<dependencies>
+		<package type="after" package="ShadowPlay"/>
+		<package type="requires" package="ShadowPlay"/>
+		<package type="requires" package="NvNodejs"/>
+		<package type="requires" package="Display.GFExperience"/>
+	</dependencies>
+	<extensions>
+		<extension file="OSCExt.dll"/>
+	</extensions>
+	<properties>
+		<bool name="JPSThumbnailHandlerExists" value="false"/>
+		<bool name="IsGFExperienceComponent" value="true"/>
+	</properties>
+	<manifest>
+		<file name="OSCExt.dll"/>
+		<file name="OSC.nvi"/>
+	</manifest>
+	<phases>
+		<standard phase="createCrashDumpGenerationKeys">
+			<addRegistry keyName="${{crashDumpKey}}\${{ShareExeName}}"/>
+			<addRegistry keyName="${{crashDumpKey}}\${{ShareExeName}}" valueName="DumpFolder" type="REG_EXPAND_SZ" value="%PROGRAMDATA%\NVIDIA Corporation\CrashDumps"/>
+			<addRegistry keyName="${{crashDumpKey}}\${{ShareExeName}}" valueName="DumpCount" type="REG_DWORD" value="15"/>
+			<addRegistry keyName="${{crashDumpKey}}\${{ShareExeName}}" valueName="DumpType" type="REG_DWORD" value="1"/>
+		</standard>
+		<setPropertyIf phase="checkIfJpsThumbnailHandlerExists" boolProperty="JPSThumbnailHandlerExists" value="true" when="install">
+			<registryKey name="${{JPSThumbnailHandlerRegKey}}" check="exists"/>
+		</setPropertyIf>
+		<standard phase="createJPSthumbnailHandlerRegKey" condition="!JPSThumbnailHandlerExists">
+			<addRegistry keyName="${{JPSThumbnailHandlerRegKey}}" valueName="" type="REG_EXPAND_SZ" value="{C7657C4A-9F68-40fa-A4DF-96BC08EB3551}"/>
+		</standard>
+		<exe phase="runGFExperience" condition="Display.GFExperience:LaunchGFExperience" when="installClose" name="${{GFExperienceExePath}}" dir="${{InstallLocation}}" flags="noelevate"/>
+		<custom phase="PollClientForInit" action="PollClientForInit" when="installClose" condition="Display.GFExperience:LaunchGFExperience &amp;&amp; !Global:IsDDCombo" onError="ignore">
+			<properties>
+				<string name="UIEventForClientInit" value="${{UIEventForClientInit}}"/>
+				<int name="ClientInitTimeoutMs" value="20000"/>
+				<int name="ClientInitPollingWait" value="100"/>
+			</properties>
+		</custom>
+	</phases>
+</nvi>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="CUDADevelopment_${{version}}" title="${{title}}" version="${{version}}" versionText="${{version}}" timestamp="2017-01-17T15:49:46" hidden="UI" no-arp="false" disposition="demand" installerMin="2.1002.191.1621" allowsCustomPath="true">
+	<strings>
+		<string name="version" value="8.0"/>
+		<string name="altVersion" value="8_0"/>
+		<string name="DevelopmentRootDir" value="${{ProgramFiles}}\NVIDIA GPU Computing Toolkit\CUDA"/>
+		<string name="DevelopmentInstallDir" value="${{DevelopmentRootDir}}\v${{version}}"/>
+		<localized locale="0x0409">
+			<string name="title" value="CUDA Development"/>
+			<string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}"/>
+		</localized>
+	</strings>
+	<dependencies>
+		<package type="requires" package="CUDAToolkit_${{version}}"/>
+	</dependencies>
+	<description/>
+	<properties>
+		<bool name="FixedInstallLocation" value="true"/>
+		<string name="InstallLocation" value="${{DevelopmentInstallDir}}"/>
+		<string name="ArpDisplayName" value="${{arpDisplayName}}"/>
+	</properties>
+	<phases>
+		<standard phase="createDirectories">
+			<createDirectory target="${{@InstallLocation}}"/>
+		</standard>
+		<environment phase="setEnvVars">
+			<addVariable variableName="CUDA_PATH" value="${{@InstallLocation}}" type="system"/>
+			<addVariable variableName="CUDA_PATH_V${{altVersion}}" value="${{@InstallLocation}}" type="system"/>
+		</environment>
+	</phases>
+</nvi>

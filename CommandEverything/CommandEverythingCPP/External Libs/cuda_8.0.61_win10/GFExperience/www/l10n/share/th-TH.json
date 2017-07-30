@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "ต้องการความช่วยเหลือจากคุณและต้องการให้มอบการควบคุมเกม",
+    "l10n.dialogAccept": "ยอมรับ",
+    "l10n.dialogDecline": "ไม่ยอมรับ",
+    "l10n.coplayControls": "กด Ctrl + Tab เพื่อปล่อยเมาส์/แป้นพิมพ์",
+    "l10n.sharingEnabled": "เปิดใช้การแชร์แล้ว",
+    "l10n.shadowPlayRenamed": "ตอนนี้  ShadowPlay อยู่ในส่วนโอเวอร์เลย์การแชร์ใหม่",
+    "l10n.pressKeyToStart": "กด {{assignedKey}} เพื่อเริ่มต้น"
+}

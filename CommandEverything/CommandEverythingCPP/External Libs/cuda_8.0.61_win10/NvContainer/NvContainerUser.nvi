@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="NvContainer.User" title="${{title}}" version="${{version}}" versionText="${{version}}" timestamp="${{timestamp}}" disposition="demand" hidden="true" installerMin="2.1002.202.1773">
+	<strings>
+		<string name="title" value="NVIDIA User Container"/>
+		<string name="version" value="1.1"/>
+		<string name="timestamp" value="2016-11-11T21:17:42"/>
+		<string name="InstallFolderName" value="${{NvidiaProgramFiles}}\NvContainer"/>
+		<string name="InstallFolderNameX86" value="${{NvidiaProgramFilesX86}}\NvContainer"/>
+		<string name="ContainerPath" value="${{InstallFolderName}}\nvcontainer.exe"/>
+		<string name="ContainerPathX86" value="${{InstallFolderNameX86}}\nvcontainer.exe"/>
+		<string name="PluginFolderName" value="${{InstallFolderName}}\plugins\User"/>
+		<string name="PluginFolderNameX86" value="${{InstallFolderNameX86}}\plugins\User"/>
+		<string name="LogBaseFilePath" value="${{NvidiaCommonAppData}}\NvContainerUser"/>
+		<string name="LogLevel" value="3"/>
+		<string name="WatchdogRegistryKey" value="${{NvidiaSoftwareKey}}\NvContainer\Watchdog"/>
+		<string name="RestartPolicy" value="10/300/5"/>
+		<string name="StateTransitionMaxTime" value="30000"/>
+	</strings>
+	<filter name="64bit" platform="amd64"/>
+	<dependencies>
+		<package type="requires" package="NvContainer"/>
+		<package type="requires" package="NvPlugin.Watchdog"/>
+	</dependencies>
+	<manifest>
+		<file name="NvContainerUser.nvi"/>
+	</manifest>
+	<phases>
+		<standard phase="createDirectories">
+			<createDirectory target="${{PluginFolderName}}"/>
+		</standard>
+		<standard phase="deleteInstalledFiles" onError="ignore" when="uninstall">
+			<deleteDirectoryTree target="${{PluginFolderName}}"/>
+		</standard>
+		<standard phase="deleteAppData" onError="ignore" when="uninstall">
+			<deleteFile target="${{LogBaseFilePath}}*.log*"/>
+		</standard>
+		<standard phase="createRegkeyX86">
+			<addRegistry keyName="${{WatchdogRegistryKey}}\UserX86" valueName="" value="User Plugins (x86)" type="REG_SZ"/>
+			<addRegistry keyName="${{WatchdogRegistryKey}}\UserX86" valueName="Folder" value="${{PluginFolderNameX86}}" type="REG_SZ"/>
+			<addRegistry keyName="${{WatchdogRegistryKey}}\UserX86" valueName="Container" value="${{ContainerPathX86}}" type="REG_SZ"/>
+			<addRegistry keyName="${{WatchdogRegistryKey}}\UserX86" valueName="Parameters" value="-f &quot;${{LogBaseFilePath}}%d.log&quot; -d &quot;${{PluginFolderNameX86}}&quot; -r -l ${{LogLevel}} -p ${{StateTransitionMaxTime}}" type="REG_SZ"/>
+			<addRegistry keyName="${{WatchdogRegistryKey}}\UserX86" valueName="Policy" value="${{RestartPolicy}}" type="REG_SZ"/>
+		</standard>
+		<if filter="64bit">
+			<standard phase="createRegkeyAMD64">
+				<addRegistry keyName="${{WatchdogRegistryKey}}\UserX64" valueName="" value="User Plugins (x64)" type="REG_SZ"/>
+				<addRegistry keyName="${{WatchdogRegistryKey}}\UserX64" valueName="Folder" value="${{PluginFolderName}}" type="REG_SZ"/>
+				<addRegistry keyName="${{WatchdogRegistryKey}}\UserX64" valueName="Container" value="${{ContainerPath}}" type="REG_SZ"/>
+				<addRegistry keyName="${{WatchdogRegistryKey}}\UserX64" valueName="Parameters" value="-f &quot;${{LogBaseFilePath}}%d.log&quot; -d &quot;${{PluginFolderName}}&quot; -r -l ${{LogLevel}} -p ${{StateTransitionMaxTime}}" type="REG_SZ"/>
+				<addRegistry keyName="${{WatchdogRegistryKey}}\UserX64" valueName="Policy" value="${{RestartPolicy}}" type="REG_SZ"/>
+			</standard>
+		</if>
+	</phases>
+</nvi>

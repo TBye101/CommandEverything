@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Möchte Ihre Hilfe und möchte die Spielkontrolle übergeben",
+    "l10n.dialogAccept": "Annehmen",
+    "l10n.dialogDecline": "Ablehnen",
+    "l10n.coplayControls": "Strg + Tab, um Maus/Tastatur freizugeben",
+    "l10n.sharingEnabled": "Teilen ist aktiviert",
+    "l10n.shadowPlayRenamed": "ShadowPlay ist jetzt das neue Teilen-Overlay.",
+    "l10n.pressKeyToStart": "Drücken Sie {{assignedKey}}, um zu starten."
+}

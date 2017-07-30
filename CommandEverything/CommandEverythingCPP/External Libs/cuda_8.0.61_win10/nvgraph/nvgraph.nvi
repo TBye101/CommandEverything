@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="nvgraph_${{version}}" title="${{title}}" version="${{version}}" versionText="${{version}}" hidden="ARP" timestamp="2017-01-17T15:49:44" disposition="default" installerMin="2.1002.191.1621" allowsCustomPath="true" bare="false">
+	<strings>
+		<string name="version" value="8.0"/>
+		<string name="nvgraphRootDir" value="${{ProgramFiles}}\NVIDIA GPU Computing Toolkit\CUDA"/>
+		<string name="nvgraphInstallDir" value="${{nvgraphRootDir}}\v${{version}}"/>
+		<localized locale="0x0409">
+			<string name="title" value="NVGRAPH Runtime"/>
+		</localized>
+	</strings>
+	<description>
+	</description>
+	<dependencies>
+		<package type="requires" package="CUDARuntimes_${{version}}"/>
+	</dependencies>
+	<customInstallTree>
+		<treeNode text="NVGRAPH" ordering="CUDA|Runtime|Libraries" accessibility="selectable"/>
+	</customInstallTree>
+	<properties>
+		<string name="InstallLocation" value="${{nvgraphInstallDir}}"/>
+		<bool name="FixedInstallLocation" value="true"/>
+	</properties>
+	<phases>
+		<standard phase="copyFiles" installText="Copying CUDA Runtime files" uninstallText="Deleting CUDA Runtime files">
+			<copyFile target="bin\nvgraph64_80.dll" />
+				
+		</standard>
+	</phases>
+	<manifest>
+		<file name="bin\nvgraph64_80.dll" />
+<file name="nvgraph.nvi" />
+
+    </manifest>
+</nvi>

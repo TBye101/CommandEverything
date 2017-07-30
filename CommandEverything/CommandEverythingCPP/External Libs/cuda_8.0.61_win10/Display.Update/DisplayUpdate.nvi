@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="Display.Update" title="${{title}}" version="${{version}}" versionText="${{version}}" timestamp="2016-11-04T06:47:17" disposition="default" installerMin="2.1002.158.1208" continueOnFailure="true">
+	<filter name="minVista" min="6.0"/>
+	<filter name="XP" min="5.1" max="5"/>
+	<strings>
+		<string name="version" value="2.13.0.21"/>
+		<string name="arpDisplayName" value="${{title}} ${{version}}"/>
+		<string name="NVTrayProcessName" value="nvtray.exe"/>
+		<string name="NvDisplayDirPath" value="${{NvidiaProgramFiles}}\Display"/>
+		<string name="NvTrayExePath" value="${{NvDisplayDirPath}}\${{NVTrayProcessName}}"/>
+		<string name="NvuidllPath" value="${{NvDisplayDirPath}}\nvui.dll"/>
+		<string name="NvUpdtPath" value="${{NvidiaProgramFiles}}\Update Core\NvUpdt.dll"/>
+		<string name="MinNvtrayVersionForVer2Restart" value="310.19"/>
+		<string name="CPLPackageIdentifier" value="Display.ControlPanel"/>
+		<string name="BackendExePath" value="${{NvidiaProgramFilesX86}}\Update Core\NvBackend.exe"/>
+		<localized locale="0x0409">
+			<string name="title" value="NVIDIA Update"/>
+			<string name="InstallSafeModeBlockedMessage" value="${{title}} cannot be installed in safe mode."/>
+		</localized>
+		<localized locale="0x0401">
+			<string name="title" value="تحديثات NVIDIA"/>
+		</localized>
+		<localized locale="0x0405">
+			<string name="title" value="Aktualizace NVIDIA"/>
+		</localized>
+		<localized locale="0x0406">
+			<string name="title" value="NVIDIA Opdateringer"/>
+		</localized>
+		<localized locale="0x0407">
+			<string name="title" value="NVIDIA Update"/>
+		</localized>
+		<localized locale="0x0408">
+			<string name="title" value="Ενημερώσεις NVIDIA"/>
+		</localized>
+		<localized locale="0x0809">
+			<string name="title" value="NVIDIA Update"/>
+		</localized>
+		<localized locale="0x040a">
+			<string name="title" value="Actualizaciones de NVIDIA"/>
+		</localized>
+		<localized locale="0x080a">
+			<string name="title" value="Actualización de NVIDIA"/>
+		</localized>
+		<localized locale="0x040b">
+			<string name="title" value="NVIDIA-päivitykset"/>
+		</localized>
+		<localized locale="0x040c">
+			<string name="title" value="Mises à jour NVIDIA"/>
+		</localized>
+		<localized locale="0x040d">
+			<string name="title" value="עדכוני NVIDIA"/>
+		</localized>
+		<localized locale="0x040e">
+			<string name="title" value="NVIDIA frissítések"/>
+		</localized>
+		<localized locale="0x0410">
+			<string name="title" value="Aggiornamenti NVIDIA"/>
+		</localized>
+		<localized locale="0x0411">
+			<string name="title" value="NVIDIA Update"/>
+		</localized>
+		<localized locale="0x0412">
+			<string name="title" value="NVIDIA 업데이트"/>
+		</localized>
+		<localized locale="0x0413">
+			<string name="title" value="NVIDIA Update"/>
+		</localized>
+		<localized locale="0x0414">
+			<string name="title" value="NVIDIA oppdateringer"/>
+		</localized>
+		<localized locale="0x0415">
+			<string name="title" value="Aktualizacje NVIDIA"/>
+		</localized>
+		<localized locale="0x0816">
+			<string name="title" value="Actualizações da NVIDIA"/>
+		</localized>
+		<localized locale="0x0416">
+			<string name="title" value="Atualizações da NVIDIA"/>
+		</localized>
+		<localized locale="0x0419">
+			<string name="title" value="Обновления NVIDIA"/>
+		</localized>
+		<localized locale="0x041b">
+			<string name="title" value="Aktualizácie NVIDIA"/>
+		</localized>
+		<localized locale="0x0424">
+			<string name="title" value="NVIDIA posodobitve"/>
+		</localized>
+		<localized locale="0x041d">
+			<string name="title" value="NVIDIA-uppdatering"/>
+		</localized>
+		<localized locale="0x041e">
+			<string name="title" value="โปรแกรมอัพเดตของ NVIDIA"/>
+		</localized>
+		<localized locale="0x041f">
+			<string name="title" value="NVIDIA Güncelleştirmeleri"/>
+		</localized>
+		<localized locale="0x0804">
+			<string name="title" value="NVIDIA 更新"/>
+		</localized>
+		<localized locale="0x0404">
+			<string name="title" value="NVIDIA 更新程式"/>
+		</localized>
+	</strings>
+	<description/>
+	<constraints>
+		<reject tests="SAFEMODE" level="silent" text="${{InstallSafeModeBlockedMessage}}"/>
+	</constraints>
+	<dependencies>
+		<package type="requires" package="Update.Core"/>
+	</dependencies>
+	<extensions>
+		<extension file="DisplayUpdateExt.dll"/>
+	</extensions>
+	<properties>
+		<string name="ArpDisplayName" value="${{arpDisplayName}}"/>
+		<bool name="IsGFExperienceComponent" value="true"/>
+		<bool name="IsQuadroExperienceComponent" value="true"/>
+		<bool name="IsUpdateComponent" value="true"/>
+		<string name="UpdateType" value="GFExperience"/>
+	</properties>
+	<manifest>
+		<file name="DisplayUpdate.nvi"/>
+		<file name="DisplayUpdateExt.dll"/>
+	</manifest>
+	<phases>
+		<standard phase="RemoveUserSettings" when="uninstall" onError="ignore">
+			<deleteRegistry keyName="${{NvidiaPerUserSoftwareKey}}\Global\nvUpdate" valueName="CurrentNotifiedVersion"/>
+			<deleteRegistry keyName="${{NvidiaPerUserSoftwareKey}}\Global\nvUpdate" valueName="NotifyMeWhenAvailable"/>
+			<deleteRegistryKey keyName="${{NvidiaPerUserSoftwareKey}}\Global\nvUpdate"/>
+			<deleteRegistryKey keyName="${{NvidiaPerUserSoftwareKey}}\Global"/>
+			<deleteRegistryKey keyName="${{NvidiaPerUserSoftwareKey}}"/>
+			<deleteRegistryKeyTree keyName="${{NvidiaSoftwareKey}}\Global\nvUpdate"/>
+			<deleteRegistryKey keyName="${{NvidiaSoftwareKey}}\Global"/>
+			<deleteRegistryKey keyName="${{NvidiaSoftwareKey}}"/>
+		</standard>
+		<standard phase="RemoveGlobalSettings" when="uninstall" onError="ignore">
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\nvUpdate" valueName="NotifyMeWhenAvailable"/>
+			<deleteRegistryKey keyName="${{NvidiaSoftwareKey}}\Global\nvUpdate"/>
+		</standard>
+		<if filter="XP">
+			<standard phase="AddRegKeysForXPInstallOnly" when="install">
+				<addRegistry keyName="HKLM\Software\Microsoft\Windows\CurrentVersion\Run" valueName="NvMediaCenter" type="REG_SZ" value="RunDLL32.exe NvMCTray.dll,NvTaskbarInit -login"/>
+				<addRegistry keyName="${{NvidiaSoftwareKey}}\Global\NVTweak\OemConfigurations" valueName="MediaCenterLoadPolicy" type="REG_DWORD" value="1"/>
+			</standard>
+		</if>
+		<custom phase="setDriverUpdateNotificationFlag" action="SetDriverUpdateNotificationFlag" when="install"/>
+		<if filter="minVista">
+			<exe phase="startNVTrayIconVer1" name="${{NvTrayExePath}}" dir="${{NvDisplayDirPath}}" when="uninstall" onError="ignore" flags="nowait,disassociate,noelevate" condition="RestartNVTrayVer1"/>
+			<custom phase="waitForNVTrayShutdown" action="WaitForNVTrayShutdown" when="uninstall" onError="ignore" condition="RestartNVTrayVer1" progress="20" autoTick="150">
+				<properties>
+					<string name="NVTrayProcessName" value="${{NVTrayProcessName}}"/>
+					<int name="PollIncrementsMs" value="100"/>
+					<int name="MaxTimeOutMs" value="3000"/>
+				</properties>
+			</custom>
+			<exe phase="stopNVTrayIconVer1" name="${{SystemDirectory}}\Rundll32.exe" dir="${{SystemDirectory}}" when="uninstall" onError="ignore" flags="disassociate" condition="RestartNVTrayVer1" progress="25" autoTick="200">
+				<arg value="${{NvuidllPath}}"/>
+				<arg value=",StopNotificationIcon" quote="none"/>
+			</exe>
+			<exe phase="restartNVTrayIconVer2" name="${{NvTrayExePath}}" dir="${{NvDisplayDirPath}}" when="uninstall" onError="ignore" flags="nowait,disassociate,noelevate" condition="RestartNVTrayVer2">
+				<arg value="-nvupdt"/>
+			</exe>
+			<custom phase="checkNVTrayRestartMethod" action="CheckNVTrayRestartMethod" when="uninstall" condition="!Global:RebootRequired &amp;&amp; !Update.Core:MarkedForUninstall &amp;&amp; CheckForFTSKeyAbsence">
+				<properties>
+					<string name="NvuidllPath" value="${{NvuidllPath}}"/>
+					<string name="NvtrayPath" value="${{NvTrayExePath}}"/>
+					<string name="MinNvtrayVersionForVer2Restart" value="${{MinNvtrayVersionForVer2Restart}}"/>
+				</properties>
+			</custom>
+			<else>
+				<exe phase="startXPNVTrayIcon" name="${{SystemDirectory}}\Rundll32.exe" dir="${{SystemDirectory}}" when="uninstall" onError="ignore" flags="disassociate,noelevate" condition="StartNVTrayXP" progress="25" autoTick="200">
+					<arg value="${{NvUpdtPath}}"/>
+					<arg value=",NvRestartTrayIcon" quote="none"/>
+				</exe>
+				<custom phase="allowProcessesBreakawayFromJob" action="AllowProcessesBreakawayFromJob" onError="ignore" condition="StartNVTrayXP" when="uninstall">
+					<properties>
+						<string name="JobName" value="ARP Job"/>
+					</properties>
+				</custom>
+				<custom phase="checkForNVTrayStartXP" action="CheckForTrayStartXP" onError="ignore" when="uninstall" condition="!Global:RebootRequired &amp;&amp; !Update.Core:MarkedForUninstall &amp;&amp; CheckForFTSKeyAbsence">
+					<properties>
+						<string name="NvUpdtPath" value="${{NvUpdtPath}}"/>
+						<bool name="CheckForCPLPresence" value="true"/>
+					</properties>
+				</custom>
+			</else>
+		</if>
+		<setPropertyIf phase="checkForFTSKeyAbsence" boolProperty="CheckForFTSKeyAbsence" onError="ignore" value="true" when="uninstall">
+			<registryValue name="${{NvidiaSoftwareKey}}\Global\FTS" value="EnableRID61705" check="notExists"/>
+		</setPropertyIf>
+		<exe phase="stopNvBackendInstance" name="${{BackendExePath}}" when="install" progress="15" autoTick="100" onError="ignore">
+			<arg value="--shutdown"/>
+			<success value="0"/>
+		</exe>
+		<standard phase="SetInstalledValueToOne">
+			<addRegistry keyName="${{NvidiaSoftwareKey}}\Global\nvUpdate" valueName="Installed" type="REG_DWORD" value="1"/>
+		</standard>
+		<if filter="minVista">
+			<setPropertyIf phase="checkForFTSKeyAbsence" boolProperty="CheckForFTSKeyAbsence" onError="ignore" value="true" when="install">
+				<registryValue name="${{NvidiaSoftwareKey}}\Global\FTS" value="EnableRID61705" check="notExists"/>
+			</setPropertyIf>
+			<custom phase="checkNVTrayRestartMethod" action="CheckNVTrayRestartMethod" when="install" condition="CheckForFTSKeyAbsence">
+				<properties>
+					<string name="NvuidllPath" value="${{NvuidllPath}}"/>
+					<string name="NvtrayPath" value="${{NvTrayExePath}}"/>
+					<string name="MinNvtrayVersionForVer2Restart" value="${{MinNvtrayVersionForVer2Restart}}"/>
+				</properties>
+			</custom>
+			<exe phase="stopNVTrayIconVer1" name="${{SystemDirectory}}\Rundll32.exe" dir="${{SystemDirectory}}" when="install" condition="RestartNVTrayVer1" progress="25" autoTick="200">
+				<arg value="${{NvuidllPath}}"/>
+				<arg value=",StopNotificationIcon" quote="none"/>
+			</exe>
+			<custom phase="waitForNVTrayShutdown" action="WaitForNVTrayShutdown" when="install" condition="RestartNVTrayVer1" progress="20" autoTick="150">
+				<properties>
+					<string name="NVTrayProcessName" value="${{NVTrayProcessName}}"/>
+					<int name="PollIncrementsMs" value="100"/>
+					<int name="MaxTimeOutMs" value="3000"/>
+				</properties>
+			</custom>
+		</if>
+	</phases>
+	<include name="${{ResourcesDirectory}}\GFExperienceProgressText.cfg" select="/nvi/*"/>
+	<include name="${{ResourcesDirectory}}\QuadroExperienceProgressText.cfg" select="/nvi/*"/>
+</nvi>

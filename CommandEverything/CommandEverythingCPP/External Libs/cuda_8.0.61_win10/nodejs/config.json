@@ -1,0 +1,6 @@
+{
+    "gfservices": {
+        "server": "https://services.gfe.nvidia.com/GFE/",
+        "version": "v1.0"
+    }
+}

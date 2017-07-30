@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="cusparse_${{version}}" title="${{title}}" version="${{version}}" versionText="${{version}}" hidden="ARP" timestamp="2017-01-17T15:49:44" disposition="default" installerMin="2.1002.191.1621" allowsCustomPath="true" bare="false">
+	<strings>
+		<string name="version" value="8.0"/>
+		<string name="cusparseRootDir" value="${{ProgramFiles}}\NVIDIA GPU Computing Toolkit\CUDA"/>
+		<string name="cusparseInstallDir" value="${{cusparseRootDir}}\v${{version}}"/>
+		<localized locale="0x0409">
+			<string name="title" value="CUSPARSE Runtime"/>
+		</localized>
+	</strings>
+	<description/>
+	<dependencies>
+		<package type="requires" package="CUDARuntimes_${{version}}"/>
+	</dependencies>
+	<customInstallTree>
+		<treeNode text="CUSPARSE" ordering="CUDA|Runtime|Libraries" accessibility="selectable"/>
+	</customInstallTree>
+	<constraints>
+	</constraints>
+	<properties>
+		<string name="InstallLocation" value="${{cusparseInstallDir}}"/>
+		<bool name="FixedInstallLocation" value="true"/>
+	</properties>
+	<phases>
+		<standard phase="copyFiles" installText="Copying CUDA Runtime files" uninstallText="Deleting CUDA Runtime files">
+			<copyFile target="bin\cusparse64_80.dll" />
+
+		</standard>
+	</phases>
+	<manifest>
+		<file name="bin\cusparse64_80.dll" />
+<file name="cusparse.nvi" />
+
+    </manifest>
+</nvi>

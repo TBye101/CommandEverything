@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "あなたの助けを求めています。ゲームをコントロールしますか。",
+    "l10n.dialogAccept": "承認",
+    "l10n.dialogDecline": "拒否",
+    "l10n.coplayControls": "Ctrl + Tab でマウス／キーボードをリリース",
+    "l10n.sharingEnabled": "シェアが有効です",
+    "l10n.shadowPlayRenamed": "ShadowPlay は現在、新シェアオーバレイです。",
+    "l10n.pressKeyToStart": "{{assignedKey}}をクリックして開始。"
+}

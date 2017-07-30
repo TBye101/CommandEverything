@@ -1,0 +1,18 @@
+<VSTemplate
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005"
+    Type="Project"
+    Version="3.0.0">
+
+    <TemplateContent>
+        <Project File="CudaRuntime-VS12.0.vcxproj" TargetFileName="$safeprojectname$.vcxproj" ReplaceParameters="true">
+            <ProjectItem TargetFileName="$safeprojectname$.filters">CudaRuntime-VS12.0.filters</ProjectItem>
+            <ProjectItem OpenInEditor="true" ReplaceParameters="true">kernel.cu</ProjectItem>
+        </Project>
+
+        <CustomParameters>
+            <CustomParameter Name="$cudamajorver$" Value="8" />
+            <CustomParameter Name="$cudaminorver$" Value="0" />
+            <CustomParameter Name="$cudamaxclversion$" Value="2013" />
+        </CustomParameters>
+    </TemplateContent>
+</VSTemplate>

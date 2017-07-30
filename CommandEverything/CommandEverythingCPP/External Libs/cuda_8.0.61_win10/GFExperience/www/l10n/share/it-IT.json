@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Chiede il tuo aiuto e vuole darti il controllo del gioco",
+    "l10n.dialogAccept": "OK",
+    "l10n.dialogDecline": "Rifiuto",
+    "l10n.coplayControls": "Ctrl + Tab per rilasciare il mouse/la tastiera",
+    "l10n.sharingEnabled": "Condivisione abilitata",
+    "l10n.shadowPlayRenamed": "La nuova sovrapposizione di condivisione ora include ShadowPlay.",
+    "l10n.pressKeyToStart": "Premere {{assignedKey}} per iniziare."
+}

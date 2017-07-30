@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="GFExperience.NvStreamSrv" title="${{title}}" version="${{version}}" versionText="${{version}}" timestamp="2016-11-14T21:03:15" disposition="default" hidden="true" installerMin="2.1002.207.1848">
+	<filter name="32bit" platform="x86"/>
+	<filter name="64bit" platform="amd64"/>
+	<constraints>
+		<os min="6.1" text="${{ErrorOSNotSupported}}" level="silent"/>
+		<custom name="CheckRebootRequired" level="critical" text="${{ErrorInstallerNeedReboot}}"/>
+	</constraints>
+	<dependencies>
+		<package type="requires" package="VirtualAudio.Driver"/>
+		<package type="requires" package="NvContainer.LocalSystem"/>
+		<package type="requires" package="NvContainer.NetworkService"/>
+		<package type="requires" package="NvContainer.UserElevated"/>
+		<package type="requires" package="NvContainer.MessageBus"/>
+		<package type="before" package="NvNodejs"/>
+	</dependencies>
+	<extensions>
+		<extension file="NvStreamSrvExt.dll"/>
+	</extensions>
+	<properties>
+		<bool name="FixedInstallLocation" value="true"/>
+		<string name="InstallLocation" value="${{NvidiaProgramFiles}}\${{installFolderName}}"/>
+		<bool name="IsGFExperienceComponent" value="true"/>
+		<bool name="IsQuadroExperienceComponent" value="true"/>
+		<bool name="InstallGameShareBinaries" value="true"/>
+		<bool name="ServiceAutoStart" value="false"/>
+		<bool name="NvContainerUnloaded" value="true"/>
+		<bool name="MandatoryFeature" value="false"/>
+		<bool name="InstallPinPairPlugin" value="true"/>
+		<bool name="InstallAccountPairPlugin" value="true"/>
+		<bool name="InstallNetworkTesterPlugin" value="true"/>
+		<bool name="InstallConnectionTesterPlugin" value="true"/>
+		<bool name="InstallIdentityPlugin" value="true"/>
+		<bool name="InstallGsTelemetryPlugin" value="true"/>
+		<bool name="settingsRequired" value="true"/><bool name="InstallLocalStreamingPlugins" value="true"/><bool name="InstallRoamingStreamingPlugins" value="true"/></properties>
+	<manifest>
+		<file name="GFExperience.NvStreamSrv.nvi"/>
+		<file name="NvStreamSrvExt.dll"/>
+		<file name="amd64\server\boost_chrono-vc120-mt-1_58.dll"/>
+		<file name="amd64\server\boost_date_time-vc120-mt-1_58.dll"/>
+		<file name="amd64\server\boost_regex-vc120-mt-1_58.dll"/>
+		<file name="amd64\server\boost_system-vc120-mt-1_58.dll"/>
+		<file name="amd64\server\boost_thread-vc120-mt-1_58.dll"/>
+		<file name="amd64\server\icuin53.dll"/>
+		<file name="amd64\server\icudt53.dll"/>
+		<file name="amd64\server\icuuc53.dll"/>
+		<file name="amd64\server\detoured.dll"/>
+		<file name="amd64\server\nvinject.dll"/>
+		<file name="amd64\server\rxinput.dll"/>
+		<file name="amd64\server\rxcore.dll"/>
+		<file name="amd64\server\rxaudio.dll"/>
+		<file name="amd64\server\rxgamepadinput.dll"/>
+		<file name="amd64\server\rxnvgamepad.dll"/>
+		<file name="amd64\server\rxvirtualpc.dll"/>
+		<file name="amd64\server\rxdiag.dll"/>
+		<file name="amd64\server\cudart64_65.dll"/>
+		<file name="amd64\server\NvStreamBase.dll"/>
+		<file name="amd64\server\nvstreamer.exe"/>
+		<file name="amd64\server\NvStreamKms.sys"/>
+		<file name="amd64\server\NvStreamUserAgent.exe"/>
+		<file name="amd64\server\nvsteamsupport.dll"/>
+		<file name="amd64\server\steam_api64.dll"/>
+		<file name="amd64\server\steam_appid.txt"/>
+		<file name="amd64\server\RtspServer.dll"/>
+		<file name="amd64\server\ssleay32.dll"/>
+		<file name="amd64\server\libeay32.dll"/>
+		<file name="x86\server\boost_chrono-vc120-mt-1_58.dll"/>
+		<file name="x86\server\boost_date_time-vc120-mt-1_58.dll"/>
+		<file name="x86\server\boost_regex-vc120-mt-1_58.dll"/>
+		<file name="x86\server\boost_system-vc120-mt-1_58.dll"/>
+		<file name="x86\server\boost_thread-vc120-mt-1_58.dll"/>
+		<file name="x86\server\icuin53.dll"/>
+		<file name="x86\server\icudt53.dll"/>
+		<file name="x86\server\icuuc53.dll"/>
+		<file name="x86\server\detoured.dll"/>
+		<file name="x86\server\nvinject.dll"/>
+		<file name="x86\server\rxinput.dll"/>
+		<file name="x86\server\rxcore.dll"/>
+		<file name="x86\server\rxaudio.dll"/>
+		<file name="x86\server\rxgamepadinput.dll"/>
+		<file name="x86\server\rxnvgamepad.dll"/>
+		<file name="x86\server\rxvirtualpc.dll"/>
+		<file name="x86\server\rxdiag.dll"/>
+		<file name="x86\server\NvGfeServiceBridge.dll"/>
+		<file name="x86\server\cudart32_65.dll"/>
+		<file name="x86\server\NvStreamBase.dll"/>
+		<file name="x86\server\nvstreamer.exe"/>
+		<file name="x86\server\NvStreamKms.sys"/>
+		<file name="x86\server\NvStreamUserAgent.exe"/>
+		<file name="x86\server\protobuf-net.dll"/>
+		<file name="x86\server\nvsteamsupport.dll"/>
+		<file name="x86\server\steam_api.dll"/>
+		<file name="x86\server\steam_appid.txt"/>
+		<file name="x86\server\RtspServer.dll"/>
+		<file name="x86\server\ssleay32.dll"/>
+		<file name="x86\server\libeay32.dll"/>
+		<file name="SteamLauncher\NVIDIA.SteamLauncher.exe"/>
+		<file name="SteamLauncher\NVIDIA.SteamLauncher.ini"/>
+		<file name="SteamLauncher\steam_appid.txt"/>
+		<file name="settings.txt"/><file name="amd64\server\AccountPairPlugin.dll"/><file name="amd64\server\AppController.dll"/><file name="amd64\server\ConnectionTester.dll"/><file name="amd64\server\GsProxyPlugin.dll"/><file name="amd64\server\GsTelemetry.dll"/><file name="amd64\server\IdentityPlugin.dll"/><file name="amd64\server\NetworkTester.dll"/><file name="amd64\server\NvDisplayControl.dll"/><file name="amd64\server\NvMdnsPlugin.dll"/><file name="amd64\server\NvPinPairUi.dll"/><file name="amd64\server\NvPortForwardPlugin.dll"/><file name="amd64\server\NvStreamControl.dll"/><file name="amd64\server\PairAggregatorPlugin.dll"/><file name="amd64\server\PinPairPlugin.dll"/><file name="amd64\server\RtspPlugin.dll"/><file name="amd64\server\SsauWatchdogPlugin.dll"/><file name="amd64\server\StreamerController.dll"/><file name="amd64\server\UnifiedProtocol.dll"/><file name="x86\server\AccountPairPlugin.dll"/><file name="x86\server\AppController.dll"/><file name="x86\server\ConnectionTester.dll"/><file name="x86\server\GsProxyPlugin.dll"/><file name="x86\server\GsTelemetry.dll"/><file name="x86\server\IdentityPlugin.dll"/><file name="x86\server\NetworkTester.dll"/><file name="x86\server\NvDisplayControl.dll"/><file name="x86\server\NvGameShare.dll"/><file name="x86\server\NvMdnsPlugin.dll"/><file name="x86\server\NvPinPairUi.dll"/><file name="x86\server\NvPortForwardPlugin.dll"/><file name="x86\server\NvStreamControl.dll"/><file name="x86\server\PairAggregatorPlugin.dll"/><file name="x86\server\PinPairPlugin.dll"/><file name="x86\server\RtspPlugin.dll"/><file name="x86\server\SsauWatchdogPlugin.dll"/><file name="x86\server\StreamerController.dll"/><file name="x86\server\UnifiedProtocol.dll"/></manifest>
+	<phases>
+		<standard phase="startNvContainerLS" condition="ServiceAutoStart" when="uninstall" onError="ignore">
+			<startService name="${{NvContainerLSName}}" timeOut="40000"/>
+		</standard>
+		<standard phase="stopNvContainerLSService" onError="ignore" when="install">
+			<stopService name="${{NvContainerLSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<standard phase="stopNvContainerNSService" onError="ignore" when="install">
+			<stopService name="${{NvContainerNSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<exe phase="killNvContainers" name="${{SystemDirectory}}\taskkill.exe" when="install" onError="ignore">
+			<arg value="/f /im ${{ContainerBinaryName}}" quote="none"/>
+			<success value="0"/>
+			<success value="128"/>
+		</exe>
+		<setPropertyIf phase="checkIfNvContainerUnloaded" boolProperty="NvContainerUnloaded" value="false" when="install">
+			<process name="${{ContainerBinaryName}}" check="exists"/>
+		</setPropertyIf>
+		<confirm phase="Confirm-NvContainerUnload" when="install">
+			<propertyTrue name="NvContainerUnloaded"/>
+		</confirm>
+		<standard phase="deleteServerClientUUIDKeys" when="uninstall" onError="ignore" condition="!Global:CleanInstall">
+			<deleteRegistry keyName="${{ServerClientIdentifierRegKey}}" valueName="${{ServerClientIdentifierRegValueName}}"/>
+			<deleteRegistryKey keyName="${{ServerClientIdentifierRegKey}}"/>
+			<deleteRegistryKey keyName="${{NvidiaSoftwareKey}}"/>
+		</standard>
+		<standard phase="deleteFBCEnable" onError="ignore" when="uninstall">
+			<deleteRegistry keyName="HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" valueName="NVFBCEnable"/>
+		</standard>
+		<standard phase="deleteAppData" onError="ignore" when="uninstall">
+			<deleteDirectoryTree target="${{CommonAppData}}\NVIDIA Corporation\nvStreamSVC"/>
+			<deleteDirectoryTree target="${{CommonAppData}}\NVIDIA Corporation\nvStream"/>
+			<deleteDirectoryTree target="${{LocalUserAppData}}\NVIDIA Corporation\Shield Apps"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\${{installFolderName}}\cacert.pem"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\${{installFolderName}}\steam-big-picture-box-art.png"/>
+			<deleteFile target="${{LocalUserAppData}}\NVIDIA\accounts"/>
+		</standard>
+		<standard phase="deleteLegacyServices" onError="ignore" when="install">
+			<deleteService name="${{networkServiceName}}" timeOut="30000"/>
+			<deleteService name="${{serviceName}}" timeOut="30000"/>
+		</standard>
+		<exe phase="killNvStreamService" name="${{SystemDirectory}}\taskkill.exe" when="install" onError="ignore">
+			<arg value="/f /im NvStreamService.exe" quote="none"/>
+			<success value="0"/>
+			<success value="128"/>
+		</exe>
+		<exe phase="killNvStreamNetworkService" name="${{SystemDirectory}}\taskkill.exe" when="install" onError="ignore">
+			<arg value="/f /im NvStreamNetworkService.exe" quote="none"/>
+			<success value="0"/>
+			<success value="128"/>
+		</exe>
+		<standard phase="stopNvStreamKmsService" when="install" onError="ignore">
+			<stopService name="${{kmsServiceName}}" timeOut="30000"/>
+		</standard>
+		<standard phase="createCrashDumpGenerationKeys">
+			<addRegistry keyName="${{crashDumpKey}}\nvstreamer.exe"/>
+			<addRegistry keyName="${{crashDumpKey}}\nvstreamer.exe" valueName="DumpFolder" type="REG_EXPAND_SZ" value="%PROGRAMDATA%\NVIDIA Corporation\CrashDumps"/>
+			<addRegistry keyName="${{crashDumpKey}}\nvstreamer.exe" valueName="DumpCount" type="REG_DWORD" value="15"/>
+			<addRegistry keyName="${{crashDumpKey}}\nvstreamer.exe" valueName="DumpType" type="REG_DWORD" value="1"/>
+			<addRegistry keyName="${{crashDumpKey}}\NvContainer.exe"/>
+			<addRegistry keyName="${{crashDumpKey}}\NvContainer.exe" valueName="DumpFolder" type="REG_EXPAND_SZ" value="%PROGRAMDATA%\NVIDIA Corporation\CrashDumps"/>
+			<addRegistry keyName="${{crashDumpKey}}\NvContainer.exe" valueName="DumpCount" type="REG_DWORD" value="15"/>
+			<addRegistry keyName="${{crashDumpKey}}\NvContainer.exe" valueName="DumpType" type="REG_DWORD" value="1"/>
+			<addRegistry keyName="${{crashDumpKey}}\NvStreamUserAgent.exe"/>
+			<addRegistry keyName="${{crashDumpKey}}\NvStreamUserAgent.exe" valueName="DumpFolder" type="REG_EXPAND_SZ" value="%PROGRAMDATA%\NVIDIA Corporation\CrashDumps"/>
+			<addRegistry keyName="${{crashDumpKey}}\NvStreamUserAgent.exe" valueName="DumpCount" type="REG_DWORD" value="15"/>
+			<addRegistry keyName="${{crashDumpKey}}\NvStreamUserAgent.exe" valueName="DumpType" type="REG_DWORD" value="1"/>
+			<addRegistry keyName="${{crashDumpKey}}\NVIDIA.SteamLauncher.exe"/>
+			<addRegistry keyName="${{crashDumpKey}}\NVIDIA.SteamLauncher.exe" valueName="DumpFolder" type="REG_EXPAND_SZ" value="%PROGRAMDATA%\NVIDIA Corporation\CrashDumps"/>
+			<addRegistry keyName="${{crashDumpKey}}\NVIDIA.SteamLauncher.exe" valueName="DumpCount" type="REG_DWORD" value="15"/>
+			<addRegistry keyName="${{crashDumpKey}}\NVIDIA.SteamLauncher.exe" valueName="DumpType" type="REG_DWORD" value="1"/>
+		</standard>
+		<standard phase="createFirstLaunchRegkey">
+			<addRegistry keyName="${{NvStreamRegKey}}" valueName="FirstLaunch" type="REG_DWORD" value="1"/>
+		</standard>
+		<standard phase="NvDisplayControlPath">
+			<addRegistry keyName="${{ProductRegKey}}" valueName="NvDisplayControlPath" type="REG_SZ" value="${{InstallLocation}}\NvDisplayControl.dll"/>
+		</standard>
+		<standard phase="deleteRuntimeDataUninstallAmd64" platform="amd64" onError="ignore" when="uninstall">
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\rxapplist.apps"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\rxinput.apps"/>
+		</standard>
+		<standard phase="deleteRuntimeDataUninstall" onError="ignore" when="uninstall">
+			<deleteRegistryKeyTree keyName="${{NvidiaSoftwareKey}}\${{BaseProductName}}"/>
+			<deleteRegistryKeyTree keyName="${{ProductRegKey}}"/>
+			<deleteDirectoryTree target="${{NvidiaCommonAppData}}\${{BaseProductName}}"/>
+			<deleteDirectoryTree target="${{CommonAppData}}\NVIDIA Corporation\GfeBridges"/>
+			<deleteDirectoryTree target="${{CommonAppData}}\NVIDIA Corporation\NvStreamUserAgent"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\rxapplist.apps"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\rxinput.apps"/>
+		</standard>
+		<custom phase="closeClient" action="CloseClient" when="install" condition="IsUpdate" onError="ignore" progress="500" autoTick="200"/>
+		<if filter="32bit">
+			<standard phase="deleteLibeay32_32bit" onError="ignore" platform="x86" when="install">
+				<deleteFile target="${{InstallLocationX86}}\libeay32.dll"/>
+			</standard>
+			<standard phase="deleteLibprotobuf_32bit" onError="ignore" platform="x86" when="install">
+				<deleteFile target="${{InstallLocationX86}}\libprotobuf.dll"/>
+			</standard>
+			<standard phase="deleteMessagebus_32bit" onError="ignore" platform="x86" when="install">
+				<deleteFile target="${{InstallLocationX86}}\MessageBus.dll"/>
+			</standard>
+			<standard phase="deleteNvstreambase_32bit" onError="ignore" platform="x86" when="install">
+				<deleteFile target="${{InstallLocationX86}}\NvStreamBase.dll"/>
+			</standard>
+			<standard phase="deletePoco_32bit" onError="ignore" platform="x86" when="install">
+				<deleteFile target="${{InstallLocationX86}}\Poco.dll"/>
+			</standard>
+			<standard phase="deleteSsleay32_32bit" onError="ignore" platform="x86" when="install">
+				<deleteFile target="${{InstallLocationX86}}\ssleay32.dll"/>
+			</standard>
+		</if>
+		<if filter="64bit">
+			<standard phase="deleteLibeay32_64bit" onError="ignore" platform="amd64" when="install">
+				<deleteFile target="${{InstallLocation}}\libeay32.dll"/>
+			</standard>
+			<standard phase="deleteLibprotobuf_64bit" onError="ignore" platform="amd64" when="install">
+				<deleteFile target="${{InstallLocation}}\libprotobuf.dll"/>
+			</standard>
+			<standard phase="deleteMessagebus_64bit" onError="ignore" platform="amd64" when="install">
+				<deleteFile target="${{InstallLocation}}\MessageBus.dll"/>
+			</standard>
+			<standard phase="deleteNvstreambase_64bit" onError="ignore" platform="amd64" when="install">
+				<deleteFile target="${{InstallLocation}}\NvStreamBase.dll"/>
+			</standard>
+			<standard phase="deletePoco_64bit" onError="ignore" platform="amd64" when="install">
+				<deleteFile target="${{InstallLocation}}\Poco.dll"/>
+			</standard>
+			<standard phase="deleteSsleay32_64bit" onError="ignore" platform="amd64" when="install">
+				<deleteFile target="${{InstallLocation}}\ssleay32.dll"/>
+			</standard>
+		</if>
+		<standard phase="deleteInstallLocations" onError="ignore" when="install">
+			<deleteDirectoryTree target="${{InstallLocation}}"/>
+			<deleteDirectoryTree target="${{InstallLocationX86}}"/>
+		</standard>
+		<standard phase="copyHelperFilesX86" platform="x86">
+			<createDirectory target="${{NvidiaProgramFilesX86}}"/>
+			<createDirectory target="${{InstallLocationX86}}"/>
+			<copyFile target="${{InstallLocationX86}}\protobuf-net.dll" source="x86\server\protobuf-net.dll"/>
+			<copyFile target="${{InstallLocationX86}}\NvGfeServiceBridge.dll" source="x86\server\NvGfeServiceBridge.dll "/>
+			<copyFile target="${{InstallLocationX86}}\detoured.dll" source="x86\server\detoured.dll"/>
+			<copyFile target="${{InstallLocationX86}}\nvinject.dll" source="x86\server\nvinject.dll"/>
+			<copyFile target="${{InstallLocationX86}}\rxinput.dll" source="x86\server\rxinput.dll"/>
+			<copyFile target="${{InstallLocationX86}}\rxcore.dll" source="x86\server\rxcore.dll"/>
+			<copyFile target="${{InstallLocationX86}}\rxaudio.dll" source="x86\server\rxaudio.dll"/>
+			<copyFile target="${{InstallLocationX86}}\rxgamepadinput.dll" source="x86\server\rxgamepadinput.dll"/>
+			<copyFile target="${{InstallLocationX86}}\rxnvgamepad.dll" source="x86\server\rxnvgamepad.dll"/>
+			<copyFile target="${{InstallLocationX86}}\rxvirtualpc.dll" source="x86\server\rxvirtualpc.dll"/>
+			<copyFile target="${{InstallLocationX86}}\rxdiag.dll" source="x86\server\rxdiag.dll"/>
+		</standard>
+		<standard phase="copyGameShareBinaries" platfor="x86" condition="InstallGameShareBinaries">
+			<copyFile target="${{InstallLocationX86}}\NvGameShare.dll" source="x86\server\NvGameShare.dll "/>
+		</standard>
+		<standard phase="CopySettingsFile" condition="settingsRequired">
+			<copyFile target="${{CommonAppData}}\NVIDIA Corporation\NvStreamSrv\settings.txt" source="settings.txt"/>
+		</standard>
+		<standard phase="deleteDeperecatedLocalSystemPlugins" when="install">
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\SsauHelper.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\SsauHelper.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\IdentityPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\_IdentityPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\IdentityPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\_IdentityPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\NvStreamControl.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\_NvStreamControl.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\NvStreamControl.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\_NvStreamControl.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\NetworkService\NvMdnsPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\NetworkService\_NvMdnsPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\NetworkService\NvMdnsPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\NetworkService\_NvMdnsPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\NvMdnsPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\_NvMdnsPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\NvMdnsPlugin.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\_NvMdnsPlugin.dll"/>
+		</standard>
+		<standard phase="deleteGstreamerLibs" when="install">
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\libffi-6.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\libglib-2.0-0.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\libgmodule-2.0-0.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\libgstreamer-1.0-0.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\libintl-8.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\libwinpthread-1.dll"/>
+			<deleteFile target="${{NvidiaProgramFilesX86}}\NvStreamSrv\libgobject-2.0-0.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\libffi-6.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\libglib-2.0-0.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\libgmodule-2.0-0.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\libgstreamer-1.0-0.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\libintl-8.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\libwinpthread-1.dll"/>
+			<deleteFile target="${{NvidiaProgramFiles}}\NvStreamSrv\libgobject-2.0-0.dll"/>
+		</standard>
+		<standard phase="copyGsTelemetryPluginX86UserMandatory" platform="x86" condition="MandatoryFeature &amp;&amp; InstallGsTelemetryPlugin">
+			<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\User\GsTelemetry.dll" source="x86\server\GsTelemetry.dll"/>
+		</standard>
+		<standard phase="copyGsTelemetryPluginX86UserOptional" platform="x86" condition="!MandatoryFeature &amp;&amp; InstallGsTelemetryPlugin">
+			<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\User\_GsTelemetry.dll" source="x86\server\GsTelemetry.dll"/>
+		</standard>
+		<standard phase="copyServerFilesX86" platform="x86">
+			<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\NvStreamBase.dll" source="x86\server\NvStreamBase.dll"/>
+		</standard>
+		<if filter="32bit">
+			<standard phase="copyServerFilesX86" platform="x86">
+				<copyFile target="${{InstallLocationX86}}\boost_chrono-vc120-mt-1_58.dll" source="x86\server\boost_chrono-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocationX86}}\boost_date_time-vc120-mt-1_58.dll" source="x86\server\boost_date_time-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocationX86}}\boost_regex-vc120-mt-1_58.dll" source="x86\server\boost_regex-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocationX86}}\boost_system-vc120-mt-1_58.dll" source="x86\server\boost_system-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocationX86}}\boost_thread-vc120-mt-1_58.dll" source="x86\server\boost_thread-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocationX86}}\icuin53.dll" source="x86\server\icuin53.dll"/>
+				<copyFile target="${{InstallLocationX86}}\icudt53.dll" source="x86\server\icudt53.dll"/>
+				<copyFile target="${{InstallLocationX86}}\icuuc53.dll" source="x86\server\icuuc53.dll"/>
+				<copyFile target="${{InstallLocationX86}}\cudart32_65.dll" source="x86\server\cudart32_65.dll"/>
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\NvStreamBase.dll" source="x86\server\NvStreamBase.dll"/>
+				<copyFile target="${{InstallLocationX86}}\nvstreamer.exe" source="x86\server\nvstreamer.exe"/>
+				<copyFile target="${{InstallLocationX86}}\NvStreamKms.sys" source="x86\server\NvStreamKms.sys"/>
+				<copyFile target="${{InstallLocationX86}}\nvstreamuseragent.exe" source="x86\server\NvStreamUserAgent.exe"/>
+				<copyFile target="${{InstallLocationX86}}\nvsteamsupport.dll" source="x86\server\nvsteamsupport.dll"/>
+				<copyFile target="${{InstallLocationX86}}\steam_api.dll" source="x86\server\steam_api.dll"/>
+				<copyFile target="${{InstallLocationX86}}\steam_appid.txt" source="x86\server\steam_appid.txt"/>
+				<copyFile target="${{InstallLocationX86}}\SteamLauncher\NVIDIA.SteamLauncher.exe" source="SteamLauncher\NVIDIA.SteamLauncher.exe"/>
+				<copyFile target="${{InstallLocationX86}}\SteamLauncher\NVIDIA.SteamLauncher.ini" source="SteamLauncher\NVIDIA.SteamLauncher.ini"/>
+				<copyFile target="${{InstallLocationX86}}\SteamLauncher\steam_appid.txt" source="SteamLauncher\steam_appid.txt"/>
+				<copyFile target="${{InstallLocationX86}}\RtspServer.dll" source="x86\server\RtspServer.dll"/>
+				<copyFile target="${{InstallLocationX86}}\NvDisplayControl.dll" source="x86\server\NvDisplayControl.dll"/>
+				<copyFile target="${{InstallLocationX86}}\ssleay32.dll" source="x86\server\ssleay32.dll"/>
+				<copyFile target="${{InstallLocationX86}}\libeay32.dll" source="x86\server\libeay32.dll"/>
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\NetworkService\RtspPlugin.dll" source="x86\server\RtspPlugin.dll"/>
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\NetworkService\UnifiedProtocol.dll" source="x86\server\UnifiedProtocol.dll"/>
+				<copyFile target="${{InstallLocationX86}}\Plugins\SSAU\SsauWatchdogPlugin.dll" source="x86\server\SsauWatchdogPlugin.dll"/>
+				<copyFile target="${{InstallLocationX86}}\Plugins\SSAU\AppController.dll" source="x86\server\AppController.dll"/>
+				<copyFile target="${{InstallLocationX86}}\Plugins\SSAU\StreamerController.dll" source="x86\server\StreamerController.dll"/>
+			</standard>
+			<standard phase="copyAccountPairPluginX86" platform="x86" condition="InstallAccountPairPlugin">
+				<copyFile target="${{InstallLocationX86}}\Plugins\SSAU\AccountPairPlugin.dll" source="x86\server\AccountPairPlugin.dll"/>
+			</standard>
+			<standard phase="copyPinPairPluginX86" platform="x86" condition="InstallPinPairPlugin">
+				<copyFile target="${{InstallLocationX86}}\Plugins\SSAU\PinPairPlugin.dll" source="x86\server\PinPairPlugin.dll"/>
+				<copyFile target="${{InstallLocationX86}}\NvPinPairUi.dll" source="x86\server\NvPinPairUi.dll"/>
+			</standard>
+			<standard phase="copyPairAggregatorPluginX86" platform="x86" condition="InstallAccountPairPlugin || InstallPinPairPlugin">
+				<copyFile target="${{InstallLocationX86}}\Plugins\SSAU\PairAggregatorPlugin.dll" source="x86\server\PairAggregatorPlugin.dll"/>
+			</standard>
+			<standard phase="copyServerPluginsX86LocalSystemMandatory" platform="x86" condition="MandatoryFeature">
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\NvStreamControl.dll" source="x86\server\NvStreamControl.dll"/>
+			</standard>
+			<standard phase="copyIdentityPluginX86LocalSystemMandatory" platform="x86" condition="MandatoryFeature &amp;&amp; InstallIdentityPlugin">
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\IdentityPlugin.dll" source="x86\server\IdentityPlugin.dll"/>
+			</standard>
+			<standard phase="copyServerPluginsX86LocalSystemOptional" platform="x86" condition="!MandatoryFeature">
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\_NvStreamControl.dll" source="x86\server\NvStreamControl.dll"/>
+			</standard>
+			<standard phase="copyIdentityPluginX86LocalSystemOptional" platform="x86" condition="!MandatoryFeature &amp;&amp; InstallIdentityPlugin">
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\_IdentityPlugin.dll" source="x86\server\IdentityPlugin.dll"/>
+			</standard>
+			<standard phase="copyMdnsPluginX86LocalSystemMandatory" platform="x86" condition="MandatoryFeature &amp;&amp; InstallLocalStreamingPlugins">
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\NvMdnsPlugin.dll" source="x86\server\NvMdnsPlugin.dll"/>
+			</standard>
+			<standard phase="copyMdnsPluginX86LocalSystemOptional" platform="x86" condition="!MandatoryFeature &amp;&amp; InstallLocalStreamingPlugins">
+				<copyFile target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\LocalSystem\_NvMdnsPlugin.dll" source="x86\server\NvMdnsPlugin.dll"/>
+			</standard>
+			<standard phase="copyServerPluginsX86RoamingStreaming" platform="x86" condition="InstallRoamingStreamingPlugins">
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\NetworkService\NvPortForwardPlugin.dll" source="x86\server\NvPortForwardPlugin.dll"/>
+			</standard>
+			<standard phase="copyNetworkTesterPluginX86" platform="x86" condition="InstallNetworkTesterPlugin">
+				<copyFile target="${{InstallLocationX86}}\Plugins\SSAU\NetworkTester.dll" source="x86\server\NetworkTester.dll"/>
+			</standard>
+			<standard phase="copyConnectionTesterPluginX86" platform="x86" condition="InstallConnectionTesterPlugin">
+				<copyFile target="${{InstallLocationX86}}\Plugins\SSAU\ConnectionTester.dll" source="x86\server\ConnectionTester.dll"/>
+			</standard>
+			<standard phase="createServerRegkeyX86" platform="x86">
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="RtspPlugin" value="${{InstallLocationX86}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="UnifiedProtocol" value="${{InstallLocationX86}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="NvStreamControl" value="${{InstallLocationX86}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="_NvStreamControl" value="${{InstallLocationX86}}" type="REG_SZ"/>
+			</standard>
+			<standard phase="createIdentityPluginRegkeyX86" platform="x86" condition="InstallIdentityPlugin">
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="IdentityPlugin" value="${{InstallLocationX86}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="_IdentityPlugin" value="${{InstallLocationX86}}" type="REG_SZ"/>
+			</standard>
+			<standard phase="createServerRegkeyX86LocalStreaming" platform="x86" condition="InstallLocalStreamingPlugins">
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="NvMdnsPlugin" value="${{InstallLocationX86}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="_NvMdnsPlugin" value="${{InstallLocationX86}}" type="REG_SZ"/>
+			</standard>
+			<standard phase="createServerRegkeyX86RoamingStreaming" platform="x86" condition="InstallRoamingStreamingPlugins">
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="NvPortForwardPlugin" value="${{InstallLocationX86}}" type="REG_SZ"/>
+			</standard>
+		</if>
+		<if filter="64bit">
+			<standard phase="createDirectoriesAMD64" platform="amd64">
+				<createDirectory target="${{NvidiaProgramFiles}}"/>
+				<createDirectory target="${{InstallLocation}}"/>
+			</standard>
+			<standard phase="copyFilesAMD64" platform="amd64">
+				<copyFile target="${{InstallLocation}}\boost_chrono-vc120-mt-1_58.dll" source="amd64\server\boost_chrono-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocation}}\boost_date_time-vc120-mt-1_58.dll" source="amd64\server\boost_date_time-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocation}}\boost_regex-vc120-mt-1_58.dll" source="amd64\server\boost_regex-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocation}}\boost_system-vc120-mt-1_58.dll" source="amd64\server\boost_system-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocation}}\boost_thread-vc120-mt-1_58.dll" source="amd64\server\boost_thread-vc120-mt-1_58.dll"/>
+				<copyFile target="${{InstallLocationX86}}\icuin53.dll" source="amd64\server\icuin53.dll"/>
+				<copyFile target="${{InstallLocationX86}}\icudt53.dll" source="amd64\server\icudt53.dll"/>
+				<copyFile target="${{InstallLocationX86}}\icuuc53.dll" source="amd64\server\icuuc53.dll"/>
+				<copyFile target="${{InstallLocation}}\detoured.dll" source="amd64\server\detoured.dll"/>
+				<copyFile target="${{InstallLocation}}\nvinject.dll" source="amd64\server\nvinject.dll"/>
+				<copyFile target="${{InstallLocation}}\rxinput.dll" source="amd64\server\rxinput.dll"/>
+				<copyFile target="${{InstallLocation}}\rxcore.dll" source="amd64\server\rxcore.dll"/>
+				<copyFile target="${{InstallLocation}}\rxaudio.dll" source="amd64\server\rxaudio.dll"/>
+				<copyFile target="${{InstallLocation}}\rxgamepadinput.dll" source="amd64\server\rxgamepadinput.dll"/>
+				<copyFile target="${{InstallLocation}}\rxnvgamepad.dll" source="amd64\server\rxnvgamepad.dll"/>
+				<copyFile target="${{InstallLocation}}\rxvirtualpc.dll" source="amd64\server\rxvirtualpc.dll"/>
+				<copyFile target="${{InstallLocation}}\rxdiag.dll" source="amd64\server\rxdiag.dll"/>
+				<copyFile target="${{InstallLocation}}\cudart64_65.dll" source="amd64\server\cudart64_65.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\NvStreamBase.dll" source="amd64\server\NvStreamBase.dll"/>
+				<copyFile target="${{InstallLocation}}\nvstreamer.exe" source="amd64\server\nvstreamer.exe"/>
+				<copyFile target="${{InstallLocation}}\NvStreamKms.sys" source="amd64\server\NvStreamKms.sys"/>
+				<copyFile target="${{InstallLocation}}\nvstreamuseragent.exe" source="amd64\server\NvStreamUserAgent.exe"/>
+				<copyFile target="${{InstallLocation}}\nvsteamsupport.dll" source="amd64\server\nvsteamsupport.dll"/>
+				<copyFile target="${{InstallLocation}}\steam_api64.dll" source="amd64\server\steam_api64.dll"/>
+				<copyFile target="${{InstallLocation}}\steam_appid.txt" source="amd64\server\steam_appid.txt"/>
+				<copyFile target="${{InstallLocation}}\SteamLauncher\NVIDIA.SteamLauncher.exe" source="SteamLauncher\NVIDIA.SteamLauncher.exe"/>
+				<copyFile target="${{InstallLocation}}\SteamLauncher\NVIDIA.SteamLauncher.ini" source="SteamLauncher\NVIDIA.SteamLauncher.ini"/>
+				<copyFile target="${{InstallLocation}}\SteamLauncher\steam_appid.txt" source="SteamLauncher\steam_appid.txt"/>
+				<copyFile target="${{InstallLocation}}\RtspServer.dll" source="amd64\server\RtspServer.dll"/>
+				<copyFile target="${{InstallLocation}}\NvDisplayControl.dll" source="amd64\server\NvDisplayControl.dll"/>
+				<copyFile target="${{InstallLocation}}\ssleay32.dll" source="amd64\server\ssleay32.dll"/>
+				<copyFile target="${{InstallLocation}}\libeay32.dll" source="amd64\server\libeay32.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\NetworkService\RtspPlugin.dll" source="amd64\server\RtspPlugin.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\NetworkService\UnifiedProtocol.dll" source="amd64\server\UnifiedProtocol.dll"/>
+				<copyFile target="${{InstallLocation}}\Plugins\SSAU\SsauWatchdogPlugin.dll" source="amd64\server\SsauWatchdogPlugin.dll"/>
+				<copyFile target="${{InstallLocation}}\Plugins\SSAU\AppController.dll" source="amd64\server\AppController.dll"/>
+				<copyFile target="${{InstallLocation}}\Plugins\SSAU\StreamerController.dll" source="amd64\server\StreamerController.dll"/>
+			</standard>
+			<standard phase="copyAccountPairPluginAMD64" platform="amd64" condition="InstallAccountPairPlugin">
+				<copyFile target="${{InstallLocation}}\Plugins\SSAU\AccountPairPlugin.dll" source="amd64\server\AccountPairPlugin.dll"/>
+			</standard>
+			<standard phase="copyPinPairPluginAMD64" platform="amd64" condition="InstallPinPairPlugin">
+				<copyFile target="${{InstallLocation}}\Plugins\SSAU\PinPairPlugin.dll" source="amd64\server\PinPairPlugin.dll"/>
+				<copyFile target="${{InstallLocation}}\NvPinPairUi.dll" source="amd64\server\NvPinPairUi.dll"/>
+			</standard>
+			<standard phase="copyPairAggregatorPluginAMD64" platform="amd64" condition="InstallAccountPairPlugin || InstallPinPairPlugin">
+				<copyFile target="${{InstallLocation}}\Plugins\SSAU\PairAggregatorPlugin.dll" source="amd64\server\PairAggregatorPlugin.dll"/>
+			</standard>
+			<standard phase="copyServerPluginsAMD64LocalSystemMandatory" platform="amd64" condition="MandatoryFeature">
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\NvStreamControl.dll" source="amd64\server\NvStreamControl.dll"/>
+			</standard>
+			<standard phase="copyIdentityPluginAMD64LocalSystemMandatory" platform="amd64" condition="MandatoryFeature &amp;&amp; InstallIdentityPlugin">
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\IdentityPlugin.dll" source="amd64\server\IdentityPlugin.dll"/>
+			</standard>
+			<standard phase="copyServerPluginsAMD64LocalSystemOptional" platform="amd64" condition="!MandatoryFeature">
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\_NvStreamControl.dll" source="amd64\server\NvStreamControl.dll"/>
+			</standard>
+			<standard phase="copyIdentityPluginAMD64LocalSystemOptional" platform="amd64" condition="!MandatoryFeature &amp;&amp; InstallIdentityPlugin">
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\_IdentityPlugin.dll" source="amd64\server\IdentityPlugin.dll"/>
+			</standard>
+			<standard phase="copyMdnsPluginAMD64LocalSystemOptional" platform="amd64" condition="!MandatoryFeature &amp;&amp; InstallLocalStreamingPlugins">
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\_NvMdnsPlugin.dll" source="amd64\server\NvMdnsPlugin.dll"/>
+			</standard>
+			<standard phase="copyMdnsPluginAMD64LocalSystemMandatory" platform="amd64" condition="MandatoryFeature &amp;&amp; InstallLocalStreamingPlugins">
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\NvMdnsPlugin.dll" source="amd64\server\NvMdnsPlugin.dll"/>
+			</standard>
+			<standard phase="copyServerPluginsAMD64RoamingStreaming" platform="amd64" condition="InstallRoamingStreamingPlugins">
+				<copyFile target="${{NvidiaProgramFiles}}\NvContainer\plugins\NetworkService\NvPortForwardPlugin.dll" source="amd64\server\NvPortForwardPlugin.dll"/>
+			</standard>
+			<standard phase="copyNetworkTesterPluginAMD64" platform="amd64" condition="InstallNetworkTesterPlugin">
+				<copyFile target="${{InstallLocation}}\Plugins\SSAU\NetworkTester.dll" source="amd64\server\NetworkTester.dll"/>
+			</standard>
+			<standard phase="copyConnectionTesterPluginAMD64" platform="amd64" condition="InstallConnectionTesterPlugin">
+				<copyFile target="${{InstallLocation}}\Plugins\SSAU\ConnectionTester.dll" source="amd64\server\ConnectionTester.dll"/>
+			</standard>
+			<standard phase="createServerRegkeyAMD64" platform="amd64">
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="RtspPlugin" value="${{InstallLocation}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="UnifiedProtocol" value="${{InstallLocation}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="NvStreamControl" value="${{InstallLocation}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="_NvStreamControl" value="${{InstallLocation}}" type="REG_SZ"/>
+			</standard>
+			<standard phase="createIdentityPluginRegkeyAMD64" platform="amd64" condition="InstallIdentityPlugin">
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="IdentityPlugin" value="${{InstallLocation}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="_IdentityPlugin" value="${{InstallLocation}}" type="REG_SZ"/>
+			</standard>
+			<standard phase="createServerRegkeyAMD64LocalStreaming" platform="amd64" condition="InstallLocalStreamingPlugins">
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="NvMdnsPlugin" value="${{InstallLocation}}" type="REG_SZ"/>
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="_NvMdnsPlugin" value="${{InstallLocation}}" type="REG_SZ"/>
+			</standard>
+			<standard phase="createServerRegkeyAMD64RoamingStreaming" platform="amd64" condition="InstallRoamingStreamingPlugins">
+				<addRegistry keyName="${{ContainerDllDirectories}}" valueName="NvPortForwardPlugin" value="${{InstallLocation}}" type="REG_SZ"/>
+			</standard>
+		</if>
+		<exe phase="deleteNvstreamKmsServiceUsingScExe" onError="ignore" when="install" name="${{SystemDirectory}}\sc.exe" dir="${{SystemDirectory}}">
+			<arg value="delete"/>
+			<arg value="${{kmsServiceName}}"/>
+			<success value="0"/>
+			<success value="1060"/>
+		</exe>
+		<exe phase="createNvstreamKmsServiceUsingScExe" when="install" name="${{SystemDirectory}}\sc.exe" dir="${{SystemDirectory}}">
+			<arg value="create"/>
+			<arg value="${{kmsServiceName}}"/>
+			<arg value="binPath="/>
+			<arg value="${{InstallLocation}}\NvStreamKms.sys"/>
+			<arg value="type="/>
+			<arg value="kernel"/>
+			<arg value="start="/>
+			<arg value="demand"/>
+			<arg value="DisplayName="/>
+			<arg value="NVIDIA KMS"/>
+			<success value="0"/>
+			<success value="1073"/>
+		</exe>
+		<standard phase="deleteNvstreamKmsService" onError="ignore" when="uninstall">
+			<deleteService name="${{kmsServiceName}}"/>
+		</standard>
+		<exe phase="deleteNvstreamKmsServiceUsingScExeOnUninstall" onError="ignore" when="uninstall" name="${{SystemDirectory}}\sc.exe" dir="${{SystemDirectory}}">
+			<arg value="delete"/>
+			<arg value="${{kmsServiceName}}"/>
+		</exe>
+		<exe phase="DeleteStoreCertsMandatory" name="${{SystemDirectory}}\rundll32.exe" dir="${{NvidiaProgramFiles}}\NvContainer" condition="MandatoryFeature &amp;&amp; InstallIdentityPlugin" onError="ignore" when="uninstall">
+			<arg value="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\IdentityPlugin.dll"/>
+			<arg value=",DeleteStoreCerts" quote="none"/>
+		</exe>
+		<exe phase="DeleteStoreCertsOptional" name="${{SystemDirectory}}\rundll32.exe" dir="${{NvidiaProgramFiles}}\NvContainer" condition="!MandatoryFeature &amp;&amp; InstallIdentityPlugin" onError="ignore" when="uninstall">
+			<arg value="${{NvidiaProgramFiles}}\NvContainer\plugins\LocalSystem\_IdentityPlugin.dll"/>
+			<arg value=",DeleteStoreCerts" quote="none"/>
+		</exe>
+		<standard phase="createInstallLocationValues">
+			<addRegistry keyName="${{ProductRegKey}}" valueName="InstallLocation" type="REG_SZ" value="${{InstallLocation}}"/>
+			<addRegistry keyName="${{ProductRegKey}}" valueName="InstallLocationX86" type="REG_SZ" value="${{InstallLocationX86}}"/>
+		</standard>
+		<firewall phase="deleteOldServiceTCPRule" activity="deleteRule" ruleName="${{title}} Delete Old Service TCP Rule" applicationName="${{InstallLocation}}\nvstreamsvc.exe" description="Delete TCP exceptions for ${{title}} service" localPorts="47987,47988" protocol="tcp" action="block" enable="false" onError="ignore" when="install"/>
+		<firewall phase="deleteOldUserAgentServiceTCPRule" activity="deleteRule" ruleName="SHIELD Streaming Service TCP Exception" applicationName="${{InstallLocation}}\NvStreamUserAgent.exe" enable="false" onError="ignore" action="block" when="install"/>
+		<firewall phase="deleteOldNetworkServiceTCPRule" activity="deleteRule" ruleName="SHIELD Streaming Service TCP Exception" applicationName="${{NvidiaProgramFiles}}\NvContainer\NvContainer.exe" enable="false" onError="ignore" action="block" when="install"/>
+		<firewall phase="deleteOldNetworkServiceUDPRule" activity="deleteRule" ruleName="SHIELD Streaming Service UDP Exception" applicationName="${{NvidiaProgramFiles}}\NvContainer\NvContainer.exe" enable="false" onError="ignore" action="block" when="install"/>
+		<firewall phase="deleteOldApplicationTCPRule" activity="deleteRule" ruleName="SHIELD Streaming Application TCP Exception" applicationName="${{InstallLocation}}\nvstreamer.exe" enable="false" onError="ignore" action="block" when="install"/>
+		<firewall phase="deleteOldApplicationUDPRule" activity="deleteRule" ruleName="SHIELD Streaming Application UDP Exception" applicationName="${{InstallLocation}}\nvstreamer.exe" enable="false" onError="ignore" action="block" when="install"/>
+		<firewall phase="createServiceTCPRule" activity="createRule" ruleName="${{title}} NSS TCP Exception" applicationName="${{NvidiaProgramFiles}}\NvContainer\NvContainer.exe" description="TCP exceptions for ${{title}} NSS (HTTP)" localPorts="47984,47989,48010" protocol="tcp" action="allow" enable="true" onError="ignore"/>
+		<firewall phase="deleteOldMdnsUdpRule" activity="deleteRule" ruleName="${{title}} NSS UDP Exception" applicationName="${{NvidiaProgramFiles}}\NvContainer\NvContainer.exe" localPorts="5353" enable="false" onError="ignore" action="block" when="install"/>
+		<firewall phase="createServiceUDPRule" activity="createRule" ruleName="${{title}} SSAS UDP Exception" applicationName="${{NvidiaProgramFiles}}\NvContainer\NvContainer.exe" description="UDP exceptions for ${{title}} SSAS (mDNS)" localPorts="5353" protocol="udp" action="allow" enable="true" onError="ignore"/>
+		<firewall phase="createServiceUDPRule" activity="createRule" ruleName="${{title}} SSAU UDP Exception" applicationName="${{InstallLocation}}\NvStreamUserAgent.exe" description="UDP exceptions for ${{title}} SSAU (NWT)" localPorts="47998" protocol="udp" action="allow" enable="true" onError="ignore"/>
+		<firewall phase="createApplicationTCPRule" activity="createRule" ruleName="${{title}} NvStreamer TCP Exception" applicationName="${{InstallLocation}}\nvstreamer.exe" description="TCP exceptions for ${{title}} NvStreamer (RTSP/RI)" localPorts="35043,47995,48010" protocol="tcp" action="allow" enable="true" onError="ignore"/>
+		<firewall phase="createApplicationUDPRule" activity="createRule" ruleName="${{title}} NvStreamer UDP Exception" applicationName="${{InstallLocation}}\nvstreamer.exe" description="UDP exceptions for ${{title}} NvStreamer (RTSP/RI/A/V)" localPorts="47995,47998,47999,48000,48010" protocol="udp" action="allow" enable="true" onError="ignore"/>
+		<standard phase="deleteRuntimeDataInstall" onError="ignore">
+			<deleteDirectoryTree target="${{NvidiaCommonAppData}}\nvstream"/>
+		</standard>
+		<custom phase="setServerClientIdentifier" action="SetServerClientIdentifier" when="install">
+			<properties>
+				<string name="Path" value="${{ServerClientIdentifierRegKey}}"/>
+				<string name="ValueName" value="${{ServerClientIdentifierRegValueName}}"/>
+			</properties>
+		</custom>
+		<exe phase="LaunchGFExperience" when="installClose" comment="LaunchGFExperience" name="${{GFExperienceInstallLocation}}\${{GFExperienceExeName}}" dir="${{GFExperienceInstallLocation}}" condition="LaunchGFExperience"/>
+		<exe phase="killNvContainers" name="${{SystemDirectory}}\taskkill.exe" when="uninstall" onError="ignore">
+			<arg value="/f /im ${{ContainerBinaryName}}" quote="none"/>
+			<success value="0"/>
+			<success value="128"/>
+		</exe>
+		<standard phase="stopNvContainerLocalSystemService" when="uninstall" onError="ignore">
+			<stopService name="${{NvContainerLSName}}" timeOut="30000"/>
+		</standard>
+		<setPropertyIf phase="setPropertyIfNvContainerAutoStart" boolProperty="ServiceAutoStart" value="true" when="uninstall">
+			<registryValue name="${{RegistryKey}}" value="ServiceAutoStart" check="exists"/>
+		</setPropertyIf>
+	</phases>
+	<finishOptions>
+		<option name="LaunchGFExperience" text="${{LaunchGFExperience}}" property="LaunchGFExperience" condition="IsUpdate"/>
+	</finishOptions>
+	<strings>
+		<string name="title" value="SHIELD Streaming"/>
+		<string name="version" value="7.1.0340"/>
+		<string name="installFolderName" value="NvStreamSrv"/>
+		<string name="InstallLocationX86" value="${{NvidiaProgramFilesX86}}\${{installFolderName}}"/>
+		<string name="serviceName" value="NvStreamSvc"/>
+		<string name="kmsServiceName" value="NvStreamKms"/>
+		<string name="networkServiceName" value="NvStreamNetworkSvc"/>
+		<string name="ProductRegKey" value="${{NvidiaSoftwareKey}}\NvStreamSrv"/>
+		<string name="NvStreamRegKey" value="${{NvidiaSoftwareKey}}\NvStream"/>
+		<string name="BaseProductName" value="NvStream"/>
+		<string name="GFExperienceExeName" value="GFExperience.exe"/>
+		<string name="GFExperienceInstallLocation" value="${{NvidiaProgramFilesX86}}\NVIDIA GeForce Experience"/>
+		<string name="ServerClientIdentifierRegValueName" value="ClientUUID"/>
+		<string name="ServerClientIdentifierRegKey" value="${{NvidiaSoftwareKey}}\Global"/>
+		<string name="crashDumpKey" value="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps"/>
+		<string name="NvContainerLSName" value="NvContainerLocalSystem"/>
+		<string name="NvContainerNSName" value="NvContainerNetworkService"/>
+		<string name="RegistryKey" value="${{NvidiaSoftwareKey}}\NvContainer\NvContainerLocalSystem"/>
+		<string name="ContainerDllDirectories" value="${{NvidiaSoftwareKey}}\NvContainer\DllDirectories"/>
+		<string name="serviceStopMaxTimeout" value="30000"/>
+		<string name="ContainerBinaryName" value="nvcontainer.exe"/>
+	</strings>
+	<strings>
+		<localized locale="0x0409">
+			<string name="ErrorOSNotSupported" value="${{title}} requires Windows7 or later."/>
+			<string name="LaunchGFExperience" value="Launch NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="A system restart is required. Restart the system and try again."/>
+		</localized>
+		<localized locale="0x0401">
+			<string name="ErrorOSNotSupported" value="${{title}} يتطلب Windows7 أو إصدار لاحق."/>
+			<string name="LaunchGFExperience" value="تشغيل NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="مطلوب إعادة تشغيل النظام. أعد تشغيل النظام وكرر المحاولة."/>
+		</localized>
+		<localized locale="0x0405">
+			<string name="ErrorOSNotSupported" value="${{title}} vyžaduje Windows7 nebo novější."/>
+			<string name="LaunchGFExperience" value="Spustit NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Je vyžadován restart systému. Restartujte systém a zkuste znovu."/>
+		</localized>
+		<localized locale="0x0406">
+			<string name="ErrorOSNotSupported" value="${{title}} kræver Windows7 eller senere."/>
+			<string name="LaunchGFExperience" value="Start NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Det er nødvendigt med genstart af systemet. Genstart systemet og prøv igen."/>
+		</localized>
+		<localized locale="0x0407">
+			<string name="ErrorOSNotSupported" value="${{title}} benötigt Windows7 oder höher."/>
+			<string name="LaunchGFExperience" value="Starten von NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Das System muss neu gestartet werden. Starten Sie das System neu und versuchen Sie den Vorgang erneut."/>
+		</localized>
+		<localized locale="0x0408">
+			<string name="ErrorOSNotSupported" value="Το ${{title}} απαιτεί Windows7 ή μεταγενέστερο."/>
+			<string name="LaunchGFExperience" value="Εκκίνηση NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Απαιτείται επανεκκίνηση συστήματος. Επανεκκινήστε το σύστημα και δοκιμάστε ξανά."/>
+		</localized>
+		<localized locale="0x0809">
+			<string name="ErrorOSNotSupported" value="${{title}} requires Windows7 or later."/>
+			<string name="LaunchGFExperience" value="Launch NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="A system restart is required. Restart the system and try again."/>
+		</localized>
+		<localized locale="0x040a">
+			<string name="ErrorOSNotSupported" value="${{title}} requiere Windows7 o posterior."/>
+			<string name="LaunchGFExperience" value="Iniciar NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Hay que reiniciar el sistema. Reiniciar el sistema e intentar de nuevo."/>
+		</localized>
+		<localized locale="0x080a">
+			<string name="ErrorOSNotSupported" value="${{title}} requiere Windows7 o una versión posterior."/>
+			<string name="LaunchGFExperience" value="Ejecutar NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Hay que reiniciar el sistema. Reiniciar el sistema e intentar de nuevo."/>
+		</localized>
+		<localized locale="0x040b">
+			<string name="ErrorOSNotSupported" value="${{title}} vaatii version Windows7 tai sitä uudemman."/>
+			<string name="LaunchGFExperience" value="Käynnistä NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Järjestelmä on käynnistettävä uudelleen. Käynnistä järjestelmä uudelleen ja yritä uudelleen."/>
+		</localized>
+		<localized locale="0x040c">
+			<string name="ErrorOSNotSupported" value="${{title}} nécessite Windows7 ou une version ultérieure."/>
+			<string name="LaunchGFExperience" value="Lancer NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Le redémarrage du système est nécessaire. Redémarrez le système et réessayez."/>
+		</localized>
+		<localized locale="0x040d">
+			<string name="ErrorOSNotSupported" value="${{title}} מחייב Windows7 ומעלה."/>
+			<string name="LaunchGFExperience" value="הפעל את NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="יש להפעיל שנית את המערכת. הפעל שנית את המערכת ונסה שנית."/>
+		</localized>
+		<localized locale="0x040e">
+			<string name="ErrorOSNotSupported" value="A(z) ${{title}} a következőt igényli: Windows7 vagy újabb."/>
+			<string name="LaunchGFExperience" value="NVIDIA GeForce Experience indítása"/>
+			<string name="ErrorInstallerNeedReboot" value="Rendszer-újraindítás szükséges. Indítsa újra a rendszert, majd próbálja meg újra."/>
+		</localized>
+		<localized locale="0x0410">
+			<string name="ErrorOSNotSupported" value="${{title}} richiede Windows7 o versioni successive."/>
+			<string name="LaunchGFExperience" value="Avvia NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="È necessario riavviare il sistema. Riavviare il sistema e riprovare."/>
+		</localized>
+		<localized locale="0x0411">
+			<string name="ErrorOSNotSupported" value="${{title}}にはWindows7以降が必要です。"/>
+			<string name="LaunchGFExperience" value="立ち上げNVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="システムを再起動する必要があります。システムを再起動してからやり直してください。"/>
+		</localized>
+		<localized locale="0x0412">
+			<string name="ErrorOSNotSupported" value="${{title}}은(는) Windows7 이상의 버전을 필요로 합니다. "/>
+			<string name="LaunchGFExperience" value="NVIDIA GeForce Experience 시작"/>
+			<string name="ErrorInstallerNeedReboot" value="시스템을 재시작해야 합니다. 시스템을 재시작하고 다시 시도하십시오."/>
+		</localized>
+		<localized locale="0x0413">
+			<string name="ErrorOSNotSupported" value="${{title}} vereist Windows7 of hoger."/>
+			<string name="LaunchGFExperience" value="Start NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Het systeem moet opnieuw worden gestart. Start het systeem opnieuw en probeer opnieuw."/>
+		</localized>
+		<localized locale="0x0414">
+			<string name="ErrorOSNotSupported" value="${{title}} krever Windows7 eller nyere."/>
+			<string name="LaunchGFExperience" value="Start NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Systemet må startes på nytt. Start systemet på nytt, og prøv igjen."/>
+		</localized>
+		<localized locale="0x0415">
+			<string name="ErrorOSNotSupported" value="${{title}} wymaga Windows7 lub nowszej wersji."/>
+			<string name="LaunchGFExperience" value="Uruchom NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Wymagane jest ponowne uruchomienie systemu. Uruchom ponownie system i spróbuj ponownie."/>
+		</localized>
+		<localized locale="0x0816">
+			<string name="ErrorOSNotSupported" value="${{title}} requer Windows7 ou mais recente."/>
+			<string name="LaunchGFExperience" value="Iniciar o NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="É necessário reiniciar o sistema. Reinicie o sistema e volte a tentar."/>
+		</localized>
+		<localized locale="0x0416">
+			<string name="ErrorOSNotSupported" value="${{title}} exige Windows7 ou mais recente."/>
+			<string name="LaunchGFExperience" value="Abrir NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="É necessário reiniciar o sistema. Reinicie o sistema e tente novamente."/>
+		</localized>
+		<localized locale="0x0419">
+			<string name="ErrorOSNotSupported" value="Для работы ${{title}} необходимо использовать графический драйвер Windows7 или более позднюю версию."/>
+			<string name="LaunchGFExperience" value="Запустить NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Требуется перезагрузить систему. Перезагрузите систему и повторите попытку."/>
+		</localized>
+		<localized locale="0x041b">
+			<string name="ErrorOSNotSupported" value="${{title}} vyžaduje Windows7 alebo novšiu verziu."/>
+			<string name="LaunchGFExperience" value="Spustiť NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Vyžaduje sa reštartovanie systému. Reštartujte systém a skúste to znova."/>
+		</localized>
+		<localized locale="0x0424">
+			<string name="ErrorOSNotSupported" value="${{title}} zahteva Windows7 ali novejšo."/>
+			<string name="LaunchGFExperience" value="Zaženi NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Potreben je ponoven zagon sistema. Ponovno zaženite sistem in ponovno poizkusite."/>
+		</localized>
+		<localized locale="0x041d">
+			<string name="ErrorOSNotSupported" value="${{title}} kräver Windows7 eller senare."/>
+			<string name="LaunchGFExperience" value="Starta NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="Det krävs att du startar om systemet. Starta om systemet och försök igen."/>
+		</localized>
+		<localized locale="0x041e">
+			<string name="ErrorOSNotSupported" value="${{title}} ต้องมี Windows7 หรือสูงกว่า "/>
+			<string name="LaunchGFExperience" value="เปิด NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="ต้องเริ่มการทำงานของระบบใหม่อีกครั้ง เริ่มการทำงานของระบบอีกครั้งและลองใหม่อีกครั้ง"/>
+		</localized>
+		<localized locale="0x041f">
+			<string name="ErrorOSNotSupported" value="$${{title}}, Windows7 veya sonraki sürümünü gerektirir. "/>
+			<string name="LaunchGFExperience" value="NVIDIA GeForce Experience uygulamasını çalıştır"/>
+			<string name="ErrorInstallerNeedReboot" value="Sistemin yeniden başlatılması gerekiyor. Sistemi yeniden başlatıp tekrar deneyin."/>
+		</localized>
+		<localized locale="0x0804">
+			<string name="ErrorOSNotSupported" value="${{title}} 要求 Windows7 或更高版本。 "/>
+			<string name="LaunchGFExperience" value="启动 NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="需要重新启动系统。重新启动系统并重试。"/>
+		</localized>
+		<localized locale="0x0404">
+			<string name="ErrorOSNotSupported" value="${{title}} 需要 Windows7 或更新版本。 "/>
+			<string name="LaunchGFExperience" value="啟動 NVIDIA GeForce Experience"/>
+			<string name="ErrorInstallerNeedReboot" value="需要重新啟動系統。請重新啟動系統，然後再試一次。"/>
+		</localized>
+	</strings>
+	<include name="${{ResourcesDirectory}}\GFExperienceProgressText.cfg" select="/nvi/*"/>
+	<include name="${{ResourcesDirectory}}\QuadroExperienceProgressText.cfg" select="/nvi/*"/>
+	<signature><file name="rxinput.dll" type="PE"/><file name="nvinject.dll" type="PE"/></signature></nvi>

@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nvi
+  name      = "Display.PhysX"
+  title     = "${{title}}"
+  version   = "${{version}}"
+  versionText = "${{version}}"
+  timestamp = "2016-03-18T15:12:54"
+  disposition = "default"
+  installerMin = "2.1002.157.1164"
+  preserveCache = "true">
+    <filter name="amd64" platform="amd64" />
+  <strings>
+    <string name="BUILD_VERSION_NUM" value="9160318" />
+    <string name="version" value="9.16.0318" />
+    <string name="AgeiaSoftwareKey" value="HKEY_LOCAL_MACHINE\SOFTWARE\AGEIA Technologies"/>
+	<!-- English - US -->
+    <localized locale="0x0409">
+      <string name="title" value="PhysX System Software" />
+      <string name="InstallBlockedMessage" value="${{title}} cannot be installed on this computer." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="A newer or a same version is present." />
+      <string name="InstallSafeModeBlockedMessage" value="Cannot be installed in safe mode." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Cannot be uninstalled in safe mode." />
+    </localized>
+	<!-- Arabic - Saudi Arabia -->
+    <localized locale="0x0401">
+      <string name="title" value="برنامج نظام PhysX" />
+      <string name="InstallBlockedMessage" value="لا يمكن تثبيت ${{title}} على هذا الكمبيوتر." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="يوجد إصدار أحدث أو نفس الإصدار." />
+      <string name="UnInstallSafeModeBlockedMessage" value="لا يمكن إلغاء التثبيت في وضع آمن." />
+    </localized>
+	<!-- Czech -->
+    <localized locale="0x0405">
+      <string name="title" value="Systémový software PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} nemůže být nainstalován na tento počítač." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Zde je přítomna nová nebo stejná verze." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Nelze odinstalovat v zabezpečeném režimu." />
+    </localized>
+	<!-- Danish -->
+    <localized locale="0x0406">
+      <string name="title" value="PhysX-systemsoftware" />
+      <string name="InstallBlockedMessage" value="${{title}} kan ikke installeres på denne computer." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="En nyere eller den samme version findes." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Kan ikke afinstalleres i sikker tilstand." />
+    </localized>
+	<!-- German - Germany -->
+    <localized locale="0x0407">
+      <string name="title" value="PhysX-Systemsoftware" />
+      <string name="InstallBlockedMessage" value="${{title}} kann auf diesem Computer nicht installiert werden." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Eine neuere oder dieselbe Version ist vorhanden." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Kann im abgesicherten Modus nicht deinstalliert werden." />
+    </localized>
+	<!-- Greek -->
+    <localized locale="0x0408">
+      <string name="title" value="Λογισμικό σύστημα PhysX" />
+      <string name="InstallBlockedMessage" value="Το ${{title}} δεν είναι δυνατό να εγκατασταθεί σε αυτόν τον υπολογιστή." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Υπάρχει μια νεότερη ή η ίδια έκδοση." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Δεν είναι δυνατή η κατάργηση εγκατάστασης σε ασφαλή λειτουργία." />
+    </localized>
+	<!-- English - United Kingdom -->
+    <localized locale="0x0809">
+      <string name="title" value="PhysX System Software" />
+      <string name="InstallBlockedMessage" value="${{title}} cannot be installed on this computer." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="A newer or the same version is present." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Cannot be uninstalled in safe mode." />
+    </localized>
+	<!-- Spanish - Spain (Traditional Sort) -->
+    <localized locale="0x040a">
+      <string name="title" value="Software del sistema PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} no puede instalarse en este equipo." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Este equipo ya cuenta con la misma versión o una más nueva." />
+      <string name="UnInstallSafeModeBlockedMessage" value="No puede desinstalarse en el modo seguro." />
+    </localized>
+	<!-- Spanish - Mexico -->
+    <localized locale="0x080a">
+      <string name="title" value="Software del sistema PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} no puede instalarse en este equipo." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="La versión presente es la misma o más reciente." />
+      <string name="UnInstallSafeModeBlockedMessage" value="No puede desinstalarse en el modo seguro." />
+    </localized>
+	<!-- Finnish -->
+    <localized locale="0x040b">
+      <string name="title" value="PhysX-järjestelmäohjelmisto" />
+      <string name="InstallBlockedMessage" value="Sovellusta ${{title}} ei voi asentaa tähän tietokoneeseen." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Uudempi tai sama versio on jo olemassa." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Asennusta ei voi poistaa vikasietotilassa." />
+    </localized>
+	<!-- French - France -->
+    <localized locale="0x040c">
+      <string name="title" value="Logiciel système PhysX" />
+      <string name="InstallBlockedMessage" value="Impossible d’installer ${{title}} sur cet ordinateur." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="La même version ou une version plus récente est déjà présente." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Désinstallation impossible en mode sans échec" />
+    </localized>
+	<!-- Hebrew -->
+    <localized locale="0x040d">
+      <string name="title" value="תכנת PhysX מערכת" />
+      <string name="InstallBlockedMessage" value="${{title}} לא ניתנת להתקנה במחשב זה." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="כבר קיימת גרסה חדשה יותר או גרסה זהה לזו." />
+      <string name="UnInstallSafeModeBlockedMessage" value="ההתקנה אינה ניתנת להסרה במצב בטוח." />
+    </localized>
+	<!-- Hungarian -->
+    <localized locale="0x040e">
+      <string name="title" value="PhysX rendszerszoftver" />
+      <string name="InstallBlockedMessage" value="A(z) ${{title}} nem telepíthető erre a számítógépre." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Egy újabb vagy azonos verzió már megtalálható a számítógépen." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Csökkentett módban nem távolítható el." />
+    </localized>
+	<!-- Italian - Italy -->
+    <localized locale="0x0410">
+      <string name="title" value="PhysX System Software" />
+      <string name="InstallBlockedMessage" value="Impossibile installare ${{title}} su questo computer." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="È presente la stessa versione o una versione più recente." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Impossibile disinstallare in modalità sicura." />
+    </localized>
+	<!-- Japanese -->
+    <localized locale="0x0411">
+      <string name="title" value="PhysX システム ソフトウェア" />
+      <string name="InstallBlockedMessage" value="${{title}} はこのコンピューターにインストールできません。" />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      string name="NotAnUpgradeMessage" value="新しいバージョン、または同じバージョンが既にインストールされています。" />
+      <string name="UnInstallSafeModeBlockedMessage" value="セーフ モードではアンインストールできません。" />
+    </localized>
+	<!-- Korean -->
+    <localized locale="0x0412">
+      <string name="title" value="PhysX 시스템 소프트웨어" />
+      <string name="InstallBlockedMessage" value="${{title}}은(는) 이 컴퓨터에 설치할 수 없습니다." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="신버전 또는 동일한 버전이 있습니다." />
+      <string name="UnInstallSafeModeBlockedMessage" value="안전 모드에서는 제거할 수 없습니다." />
+    </localized>
+	<!-- Dutch - Netherlands -->
+    <localized locale="0x0413">
+      <string name="title" value="PhysX Systeem Software" />
+      <string name="InstallBlockedMessage" value="${{title}} kan niet op deze computer worden geïnstalleerd." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Er is een nieuwere of dezelfde versie aanwezig." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Installatie kan niet ongedaan worden gemaakt in veilige modus." />
+    </localized>
+	<!-- Norwegian (Bokmål) -->
+    <localized locale="0x0414">
+      <string name="title" value="PhysX systemprogramvare" />
+      <string name="InstallBlockedMessage" value="${{title}} kan ikke installeres på denne datamaskinen." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="En nyere versjon eller samme versjon  er allerede installert på denne datamaskinen" />
+      <string name="UnInstallSafeModeBlockedMessage" value="Kan ikke avinstalleres i sikkermodus." />
+    </localized>
+	<!-- Polish -->
+    <localized locale="0x0415">
+      <string name="title" value="Oprogramowanie systemu PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} nie może zostać zainstalowany na tym komputerze." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Zainstalowana jest już nowsza lub ta sama wersja programu." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Nie można odinstalować w trybie awaryjnym." />
+    </localized>
+	<!-- Portuguese - Portugal -->
+    <localized locale="0x0816">
+      <string name="title" value="O software do sistema PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} não pode ser instalado neste computador." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Já existe uma versão idêntica ou mais recente." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Não é possível efectuar a desinstalação em modo de segurança." />
+    </localized>
+	<!-- Portuguese - Brazil -->
+    <localized locale="0x0416">
+      <string name="title" value="Software do sistema PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} não pode ser instalado neste computador." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Uma nova versão ou a mesma versão está presente." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Não pode ser desinstalado no modo de segurança." />
+    </localized>
+	<!-- Russian -->
+    <localized locale="0x0419">
+      <string name="title" value="Системное программное обеспечение PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} невозможно установить на этом компьютере." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Эта или более новая версия уже установлена." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Удаление в безопасном режиме невозможно." />
+    </localized>
+	<!-- Slovak -->
+    <localized locale="0x041b">
+      <string name="title" value="Softvér systému s podporou technológie PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} nie je možné na tomto počítači nainštalovať." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="K dispozícii je novšia alebo rovnaká verzia produktu." />
+      <string name="UnInstallSafeModeBlockedMessage" value="V núdzovom režime sa nedá odinštalovať." />
+    </localized>
+	<!-- Slovenian -->
+    <localized locale="0x0424">
+      <string name="title" value="Sistemske opreme PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} ni mogoče namestiti na tem računalniku." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Prisotna je novejša ali ista različica. " />
+      <string name="UnInstallSafeModeBlockedMessage" value="Ni mogoče odstraniti v varnem načinu." />
+    </localized>
+	<!-- Swedish -->
+    <localized locale="0x041d">
+      <string name="title" value="PhysX systemprogramvara" />
+      <string name="InstallBlockedMessage" value="${{title}} kan inte installeras på denna dator." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="En nyare eller samma version av finns." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Kan inte avinstallera i säkert läge." />
+    </localized>
+	<!-- Thai -->
+    <localized locale="0x041e">
+      <string name="title" value="ซอฟต์แวร์ระบบ PhysX" />
+      <string name="InstallBlockedMessage" value="${{title}} ไม่สามารถติดตั้งได้ในคอมพิวเตอร์เครื่องนี้" />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="มีเวอร์ชันเดิมหรือใหม่กว่า" />
+      <string name="UnInstallSafeModeBlockedMessage" value="ไม่สามารถถอนการติดตั้งในเซฟโหมดได้" />
+    </localized>
+	<!-- Turkish -->
+    <localized locale="0x041f">
+      <string name="title" value="PhysX Sistem Yazılımı" />
+      <string name="InstallBlockedMessage" value="${{title}}, bu bilgisayara kurulamaz." />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="Aynı veya daha yeni bir sürüm mevcut." />
+      <string name="UnInstallSafeModeBlockedMessage" value="Kaldırma işlemi güvenli modda yapılamaz." />
+    </localized>
+	<!-- Chinese - People's Republic of China (Simplified)-->
+    <localized locale="0x0804">
+      <string name="title" value="PhysX 系统软件" />
+      <string name="InstallBlockedMessage" value="${{title}} 无法安装到此计算机。" />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="存在更新或相同的版本。" />
+      <string name="UnInstallSafeModeBlockedMessage" value="无法在安全模式下卸载。" />
+    </localized>
+	<!-- Chinese - Taiwan (Traditional) -->
+    <localized locale="0x0404">
+      <string name="title" value="PhysX 系統軟體" />
+      <string name="InstallBlockedMessage" value="${{title}} 無法安裝在此電腦上。" />
+      <string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}" />
+      <string name="NotAnUpgradeMessage" value="存在較新或相同的版本。" />
+      <string name="UnInstallSafeModeBlockedMessage" value="無法在安全模式中解除安裝。" />
+    </localized>
+  </strings>
+  <dependencies>
+    <package type="after" package="Display.Driver" />
+    <package type="after" package="Display.ControlPanel" />
+  </dependencies>
+  <description />
+  <constraints>
+    <!--property name="Display.Driver!Feature.Physx" level="silent" text="${{InstallBlockedMessage}}"/-->
+    <overinstall name="CheckIfNotAnUpgrade" whenCurrent="lowerversion,sameversion" level="skip" text="${{NotAnUpgradeMessage}}"/>
+    <reject tests="SAFEMODE" level="silent" text="${{InstallSafeModeBlockedMessage}}"/>
+    <reject tests="SAFEMODE" level="critical" text="${{UnInstallSafeModeBlockedMessage}}" when="uninstall"/>
+  </constraints>
+  <extensions>
+    <extension file="PhysxExt.DLL" />
+  </extensions>
+  <properties>
+    <!-- This location is assumed by PhysX installer -->
+    <bool name="FixedInstallLocation" value="true" />
+    <string name="InstallLocation" value="${{NvidiaProgramFilesX86}}\PhysX" />
+    <string name="ArpIcon" value="${{NvidiaProgramFilesX86}}\PhysX\Engine\A_Ball_Trans.ico,0" />
+    <string name="ArpDisplayName" value="${{arpDisplayName}}" />
+  </properties>
+  <phases>
+    <custom phase="uninstallOldMSI" action="uninstallOldMSI" when="install"/>
+    <standard phase="copyFiles" platform="x86">
+      <if filter="amd64">
+        <copyFile target="${{InstallLocation}}\Common\cudart64_65.dll"         source="files\Common\cudart64_65.dll"/>
+        <copyFile target="${{InstallLocation}}\Common\PhysXDevice64.dll"       source="files\Common\PhysXDevice64.dll"/>
+        <copyFile target="${{InstallLocation}}\Common\PhysXLoader64.dll"       source="files\Common\PhysXLoader64.dll"/>
+        <copyFile target="${{InstallLocation}}\Common\PhysXUpdateLoader64.dll" source="files\Common\PhysXUpdateLoader64.dll"/>
+        <copyFile target="${{InstallLocation}}\Engine\v2.8.3\PhysXCooking64.dll" source="files\Engine\v2.8.3\PhysXCooking64.dll"/>
+        <copyFile target="${{InstallLocation}}\Engine\v2.8.3\PhysXCore64.dll" source="files\Engine\v2.8.3\PhysXCore64.dll"/>
+      </if>
+      
+      <copyFile target="${{InstallLocation}}\Common\cudart32_65.dll"         source="files\Common\cudart32_65.dll"/>
+      <copyFile target="${{InstallLocation}}\Common\PhysXDevice.dll"         source="files\Common\PhysXDevice.dll"/>
+      <copyFile target="${{InstallLocation}}\Common\PhysXLoader.dll"         source="files\Common\PhysXLoader.dll"/>
+      <copyFile target="${{InstallLocation}}\Common\PhysXUpdateLoader.dll"   source="files\Common\PhysXUpdateLoader.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\A_Ball_Trans.ico" source="files\Engine\A_Ball_Trans.ico"/>
+      <copyFile target="${{InstallLocation}}\Engine\07022E82A068\GRB_1_x86.dll" source="files\Engine\07022E82A068\GRB_1_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\4F8D3BB436C7\APEX_ParticlesCHECKED_x86.dll" source="files\Engine\4F8D3BB436C7\APEX_ParticlesCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\4F8D3BB436C7\APEX_TurbulenceFSCHECKED_x86.dll" source="files\Engine\4F8D3BB436C7\APEX_TurbulenceFSCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\4F8D3BB436C7\PhysXCore.dll" source="files\Engine\4F8D3BB436C7\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\4F8D3BB436C7\ImplicitLibs\PhysX3GpuCHECKED_x86.dll" source="files\Engine\4F8D3BB436C7\ImplicitLibs\PhysX3GpuCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\73BE2921551D\APEX_BasicFSCHECKED_x86.dll" source="files\Engine\73BE2921551D\APEX_BasicFSCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\73BE2921551D\APEX_BasicIOSCHECKED_x86.dll" source="files\Engine\73BE2921551D\APEX_BasicIOSCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\73BE2921551D\APEX_FieldSamplerCHECKED_x86.dll" source="files\Engine\73BE2921551D\APEX_FieldSamplerCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\73BE2921551D\APEX_IOFXCHECKED_x86.dll" source="files\Engine\73BE2921551D\APEX_IOFXCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\73BE2921551D\APEX_TurbulenceFSCHECKED_x86.dll" source="files\Engine\73BE2921551D\APEX_TurbulenceFSCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\73BE2921551D\PhysXCore.dll" source="files\Engine\73BE2921551D\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\73BE2921551D\ImplicitLibs\cudart32_65.dll" source="files\Engine\73BE2921551D\ImplicitLibs\cudart32_65.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\73BE2921551D\ImplicitLibs\PhysX3GpuCHECKED_x86.dll" source="files\Engine\73BE2921551D\ImplicitLibs\PhysX3GpuCHECKED_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\A0A1369354E1\APEX_Particles_x86.dll" source="files\Engine\A0A1369354E1\APEX_Particles_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\A0A1369354E1\APEX_TurbulenceFS_x86.dll" source="files\Engine\A0A1369354E1\APEX_TurbulenceFS_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\A0A1369354E1\PhysX3Gpu_x86.dll" source="files\Engine\A0A1369354E1\PhysX3Gpu_x86.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\86C5F4F22ECD\APEX_Particles_x64.dll" source="files\Engine\86C5F4F22ECD\APEX_Particles_x64.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\86C5F4F22ECD\APEX_TurbulenceFS_x64.dll" source="files\Engine\86C5F4F22ECD\APEX_TurbulenceFS_x64.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\86C5F4F22ECD\ImplicitLibs\PhysX3Gpu_x64.dll" source="files\Engine\86C5F4F22ECD\ImplicitLibs\PhysX3Gpu_x64.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\5182B3C9EFEC\PhysXCore.dll" source="files\Engine\5182B3C9EFEC\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\549B931E903E\PhysXCore.dll" source="files\Engine\549B931E903E\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\6FE164B5308A\PhysXCore.dll" source="files\Engine\6FE164B5308A\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\82D8704BAB07\PhysXCore.dll" source="files\Engine\82D8704BAB07\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\B1E4CC1EB042\PhysXCore.dll" source="files\Engine\B1E4CC1EB042\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\C22346819C37\PhysXCore.dll" source="files\Engine\C22346819C37\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\F232A762B0C8\PhysXCore.dll" source="files\Engine\F232A762B0C8\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.1\PhysXCooking.dll" source="files\Engine\v2.7.1\NxCooking.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.1\PhysXCore.dll" source="files\Engine\v2.7.1\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.3\PhysXCooking.dll" source="files\Engine\v2.7.3\NxCooking.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.3\PhysXCore.dll" source="files\Engine\v2.7.3\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.4\PhysXCooking.dll" source="files\Engine\v2.7.4\NxCooking.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.4\PhysXCore.dll" source="files\Engine\v2.7.4\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.5\PhysXCooking.dll" source="files\Engine\v2.7.5\NxCooking.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.5\PhysXCore.dll" source="files\Engine\v2.7.5\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.6\PhysXCooking.dll" source="files\Engine\v2.7.6\NxCooking.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.7.6\PhysXCore.dll" source="files\Engine\v2.7.6\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.8.0\PhysXCooking.dll" source="files\Engine\v2.8.0\NxCooking.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.8.0\PhysXCore.dll" source="files\Engine\v2.8.0\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.8.1\PhysXCooking.dll" source="files\Engine\v2.8.1\NxCooking.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.8.1\PhysXCore.dll" source="files\Engine\v2.8.1\PhysXCore.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.8.3\PhysXCooking.dll" source="files\Engine\v2.8.3\PhysXCooking.dll"/>
+      <copyFile target="${{InstallLocation}}\Engine\v2.8.3\PhysXCore.dll" source="files\Engine\v2.8.3\PhysXCore.dll"/>
+    </standard>
+      
+    <standard phase="addRegistries" platform="x86">
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="HwSelection" type="REG_SZ" value="GPU" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="PhysXCore Path" type="REG_SZ" value="${{InstallLocation}}\Engine" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="PhysX Version" type="REG_DWORD" value="9160318" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="PhysX (GPU) Version" type="REG_DWORD" value="9160318" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="PhysX BuildCL" type="REG_DWORD" value="0" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\EnableQuietMode"   valueName=""      type="REG_SZ" value=""/>
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A32_Engines" valueName="2.7.1" type="REG_DWORD" value="43" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A32_Engines" valueName="2.7.3" type="REG_DWORD" value="53" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A32_Engines" valueName="2.7.4" type="REG_DWORD" value="33" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A32_Engines" valueName="2.7.5" type="REG_DWORD" value="40" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A32_Engines" valueName="2.7.6" type="REG_DWORD" value="33" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A32_Engines" valueName="2.8.0" type="REG_DWORD" value="42" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A32_Engines" valueName="2.8.1" type="REG_DWORD" value="54" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A32_Engines" valueName="2.8.3" type="REG_DWORD" value="43" />
+      
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysX_SystemSoftware" valueName="PhysX (GPU) Version" type="REG_SZ" value="9.16.0318" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysX_SystemSoftware" valueName="PhysXCore Path" type="REG_SZ" value="${{InstallLocation}}\Engine" />
+      
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\1F0D3CC8-ADDF-49b3-87B3-F232A762B0C8" valueName="dll_path" type="REG_SZ" value="${{InstallLocation}}\Engine\F232A762B0C8\PhysXCore.dll" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\26097F37-C68B-4fc0-AA37-6FE164B5308A" valueName="dll_path" type="REG_SZ" value="${{InstallLocation}}\Engine\6FE164B5308A\PhysXCore.dll" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\3F527913-C421-4c9b-BDBA-C22346819C37" valueName="dll_path" type="REG_SZ" value="${{InstallLocation}}\Engine\C22346819C37\PhysXCore.dll" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\56C8B958-C577-4BC6-AEB7-4F8D3BB436C7" valueName="dll_base_directory" type="REG_SZ" value="${{InstallLocation}}\Engine\4F8D3BB436C7\" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\56C8B958-C577-4BC6-AEB7-4F8D3BB436C7" valueName="ImplicitLibs" type="REG_MULTI_SZ" value="${{InstallLocation}}\Engine\4F8D3BB436C7\ImplicitLibs\PhysX3GpuCHECKED_x86.dll" split="|" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\5A9F1682-9FE0-4c7f-A50E-5182B3C9EFEC" valueName="dll_path" type="REG_SZ" value="${{InstallLocation}}\Engine\5182B3C9EFEC\PhysXCore.dll" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\62849F71-B304-487f-BA78-82D8704BAB07" valueName="dll_path" type="REG_SZ" value="${{InstallLocation}}\Engine\82D8704BAB07\PhysXCore.dll" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\974EB307-2545-477A-90DA-07022E82A068" valueName="dll_path" type="REG_SZ" value="${{InstallLocation}}\Engine\07022E82A068\GRB_1_x86.dll" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\B1BD90FB-BC49-428a-8FF1-549B931E903E" valueName="dll_path" type="REG_SZ" value="${{InstallLocation}}\Engine\549B931E903E\PhysXCore.dll" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\B7525822-D374-43c2-8843-B1E4CC1EB042" valueName="dll_path" type="REG_SZ" value="${{InstallLocation}}\Engine\B1E4CC1EB042\PhysXCore.dll" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\7E3AE57C-FA76-4bd3-9CC6-A0A1369354E1" valueName="dll_base_directory" type="REG_SZ" value="${{InstallLocation}}\Engine\A0A1369354E1\" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\844243E3-18C6-4CF2-86FB-73BE2921551D" valueName="dll_base_directory" type="REG_SZ" value="${{InstallLocation}}\Engine\73BE2921551D\" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\844243E3-18C6-4CF2-86FB-73BE2921551D" valueName="ImplicitLibs" type="REG_MULTI_SZ" value="${{InstallLocation}}\Engine\73BE2921551D\ImplicitLibs\PhysX3GpuCHECKED_x86.dll" split="|" />
+    </standard>
+    <standard phase="addRegistries64" platform="amd64">
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="HwSelection" type="REG_SZ" value="GPU" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="PhysX Version" type="REG_DWORD" value="9160318" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="PhysXCore Path" type="REG_SZ" value="${{NvidiaProgramFilesX86}}\PhysX\Engine" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}" valueName="PhysX BuildCL" type="REG_DWORD" value="1" />
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A64_Engines"/>
+      <addRegistry keyName="${{AgeiaSoftwareKey}}\PhysX_A64_Engines" valueName="2.8.3" type="REG_DWORD" value="44" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\351C9090-206D-4915-AF80-86C5F4F22ECD" valueName="dll_base_directory" type="REG_SZ" value="${{InstallLocation}}\Engine\86C5F4F22ECD\" />
+      <addRegistry keyName="${{NvidiaSoftwareKey}}\PhysXUpdateLoader\DllTable\351C9090-206D-4915-AF80-86C5F4F22ECD" valueName="ImplicitLibs" type="REG_MULTI_SZ" value="${{InstallLocation}}\Engine\86C5F4F22ECD\ImplicitLibs\PhysX3Gpu_x64.dll" split="|" />
+    </standard>
+
+      <!-- P.S. suggest not use it
+      <environment phase="setEnvVariables">
+        <insertVariable type="user" variableName="PATH" value="${{NvidiaProgramFilesX86}}\PhysX\Common" delimiter=";" position="prepend"/>
+      </environment>
+      -->
+    
+    <standard phase="AddEnvSettings">
+      <addPath position="last" target="${{NvidiaProgramFilesX86}}\PhysX\Common" />
+    </standard>
+                
+  
+    <confirm platform="x86" phase="Confirm-install" when="install">
+      <fileExists target="Common\PhysXLoader.dll" />
+      <fileExists target="Engine\A_Ball_Trans.ico" />
+    </confirm>
+  </phases>
+  <manifest>
+    <file name="PhysXExt.dll"/>
+    <file name="PhysX.nvi" />
+    <file name="files\Common\cudart32_65.dll"/>
+    <file name="files\Common\cudart64_65.dll"/>
+    <file name="files\Common\PhysXDevice.dll"/>
+    <file name="files\Common\PhysXDevice64.dll"/>
+    <file name="files\Common\PhysXLoader.dll"/>
+    <file name="files\Common\PhysXLoader64.dll"/>
+    <file name="files\Common\PhysXUpdateLoader.dll"/>
+    <file name="files\Common\PhysXUpdateLoader64.dll"/>
+    <file name="files\Engine\4F8D3BB436C7\ImplicitLibs\PhysX3GpuCHECKED_x86.dll"/>
+    <file name="files\Engine\4F8D3BB436C7\APEX_ParticlesCHECKED_x86.dll"/>
+    <file name="files\Engine\4F8D3BB436C7\APEX_TurbulenceFSCHECKED_x86.dll"/>
+    <file name="files\Engine\4F8D3BB436C7\PhysXCore.dll"/>
+    <file name="files\Engine\6FE164B5308A\PhysXCore.dll"/>
+    <file name="files\Engine\73BE2921551D\ImplicitLibs\cudart32_65.dll"/>
+    <file name="files\Engine\73BE2921551D\ImplicitLibs\PhysX3GpuCHECKED_x86.dll"/>
+    <file name="files\Engine\73BE2921551D\APEX_BasicFSCHECKED_x86.dll"/>
+    <file name="files\Engine\73BE2921551D\APEX_BasicIOSCHECKED_x86.dll"/>
+    <file name="files\Engine\73BE2921551D\APEX_FieldSamplerCHECKED_x86.dll"/>
+    <file name="files\Engine\73BE2921551D\APEX_IOFXCHECKED_x86.dll"/>
+    <file name="files\Engine\73BE2921551D\APEX_TurbulenceFSCHECKED_x86.dll"/>
+    <file name="files\Engine\73BE2921551D\PhysXCore.dll"/>
+    <file name="files\Engine\86C5F4F22ECD\APEX_Particles_x64.dll"/>
+    <file name="files\Engine\86C5F4F22ECD\APEX_TurbulenceFS_x64.dll"/>
+    <file name="files\Engine\86C5F4F22ECD\ImplicitLibs\PhysX3Gpu_x64.dll"/>    
+    <file name="files\Engine\82D8704BAB07\PhysXCore.dll"/>
+    <file name="files\Engine\549B931E903E\PhysXCore.dll"/>
+    <file name="files\Engine\5182B3C9EFEC\PhysXCore.dll"/>
+    <file name="files\Engine\07022E82A068\GRB_1_x86.dll"/>
+    <file name="files\Engine\A0A1369354E1\APEX_Particles_x86.dll"/>
+    <file name="files\Engine\A0A1369354E1\APEX_TurbulenceFS_x86.dll"/>
+    <file name="files\Engine\A0A1369354E1\PhysX3Gpu_x86.dll"/>
+    <file name="files\Engine\B1E4CC1EB042\PhysXCore.dll"/>
+    <file name="files\Engine\C22346819C37\PhysXCore.dll"/>
+    <file name="files\Engine\F232A762B0C8\PhysXCore.dll"/>
+    <file name="files\Engine\v2.7.1\NxCooking.dll"/>
+    <file name="files\Engine\v2.7.1\PhysXCore.dll"/>
+    <file name="files\Engine\v2.7.3\NxCooking.dll"/>
+    <file name="files\Engine\v2.7.3\PhysXCore.dll"/>
+    <file name="files\Engine\v2.7.4\NxCooking.dll"/>
+    <file name="files\Engine\v2.7.4\PhysXCore.dll"/>
+    <file name="files\Engine\v2.7.5\NxCooking.dll"/>
+    <file name="files\Engine\v2.7.5\PhysXCore.dll"/>
+    <file name="files\Engine\v2.7.6\NxCooking.dll"/>
+    <file name="files\Engine\v2.7.6\PhysXCore.dll"/>
+    <file name="files\Engine\v2.8.0\NxCooking.dll"/>
+    <file name="files\Engine\v2.8.0\PhysXCore.dll"/>
+    <file name="files\Engine\v2.8.1\NxCooking.dll"/>
+    <file name="files\Engine\v2.8.1\PhysXCore.dll"/>
+    <file name="files\Engine\v2.8.3\PhysXCooking.dll"/>
+    <file name="files\Engine\v2.8.3\PhysXCooking64.dll"/>
+    <file name="files\Engine\v2.8.3\PhysXCore.dll"/>
+    <file name="files\Engine\v2.8.3\PhysXCore64.dll"/>
+    <file name="files\Engine\A_Ball_Trans.ico"/>
+  </manifest>
+</nvi>

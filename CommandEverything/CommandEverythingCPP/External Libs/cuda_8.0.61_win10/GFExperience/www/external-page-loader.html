@@ -1,0 +1,26 @@
+<!-- Copyright (c) 2016, NVIDIA CORPORATION.  All rights reserved.
+
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- TODO: Install and support localization -->
+        <title>NVIDIA GeForce Experience</title>
+        <script type="text/javascript" src="vendor.js"></script>
+    <script type="text/javascript" src="external-page-loader.js"></script><script type="text/javascript" src="common.js"></script></head>
+
+    <body ng-app="main.externalPageLoader" class="external-page-loader">
+        <div class="content-container" layout="column">
+            <img src="icon_check-circle.png" alt="primary_image" class="primary-image"/>
+            <span class="font-size-xl1 line-height-sm1 message" id="message"></span>
+            <img src="loading_dots.gif" class="loading-indicator" alt="loading_indicator"/>
+        </div>
+    </body>
+</html>

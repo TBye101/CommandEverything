@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="NvBackend" title="${{Title}}" version="${{Version}}" versionText="${{Version}}" timestamp="2016-11-17T04:20:50" disposition="demand" hidden="true" installerMin="2.1002.215.1898">
+	<filter name="minVista" min="6.0"/>
+	<filter name="XP" min="5.1" max="5"/>
+	<strings>
+		<string name="Version" value="2.13.0.21"/>
+		<string name="Title" value="NVIDIA Backend"/>
+		<string name="BackendDllName" value="NvBackend.dll"/>
+		<string name="BackendApiDllNameX86" value="NvBackendAPI32.dll"/>
+		<string name="BackendApiDllNameX64" value="NvBackendAPI64.dll"/>
+		<string name="NvContainerRegistryPath" value="${{NvidiaSoftwareKey}}\NvContainer"/>
+		<string name="UpdateCorePath" value="${{NvidiaProgramFiles}}\Update Core"/>
+		<string name="UpdateCoreX86Path" value="${{NvidiaProgramFilesX86}}\Update Core"/>
+		<string name="ContainerPluginFolderName" value="${{NvidiaProgramFilesX86}}\NvContainer\plugins\User"/>
+		<string name="NvContainerLSName" value="NvContainerLocalSystem"/>
+		<string name="NvContainerNSName" value="NvContainerNetworkService"/>
+		<string name="RegistryKey" value="${{NvidiaSoftwareKey}}\NvContainer\NvContainerLocalSystem"/>
+		<string name="serviceStopMaxTimeout" value="30000"/>
+		<string name="ContainerBinaryName" value="nvcontainer.exe"/>
+		<string name="NvOAWrapperCacheBinaryName" value="NvOAWrapperCache.exe"/>
+	</strings>
+	<constraints>
+	</constraints>
+	<dependencies>
+		<package type="requires" package="Update.Core"/>
+		<package type="requires" package="NvContainer.User"/>
+		<package type="after" package="Update.Core"/>
+		<package type="requires" package="NvTelemetry"/>
+	</dependencies>
+	<extensions>
+	</extensions>
+	<properties>
+		<bool name="IsiCafeUpdateInstalled" value="false"/>
+		<bool name="FixedInstallLocation" value="true"/>
+		<string name="InstallLocation" value="${{UpdateCoreX86Path}}"/>
+		<bool name="IsInternational" value="false"/>
+		<bool name="IsGFExperienceComponent" value="true"/>
+		<bool name="IsQuadroExperienceComponent" value="false"/>
+		<bool name="IsUpdateComponent" value="true"/>
+		<string name="BackendAPI32BitDll" value="${{BackendApiDllNameX86}}"/>
+		<string name="BackendAPI32BitDllPath" value="${{UpdateCoreX86Path}}\${{BackendApiDllNameX86}}"/>
+		<string name="UpdateType" value="GFExperience"/>
+		<bool name="ServiceAutoStart" value="false"/>
+		<bool name="NvContainerUnloaded" value="true"/>
+		<bool name="UsesNvContainer" value="true"/>
+	</properties>
+	<manifest>
+		<file name="NvBackend.nvi"/>
+		<file name="${{BackendDllName}}"/>
+		<file name="${{BackendApiDllNameX86}}"/>
+		<file name="${{BackendApiDllNameX64}}"/>
+		<file name="detoured.dll"/>
+	</manifest>
+	<phases>
+		<setPropertyIf phase="setPropertyIfNvBackendExists" boolProperty="NvBackendDllExists" value="true" when="install">
+			<registryValue name="${{RegistryKey}}" value="ServiceAutoStart" check="exists"/>
+		</setPropertyIf>
+		<standard phase="stopNvContainerLSService" onError="ignore" when="install">
+			<stopService name="${{NvContainerLSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<standard phase="stopNvContainerNSService" onError="ignore" when="install">
+			<stopService name="${{NvContainerNSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<exe phase="killNvContainers" name="${{SystemDirectory}}\taskkill.exe" when="install" onError="ignore">
+			<arg value="/f /im ${{ContainerBinaryName}}" quote="none"/>
+		</exe>
+		<setPropertyIf phase="checkIfNvContainerUnloaded" boolProperty="NvContainerUnloaded" value="false" when="install">
+			<process name="${{ContainerBinaryName}}" check="exists"/>
+		</setPropertyIf>
+		<confirm phase="Confirm-NvContainerUnload" when="install">
+			<propertyTrue name="NvContainerUnloaded"/>
+		</confirm>
+		<standard phase="startNvContainerLS" condition="ServiceAutoStart" when="uninstall" onError="ignore">
+			<startService name="${{NvContainerLSName}}" timeOut="40000"/>
+		</standard>
+		<standard phase="RemoveBackendData" when="uninstall">
+			<deleteDirectoryTree target="${{LocalUserAppData}}\NVIDIA\NvBackend"/>
+			<deleteDirectory target="${{LocalUserAppData}}\NVIDIA"/>
+		</standard>
+		<standard phase="copyx86BackendBinaries" platform="x86">
+			<copyFile target="${{BackendApiDllNameX86}}"/>
+			<copyFile target="detoured.dll"/>
+			<copyFile target="${{ContainerPluginFolderName}}\${{BackendDllName}}" source="${{BackendDllName}}"/>
+		</standard>
+		<standard phase="copyAmd64BackendBinaries" platform="amd64">
+			<copyFile target="${{UpdateCorePath}}\${{BackendApiDllNameX64}}" source="${{BackendApiDllNameX64}}"/>
+		</standard>
+		<standard phase="AddContainerDllPathRegistryKey" when="install" platform="x86">
+			<addRegistry keyName="${{NvContainerRegistryPath}}\DllDirectories" valueName="NvBackend" value="${{UpdateCoreX86Path}}" type="REG_SZ"/>
+		</standard>
+		<standard phase="DelContainerDllPathRegistryKey" when="uninstall" platform="x86">
+			<deleteRegistry keyName="${{NvContainerRegistryPath}}\DllDirectories" valueName="NvBackend"/>
+		</standard>
+		<exe phase="killNvOAWrapperCache" name="${{SystemDirectory}}\taskkill.exe" when="uninstall" onError="ignore">
+			<arg value="/f /im ${{NvOAWrapperCacheBinaryName}}" quote="none"/>
+		</exe>
+		<exe phase="killNvContainers" name="${{SystemDirectory}}\taskkill.exe" when="uninstall" onError="ignore">
+			<arg value="/f /im ${{ContainerBinaryName}}" quote="none"/>
+		</exe>
+		<standard phase="stopNvContainerLocalSystemService" when="uninstall" onError="ignore">
+			<stopService name="${{NvContainerLSName}}" timeOut="30000"/>
+		</standard>
+		<setPropertyIf phase="setPropertyIfNvContainerAutoStart" boolProperty="ServiceAutoStart" value="true" when="uninstall">
+			<registryValue name="${{RegistryKey}}" value="ServiceAutoStart" check="exists"/>
+		</setPropertyIf>
+	</phases>
+</nvi>
