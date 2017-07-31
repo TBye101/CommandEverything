@@ -1,10 +1,6 @@
 #include "stdafx.h"
 #include "CommandDefend.h"
 
-#include "External Libs\thrust-1.8.2\host_vector.h"
-#include "External Libs\thrust-1.8.2\device_vector.h"
-
-
 CommandDefend::CommandDefend()
 {
 }
