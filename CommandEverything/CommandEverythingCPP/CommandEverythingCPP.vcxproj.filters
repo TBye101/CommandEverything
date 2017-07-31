@@ -63,6 +63,9 @@
     <Filter Include="Framework\Util\CUDA">
       <UniqueIdentifier>{81c6cf4d-5cbc-45ae-8c2a-e1e2a05fa36c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="External\Thrust">
+      <UniqueIdentifier>{00f8c268-462b-4f40-8638-29b4a6f0bec7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
