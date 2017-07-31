@@ -128,6 +128,1887 @@
     <ClInclude Include="UDAWrapper.h">
       <Filter>Framework\Util\CUDA</Filter>
     </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\algorithm\intermediate_type_from_function_and_iterators.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\iterator\is_discard_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\iterator\is_output_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\is_call_possible.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\function_traits.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\minimum_type.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\has_trivial_assign.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\has_member_function.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\is_metafunction_defined.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\result_of.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\pointer_traits.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits\has_nested_type.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\math_private.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\stream.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\cproj.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\catrigf.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\csqrt.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\ctanh.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\clog.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\clogf.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\csinhf.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\csqrtf.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\cpow.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\ccosh.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\cpowf.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\c99math.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\csinh.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\arithmetic.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\ccoshf.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\catrig.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\cexp.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\cexpf.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\complex\ctanhf.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\range\head_flags.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\range\tail_flags.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\copy_construct_range.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\default_construct_range.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\allocator_traits.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\malloc_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\fill_construct_range.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\temporary_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\tagged_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\destroy_range.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\allocator\no_throw_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\operators\relational_operators.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\operators\operator_adaptors.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\operators\compound_assignment_operators.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\operators\bitwise_operators.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\operators\arithmetic_operators.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\operators\assignment_operator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\operators\logical_operators.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\argument.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\composite.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\operators.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\actor.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\functional\placeholder.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\util\align.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\util\blocking.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\debug.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\compiler.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\device_system.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\compiler_fence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\simple_defines.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\config.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\host_device.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\exec_check_disable.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\host_system.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\forceinline.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config\global_workarounds.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\mpl\math.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\dispatch\is_trivial_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\temporary_array.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\static_map.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\execute_with_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\contiguous_storage.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\seq.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\reference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\type_traits.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\tuple_meta_transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\overlapped_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\numeric_traits.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\malloc_and_free.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\integer_math.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\raw_pointer_cast.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\integer_traits.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\static_assert.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\minmax.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\swap.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\temporary_buffer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\trivial_sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\pointer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\internal_functional.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\raw_reference_cast.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\use_default.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\vector_base.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\config.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\cstdint.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\function.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\tuple_transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\copy_if.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\detail\reference_forward_declaration.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\detail\linear_congruential_engine_discard.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\detail\normal_distribution_base.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\detail\random_core_access.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\detail\linear_feedback_shift_engine_wordmask.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\detail\xor_combine_engine_max.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\detail\mod.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\subtract_with_carry_engine.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\discard_block_engine.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\linear_feedback_shift_engine.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\uniform_real_distribution.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\xor_combine_engine.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\uniform_int_distribution.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\linear_congruential_engine.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random\normal_distribution.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\internal\decompose.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\count.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\replace.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\iter_swap.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\extrema.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\malloc_and_free.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\swap_ranges.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\unique_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\reduce_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\uninitialized_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\tabulate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\gather.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\temporary_buffer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\partition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\equal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\generate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\reverse.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\for_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\transform_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\inner_product.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\transform_reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\scan_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\set_operations.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\mismatch.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\get_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\assign_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\remove.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\copy_if.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\uninitialized_fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\find.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\scatter.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\logical.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\adjacent_difference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\adl\unique.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\count.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\stable_radix_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\replace.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\iter_swap.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\extrema.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\stable_primitive_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\malloc_and_free.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\general_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\swap_ranges.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\unique_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\reduce_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\insertion_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\uninitialized_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\tabulate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\gather.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\temporary_buffer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\partition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\trivial_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\equal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\generate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\reverse.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\for_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\transform_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\copy_backward.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\inner_product.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\transform_reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\scan_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\stable_merge_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\set_operations.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\mismatch.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\get_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\assign_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\remove.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\copy_if.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\uninitialized_fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\find.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\scatter.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\logical.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\adjacent_difference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\sequential\unique.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\scalar\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\count.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\memory.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\type_traits.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\advance.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\replace.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\distance.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\extrema.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\swap_ranges.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\unique_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\reduce_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\uninitialized_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\tabulate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\gather.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\temporary_buffer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\tag.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\partition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\equal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\generate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\reverse.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\for_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\transform_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\inner_product.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\select_system.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\transform_reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\scan_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\set_operations.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\mismatch.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\remove.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\copy_if.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\uninitialized_fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\find.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\scatter.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\logical.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\adjacent_difference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\generic\unique.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\bad_alloc.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\detail\errno.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\count.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\replace.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\iter_swap.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\extrema.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\malloc_and_free.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\swap_ranges.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\unique_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\reduce_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\uninitialized_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\tabulate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\gather.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\temporary_buffer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\partition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\equal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\generate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\reverse.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\for_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\transform_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\inner_product.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\par.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\transform_reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\scan_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\set_operations.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\mismatch.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\get_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\assign_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\remove.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\copy_if.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\uninitialized_fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\find.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\scatter.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\logical.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\adjacent_difference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\detail\unique.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\memory.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cpp\vector.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\count.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\replace.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\iter_swap.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\extrema.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\malloc_and_free.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\swap_ranges.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\unique_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\reduce_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\uninitialized_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\tabulate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\gather.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\temporary_buffer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\partition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\equal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\generate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\reverse.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\for_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\transform_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\reduce_intervals.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\inner_product.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\par.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\transform_reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\scan_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\set_operations.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\mismatch.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\get_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\assign_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\remove.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\copy_if.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\uninitialized_fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\find.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\scatter.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\logical.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\adjacent_difference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\detail\unique.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\memory.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\tbb\vector.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\count.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\replace.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\iter_swap.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\extrema.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\malloc_and_free.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\swap_ranges.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\unique_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\reduce_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\uninitialized_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\tabulate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\gather.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\temporary_buffer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\partition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\equal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\generate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\reverse.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\for_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\transform_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\reduce_intervals.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\inner_product.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\par.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\transform_reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\scan_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\set_operations.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\mismatch.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\get_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\assign_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\remove.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\default_decomposition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\copy_if.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\uninitialized_fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\find.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\scatter.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\logical.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\adjacent_difference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\detail\unique.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\memory.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\omp\vector.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\block\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\block\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\block\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\block\merging_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\block\exclusive_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\block\inclusive_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\block\odd_even_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\launch_closure.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\stable_radix_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\uninitialized.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\launch_calculator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\stable_sort_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\stable_primitive_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\virtualized_smem_closure.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\cached_temporary_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\set_operation.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\balanced_path.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\stable_merge_sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\alignment.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\cuda_launcher\cuda_launcher.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\cuda_launcher\triple_chevron_launcher.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\cuda_launcher\runtime_introspection.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\cuda_launcher\cuda_launch_config.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\cuda_launcher\parameter_ptr.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\is_contiguous_iterator.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\cuda_task.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\tuple_meta_transform.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\config.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\synchronize.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\alignment.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\head_flags.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\apply_from_tuple.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\tuple_transform.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\terminate.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\tail_flags.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\guarded_cuda_runtime_api.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\throw_on_error.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\pointer_traits.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\closure.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\detail\stable_merge_sort.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\accumulate.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\for_each.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\scatter.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\copy.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\merge.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\gather.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\adjacent_difference.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\reduce_by_key.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\sort.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\reduce.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm\scan.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\iterator\strided_iterator.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\malloc.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\iterator.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\execution_policy.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\algorithm.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\choose_sizes.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\bulk.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\future.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\uninitialized.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\async.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\count.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\extern_shared_ptr.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\cuda_launch_config.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\throw_on_error.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\cub.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\terminate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\replace.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\iter_swap.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\extrema.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\malloc_and_free.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\synchronize.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\execute_on_stream.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\swap_ranges.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\unique_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\reduce_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\uninitialized_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\reduce_intervals.hpp">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\decomposition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\tabulate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\gather.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\guarded_driver_types.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\temporary_buffer.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\partition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\trivial_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\copy_device_to_device.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\equal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\generate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\reverse.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\for_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\copy_cross_system.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\runtime_introspection.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\transform_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\guarded_cuda_runtime_api.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\reduce_intervals.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\inner_product.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\par.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\transform_reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\scan_by_key.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\set_operations.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\mismatch.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\get_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\assign_value.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\remove.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\default_decomposition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\copy_if.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\uninitialized_fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\find.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\scatter.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\logical.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\adjacent_difference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\temporary_indirect_permutation.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\detail\unique.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\experimental\pinned_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\memory.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\error.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\cuda\vector.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\error_code.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system\system_error.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\any_assign.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\host_system_tag.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\minimum_system.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\discard_iterator_base.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\universal_categories.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\is_iterator_category.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\iterator_traversal_tags.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\iterator_adaptor_base.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\minimum_category.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\tagged_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\normal_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\device_system_tag.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\permutation_iterator_base.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\retag.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\distance_from_result.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\is_trivial_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\iterator_category_to_traversal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\iterator_category_to_system.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\any_system_tag.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\iterator_category_with_system_and_traversal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\zip_iterator_base.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\reverse_iterator_base.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\join_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\tuple_of_iterator_references.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\constant_iterator_base.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\detail\iterator_facade_category.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\iterator_adaptor.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\iterator_traits.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\counting_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\permutation_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\retag.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\zip_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\reverse_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\iterator_facade.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\constant_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\discard_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\transform_iterator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\iterator\iterator_categories.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\count.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_malloc_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\memory.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\functional.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\merge.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\sort.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_malloc.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\advance.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\random.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\replace.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\sequence.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\distance.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\extrema.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_delete.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_vector.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\execution_policy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\uninitialized_copy.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\tabulate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\gather.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\swap.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\tuple.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_ptr.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\partition.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\system_error.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\equal.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\generate.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\reverse.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\for_each.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\host_vector.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\transform_scan.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\pair.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_new_allocator.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\inner_product.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\transform_reduce.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\binary_search.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_new.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\set_operations.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\mismatch.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\remove.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_reference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\uninitialized_fill.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\find.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\scatter.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\complex.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\logical.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\adjacent_difference.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\transform.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\unique.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\version.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
+    <ClInclude Include="External Libs\thrust-1.8.2\device_free.h">
+      <Filter>External\Thrust</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -192,5 +2073,838 @@
     <Text Include="file.txt">
       <Filter>Framework\WIP Commands\Hack</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="External Libs\thrust-1.8.2\detail\complex\complex.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\allocator\allocator_traits.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\allocator\fill_construct_range.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\allocator\tagged_allocator.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\allocator\default_construct_range.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\allocator\copy_construct_range.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\allocator\destroy_range.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\allocator\malloc_allocator.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\allocator\temporary_allocator.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\functional\actor.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\device_new.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\copy_if.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\reference.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\unique.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\device_delete.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\generate.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\distance.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\swap_ranges.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\device_malloc.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\advance.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\logical.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\extrema.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\device_reference.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\functional.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\binary_search.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\vector_base.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\partition.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\uninitialized_copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\device_free.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\scan.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\reverse.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\transform.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\transform_scan.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\temporary_array.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\tabulate.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\set_operations.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\merge.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\uninitialized_fill.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\reduce.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\pointer.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\device_ptr.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\sequence.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\swap.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\tuple.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\adjacent_difference.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\fill.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\mismatch.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\replace.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\inner_product.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\scatter.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\host_vector.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\transform_reduce.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\for_each.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\device_vector.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\equal.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\gather.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\pair.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\contiguous_storage.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\count.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\find.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\detail\remove.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\random\detail\discard_block_engine.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\random\detail\uniform_int_distribution.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\random\detail\linear_feedback_shift_engine.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\random\detail\subtract_with_carry_engine.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\random\detail\xor_combine_engine.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\random\detail\normal_distribution.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\random\detail\uniform_real_distribution.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\random\detail\linear_congruential_engine.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\sequential\stable_radix_sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\sequential\sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\sequential\merge.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\sequential\copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\sequential\stable_primitive_sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\sequential\stable_merge_sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\scalar\binary_search.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\copy_if.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\unique.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\generate.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\distance.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\swap_ranges.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\advance.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\extrema.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\memory.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\temporary_buffer.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\binary_search.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\partition.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\uninitialized_copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\scan.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\reverse.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\transform.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\transform_scan.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\tabulate.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\set_operations.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\merge.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\uninitialized_fill.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\scan_by_key.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\reduce.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\reduce_by_key.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\sequence.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\adjacent_difference.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\mismatch.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\replace.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\inner_product.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\scatter.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\transform_reduce.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\equal.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\gather.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\count.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\unique_by_key.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\find.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\generic\remove.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\system_error.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\error_category.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\error_code.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\detail\error_condition.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cpp\detail\memory.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cpp\detail\vector.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\copy_if.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\unique.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\memory.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\partition.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\scan.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\merge.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\reduce.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\reduce_by_key.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\vector.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\for_each.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\unique_by_key.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\tbb\detail\remove.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\copy_if.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\unique.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\memory.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\partition.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\default_decomposition.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\reduce_intervals.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\reduce.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\reduce_by_key.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\vector.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\for_each.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\unique_by_key.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\omp\detail\remove.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\block\merge.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\launch_calculator.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\stable_radix_sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\launch_closure.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\stable_primitive_sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\set_operation.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\stable_sort_each.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\detail\stable_merge_sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\dispatch\device_reduce_by_key_dispatch.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\dispatch\device_select_dispatch.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\dispatch\device_reduce_dispatch.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\dispatch\device_radix_sort_dispatch.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\dispatch\device_histogram_dispatch.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\dispatch\device_scan_dispatch.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\dispatch\device_rle_dispatch.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\device_radix_sort.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\device_partition.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\device_select.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\device_scan.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\device_reduce.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\device_histogram.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\device\device_run_length_encode.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\warp\specializations\warp_reduce_smem.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\warp\specializations\warp_scan_smem.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\warp\specializations\warp_reduce_shfl.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\warp\specializations\warp_scan_shfl.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\warp\warp_reduce.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\warp\warp_scan.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\specializations\block_histogram_sort.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\specializations\block_reduce_raking.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\specializations\block_scan_warp_scans.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\specializations\block_histogram_atomic.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\specializations\block_scan_raking.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\specializations\block_reduce_raking_commutative_only.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\specializations\block_reduce_warp_reductions.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_store.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_raking_layout.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_reduce.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_shift.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_load.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_radix_rank.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_exchange.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_histogram.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_radix_sort.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_discontinuity.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block\block_scan.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\grid\grid_even_share.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\grid\grid_barrier.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\grid\grid_mapping.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\grid\grid_queue.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\specializations\block_range_histo_sort.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\specializations\block_range_histo_gatomic.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\specializations\block_range_histo_satomic.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\block_scan_prefix_operators.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\block_range_reduce.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\block_range_radix_sort_upsweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\block_range_histo.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\block_range_select.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\block_range_radix_sort_downsweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\block_range_reduce_by_key.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_range\block_range_scan.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\host\spinlock.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\thread\thread_operators.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\thread\thread_store.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\thread\thread_scan.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\thread\thread_load.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\thread\thread_reduce.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\specializations\block_histogram_satomic_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\specializations\block_histogram_gatomic_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\specializations\block_histogram_sort_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_rle_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_radix_sort_downsweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_radix_sort_upsweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_scan_prefix_operators.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_reduce_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_reduce_by_key_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_scan_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_histogram_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\block_sweep\block_select_sweep.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\iterator\tex_obj_input_iterator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\iterator\transform_input_iterator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\iterator\arg_index_input_iterator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\iterator\constant_input_iterator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\iterator\counting_input_iterator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\iterator\cache_modified_output_iterator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\iterator\cache_modified_input_iterator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\iterator\tex_ref_input_iterator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\util_device.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\util_debug.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\util_allocator.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\cub.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\util_namespace.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\util_arch.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\util_type.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\util_macro.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\cub\util_ptx.cuh">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\cuda_launcher\runtime_introspection.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\async.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\bulk\detail\choose_sizes.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\copy_if.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\runtime_introspection.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\error.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\memory.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\default_decomposition.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\copy_cross_system.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\scan.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\set_symmetric_difference.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\sort.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\reduce_intervals.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\merge.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\synchronize.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\reduce.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\reduce_by_key.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\set_intersection.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\copy_device_to_device.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\adjacent_difference.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\trivial_copy.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\vector.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\for_each.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\set_difference.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\system\cuda\detail\set_union.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\iterator\detail\iterator_traits.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\iterator\detail\counting_iterator.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\iterator\detail\transform_iterator.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\iterator\detail\zip_iterator.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
+    <None Include="External Libs\thrust-1.8.2\iterator\detail\reverse_iterator.inl">
+      <Filter>External\Thrust</Filter>
+    </None>
   </ItemGroup>
 </Project>
