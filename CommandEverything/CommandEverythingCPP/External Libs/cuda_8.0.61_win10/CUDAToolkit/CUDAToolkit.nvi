@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="CUDAToolkit_${{version}}" title="${{title}}" version="${{version}}" versionText="${{version}}" hidden="ARP,UI" timestamp="2017-01-17T14:56:18" disposition="demand" installerMin="2.1002.191.1621" allowsCustomPath="true" bare="false">
+	<strings>
+		<string name="version" value="8.0"/>
+		<localized locale="0x0409">
+			<string name="title" value="CUDA Toolkit"/>
+			<string name="InstallBlockedMessage" value="${{title}} software cannot be installed on this computer."/>
+			<string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}"/>
+			<string name="failed32Check" value="32-bit CUDA Toolkit can't be installed on a non-32-bit computer."/>
+			<string name="failed64Check" value="64-bit CUDA Toolkit can't be installed on a non-64-bit computer."/>
+			<string name="UnsupportedOSWarningMessage" value="CUDA toolkit is not supported on the current Operating System. Some components may not work."/>
+			<string name="UserConfirmationMessage" value="I have read the &lt;a href=&quot;http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#system-requirements&quot;&gt;OS support information&lt;/a&gt; and wish to continue the installation."/>
+		</localized>
+	</strings>
+	<dependencies>
+		<package type="before" package="Display.Driver"/>
+		<package type="before" package="CUDAVisualStudioIntegration_${{version}}"/>
+		<package type="before" package="CUDASamples_${{version}}"/>
+		<package type="uninstalls" package="CUDAToolkit_${{version}}"/>
+		<package type="requires" package="CUDAVersion_${{version}}"/>
+	</dependencies>
+	<description/>
+	<constraints>
+		<reject tests="SAFEMODE" level="silent" text="CUDA Toolkit installation is not supported while in safe mode."/>
+    <platforms list="amd64" name="platformCheck64" text="${{failed64Check}}" level="critical" />
+  </constraints>
+	<dependencies>
+	</dependencies>
+	<extensions>
+		<extension file="CUDAToolkitExt.DLL"/>
+	</extensions>
+	<properties>
+		<bool name="FixedInstallLocation" value="true"/>
+		<bool name="CUDAToolkitPreInstallCustomForm" value="true"/>
+		<string name="CudaSupportedOSVersions" value="6.1,6.3,10.0"/>
+	</properties>
+	<phases>
+		<standard phase="set64SpecificRegKeys" platform="amd64">
+			<addRegistry keyName="HKLM\Software\NVIDIA Corporation\GPU Computing Toolkit\CUDA\v${{version}}" valueName="64BitInstalled" value="1" valueType="REG_SZ"/>
+		</standard>
+		<standard phase="setNativeRegKeys" platform="native">
+			<addRegistry keyName="HKLM\Software\NVIDIA Corporation\GPU Computing Toolkit\CUDA" valueName="FirstVersionInstalled" value="v${{version}}" valueType="REG_SZ"/>
+			<addRegistry keyName="HKLM\Software\NVIDIA Corporation\GPU Computing Toolkit\CUDA\v${{version}}" valueName="InstalledBy" value="Retail" valueType="REG_SZ"/>
+		</standard>
+		<custom phase="CheckGFESelected" action="CheckGFESelected" when="install" onError="ignore"/>
+	</phases>
+	<forms>
+		<form name="PreInstallCustomFormUnsupportedOS" base="!PreInstallTemplate">
+			<properties>
+				<bool name="@WaitToConfirm" value="false"/>
+			</properties>
+			<control name="header"/>
+			<control name="warningIcon" class="image" x="137pt" y="62pt" width="18pt" height="18pt" sourceFile="${{ResourcesDirectory}}\warning.png"/>
+			<control name="headText" style="header" x="160pt" y="62pt" width="300pt" height="18pt" text="${{InstallWarning}}"/>
+			<control name="placeholder"/>
+			<control name="osUnsupportedWarning" font="standardText" enabledTextColor="0xFFFFFF" class="link" x="137pt" y="85pt" width="294pt" height="45pt" text="${{UnsupportedOSWarningMessage}}"/>
+			<control name="userConfirmation" style="checkbox" x="137pt" y="130pt" width="15pt" text="" property="@WaitToConfirm" initSelect="${@WaitToConfirm}"/>
+			<control name="tableHeader" font="standardText" class="link" enabledTextColor="0xFFFFFF" x="153pt" y="130pt" width="294pt" height="30pt" text="${{UserConfirmationMessage}}"/>
+			<control name="next" style="smallPrimaryButton" text="&amp;NEXT" x="289pt" y="280pt" onClick="!NextFormGroup" disabled="!${@WaitToConfirm}"/>
+		</form>
+	</forms>
+</nvi>

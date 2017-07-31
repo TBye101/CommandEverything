@@ -41,10 +41,6 @@ void CommandHack::Attempt(string* attempt)
 	while (i != size)
 	{
 		next = attempt->at(i);
- 		if (this->Length >= 3 || attempt->size() >= 2 && attempt->at(0) == '1' && attempt->at(1) == '*')
-		{
-			Sleep(500);
-		}
 		ip.type = INPUT_KEYBOARD; 
 		ip.ki.time = 0;
 		ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
@@ -58,11 +54,6 @@ void CommandHack::Attempt(string* attempt)
 		++i;
 	}
 
-	if (this->Length == 3)
-	{
-		Sleep(500);
-	}
-
 	keybd_event(VK_RETURN, '5A', 0, 0);
 	keybd_event(VK_RETURN, '5A', KEYEVENTF_KEYUP, 0);
 
@@ -72,7 +63,7 @@ void CommandHack::Attempt(string* attempt)
 	{
 		keybd_event(VK_BACK, '66', 0, 0);
 		keybd_event(VK_BACK, '66', KEYEVENTF_KEYUP, 0);
-		ab++;
+		++ab;
 	}
 }
 

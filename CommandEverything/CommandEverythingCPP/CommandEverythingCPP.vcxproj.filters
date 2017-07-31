@@ -60,6 +60,9 @@
     <Filter Include="Framework\WIP Commands\Hack">
       <UniqueIdentifier>{34ac8ce0-2a83-4c61-9855-6ec56085fcdf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Util\CUDA">
+      <UniqueIdentifier>{81c6cf4d-5cbc-45ae-8c2a-e1e2a05fa36c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -119,6 +122,9 @@
     <ClInclude Include="CommandHack.h">
       <Filter>Framework\WIP Commands\Hack</Filter>
     </ClInclude>
+    <ClInclude Include="UDAWrapper.h">
+      <Filter>Framework\Util\CUDA</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -174,6 +180,9 @@
     </ClCompile>
     <ClCompile Include="CommandHack.cpp">
       <Filter>Framework\WIP Commands\Hack</Filter>
+    </ClCompile>
+    <ClCompile Include="UDAWrapper.cpp">
+      <Filter>Framework\Util\CUDA</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
