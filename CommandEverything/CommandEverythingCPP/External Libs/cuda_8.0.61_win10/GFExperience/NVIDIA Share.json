@@ -1,7 +1,0 @@
-{"switches":[
-    "nv-enable-offscreen",
-    "nv-url-relative=osc/index.html",
-    "nv-node-app=NvNode\\nvnodejslauncher.exe",
-    "nv-node-data=NvNode\\nodejs.json"
-    ]
-}
