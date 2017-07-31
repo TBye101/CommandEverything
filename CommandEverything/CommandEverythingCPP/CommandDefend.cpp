@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "CommandDefend.h"
 
+#include "External Libs\thrust-1.8.2\host_vector.h"
+#include "External Libs\thrust-1.8.2\device_vector.h"
+
 
 CommandDefend::CommandDefend()
 {
@@ -21,11 +24,11 @@ void CommandDefend::Run(ParsedCommand* Parsed)
 	//There wasn't another word to determine whether we were to start or stop
 	if (Parsed->Words->size() < 2)
 	{
-		string error = "Missing required command argument.";
+		std::string error = "Missing required command argument.";
 		Console->WriteLine(&error);
 		return;
 	}
-	string second = Parsed->Words->at(1);
+	std::string second = Parsed->Words->at(1);
 	std::transform(second.begin(), second.end(), second.begin(), ::tolower);
 
 	if (second == "start")
@@ -40,7 +43,7 @@ void CommandDefend::Run(ParsedCommand* Parsed)
 		return;
 	}
 
-	string error = "Invalid command argument";
+	std::string error = "Invalid command argument";
 	Console->WriteLine(&error);
 }
 
@@ -56,6 +59,7 @@ string* CommandDefend::GetHelp()
 
 bool CommandDefend::DoesProcessExistInList(DWORD pID, DWORD numberOfProcesses)
 {
+	
 	register DWORD length = numberOfProcesses;
 	register size_t i;
 
