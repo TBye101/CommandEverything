@@ -1,0 +1,624 @@
+<html>
+<head>
+<title></title>
+<style type="text/css"> 
+body, html
+{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+map
+{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+img
+{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+iframe#frame
+{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;    
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+div
+{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+div#content
+{
+    width: 100%;
+    height: 100%;
+}
+</style>
+<script type="text/javascript"> 
+    //<![CDATA[
+
+    
+    var NVPackageDisposition = (function() 
+    {
+        return {
+            NVPD_INSTALL_SELECTED: function() {
+                return 1;
+            }
+        };
+    })();
+
+    
+    var NVInstallMode = (function() {
+        return {
+            NVIM_INSTALL: function() {
+                return 1; 
+            }
+        };
+    })(); 
+
+    
+    var ProgressNameSpace = (function() 
+    {
+        
+        
+        
+        var escapable = /[\x00-\x1f\x22\x5c\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+        var ResponseUrl;
+        var IntervalId;
+        var InstallerData;
+        var OsArchVersion;
+        var Devices;
+        var Keys;
+        var Lcid;
+        var CountryCode;
+        var DateTime;
+        var Chassis;
+
+        return {
+            GetEscapable: function() {
+                return escapable;
+            },
+            GetResponseUrl: function() {
+                return ResponseUrl;
+            },
+            SetResponseUrl: function(value) {
+                ResponseUrl = value;
+            },
+            GetIntervalId: function() {
+                return IntervalId;
+            },
+            SetIntervalId: function(value) {
+                IntervalId = value;
+            },
+            GetData: function() {
+                return InstallerData;
+            },
+            SetData: function(value) {
+                InstallerData = value;
+            },
+            GetOsArch: function() {
+                return OsArchVersion;
+            },
+            SetOsArch: function(value) {
+                OsArchVersion = value;
+            },
+            GetDevices: function() {
+                return Devices;
+            },
+            SetDevices: function(value) {
+                Devices = value;
+            },
+            GetKeys: function() {
+                return Keys;
+            },
+            SetKeys: function(value) {
+                Keys = value;
+            },
+            GetLcid: function() {
+                return Lcid;
+            },
+            SetLcid: function(value) {
+                Lcid = value;
+            },
+            GetCountryCode: function() {
+                return CountryCode;
+            },
+            SetCountryCode: function(value) {
+                CountryCode = value;
+            },
+            GetDateTime: function() {
+                return DateTime;
+            },
+            SetDateTime: function(value) {
+                DateTime = value;
+            },
+            GetChassis: function() {
+                return Chassis;
+            },
+            SetChassis: function(value) {
+                Chassis = value;
+            }
+        };
+    })(); 
+
+
+    
+    function jsonQuote(string)
+    {
+        return '"' + string.replace(ProgressNameSpace.GetEscapable(),
+                function (a)
+                {
+                    return '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4); 
+                }
+            ) + '"';
+    }
+    
+    
+    function jsonObject(obj)
+    {
+        if(!obj)
+        {
+            return 'null';
+        }
+        
+        
+        
+        var parts = [];
+        for(var key in obj)
+        {
+            if (Object.hasOwnProperty.call(obj, key))
+            {
+                var value = toJson(obj[key]);
+                if (value)
+                {
+                    parts.push(jsonQuote(key)+':'+value);
+                }
+            }
+        }
+        return '{' + parts.join(',') + '}';
+    }
+    
+    
+    function toJson(value)
+    {
+        switch(typeof value)
+        {
+            case 'object':
+                return jsonObject(value);
+            case 'string':
+                return jsonQuote(value);
+            default:
+                return String(value);
+        }
+    }
+    
+    
+    function buildJsonRequest(url, value)
+    {
+        return url + encodeURIComponent(toJson(value));
+    }
+
+    
+    function getOsArchVersion(data)
+    {
+        var archVersRegEx = new RegExp("^[^/]*/[^\\.]*\\.[^\\.]*");
+        return archVersRegEx.exec(data.osArch)[0];		
+    }
+
+    
+    function getPackages(rawPackages, checkForInstallDisposition)
+    {
+        var packages = {};
+        if (rawPackages != null)
+        {
+            window.external.debug("enum packages");
+            for(var e = new Enumerator(rawPackages); !e.atEnd(); e.moveNext())
+            {
+                var container = e.item();
+                if (container == null)
+                {
+                    continue;
+                }
+                container = window.external.toDispatch(container);
+                var pkg = container.SelectedForInstall;
+                if (pkg == null)
+                {
+                    continue;
+                }
+
+                
+                
+                
+                var pkgDispositionFlag = container.Disposition;
+                if (checkForInstallDisposition &&
+                    !(pkgDispositionFlag & NVPackageDisposition.NVPD_INSTALL_SELECTED()))
+                {
+                    continue;
+                }
+
+                var id = pkg.Identifier;
+                var ver = pkg.DisplayVersion;
+                window.external.debug("package = " + id + " - " + ver);
+                packages[id] = ver;
+            }
+        }
+        window.external.debug("packages = " + toJson(packages));
+        return packages;
+    }
+    
+    
+    function convertMap(rawMap)
+    {
+        var newMap = {};
+        if (rawMap != null)
+        {
+            window.external.debug("enum map");
+            for(var e = new Enumerator(rawMap); !e.atEnd(); e.moveNext())
+            {
+                newMap[e.item().Key] = e.item().Item;
+            }
+        }
+        window.external.debug("map = " + toJson(newMap));
+        return newMap;
+    }
+
+    
+    function buildTwoPartDeviceMap(rawMap)
+    {
+        var newMap = {};
+        if (rawMap != null)
+        {
+            window.external.debug("enum map");
+            for(var e = new Enumerator(rawMap); !e.atEnd(); e.moveNext())
+            {
+                var deviceId = new String(e.item().Key);
+                
+                
+                
+                
+                var startIndex = deviceId.indexOf("VEN_");
+                var endIndex = deviceId.indexOf("&SUBSYS_");
+                if (startIndex != -1 && endIndex != -1)
+                {
+                    deviceId = deviceId.substring(startIndex, endIndex);
+                }
+                newMap[deviceId] = e.item().Item;
+            }
+        }
+        window.external.debug("map = " + toJson(newMap));
+        return newMap;
+    }
+
+    
+    function onTrackRequestFinished(code, response) 
+    {
+        
+        
+        
+        window.external.debug("onTrackRequestFinished - code = " + code);
+    }
+
+    
+    function checkProgress() 
+    {
+        var data = ProgressNameSpace.GetData();
+        var engine = data.engine;
+
+        if (engine.InstallMode != NVInstallMode.NVIM_INSTALL()) 
+        {
+            return;
+        }
+
+        clearInterval(ProgressNameSpace.GetIntervalId());
+        window.external.debug("Installer is in installation mode now");
+        var packages = getPackages(engine.Packages, true);
+        var request = getTrackingRequest(packages);
+            
+        
+        
+        
+        var trackingUrl = data.selectedPackageUrl;
+        var fullUrl = buildJsonRequest(
+                        trackingUrl,
+                        request);
+        
+        window.external.debug("Tracking URI=" + fullUrl);
+        
+        
+        
+        
+        window.external.read(onTrackRequestFinished, "GET", fullUrl);
+    }
+
+    
+    function getPresentationRequest(packages)
+    {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        var request =
+            {
+                
+                "O":ProgressNameSpace.GetOsArch(),
+                "P":packages,
+                "D":ProgressNameSpace.GetDevices(),
+                
+                "K":ProgressNameSpace.GetKeys(),
+                "L":
+                    {
+                        "LCID": ProgressNameSpace.GetLcid(),
+                        
+                        
+                        "CC": ProgressNameSpace.GetCountryCode()
+                    }
+                
+            };
+            
+        return request;
+    }
+
+    
+    function getTrackingRequest(packages) 
+    {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        var request =
+            {
+                
+                "O": ProgressNameSpace.GetOsArch(),
+                "P": packages,
+                "D": ProgressNameSpace.GetDevices(),
+                "C": ProgressNameSpace.GetChassis(),
+                "K": ProgressNameSpace.GetKeys(),
+                "T": ProgressNameSpace.GetDateTime(),
+                "L":
+                    {
+                        "LCID": ProgressNameSpace.GetLcid(),
+                        
+                        
+                        "CC": ProgressNameSpace.GetCountryCode()
+                    }
+                
+            };
+
+        return request;
+    }
+
+    
+    function loadPresentation()
+    {
+        ProgressNameSpace.SetData(window.external.data);
+        var data = ProgressNameSpace.GetData();
+        if (data == null)
+        {
+            window.external.error("No initialization data, bailing");
+            return;
+        }
+        
+        
+        
+        
+        
+        
+       
+        
+        
+        
+        ProgressNameSpace.SetOsArch(getOsArchVersion(data));
+        
+        
+        
+        
+        
+        
+        
+        
+        ProgressNameSpace.SetDevices(buildTwoPartDeviceMap(data.devices));
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        ProgressNameSpace.SetChassis(data.isLaptop ? "laptop" : "desktop");
+        var engine = data.engine;
+        var url = data.url;
+        
+        var packages = getPackages(engine.Packages, false);
+        ProgressNameSpace.SetKeys(convertMap(data.keys));
+        ProgressNameSpace.SetLcid(data.lcid);
+        ProgressNameSpace.SetCountryCode(data.countryCode);
+        
+        
+        
+        
+        var dt = new Date();
+        ProgressNameSpace.SetDateTime(dt.getTime());
+       
+        
+        
+        
+        
+        
+        if (data.selectedPackageUrl)
+        {
+            window.external.debug("Setting a function to check progress");
+            ProgressNameSpace.SetIntervalId(setInterval("checkProgress()", 5000));
+        }
+        
+        if (!url)
+        {
+            window.external.error("Bootstrap URL has no value, bailing");
+            return;
+        }
+ 
+        var request = getPresentationRequest(packages);
+        window.external.debug("JSON = " + toJson(request));
+
+        
+        
+        
+        var fullUrl = buildJsonRequest(
+                     url,
+                     request);
+        window.external.debug("URI="+fullUrl);
+        
+        
+        
+        window.external.read(onRequestFinished, "GET", fullUrl);
+    }
+    
+    
+    
+    
+    function onRequestFinished(code, response)
+    {
+        window.external.debug("onReadFinished - code = " + code + " response = " + response);
+    
+        if (code < 100 || code > 299)
+        {
+            
+            
+            
+            window.external.warning("Presentation did not load - code = " + code);
+            return;
+        }
+        
+        
+        
+        var xmlDoc = new ActiveXObject("Msxml2.DOMDocument.3.0");
+        xmlDoc.async = false;
+        xmlDoc.preserveWhiteSpace = true;
+        xmlDoc.resolveExternals = false;
+        xmlDoc.setProperty("SelectionLanguage","XPath");
+        xmlDoc.loadXML(response);
+        var topElement = xmlDoc.selectSingleNode("/response");
+        if (topElement == null)
+        {
+            topElement = xmlDoc.selectSingleNode("/html/head/response"); 
+        }
+        if (topElement != null)
+        {
+            handleResponseElement(xmlDoc, topElement);
+            return;
+        }
+        window.external.error("Presentation response bad format - code = " + code + " response = " + response);
+    }
+    
+    
+    
+    
+    function handleResponseElement(xmlDoc, responseElement)
+    {
+        var action = responseElement.getAttribute("action");
+        if (action != "open")
+        {
+            window.external.error("Presentation cannot perform action: " + action);
+        }
+        var url = String(responseElement.getAttribute("url"));
+        if (url.search("^https?://") != 0)
+        {
+            window.external.error("Unexpected url: " + url);
+        }
+
+        ProgressNameSpace.SetResponseUrl(url);
+        window.external.debug("Determining the state of presentation url: " + ProgressNameSpace.GetResponseUrl());
+        window.external.read(onPresentationReceived, "GET", ProgressNameSpace.GetResponseUrl());
+    }
+
+    
+    
+    
+    function onPresentationReceived(code, response) 
+    {
+        if (code < 100 || code > 299) 
+        {
+            
+            
+            
+            window.external.warning("Presentation is in bad state or site is down - code = " + code);
+            return;
+        }
+
+        window.external.debug("Presentation is opening: " + ProgressNameSpace.GetResponseUrl());
+        
+        
+        
+        
+        
+        var contentObj = document.getElementById("content");
+        if (contentObj == null)
+        {
+            window.external.error("Cannot find content element");
+        }
+        var iFrameObj = document.createElement("iframe");
+        iFrameObj.name = iFrameObj.id = "frame";
+        iFrameObj.src = ProgressNameSpace.GetResponseUrl();
+        iFrameObj.scrolling = "no";
+        iFrameObj.attachEvent("onload", onFrameLoad);
+        contentObj.appendChild(iFrameObj);
+    }
+
+    
+    
+    
+    function onFrameLoad()
+    {
+        window.external.debug("frame loaded");
+        
+        
+        
+        
+        
+        
+        
+        
+        if (window.external.ready == false)
+        {
+            window.external.ready = true;
+        }
+    }
+    
+    //]]>
+</script>
+</head>
+
+<body id="theBody" onload="loadPresentation()"><div id="content"/></body>
+</html>

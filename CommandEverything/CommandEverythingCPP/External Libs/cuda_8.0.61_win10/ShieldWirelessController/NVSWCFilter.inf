@@ -1,0 +1,139 @@
+; Installation file for the NVIDIA SHIELD Wireless Controller Trackpad
+;
+; Copyright (C) 2014 NVIDIA Corporation. All rights reserved.
+;
+
+[Version]
+; DVS Release build, 2095937036869724.1
+Signature="$Windows NT$"
+Class=Mouse
+ClassGUID={4D36E96F-E325-11CE-BFC1-08002BE10318}
+Provider=%MfgName%
+DriverVer = 07/19/2016,8.16.22415.53
+CatalogFile=nvswcfilter.cat
+PnpLockDown = 1
+
+[ControlFlags]
+; We don't want our device to be installable via the non-PnP hardware dialogs
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1=%DiskName%
+
+[SourceDisksFiles.x86]
+nvswcfilter32.sys = 1
+WdfCoInstaller0100932.dll = 1
+
+[SourceDisksFiles.amd64]
+nvswcfilter64.sys = 1
+WdfCoInstaller0100964.dll = 1
+
+[Manufacturer]
+%MfgName%=NVSWCFilter,ntx86,ntamd64
+
+[NVSWCFilter.ntx86]
+%HID\Vid_0955&Pid_7210&REV_0100&Col02.DeviceDesc%=NVSWCFilter.Dev.ntx86, HID\Vid_0955&Pid_7210&REV_0100&Col02
+
+[NVSWCFilter.ntamd64]
+%HID\Vid_0955&Pid_7210&REV_0100&Col02.DeviceDesc%=NVSWCFilter.Dev.ntamd64, HID\Vid_0955&Pid_7210&REV_0100&Col02
+
+[DestinationDirs]
+NVSWCFilter32.Files = 12
+NVSWCFilter64.Files = 12
+CoInstaller_CopyFiles_32 = 11
+CoInstaller_CopyFiles_64 = 11
+
+[NVSWCFilter.Dev.ntx86]
+Include = MSMOUSE.INF
+Needs = HID_Mouse_Inst.NT
+CopyFiles=NVSWCFilter32.Files
+
+[NVSWCFilter.Dev.ntx86.HW]
+Include = MSMOUSE.INF
+Needs = HID_Mouse_Inst.NT
+AddReg = NVSWCFilter.Dev.HWAddReg
+
+[NVSWCFilter.Dev.ntamd64]
+Include = MSMOUSE.INF
+Needs = HID_Mouse_Inst.NT
+CopyFiles=NVSWCFilter64.Files
+
+[NVSWCFilter.Dev.ntamd64.HW]
+Include = MSMOUSE.INF
+Needs = HID_Mouse_Inst.NT
+AddReg = NVSWCFilter.Dev.HWAddReg
+
+[NVSWCFilter.Dev.ntx86.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles_32
+
+[NVSWCFilter.Dev.ntamd64.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles_64
+
+[NVSWCFilter.Dev.ntx86.Services]
+Needs = HID_Mouse_Inst.NT.Services
+AddService = NVSWCFilter, , NVSWCFilter.AddService
+
+[NVSWCFilter.Dev.ntamd64.Services]
+Needs = HID_Mouse_Inst.NT.Services
+AddService = NVSWCFilter, , NVSWCFilter.AddService
+
+[NVSWCFilter.Dev.HWAddReg]
+HKR,,"UpperFilters",0x00010000,"NVSWCFilter"
+
+[NVSWCFilter.AddService]
+DisplayName    = %NVSWCFilter.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\nvswcfilter.sys
+;LoadOrderGroup = PNP Filter
+
+[NVSWCFilter32.Files]
+nvswcfilter.sys,nvswcfilter32.sys,,0x00004000
+
+[NVSWCFilter64.Files]
+nvswcfilter.sys,nvswcfilter64.sys,,0x00004000
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[CoInstaller_CopyFiles_32]
+WdfCoInstaller01009.dll,WdfCoInstaller0100932.dll,,0x00004000
+
+[CoInstaller_CopyFiles_64]
+WdfCoInstaller01009.dll,WdfCoInstaller0100964.dll,,0x00004000
+
+[NVSWCFilter.Dev.ntx86.Wdf]
+KmdfService = NVSWCFilter, NVSWCFilter_Wdfsect
+
+[NVSWCFilter.Dev.ntamd64.Wdf]
+KmdfService = NVSWCFilter, NVSWCFilter_Wdfsect
+
+[NVSWCFilter_Wdfsect]
+KmdfLibraryVersion = 1.9
+
+[nv_CoInstaller_Data]
+OriginalInfSourcePath = %1%
+
+;---------------------------------------------------------------;
+
+[Strings]
+MfgName="NVIDIA"
+HID\Vid_0955&Pid_7210&REV_0100&Col02.DeviceDesc="NVIDIA SHIELD Wireless Controller Trackpad"
+NVSWCFilter.SvcDesc="NVIDIA SHIELD Wireless Controller Trackpad Service"
+DiskName="NVIDIA SHIELD Wireless Controller Trackpad Filter driver installation disk"
+
+; Standard defs
+SPSVCINST_TAGTOFRONT  = 0x00000001
+;SPSVCINST_ASSOCSERVICE= 0x00000002
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_BOOT_START    = 0
+SERVICE_SYSTEM_START  = 1
+SERVICE_AUTO_START    = 2
+SERVICE_ERROR_NORMAL  = 1
+SERVICE_ERROR_IGNORE  = 0
+REG_EXPAND_SZ         = 0x00020000
+REG_DWORD             = 0x00010001
+REG_SZ                = 0x00000000

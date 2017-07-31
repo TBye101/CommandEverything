@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="ShadowPlay" title="${{title}}" version="${{version}}" versionText="${{version}}" timestamp="2016-11-04T06:46:21" disposition="default" hidden="true" installerMin="2.1002.215.1898">
+	<filter name="64BitPlatform" platform="amd64"/>
+	<dependencies>
+		<package type="requires" package="VirtualAudio.Driver"/>
+		<package type="requires" package="NvContainer"/>
+		<package type="requires" package="NvContainer.LocalSystem"/>
+		<package type="requires" package="NvContainer.MessageBus"/>
+	</dependencies>
+	<constraints>
+		<os min="6.1" level="silent" text="${{title}} requires Windows 7 or later."/>
+	</constraints>
+	<description/>
+	<extensions>
+		<extension file="ShadowPlayExt.DLL"/>
+	</extensions>
+	<properties>
+		<bool name="FixedInstallLocation" value="true"/>
+		<string name="InstallLocation" value="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}"/>
+		<string name="ArpDisplayName" value="${{arpDisplayName}}"/>
+		<string name="ServerProxyDllx86" value="${{shadowPlayProxyDllNameX86}}"/>
+		<string name="ServerProxyDllx86Path" value="${{shadowPlayProxyDllx86TargetPath}}"/>
+		<string name="ServerBinaryName" value="${{nvscapsBinaryName}}"/>
+		<bool name="IsGFExperienceComponent" value="true"/>
+		<bool name="IsQuadroExperienceComponent" value="true"/>
+		<bool name="ShadowPlayOverinstall" value="true"/>
+		<int name="StopCaptureServerTimeOutMs" value="8000"/>
+		<bool name="ServiceAutoStart" value="false"/>
+		<bool name="NvContainerUnloaded" value="true"/>
+		<string name="ShareExeName" value="NVIDIA Share.exe"/>
+		<int name="ShareShutdownTimeoutMs" value="15000"/>
+		<bool name="ShareForceKill" value="true"/>
+	</properties>
+	<manifest>
+		<file name="ShadowPlay.nvi"/>
+		<file name="ShadowPlayExt.DLL"/>
+		<file name="cudart32_55.dll"/>
+		<file name="cudart64_55.dll"/>
+		<file name="DXSETUP.exe"/>
+		<file name="nvspbridge.dll"/>
+		<file name="nvspbridge64.dll"/>
+		<file name="nvsphelper.exe"/>
+		<file name="nvsphelper64.exe"/>
+		<file name="nvsphelperplugin.dll"/>
+		<file name="nvsphelperplugin64.dll"/>
+		<file name="NvRemux.dll"/>
+		<file name="NvRemux64.dll"/>
+		<file name="NvRtmpStreamer32.dll"/>
+		<file name="NvRtmpStreamer64.dll"/>
+		<file name="ipccommon.dll"/>
+		<file name="ipccommon64.dll"/>
+		<file name="capcore.dll"/><file name="capcore64.dll"/><file name="DSETUP.dll"/><file name="dsetup32.dll"/><file name="dxupdate.cab"/><file name="Jun2010_d3dx10_43_x64.cab"/><file name="Jun2010_d3dx10_43_x86.cab"/><file name="Jun2010_d3dx11_43_x64.cab"/><file name="Jun2010_d3dx11_43_x86.cab"/><file name="Jun2010_d3dx9_43_x64.cab"/><file name="Jun2010_d3dx9_43_x86.cab"/><file name="nvspcap.dll"/><file name="nvspcap64.dll"/><file name="nvspcaps.exe"/><file name="nvspcaps64.exe"/><file name="_nvspserviceplugin.dll"/><file name="_nvspserviceplugin64.dll"/></manifest>
+	<phases>
+		<standard phase="deleteShareCache" when="uninstall" onError="ignore">
+			<deleteDirectoryTree target="${{LocalUserAppData}}\NVIDIA Corporation\NVIDIA Share"/>
+		</standard>
+		<standard phase="startNvContainerLS" condition="ServiceAutoStart" when="uninstall" onError="ignore">
+			<startService name="${{NvContainerLSName}}" timeOut="40000"/>
+		</standard>
+		<standard phase="deleteRegKeys" when="uninstall" onError="ignore">
+			<deleteRegistryKeyTree keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Info"/>
+			<deleteRegistryKeyTree keyName="${{NvidiaPerUserSoftwareKey}}\Global\ShadowPlay\Info"/>
+		</standard>
+		<standard phase="stopNvContainerLSService" onError="ignore" when="install">
+			<stopService name="${{NvContainerLSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<standard phase="stopNvContainerNSService" onError="ignore" when="install">
+			<stopService name="${{NvContainerNSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<exe phase="killNvContainers" name="${{SystemDirectory}}\taskkill.exe" when="install" onError="ignore">
+			<arg value="/f /im ${{ContainerBinaryName}}" quote="none"/>
+		</exe>
+		<setPropertyIf phase="checkIfNvContainerUnloaded" boolProperty="NvContainerUnloaded" value="false" when="install">
+			<process name="${{ContainerBinaryName}}" check="exists"/>
+		</setPropertyIf>
+		<confirm phase="Confirm-NvContainerUnload" when="install">
+			<propertyTrue name="NvContainerUnloaded"/>
+		</confirm>
+		<standard phase="crashDumpKeyCleanUp" when="install" OnError="ignore">
+			<if filter="64BitPlatform">
+				<deleteRegistry keyName="${{crashDumpKey}}\nvshelper64.exe" valueName="DumpFolder"/>
+				<deleteRegistry keyName="${{crashDumpKey}}\nvshelper64.exe" valueName="DumpCount"/>
+				<deleteRegistry keyName="${{crashDumpKey}}\nvshelper64.exe" valueName="DumpType"/>
+				<deleteRegistryKey keyName="${{crashDumpKey}}\nvshelper64.exe"/>
+				<else>
+					<deleteRegistry keyName="${{crashDumpKey}}\nvshelper.exe" valueName="DumpFolder"/>
+					<deleteRegistry keyName="${{crashDumpKey}}\nvshelper.exe" valueName="DumpCount"/>
+					<deleteRegistry keyName="${{crashDumpKey}}\nvshelper.exe" valueName="DumpType"/>
+					<deleteRegistryKey keyName="${{crashDumpKey}}\nvshelper.exe"/>
+				</else>
+			</if>
+		</standard>
+		<standard phase="createCrashDumpGenerationKeys">
+			<addRegistry keyName="${{crashDumpKey}}\${{nvscapsBinaryName}}"/>
+			<addRegistry keyName="${{crashDumpKey}}\${{nvscapsBinaryName}}" valueName="DumpFolder" type="REG_EXPAND_SZ" value="%PROGRAMDATA%\NVIDIA Corporation\CrashDumps"/>
+			<addRegistry keyName="${{crashDumpKey}}\${{nvscapsBinaryName}}" valueName="DumpCount" type="REG_DWORD" value="15"/>
+			<addRegistry keyName="${{crashDumpKey}}\${{nvscapsBinaryName}}" valueName="DumpType" type="REG_DWORD" value="1"/>
+			<if filter="64BitPlatform">
+				<addRegistry keyName="${{crashDumpKey}}\nvsphelper64.exe"/>
+				<addRegistry keyName="${{crashDumpKey}}\nvsphelper64.exe" valueName="DumpFolder" type="REG_EXPAND_SZ" value="%PROGRAMDATA%\NVIDIA Corporation\CrashDumps"/>
+				<addRegistry keyName="${{crashDumpKey}}\nvsphelper64.exe" valueName="DumpCount" type="REG_DWORD" value="15"/>
+				<addRegistry keyName="${{crashDumpKey}}\nvsphelper64.exe" valueName="DumpType" type="REG_DWORD" value="1"/>
+				<else>
+					<addRegistry keyName="${{crashDumpKey}}\nvsphelper.exe"/>
+					<addRegistry keyName="${{crashDumpKey}}\nvsphelper.exe" valueName="DumpFolder" type="REG_EXPAND_SZ" value="%PROGRAMDATA%\NVIDIA Corporation\CrashDumps"/>
+					<addRegistry keyName="${{crashDumpKey}}\nvsphelper.exe" valueName="DumpCount" type="REG_DWORD" value="15"/>
+					<addRegistry keyName="${{crashDumpKey}}\nvsphelper.exe" valueName="DumpType" type="REG_DWORD" value="1"/>
+				</else>
+			</if>
+		</standard>
+		<standard phase="createDirectories">
+			<createDirectory target="${{InstallLocation}}"/>
+		</standard>
+		<standard phase="copyFilesX86" platform="x86">
+			<copyFile target="${{shadowPlayProxyDllx86TargetPath}}" source="${{shadowPlayProxyDllNameX86}}"/>
+			<copyFile target="${{SystemDirectory}}\nvspbridge.dll" source="nvspbridge.dll"/>
+		</standard>
+		<standard phase="deleteFiles" onError="ignore" when="install">
+			<if filter="64BitPlatform">
+				<deleteFile target="${{NvidiaProgramFiles}}\${{PluginFolder}}\nvspserviceplugin64.dll"/>
+				<else>
+					<deleteFile target="${{NvidiaProgramFiles}}\${{PluginFolder}}\nvspserviceplugin.dll"/>
+				</else>
+			</if>
+		</standard>
+		<standard phase="copyFiles">
+			<copyFile target="${{nvscapsBinaryName}}"/>
+			<if filter="64BitPlatform">
+				<copyFile target="${{shadowPlayProxyDllx64TargetPath}}" source="${{shadowPlayProxyDllNameX64}}"/>
+				<copyFile target="${{SystemDirectory}}\nvspbridge64.dll" source="nvspbridge64.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\cudart64_55.dll" source="cudart64_55.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\nvsphelper64.exe" source="nvsphelper64.exe"/>
+				<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\nvsphelperplugin64.dll" source="nvsphelperplugin64.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\NvRemux64.dll" source="NvRemux64.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\NvRemux.dll" source="NvRemux.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\${{ContainerFolderName}}\ipccommon64.dll" source="ipccommon64.dll"/>
+				<copyFile target="${{NvidiaProgramFilesX86}}\${{ContainerFolderName}}\ipccommon.dll" source="ipccommon.dll"/>
+				<copyFile target="${{NvidiaProgramFiles}}\${{PluginFolder}}\_nvspserviceplugin64.dll" source="_nvspserviceplugin64.dll"/>
+				<copyFile target="${{SystemDirectory}}\NvRtmpStreamer64.dll" source="NvRtmpStreamer64.dll"/>
+				<else>
+					<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\cudart32_55.dll" source="cudart32_55.dll"/>
+					<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\nvsphelper.exe" source="nvsphelper.exe"/>
+					<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\nvsphelperplugin.dll" source="nvsphelperplugin.dll"/>
+					<copyFile target="${{NvidiaProgramFiles}}\${{shadowPlayAppFolderName}}\NvRemux.dll" source="NvRemux.dll"/>
+					<copyFile target="${{NvidiaProgramFiles}}\${{ContainerFolderName}}\ipccommon.dll" source="ipccommon.dll"/>
+					<copyFile target="${{NvidiaProgramFiles}}\${{PluginFolder}}\_nvspserviceplugin.dll" source="_nvspserviceplugin.dll"/>
+					<copyFile target="${{SystemDirectory}}\NvRtmpStreamer32.dll" source="NvRtmpStreamer32.dll"/>
+				</else>
+			</if>
+		</standard>
+		<standard phase="deleteVideoRecordingKeysKey" onError="ignore">
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey0"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey1"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey2"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey3"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey4"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey5"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey6"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey7"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey8"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKey9"/>
+			<deleteRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="ManualHKeyCount"/>
+			<deleteRegistryKey keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides"/>
+			<deleteRegistryKey keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay"/>
+		</standard>
+		<custom phase="createVideoRecordingKeys" action="createVideoRecordingKeys" when="install"/>
+		<standard phase="addManualRecordingModeSetting" condition="IsRecordingModeManual">
+			<addRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="RecordingMode" value="RecManual" type="REG_SZ"/>
+		</standard>
+		<standard phase="addToggleMicModeSetting" condition="IsMicModeToggle">
+			<addRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\Overrides" valueName="MicMode" value="2" type="REG_DWORD"/>
+		</standard>
+		<standard phase="enableShareScreenshot">
+			<addRegistry keyName="${{NvidiaSoftwareKey}}\Global\ShadowPlay\FTS" valueName="{4BE02FC2-981D-48C5-AE4A-1DAA073123E6}" type="REG_BINARY" value="1"/>
+		</standard>
+		<custom phase="isDirectXInstalled" action="isDirectXInstalled" when="install" onError="ignore">
+			<properties>
+				<string name="directXDlls" value="d3dx9_43.dll,d3dx10_43.dll,d3dx11_43.dll"/>
+			</properties>
+		</custom>
+		<exe phase="installDirectXRuntime" name="DXSETUP.exe" when="install" condition="!DirectXInstalled" progress="120" autoTick="200">
+			<arg value="/silent"/>
+			<success value="0"/>
+			<success value="1" rebootNeeded="true"/>
+		</exe>
+		<standard phase="manageRegistryDataX86" platform="x86">
+			<addRegistry keyName="${{NvidiaSoftwareKey}}\Global\NVSCAPS" valueName="ShadowPlayMode" value="None" valueType="REG_SZ"/>
+		</standard>
+		<exe phase="registerNvscapsBinary" name="${{InstallLocation}}\${{nvscapsBinaryName}}" when="install">
+			<arg value="/RegServer"/>
+		</exe>
+		<standard phase="createProxyRunKey">
+			<if filter="64BitPlatform">
+				<addRegistry keyName="${{runKeyPath}}" valueName="${{title}}" value="&quot;${{rundll32Path}}&quot; ${{shadowPlayProxyDllx64TargetPath}},ShadowPlayOnSystemStart" valueType="REG_SZ"/>
+				<else>
+					<addRegistry keyName="${{runKeyPath}}" valueName="${{title}}" value="&quot;${{rundll32Path}}&quot; ${{shadowPlayProxyDllx86TargetPath}},ShadowPlayOnSystemStart" valueType="REG_SZ"/>
+				</else>
+			</if>
+		</standard>
+		<custom phase="enableShadowPlayOnInstall" action="enableShadowPlayOnInstall" when="installClose">
+			<properties>
+				<int name="TimeOutMs" value="60000"/>
+			</properties>
+		</custom>
+		<standard phase="deleteDataFiles" onError="ignore" when="uninstall">
+			<deleteDirectoryTree target="${{LocalUserAppData}}\NVIDIA Corporation\${{shadowPlayAppFolderName}}"/>
+			<deleteDirectoryTree target="${{CommonAppData}}\NVIDIA Corporation\${{shadowPlayAppFolderName}}"/>
+		</standard>
+		<exe phase="killNvContainers" name="${{SystemDirectory}}\taskkill.exe" when="uninstall" onError="ignore">
+			<arg value="/f /im ${{ContainerBinaryName}}" quote="none"/>
+		</exe>
+		<standard phase="stopNvContainerLocalSystemService" when="uninstall" onError="ignore">
+			<stopService name="${{NvContainerLSName}}" timeOut="30000"/>
+		</standard>
+		<setPropertyIf phase="setPropertyIfNvContainerAutoStart" boolProperty="ServiceAutoStart" value="true" when="uninstall">
+			<registryValue name="${{RegistryKey}}" value="ServiceAutoStart" check="exists"/>
+		</setPropertyIf>
+		<exe phase="unRegisterNvscapsBinary" name="${{InstallLocation}}\${{nvscapsBinaryName}}" when="uninstall" onError="ignore">
+			<arg value="/UnRegServer"/>
+		</exe>
+		<custom phase="callCleanupApi" action="callCleanupApi" when="uninstall" onError="ignore">
+			<properties>
+				<int name="TimeOutMs" value="8000"/>
+			</properties>
+		</custom>
+		<custom phase="stopCaptureServer" action="stopCaptureServer" when="uninstall" onError="ignore" progress="40" autoTick="200"/>
+	</phases>
+	<strings>
+		<string name="version" value="2.13.0.21"/>
+		<string name="shadowPlayAppFolderName" value="ShadowPlay"/>
+		<string name="shadowPlayProxyDllNameX86" value="nvspcap.dll"/>
+		<string name="shadowPlayProxyDllNameX64" value="nvspcap64.dll"/>
+		<string name="crashDumpKey" value="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps"/>
+		<string name="runKeyPath" value="HKLM\Software\Microsoft\Windows\CurrentVersion\Run"/>
+		<string name="rundll32Path" value="${{SystemDirectory}}\rundll32.exe"/>
+		<string name="shadowPlayProxyDllx86TargetPath" value="${{SystemDirectory}}\${{shadowPlayProxyDllNameX86}}"/>
+		<string name="shadowPlayProxyDllx64TargetPath" value="${{SystemDirectory}}\${{shadowPlayProxyDllNameX64}}"/>
+		<string name="ContainerFolderName" value="NvContainer"/>
+		<string name="PluginFolder" value="${{ContainerFolderName}}\plugins\LocalSystem"/>
+		<string name="NvContainerLSName" value="NvContainerLocalSystem"/>
+		<string name="NvContainerNSName" value="NvContainerNetworkService"/>
+		<string name="RegistryKey" value="${{NvidiaSoftwareKey}}\NvContainer\NvContainerLocalSystem"/>
+		<string name="serviceStopMaxTimeout" value="30000"/>
+		<string name="ContainerBinaryName" value="nvcontainer.exe"/>
+		<if filter="64BitPlatform">
+			<string name="nvscapsBinaryName" value="nvspcaps64.exe"/>
+			<string name="shadowPlayProxyDllPath" value="${{shadowPlayProxyDllx64TargetPath}}"/>
+			<else>
+				<string name="nvscapsBinaryName" value="nvspcaps.exe"/>
+				<string name="shadowPlayProxyDllPath" value="${{shadowPlayProxyDllx86TargetPath}}"/>
+			</else>
+		</if>
+		<localized locale="0x0409">
+			<string name="title" value="ShadowPlay"/>
+			<string name="arpDisplayName" value="NVIDIA ${{title}} ${{version}}"/>
+		</localized>
+	</strings>
+	<include name="${{ResourcesDirectory}}\GFExperienceProgressText.cfg" select="/nvi/*"/>
+	<include name="${{ResourcesDirectory}}\QuadroExperienceProgressText.cfg" select="/nvi/*"/>
+	<signature><file name="nvspcap.dll" type="PE"/><file name="nvspcap64.dll" type="PE"/><file name="nvspbridge.dll" type="PE"/><file name="nvspbridge64.dll" type="PE"/><file name="nvsphelper.exe" type="PE"/><file name="nvsphelper64.exe" type="PE"/><file name="nvsphelperplugin.dll" type="PE"/><file name="nvsphelperplugin64.dll" type="PE"/><file name="ipccommon.dll" type="PE"/><file name="ipccommon64.dll" type="PE"/><file name="_nvspserviceplugin.dll" type="PE"/><file name="_nvspserviceplugin64.dll" type="PE"/><file name="capcore.dll" type="PE"/><file name="capcore64.dll" type="PE"/><file name="NvRemux.dll" type="PE"/><file name="NvRemux64.dll" type="PE"/><file name="NvRtmpStreamer32.dll" type="PE"/><file name="NvRtmpStreamer64.dll" type="PE"/></signature></nvi>

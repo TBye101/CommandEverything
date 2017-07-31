@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="visual_studio_integration_${{version}}" title="${{title}}" version="${{version}}" versionText="${{version}}" timestamp="2017-01-17T14:56:48" disposition="default" installerMin="2.1002.191.1621" bare="false">
+	<strings>
+		<string name="version" value="8.0"/>
+		<string name="nsightVersion" value="5.2.0.16321"/>
+		<string name="nsightShortVersion" value="5.2"/>
+		<string name="title" value="Visual Studio Integration"/>
+		<string name="arpDisplayName" value="NVIDIA CUDA ${{title}} ${{version}}"/>
+		<string name="NotAnUpgradeMessage" value="A newer or a same version of ${{title}} is present on this computer"/>
+		<string name="NsightMSI" value="NVIDIA_Nsight_Visual_Studio_Edition_Win64_5.2.0.16321.msi"/>
+		<string name="NsightProgramGroup" value="NVIDIA Corporation\Nsight Visual Studio Edition ${{nsightShortVersion}}"/>
+		<string name="MSBuildDir" value="${{ProgramFilesX86}}\MSBuild\Microsoft.Cpp\v4.0\BuildCustomizations"/>
+		<string name="MSBuildV110Dir" value="${{ProgramFilesX86}}\MSBuild\Microsoft.Cpp\v4.0\V110\BuildCustomizations"/>
+		<string name="MSBuildV120Dir" value="${{ProgramFilesX86}}\MSBuild\Microsoft.Cpp\v4.0\V120\BuildCustomizations"/>
+		<string name="MSBuildV140Dir" value="${{ProgramFilesX86}}\MSBuild\Microsoft.Cpp\v4.0\V140\BuildCustomizations"/>
+		<string name="NVTXMSI" value="*NVTX*.msi"/>
+		<string name="ToolkitRootDir" value="${{ProgramFiles}}\NVIDIA GPU Computing Toolkit\CUDA"/>
+		<string name="ToolkitInstallDir" value="${{ToolkitRootDir}}\v${{version}}"/>
+	</strings>
+	<dependencies>
+		<package type="uninstalls" package="CUDAVisualStudioIntegration_${{version}}"/>
+	</dependencies>
+	<description/>
+	<phases>
+		<custom phase="detectMSBuild" action="DetectMSBuild"/>
+		<custom phase="detectVS" action="DetectVS"/>
+	</phases>
+	<constraints>
+		<reject tests="SAFEMODE" level="silent" text="CUDA Visual Studio Integration installation is not supported while in safe mode."/>
+	</constraints>
+	<extensions>
+		<extension file="CUDAVisualStudioIntegrationExt.DLL"/>
+	</extensions>
+	<customInstallTree>
+		<treeNode text="Visual Studio Integration" ordering="CUDA" accessibility="selectable"/>
+	</customInstallTree>
+	<properties>
+		<bool name="FixedInstallLocation" value="true"/>
+		<bool name="PreInstallCustomForm" value="true"/>
+		<bool name="PostInstallCustomForm" value="true"/>
+		<string name="InstallLocation" value="${{ToolkitInstallDir}}"/>
+		<string name="ArpDisplayName" value="${{arpDisplayName}}"/>
+		<string name="NsightInstallLocation" value="${{NvidiaProgramFilesX86}}\NVIDIA Corporation\Nsight Visual Studio Edition ${{nsightVersion}}"/>
+		<string name="NsightVersion" value="${{nsightVersion}}"/>
+		<string name="NsightMSI" value="${{NsightMSI}}"/>
+	</properties>
+	<manifest>
+    <file name="CUDAVisualStudioIntegration.nvi" />
+<file name="CUDAVisualStudioIntegrationExt.dll" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" />
+<file name="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" />
+<file name="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.props" />
+<file name="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.targets" />
+<file name="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.xml" />
+<file name="extras\visual_studio_integration\MSBuildExtensions\Nvda.Build.CudaTasks.v8.0.dll" />
+<file name="NVIDIA NVTX Installer.x86_64.Release.v1.21018621.Win64.msi" />
+<file name="NVIDIA_Nsight_Visual_Studio_Edition_Win64_5.2.0.16321.msi" />
+
+  </manifest>
+	<phases>
+		<custom phase="handleExistingNsight" action="HandleExistingNsight"/>
+		<custom phase="detectDisableCallHome" action="DetectDisableCallHome"/>
+		<msi platform="x86" phase="NsightMSINoTraffic" name="${{NsightMSI}}" condition="NsightMSIActionActiveAndNoTraffic" installText="Installing Nsight Visual Studio Edition">
+			<arg name="CUDAINSTALLER" value="true"/>
+			<arg name="DISABLE_NV_CH" value="1"/>
+		</msi>
+		<msi platform="x86" phase="NsightMSITraffic" name="${{NsightMSI}}" condition="NsightMSIActionActiveAndTraffic" installText="Installing Nsight Visual Studio Edition">
+			<arg name="CUDAINSTALLER" value="true"/>
+			<arg name="DISABLE_NV_CH" value="0"/>
+		</msi>
+		<confirm phase="Confirm-install" when="install" condition="NsightMSIActionActive">
+			<fileExists target="${{CommonAppData}}\NVIDIA Corporation\Nsight\Nsight_${{nsightVersion}}_InstallSummary.xml"/>
+		</confirm>
+		<standard phase="copytemp" condition="NsightMSIActionActive">
+            <copyFile source="NVIDIA_Nsight_Visual_Studio_Edition_Win64_5.2.0.16321.msi" target="${{CommonAppData}}\NVIDIA Corporation\Nsight\NVIDIA_Nsight_Visual_Studio_Edition_Win64_5.2.0.16321.msi" />
+
+        </standard>
+		<standard phase="createStartMenuStortcuts" condition="NsightMSIActionActive">
+			<createShortcutGroup location="startMenu" linkGroup="${{NsightProgramGroup}}"/>
+			<createShortcutLink location="startMenu" targetPath="${{CommonAppData}}\NVIDIA Corporation\Nsight\NVIDIA_Nsight_Visual_Studio_Edition_Win64_5.2.0.16321.msi" linkGroup="${{NsightProgramGroup}}" linkName="Nsight Redistributable"/>
+		</standard>
+		<custom phase="ParseWarningPage" action="ReadWarningPage" condition="NsightMSIActionActive"/>
+
+    <msi platform="x86" phase="NVTXMSI" name="${{NVTXMSI}}" installText="Installing NVTX"/>
+		<standard phase="copyFiles">
+      <copyFile target="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.props" />
+<copyFile target="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.targets" />
+<copyFile target="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.xml" />
+<copyFile target="extras\visual_studio_integration\MSBuildExtensions\Nvda.Build.CudaTasks.v8.0.dll" />
+
+    </standard>
+		<standard phase="installMSTools10" condition="MSBuild10Exists">
+      <copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.props" target="${{MSBuildDir}}\CUDA 8.0.props" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.targets" target="${{MSBuildDir}}\CUDA 8.0.targets" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.xml" target="${{MSBuildDir}}\CUDA 8.0.xml" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\Nvda.Build.CudaTasks.v8.0.dll" target="${{MSBuildDir}}\Nvda.Build.CudaTasks.v8.0.dll" />
+
+    </standard>
+		<standard phase="installMSTools11" condition="MSBuild11Exists">
+      <copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.props" target="${{MSBuildV110Dir}}\CUDA 8.0.props" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.targets" target="${{MSBuildV110Dir}}\CUDA 8.0.targets" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.xml" target="${{MSBuildV110Dir}}\CUDA 8.0.xml" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\Nvda.Build.CudaTasks.v8.0.dll" target="${{MSBuildV110Dir}}\Nvda.Build.CudaTasks.v8.0.dll" />
+
+    </standard>
+		<standard phase="installMSTools12" condition="MSBuild12Exists">
+      <copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.props" target="${{MSBuildV120Dir}}\CUDA 8.0.props" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.targets" target="${{MSBuildV120Dir}}\CUDA 8.0.targets" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.xml" target="${{MSBuildV120Dir}}\CUDA 8.0.xml" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\Nvda.Build.CudaTasks.v8.0.dll" target="${{MSBuildV120Dir}}\Nvda.Build.CudaTasks.v8.0.dll" />
+
+    </standard>
+		<standard phase="installMSTools14" condition="MSBuild14Exists">
+      <copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.props" target="${{MSBuildV140Dir}}\CUDA 8.0.props" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.targets" target="${{MSBuildV140Dir}}\CUDA 8.0.targets" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\CUDA 8.0.xml" target="${{MSBuildV140Dir}}\CUDA 8.0.xml" />
+<copyFile source="extras\visual_studio_integration\MSBuildExtensions\Nvda.Build.CudaTasks.v8.0.dll" target="${{MSBuildV140Dir}}\Nvda.Build.CudaTasks.v8.0.dll" />
+
+    </standard>
+		<standard phase="installVSWizards" condition="VS2010Exists">
+      <copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" />
+
+    </standard>
+		<standard phase="installVSWizards" condition="VS2012Exists">
+      <copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" />
+
+    </standard>
+		<standard phase="installVSWizards" condition="VS2013Exists">
+      <copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" />
+
+    </standard>
+		<standard phase="installVSWizards" condition="VS2015Exists">
+      <copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.cu" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaFile.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.cuh" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewFileItems\Code\CudaHeader.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.ico" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsdir" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\NewProjectItems\CUDA\CudaRuntime-8.0.vsz" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS10.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS11.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS12.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.filters" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS14.0.vcxproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0-Cuda8.0.vstemplate" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\CudaRuntime-VS9.0.vcproj" />
+<copyFile source="extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" target="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Templates\Projects\CUDA\CudaRuntime\kernel.cu" />
+
+    </standard>
+		<custom phase="makeVS2010ExtensionShortcut" condition="VS2010Exists" action="CreateCustomShortcut">
+			<properties>
+				<string name="root" value="VS2010InstallDir"/>
+				<string name="location" value="Extensions\NVIDIA\CUDA ${{version}} Wizards\${{version}}"/>
+				<string name="name" value="extension.vsixmanifest"/>
+				<string name="target" value="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest"/>
+			</properties>
+		</custom>
+		<custom phase="makeVS2010PkgdefShortcut" condition="VS2010Exists" action="CreateCustomShortcut">
+			<properties>
+				<string name="root" value="VS2010InstallDir"/>
+				<string name="location" value="Extensions\NVIDIA\CUDA ${{version}} Wizards\${{version}}"/>
+				<string name="name" value="Nvda.Vsip.CudaWizards.dll.pkgdef"/>
+				<string name="target" value="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef"/>
+			</properties>
+		</custom>
+		<custom phase="makeVS2012ExtensionShortcut" condition="VS2012Exists" action="CreateCustomShortcut">
+			<properties>
+				<string name="root" value="VS2012InstallDir"/>
+				<string name="location" value="Extensions\NVIDIA\CUDA ${{version}} Wizards\${{version}}"/>
+				<string name="name" value="extension.vsixmanifest"/>
+				<string name="target" value="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest"/>
+			</properties>
+		</custom>
+		<custom phase="makeVS2012PkgdefShortcut" condition="VS2012Exists" action="CreateCustomShortcut">
+			<properties>
+				<string name="root" value="VS2012InstallDir"/>
+				<string name="location" value="Extensions\NVIDIA\CUDA ${{version}} Wizards\${{version}}"/>
+				<string name="name" value="Nvda.Vsip.CudaWizards.dll.pkgdef"/>
+				<string name="target" value="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef"/>
+			</properties>
+		</custom>
+		<custom phase="makeVS2013ExtensionShortcut" condition="VS2013Exists" action="CreateCustomShortcut">
+			<properties>
+				<string name="root" value="VS2013InstallDir"/>
+				<string name="location" value="Extensions\NVIDIA\CUDA ${{version}} Wizards\${{version}}"/>
+				<string name="name" value="extension.vsixmanifest"/>
+				<string name="target" value="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest"/>
+			</properties>
+		</custom>
+		<custom phase="makeVS2013PkgdefShortcut" condition="VS2013Exists" action="CreateCustomShortcut">
+			<properties>
+				<string name="root" value="VS2013InstallDir"/>
+				<string name="location" value="Extensions\NVIDIA\CUDA ${{version}} Wizards\${{version}}"/>
+				<string name="name" value="Nvda.Vsip.CudaWizards.dll.pkgdef"/>
+				<string name="target" value="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef"/>
+			</properties>
+		</custom>
+		<custom phase="makeVS2015ExtensionShortcut" condition="VS2015Exists" action="CreateCustomShortcut">
+			<properties>
+				<string name="root" value="VS2015InstallDir"/>
+				<string name="location" value="Extensions\NVIDIA\CUDA ${{version}} Wizards\${{version}}"/>
+				<string name="name" value="extension.vsixmanifest"/>
+				<string name="target" value="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\extension.vsixmanifest"/>
+			</properties>
+		</custom>
+		<custom phase="makeVS2015PkgdefShortcut" condition="VS2015Exists" action="CreateCustomShortcut">
+			<properties>
+				<string name="root" value="VS2015InstallDir"/>
+				<string name="location" value="Extensions\NVIDIA\CUDA ${{version}} Wizards\${{version}}"/>
+				<string name="name" value="Nvda.Vsip.CudaWizards.dll.pkgdef"/>
+				<string name="target" value="${{CommonAppData}}\NVIDIA GPU Computing Toolkit\v${{version}}\extras\visual_studio_integration\CudaProjectVsWizards\Nvda.Vsip.CudaWizards.dll.pkgdef"/>
+			</properties>
+		</custom>
+		<standard phase="deleteVSShortcuts" when="uninstall">
+			<deleteDirectoryTree target="${{@VS2010InstallDir}}\Extensions\NVIDIA\CUDA ${{version}} Wizards"/>
+			<deleteDirectoryTree target="${{@VS2012InstallDir}}\Extensions\NVIDIA\CUDA ${{version}} Wizards"/>
+			<deleteDirectoryTree target="${{@VS2013InstallDir}}\Extensions\NVIDIA\CUDA ${{version}} Wizards"/>
+			<deleteDirectoryTree target="${{@VS2015InstallDir}}\Extensions\NVIDIA\CUDA ${{version}} Wizards"/>
+		</standard>
+		<standard phase="deleteExtras" when="uninstall">
+			<deleteDirectory target="${{ToolkitInstallDir}}\extras"/>
+		</standard>
+		<custom phase="VS2010DevenvSetupInstall" action="DevenvSetupInstall" condition="VS2010Exists" installText="Configuring Visual Studio 2010 settings" uninstallText="Configuring Visual Studio 2010 settings">
+			<properties>
+				<string name="argument" value="/setup"/>
+				<string name="year" value="2010"/>
+			</properties>
+		</custom>
+		<custom phase="VS2012DevenvSetupInstall" action="DevenvSetupInstall" condition="VS2012Exists" installText="Configuring Visual Studio 2012 settings" uninstallText="Configuring Visual Studio 2012 settings">
+			<properties>
+				<string name="argument" value="/setup"/>
+				<string name="year" value="2012"/>
+			</properties>
+		</custom>
+		<custom phase="VS2013DevenvSetupInstall" action="DevenvSetupInstall" condition="VS2013Exists" installText="Configuring Visual Studio 2013 settings" uninstallText="Configuring Visual Studio 2013 settings">
+			<properties>
+				<string name="argument" value="/setup"/>
+				<string name="year" value="2013"/>
+			</properties>
+		</custom>
+		<custom phase="VS2015DevenvSetupInstall" action="DevenvSetupInstall" condition="VS2015Exists" installText="Configuring Visual Studio 2015 settings" uninstallText="Configuring Visual Studio 2015 settings">
+			<properties>
+				<string name="argument" value="/setup"/>
+				<string name="year" value="2015"/>
+			</properties>
+		</custom>
+	</phases>
+	<forms>
+		<form name="NsightPostInstallCustomForm" base="!PostInstallTemplate">
+			<control name="headText" text="Nsight Visual Studio Edition Summary"/>
+			<control name="description" style="label" x="137pt" y="80pt" width="294pt" height="30pt" text="The following information only pertains to Nsight Visual Studio features and does not describe CUDA toolkit install status. Please continue unless Nsight Visual Studio features will be used."/>
+			<control name="nsightWarning" class="richedit" x="137pt" y="115pt" width="294pt" height="140pt" font="smallText" text="${NsightWarningContent}" readOnly="true" vScroll="true" multiLine="true" enabledTextColor="0xb7bebd" bkgndColor="0x394a4a"/>
+			<control name="hyperlink" font="standardText" class="link" x="137pt" y="260pt" enabledTextColor="0xFFFFFF" width="294pt" height="15pt" text="For more information, please click &lt;a href=&quot;https://developer.nvidia.com/install-nsight-visual-studio-edition-from-cuda-toolkit&quot;&gt;here&lt;/a&gt;!"/>
+			<control name="back" hidden="true" disabled="true"/>
+			<control name="cancel" hidden="true" disabled="true"/>
+			<bool name="!DisableCloseButton" value="true"/>
+			<control name="next" style="smallPrimaryButton" x="366pt" y="280pt" onClick="!NextFormGroup"/>
+		</form>
+		<form name="PreInstallProcessRunningForm" base="!PreInstallTemplate">
+			<properties>
+				<bool name="@WaitToConfirm" value="false"/>
+			</properties>
+			<control name="header"/>
+			<control name="warningIcon" class="image" x="137pt" y="62pt" width="18pt" height="18pt" sourceFile="${{InstallerDllDirectory}}\warning.png"/>
+			<control name="headText" style="header" x="160pt" y="62pt" width="300pt" height="18pt" text="Running Processes"/>
+			<control name="placeholder"/>
+			<control name="RunningProcessesDetails" font="standardText" enabledTextColor="0xFFFFFF" class="link" x="137pt" y="85pt" width="294pt" height="140pt" text="The following processes must be stopped before the CUDA Visual Studio Integration installation can proceed:${CustomProcessesDesc}"/>
+			<control name="next" style="smallPrimaryButton" text="&amp;RETRY" x="289pt" y="280pt" onClick="!PrevFormGroup" disabled="false"/>
+		</form>
+		<form name="NsightPreInstallCustomFormJunction" base="!PreInstallTemplate">
+			<properties>
+				<bool name="@WaitToConfirm" value="false"/>
+			</properties>
+			<control name="header"/>
+			<control name="warningIcon" class="image" x="137pt" y="62pt" width="18pt" height="18pt" sourceFile="${{InstallerDllDirectory}}\warning.png"/>
+			<control name="headText" style="header" x="160pt" y="62pt" width="300pt" height="18pt" text="NSight installation requirement"/>
+			<control name="placeholder"/>
+			<control name="JunctionInstallDetails" font="standardText" enabledTextColor="0xFFFFFF" class="link" x="137pt" y="85pt" width="294pt" height="140pt" text="The Nsight component will not be installed as a file system junction point was found in the following paths:${CustomJunctionDesc}To install the Nsight component, you must remove the junction points, and run the installer again."/>
+			<control name="next" style="smallPrimaryButton" text="&amp;NEXT" x="289pt" y="280pt" onClick="!NextFormGroup" disabled="true"/>
+		</form>
+		<form name="PreInstallCustomFormNoVS" base="!PreInstallTemplate">
+			<properties>
+				<bool name="@WaitToConfirm" value="false"/>
+			</properties>
+			<control name="header"/>
+			<control name="warningIcon" class="image" x="137pt" y="62pt" width="18pt" height="18pt" sourceFile="${{InstallerDllDirectory}}\warning.png"/>
+			<control name="headText" style="header" x="160pt" y="62pt" width="300pt" height="18pt" text="CUDA Visual Studio Integration installation requirement"/>
+			<control name="placeholder"/>
+			<control name="VSInstallDetails" font="standardText" enabledTextColor="0xFFFFFF" class="link" x="137pt" y="85pt" width="294pt" height="45pt" text="No supported version of Visual Studio was found. Some components of the CUDA Toolkit will not work properly. Please install &lt;a href=&quot;http://www.microsoft.com/visualstudio&quot;&gt;Visual Studio&lt;/a&gt; first to get the full functionality."/>
+			<control name="userConfirmation" style="checkbox" x="137pt" y="130pt" width="15pt" text="" property="@WaitToConfirm" initSelect="${@WaitToConfirm}"/>
+			<control name="tableHeader" style="label" x="153pt" y="130pt" width="294pt" height="30pt" text="I understand, and wish to continue the installation regardless."/>
+			<control name="next" style="smallPrimaryButton" text="&amp;NEXT" x="289pt" y="280pt" onClick="!NextFormGroup" disabled="!${@WaitToConfirm}"/>
+		</form>
+	</forms>
+</nvi>

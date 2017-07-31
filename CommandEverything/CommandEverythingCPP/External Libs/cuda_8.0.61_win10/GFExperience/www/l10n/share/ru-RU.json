@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Просит вас о помощи и хочет дать вам контроль над игрой",
+    "l10n.dialogAccept": "Принять",
+    "l10n.dialogDecline": "Отклонить",
+    "l10n.coplayControls": "Ctrl + Tab, чтобы отвязать мышь/клавиатуру",
+    "l10n.sharingEnabled": "Общий доступ включен",
+    "l10n.shadowPlayRenamed": "ShadowPlay — это новый оверлей общего доступа.",
+    "l10n.pressKeyToStart": "Нажмите {{assignedKey}}, чтобы начать."
+}

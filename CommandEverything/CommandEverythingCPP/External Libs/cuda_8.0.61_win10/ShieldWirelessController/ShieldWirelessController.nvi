@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="ShieldWirelessController" title="${{title}}" version="3.1.2.31" versionText="3.1.2.31" timestamp="2016-11-16T10:42:37" disposition="default" hidden="true" installerMin="2.1002.157.1164" hasDriver="true">
+	<strings>
+		<string name="title" value="SHIELD Wireless Controller Driver"/>
+		<string name="SWCInfName" value="nvswcfilter.inf"/>
+		<string name="deviceHandlerDllName" value="ShieldWirelessController"/>
+		<string name="deviceUtilityDllName" value="NvDeviceUtility"/>
+		<string name="InstallLocation" value="${{NvidiaProgramFiles}}\SHIELD Wireless Controller"/>
+		<string name="ServiceLocation" value="${{NvidiaProgramFiles}}\GeForce Experience Service"/>
+	</strings>
+	<interfaces>
+	</interfaces>
+	<dependencies>
+		<package type="requires" package="GfExperienceService"/>
+		<package type="requires" package="Display.GFExperience"/>
+		<package type="requires" package="GFExperience.NvStreamSrv"/>
+		<package type="before" package="GfExperienceService"/>
+		<package type="before" package="Display.GFExperience"/>
+		<package type="after" package="GFExperience.NvStreamSrv"/>
+	</dependencies>
+	<description/>
+	<constraints>
+		<os min="6.0" level="silent"/>
+	</constraints>
+	<extensions>
+	</extensions>
+	<properties>
+		<bool name="IsGFExperienceComponent" value="true"/>
+	</properties>
+	<manifest>
+		<file name="${{deviceUtilityDllName}}32.dll"/>
+		<file name="${{deviceUtilityDllName}}64.dll"/>
+		<file name="${{deviceHandlerDllName}}32.dll"/>
+		<file name="${{deviceHandlerDllName}}64.dll"/>
+		<file name="swc_xmega.xmg"/>
+		<file name="ShieldWirelessController.nvi"/>
+		<file name="nvswcfilter.inf"/><file name="nvswcfilter.cat"/><file name="nvswcfilter64.sys"/><file name="WdfCoInstaller0100964.dll"/><file name="nvswcfilter32.sys"/><file name="WdfCoInstaller0100932.dll"/></manifest>
+	<phases>
+		<standard phase="copy32BitFiles" platform="x86">
+			<copyFile target="${{InstallLocation}}\${{deviceUtilityDllName}}.dll" source="${{deviceUtilityDllName}}32.dll"/>
+			<copyFile target="${{ServiceLocation}}\${{deviceHandlerDllName}}.dll" source="${{deviceHandlerDllName}}32.dll"/>
+		</standard>
+		<standard phase="copy64BitFiles" platform="amd64">
+			<copyFile target="${{InstallLocation}}\${{deviceUtilityDllName}}.dll" source="${{deviceUtilityDllName}}64.dll"/>
+			<copyFile target="${{ServiceLocation}}\${{deviceHandlerDllName}}.dll" source="${{deviceHandlerDllName}}64.dll"/>
+		</standard>
+		<standard phase="copyFirmwareFiles">
+			<copyFile target="${{InstallLocation}}\swc_xmega.xmg" source="swc_xmega.xmg"/>
+		</standard>
+		<device phase="removePhantomSWCDevices" action="removePhantoms" when="install">
+			<inf name="${{SWCInfName}}"/>
+		</device>
+		<device phase="installSWCDriver" fixedProgress="10" deviceProgress="75" autoTick="200">
+			<inf name="${{SWCInfName}}"/>
+		</device>
+	</phases>
+	<include name="${{InstallerDllDirectory}}\GFExperienceProgressText.cfg" select="/nvi/*"/>
+</nvi>

@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Yardımınıza ihtiyacı var ve oyun denetimini size devretmek istiyor",
+    "l10n.dialogAccept": "Kabul et",
+    "l10n.dialogDecline": "Reddet",
+    "l10n.coplayControls": "Fareyi/klavyeyi serbest bırakmak için Ctrl + Tab tuşlarına basın",
+    "l10n.sharingEnabled": "Paylaşım etkinleştirildi",
+    "l10n.shadowPlayRenamed": "ShadowPlay artık yeni Paylaşım üst görüntüsü oldu.",
+    "l10n.pressKeyToStart": "Başlamak için {{assignedKey}} tuşuna basın."
+}

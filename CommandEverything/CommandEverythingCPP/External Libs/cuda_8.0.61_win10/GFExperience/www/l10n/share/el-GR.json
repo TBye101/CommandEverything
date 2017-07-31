@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Θέλει τη βοήθειά σας και θα ήθελε να δώσει έλεγχο παιχνιδιού",
+    "l10n.dialogAccept": "Αποδοχή",
+    "l10n.dialogDecline": "Απόρριψη",
+    "l10n.coplayControls": "Ctrl + Tab για αποδέσμευση ποντικιού/πληκτρολογίου",
+    "l10n.sharingEnabled": "Η κοινή χρήση είναι ενεργοποιημένη",
+    "l10n.shadowPlayRenamed": "Το ShadowPlay είναι τώρα η νέα υπέρθεση κοινής χρήσης.",
+    "l10n.pressKeyToStart": "Πατήστε {{assignedKey}} για έναρξη."
+}

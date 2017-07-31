@@ -1,0 +1,3 @@
+GswsDeviceUri=https://prod.gamestream.nvidia.com
+GSProxyUri=https://proxy.gamestream.nvidia.com
+GATrackingId=UA-60083047-5

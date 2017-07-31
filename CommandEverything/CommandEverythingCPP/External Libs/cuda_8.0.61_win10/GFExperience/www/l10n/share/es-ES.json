@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Quiere que le ayudes y le gustaría cederte el control del juego",
+    "l10n.dialogAccept": "Aceptar",
+    "l10n.dialogDecline": "Rechazar",
+    "l10n.coplayControls": "Ctrl + Tab para liberar teclado/ratón",
+    "l10n.sharingEnabled": "Compartir está activado",
+    "l10n.shadowPlayRenamed": "ShadowPlay ahora es la nueva superposición de Compartir.",
+    "l10n.pressKeyToStart": "Pulse {{assignedKey}} para empezar."
+}

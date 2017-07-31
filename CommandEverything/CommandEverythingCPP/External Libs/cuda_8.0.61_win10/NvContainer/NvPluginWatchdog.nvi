@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="NvPlugin.Watchdog" title="${{title}}" version="${{version}}" versionText="${{version}}" timestamp="${{timestamp}}" disposition="demand" hidden="true" installerMin="2.1002.202.1773">
+	<strings>
+		<string name="title" value="NVIDIA Watchdog Plugin for NvContainer"/>
+		<string name="version" value="1.1"/>
+		<string name="timestamp" value="2016-11-11T21:17:42"/>
+		<string name="InstallFolderName" value="${{NvidiaProgramFiles}}\NvContainer"/>
+		<string name="PluginFolderName" value="${{InstallFolderName}}\plugins\LocalSystem"/>
+		<string name="PluginBinaryName" value="NvPluginWatchdog.dll"/>
+		<string name="WatchdogRegistryKey" value="${{NvidiaSoftwareKey}}\NvContainer\Watchdog"/>
+		<string name="LogFilePath" value="${{NvidiaCommonAppData}}\NvContainerWatchdog.log"/>
+	</strings>
+	<filter name="32bit" platform="x86"/>
+	<filter name="64bit" platform="amd64"/>
+	<dependencies>
+		<package type="requires" package="NvContainer.LocalSystem"/>
+	</dependencies>
+	<manifest>
+		<file name="NvPluginWatchdog.nvi"/>
+		<file name="x86\${{PluginBinaryName}}"/>
+		<file name="x86_64\${{PluginBinaryName}}"/>
+	</manifest>
+	<phases>
+		<standard phase="createRegkey">
+			<addRegistry keyName="${{WatchdogRegistryKey}}"/>
+			<addRegistry keyName="${{WatchdogRegistryKey}}" valueName="LogFile" value="${{LogFilePath}}" type="REG_SZ"/>
+		</standard>
+		<standard phase="deleteRegKey" when="uninstall" onError="ignore">
+			<deleteRegistryKeyTree keyName="${{WatchdogRegistryKey}}"/>
+		</standard>
+		<standard phase="deleteAppData" onError="ignore" when="uninstall">
+			<deleteFile target="${{LogFilePath}}*"/>
+		</standard>
+		<if filter="32bit">
+			<standard phase="copyFilesX86">
+				<copyFile target="${{PluginFolderName}}\${{PluginBinaryName}}" source="x86\${{PluginBinaryName}}"/>
+			</standard>
+		</if>
+		<if filter="64bit">
+			<standard phase="copyFilesAMD64">
+				<copyFile target="${{PluginFolderName}}\${{PluginBinaryName}}" source="x86_64\${{PluginBinaryName}}"/>
+			</standard>
+		</if>
+	</phases>
+</nvi>

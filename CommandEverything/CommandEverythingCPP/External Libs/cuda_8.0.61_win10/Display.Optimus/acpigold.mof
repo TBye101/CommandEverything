@@ -1,0 +1,33 @@
+#pragma classflags("forceupdate")
+#pragma namespace("\\\\.\\root\\WMI")
+
+[WMI,
+ Dynamic,
+ Provider("WmiProv"),
+ Locale("MS\\0x409"),
+ Description("Class to get GPU power status"),
+ guid("{CA4982BF-C230-458E-B12F-6F16475F351B}")
+]
+
+class Optimus_SetGPUPower
+{
+    [key, read]
+    string InstanceName;
+    [read] boolean Active;
+
+     [WmiMethodId(1),
+     Implemented,
+     Description("PowerOnGPU")
+    ] void PowerOnGPU();
+
+     [WmiMethodId(2),
+     Implemented,
+     Description("PowerOffGPU")
+    ] void PowerOffGPU();
+
+     [WmiMethodId(3),
+     Implemented,
+     Description("PowerOffGPU")
+    ] void QueryGPUStatus([out, Description("GPU Power status")]uint32 status);
+
+};

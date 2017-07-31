@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Ønsker din hjælp, og vil give spilkontrol",
+    "l10n.dialogAccept": "Acceptér",
+    "l10n.dialogDecline": "Afvis",
+    "l10n.coplayControls": "Ctrl + Tab for at frigive mus/tastatur",
+    "l10n.sharingEnabled": "Deling er aktiveret",
+    "l10n.shadowPlayRenamed": "ShadowPlay er nu det nye Deling-overlay.",
+    "l10n.pressKeyToStart": "Tryk på {{assignedKey}} for at komme i gang."
+}

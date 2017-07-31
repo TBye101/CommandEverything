@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="cufft_dev_${{version}}" title="${{title}}" version="${{version}}" versionText="${{version}}" hidden="ARP" timestamp="2017-01-17T15:49:45" disposition="default" installerMin="2.1002.191.1621" allowsCustomPath="true" bare="false">
+	<strings>
+		<string name="version" value="8.0"/>
+		<string name="cufftLibRootDir" value="${{ProgramFiles}}\NVIDIA GPU Computing Toolkit\CUDA"/>
+		<string name="cufftLibInstallDir" value="${{cufftLibRootDir}}\v${{version}}"/>
+		<localized locale="0x0409">
+			<string name="title" value="CUFFT Development"/>
+		</localized>
+	</strings>
+	<description/>
+	<dependencies>
+		<package type="requires" package="CUDADevelopment_${{version}}"/>
+	</dependencies>
+	<customInstallTree>
+		<treeNode text="CUFFT" ordering="CUDA|Development|Compiler|Libraries" accessibility="selectable"/>
+	</customInstallTree>
+	<properties>
+		<string name="InstallLocation" value="${{cufftLibInstallDir}}"/>
+		<bool name="FixedInstallLocation" value="true"/>
+	</properties>
+	<phases>
+		<standard phase="copyFiles" installText="Copying CUDA Development files" uninstallText="Deleting CUDA Development files">
+			<copyFile target="include\cufft.h" />
+<copyFile target="include\cufftw.h" />
+<copyFile target="include\cufftXt.h" />
+<copyFile target="lib\x64\cufft.lib" />
+<copyFile target="lib\x64\cufftw.lib" />
+
+		</standard>
+	</phases>
+	<manifest>
+		<file name="cufft_dev.nvi" />
+<file name="include\cufft.h" />
+<file name="include\cufftw.h" />
+<file name="include\cufftXt.h" />
+<file name="lib\x64\cufft.lib" />
+<file name="lib\x64\cufftw.lib" />
+
+    </manifest>
+</nvi>

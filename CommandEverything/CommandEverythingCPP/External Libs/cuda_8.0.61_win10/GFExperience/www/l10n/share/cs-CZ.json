@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Chce vaši pomoc a rád by předal kontrolu na hrou",
+    "l10n.dialogAccept": "Přijmout",
+    "l10n.dialogDecline": "Odmítnout",
+    "l10n.coplayControls": "Ctrl + Tab k uvolnění myši/klávesnice",
+    "l10n.sharingEnabled": "Sdílení je aktivováno",
+    "l10n.shadowPlayRenamed": "ShadowPlay je nyní nová funkce sdílení.",
+    "l10n.pressKeyToStart": "Začněte stisknutím {{assignedKey}}."
+}

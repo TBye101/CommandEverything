@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Haluaa apuasi ja haluaisi antaa pelin ohjauksen",
+    "l10n.dialogAccept": "Hyväksyn",
+    "l10n.dialogDecline": "En hyväksy",
+    "l10n.coplayControls": "CTRL + sarkain hiiren/näppäimistön vapauttamiseksi",
+    "l10n.sharingEnabled": "Jako on käytössä",
+    "l10n.shadowPlayRenamed": "ShadowPlay on nyt uusi jaettu peittokuva.",
+    "l10n.pressKeyToStart": "Aloita painamalla {{assignedKey}}."
+}

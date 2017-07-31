@@ -1,0 +1,9 @@
+{
+    "l10n.offerControlText": "Želi vašo pomoč in vam želi dati nadzor nad igro",
+    "l10n.dialogAccept": "Sprejmem",
+    "l10n.dialogDecline": "Zavrni",
+    "l10n.coplayControls": "Ctrl + Tab, da sprostite miško/tipkovnico",
+    "l10n.sharingEnabled": "Souporaba je omogočena",
+    "l10n.shadowPlayRenamed": "ShadowPlay je zdaj novo prekrivanje Souporabe.",
+    "l10n.pressKeyToStart": "Pritisnite {{assignedKey}}, da začnete."
+}

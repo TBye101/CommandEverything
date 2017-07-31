@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nvi name="NvTelemetry" title="${{title}}" version="1.2.0.0" versionText="1.2.0.0" timestamp="2016-11-17T04:21:02" disposition="demand" hidden="true" installerMin="2.1002.215.1898">
+	<dependencies>
+		<package type="requires" package="NvContainer"/>
+		<package type="requires" package="NvContainer.User"/>
+	</dependencies>
+	<manifest>
+		<file name="NvTelemetry.nvi"/>
+		<file name="NvTelemetry.dll"/>
+		<file name="NvTelemetryAPI32.dll"/>
+		<file name="NvTelemetryAPI64.dll"/>
+	</manifest>
+	<strings>
+		<string name="title" value="NvTelemetry"/>
+		<string name="NvContainerLSName" value="NvContainerLocalSystem"/>
+		<string name="NvContainerNSName" value="NvContainerNetworkService"/>
+		<string name="serviceStopMaxTimeout" value="30000"/>
+		<string name="RegistryKey" value="${{NvidiaSoftwareKey}}\NvContainer\NvContainerLocalSystem"/>
+		<string name="ContainerBinaryName" value="nvcontainer.exe"/>
+	</strings>
+	<properties>
+		<bool name="NvContainerUnloaded" value="true"/>
+		<bool name="ServiceAutoStart" value="false"/>
+		<bool name="IsGFExperienceComponent" value="true"/>
+	</properties>
+	<phases>
+		<standard phase="startNvContainerLSService" condition="ServiceAutoStart" when="uninstall" onError="ignore">
+			<startService name="${{NvContainerLSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<standard phase="stopNvContainerLSService" onError="ignore" when="install">
+			<stopService name="${{NvContainerLSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<standard phase="stopNvContainerNSService" onError="ignore" when="install">
+			<stopService name="${{NvContainerNSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<exe phase="killNvContainers" name="${{SystemDirectory}}\taskkill.exe" when="install" onError="ignore">
+			<arg value="/f /im ${{ContainerBinaryName}}" quote="none"/>
+		</exe>
+		<setPropertyIf phase="checkIfNvContainerUnloaded" boolProperty="NvContainerUnloaded" value="false" when="install">
+			<process name="${{ContainerBinaryName}}" check="exists"/>
+		</setPropertyIf>
+		<confirm phase="Confirm-NvContainerUnload" when="install">
+			<propertyTrue name="NvContainerUnloaded"/>
+		</confirm>
+		<standard phase="deleteCacheData" when="uninstall" onError="ignore">
+			<deleteDirectoryTree target="${{LocalUserAppData}}\NVIDIA Corporation\NvTelemetry"/>
+		</standard>
+		<standard phase="deleteTelemetryRegKey" when="uninstall" platform="x86" onError="ignore">
+			<deleteRegistryKeyTree keyName="${{NvidiaSoftwareKey}}\Global\NvTelemetry"/>
+		</standard>
+		<standard phase="copyBinaries">
+			<copyFile source="NvTelemetry.dll" target="${{NvidiaProgramFilesX86}}\NvContainer\plugins\User\NvTelemetry.dll"/>
+			<createDirectory target="${{NvidiaProgramFilesX86}}\NvTelemetry"/>
+			<copyFile source="NvTelemetryAPI32.dll" target="${{NvidiaProgramFilesX86}}\NvTelemetry\NvTelemetryAPI32.dll"/>
+		</standard>
+		<standard phase="copyx64Binaries" platform="amd64">
+			<createDirectory target="${{NvidiaProgramFiles}}\NvTelemetry"/>
+			<copyFile source="NvTelemetryAPI64.dll" target="${{NvidiaProgramFiles}}\NvTelemetry\NvTelemetryAPI64.dll"/>
+		</standard>
+		<exe phase="killNvContainers" name="${{SystemDirectory}}\taskkill.exe" when="uninstall" onError="ignore">
+			<arg value="/f /im ${{ContainerBinaryName}}" quote="none"/>
+		</exe>
+		<standard phase="stopNvContainerLocalSystemService" when="uninstall" onError="ignore">
+			<stopService name="${{NvContainerLSName}}" timeOut="${{serviceStopMaxTimeout}}"/>
+		</standard>
+		<setPropertyIf phase="setPropertyIfNvContainerAutoStart" boolProperty="ServiceAutoStart" value="true" when="uninstall">
+			<registryValue name="${{RegistryKey}}" value="ServiceAutoStart" check="exists"/>
+		</setPropertyIf>
+	</phases>
+</nvi>
