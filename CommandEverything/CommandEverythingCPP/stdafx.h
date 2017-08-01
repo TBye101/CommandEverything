@@ -18,8 +18,7 @@
 #include "Filing.h"
 //#include "TabCompletion.h"
 
-template<typename T>
-extern vector<T*>* ToDelete;
+extern vector<void*>* ToDelete;
 
 extern Writer* Console;
 extern Util* Utility;

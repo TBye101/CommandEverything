@@ -71,12 +71,6 @@ void Loop::MainLoop()
 /// </summary>
 void Loop::FreeUpMemory()
 {
-	register unsigned __int64 length = ToDelete->size();
-	for (register unsigned __int64 i = 0; i < length; i++)
-	{
-		delete ToDelete->at(i);
-	}
-
 	ToDelete->clear();
 }
 

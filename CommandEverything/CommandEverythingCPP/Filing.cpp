@@ -52,7 +52,7 @@ wstring* Filing::GetPathToExe()
 	}
 	else
 	{
-		throw new exception("Error! NullPointerException!");
+		Console->WriteLine("Error! NullPointerException!");
 	}
 }
 
@@ -67,7 +67,7 @@ wstring* Filing::GetLogDirectoryPath()
 	}
 	else
 	{
-		throw new exception("Error! Directory not found from path!");
+		Console->WriteLine("Error! Directory not found from path!");
 	}
 	return directory;
 }

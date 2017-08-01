@@ -7,8 +7,7 @@
 // TODO: reference any additional headers you need in STDAFX.H
 // and not in this file
 
-template<typename T>
-vector<T*>* ToDelete = new vector<T*>();
+vector<void*>* ToDelete = new vector<void*>();
 Writer* Console = new Writer();
 Util* Utility = new Util();
 Filing* Files = new Filing();
