@@ -39,9 +39,6 @@
     <Filter Include="Framework\WIP Commands\Cd">
       <UniqueIdentifier>{f28e51f0-e978-4ed3-8e81-037ef6965cff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Kill">
-      <UniqueIdentifier>{297a4d5b-7f09-49a8-8cfc-2763b1d36b9a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Commands\List">
       <UniqueIdentifier>{3758dd7a-e7f1-4a91-a3c3-bef13afbdf04}</UniqueIdentifier>
     </Filter>
@@ -65,6 +62,24 @@
     </Filter>
     <Filter Include="External\Thrust">
       <UniqueIdentifier>{00f8c268-462b-4f40-8638-29b4a6f0bec7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Commands\Kill">
+      <UniqueIdentifier>{297a4d5b-7f09-49a8-8cfc-2763b1d36b9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Clone">
+      <UniqueIdentifier>{38a1af71-bd02-4a1e-b8f2-8a112adce443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Copy">
+      <UniqueIdentifier>{1f9d5d42-8d17-44af-bd35-45a728089e89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Tree Command">
+      <UniqueIdentifier>{765ce970-7b3f-4bf3-af0f-41b91b12c306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Decompress Command">
+      <UniqueIdentifier>{4c324a96-d3a0-4c9e-86b3-78a7aa62ea4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Compress Command">
+      <UniqueIdentifier>{94da283b-b60a-46f5-8e3b-9aae443a278d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -2010,7 +2025,7 @@
       <Filter>External\Thrust</Filter>
     </ClInclude>
     <ClInclude Include="CommandKill.h">
-      <Filter>Framework\WIP Commands\Kill</Filter>
+      <Filter>Framework\Commands\Kill</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2072,7 +2087,7 @@
       <Filter>Framework\Util\CUDA</Filter>
     </ClCompile>
     <ClCompile Include="CommandKill.cpp">
-      <Filter>Framework\WIP Commands\Kill</Filter>
+      <Filter>Framework\Commands\Kill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

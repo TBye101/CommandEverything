@@ -29,7 +29,7 @@ string* CommandHack::GetName()
 
 string* CommandHack::GetHelp()
 {
-	return new string("In 20 seconds, it tries to hack into whatever input box the user is hovering over.");
+	return new string("In 10 seconds, it tries to hack into whatever input box the user is hovering over.");
 }
 
 void CommandHack::Attempt(string* attempt)

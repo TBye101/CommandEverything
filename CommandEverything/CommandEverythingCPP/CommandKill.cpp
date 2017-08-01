@@ -84,5 +84,5 @@ string* CommandKill::GetName()
 
 string* CommandKill::GetHelp()
 {
-	return new string("\"Kill (process name here)\" kills the specified process. \"Kill list\ lists all processes running.");
+	return new string("\"Kill (process name here)\" kills the specified process. \"Kill list\" lists all processes running.");
 }
