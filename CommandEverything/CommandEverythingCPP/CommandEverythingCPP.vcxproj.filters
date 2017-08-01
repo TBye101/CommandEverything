@@ -72,14 +72,20 @@
     <Filter Include="Framework\WIP Commands\Copy">
       <UniqueIdentifier>{1f9d5d42-8d17-44af-bd35-45a728089e89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Tree Command">
+    <Filter Include="Framework\WIP Commands\Tree">
       <UniqueIdentifier>{765ce970-7b3f-4bf3-af0f-41b91b12c306}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Decompress Command">
+    <Filter Include="Framework\WIP Commands\Encrypt">
+      <UniqueIdentifier>{b24ec88f-1bc3-4d88-89de-7fae37fe8875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Compress">
+      <UniqueIdentifier>{94da283b-b60a-46f5-8e3b-9aae443a278d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Decompress">
       <UniqueIdentifier>{4c324a96-d3a0-4c9e-86b3-78a7aa62ea4d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Compress Command">
-      <UniqueIdentifier>{94da283b-b60a-46f5-8e3b-9aae443a278d}</UniqueIdentifier>
+    <Filter Include="Framework\WIP Commands\Decrypt">
+      <UniqueIdentifier>{ef1aeb20-9378-4a89-8cc3-fd8b7fa54cc8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -2027,6 +2033,9 @@
     <ClInclude Include="CommandKill.h">
       <Filter>Framework\Commands\Kill</Filter>
     </ClInclude>
+    <ClInclude Include="CommandTree.h">
+      <Filter>Framework\WIP Commands\Tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -2088,6 +2097,9 @@
     </ClCompile>
     <ClCompile Include="CommandKill.cpp">
       <Filter>Framework\Commands\Kill</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandTree.cpp">
+      <Filter>Framework\WIP Commands\Tree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -166,6 +166,7 @@
     <ClInclude Include="CommandKill.h" />
     <ClInclude Include="CommandList.h" />
     <ClInclude Include="CommandStart.h" />
+    <ClInclude Include="CommandTree.h" />
     <ClInclude Include="dirent.h" />
     <ClInclude Include="External Libs\thrust-1.8.2\adjacent_difference.h" />
     <ClInclude Include="External Libs\thrust-1.8.2\advance.h" />
@@ -817,6 +818,7 @@
     <ClCompile Include="CommandKill.cpp" />
     <ClCompile Include="CommandList.cpp" />
     <ClCompile Include="CommandStart.cpp" />
+    <ClCompile Include="CommandTree.cpp" />
     <ClCompile Include="Filing.cpp" />
     <ClCompile Include="ICommand.cpp" />
     <ClCompile Include="Loop.cpp" />

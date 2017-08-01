@@ -17,7 +17,10 @@ bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
 void CommandHelp::Run(ParsedCommand * Parsed)
 {
 	string help = "";
-	size_t length = Commands->size();
+	unsigned __int64 length = Commands->size();
+	string* Name;
+	string* HelpInfo;
+
 	for (size_t i = 0; i < length; i++)
 	{
 		help = "";
