@@ -101,13 +101,14 @@ void Loop::Startup()
 void Loop::AddAllCommands()
 {
 	Commands->push_back(new CommandCd());
+	Commands->push_back(new CommandCrash());
 	Commands->push_back(new CommandDefend());
 	Commands->push_back(new CommandDelete());
 	Commands->push_back(new CommandExecute());
 	Commands->push_back(new CommandExit());
+	Commands->push_back(new CommandHack());
 	Commands->push_back(new CommandHelp());
+	Commands->push_back(new CommandKill());
 	Commands->push_back(new CommandList());
 	Commands->push_back(new CommandStart());
-	Commands->push_back(new CommandCrash());
-	Commands->push_back(new CommandHack());
 }

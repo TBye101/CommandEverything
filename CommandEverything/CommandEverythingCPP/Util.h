@@ -3,6 +3,7 @@
 #include <string>
 #include <Windows.h>
 #include <conio.h>
+#include <Psapi.h>
 
 using namespace std;
 
@@ -21,8 +22,7 @@ public:
 	wstring StringToWString(const string& Str);
 
 	/// <summary>
-	/// Returns the next line inputted by the console.
+	/// Gets the name of the executable of a running process.
 	/// </summary>
-	/// <returns></returns>
-	string* GetLine();
+	string* GetFileName(unsigned int pID);
 };

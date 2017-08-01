@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Util.h"
 
+
 wstring Util::StringToWString(const string & s)
 {
 	int len;
@@ -13,46 +14,20 @@ wstring Util::StringToWString(const string & s)
 	return r;
 }
 
-string* Util::GetLine()
+string* Util::GetFileName(unsigned int pID)
 {
-	string* ret = new string("");
-//	string suggestion = "";
-//	char last[2];
-//	char a;
-//
-//	//The number of characters we suggested that the user didn't.
-//	register unsigned int suggestedchars = 0;
-//
-//	while (last[1] != '\\' && last[0] != 'r')
-//	{
-//#if UNICODE
-//		a = _getwch();
-//#else
-//		a = _getch();
-//#endif
-//		last[0] = last[1];
-//		last[1] = a;
-//
-//		if (a == '\b')
-//		{
-//			for (register size_t i = 0; i < suggestedchars; i++)
-//			{
-//				cout << "\b \b";
-//				ret->pop_back();
-//			}
-//		}
-//
-//		if (a == '\t')
-//		{
-//			suggestion = *Complete->Suggest(CommandNames, ret);
-//			suggestedchars = suggestion.size() - ret->size();
-//			cout << suggestion;
-//		}
-//		else
-//		{
-//			ret->append(&a);
-//		}
-//	}
+	void* info = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, pID);
+	wchar_t buffer[MAX_PATH];
+	GetModuleFileNameEx(info, NULL, buffer, MAX_PATH);
+	wstring ws(buffer);
+	string ret(ws.begin(), ws.end());
 
-	return ret;
+	char drive[4];
+	char directory[MAX_PATH];
+	char filename[MAX_PATH];
+	char extension[MAX_PATH];
+	_splitpath(ret.c_str(), drive, directory, filename, extension);
+
+	CloseHandle(info);
+	return new string(filename);
 }

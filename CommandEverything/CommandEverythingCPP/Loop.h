@@ -17,6 +17,7 @@
 #include "CommandDelete.h"
 #include "CommandCrash.h"
 #include "CommandHack.h"
+#include "CommandKill.h"
 
 using namespace std;
 
