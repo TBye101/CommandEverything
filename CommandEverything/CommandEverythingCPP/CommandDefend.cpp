@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "CommandDefend.h"
 
-
-
 CommandDefend::CommandDefend()
 {
 }

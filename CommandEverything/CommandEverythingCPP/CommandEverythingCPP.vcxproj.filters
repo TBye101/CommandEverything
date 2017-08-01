@@ -2009,6 +2009,9 @@
     <ClInclude Include="External Libs\thrust-1.8.2\device_free.h">
       <Filter>External\Thrust</Filter>
     </ClInclude>
+    <ClInclude Include="CommandKill.h">
+      <Filter>Framework\WIP Commands\Kill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -2067,6 +2070,9 @@
     </ClCompile>
     <ClCompile Include="UDAWrapper.cpp">
       <Filter>Framework\Util\CUDA</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandKill.cpp">
+      <Filter>Framework\WIP Commands\Kill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
