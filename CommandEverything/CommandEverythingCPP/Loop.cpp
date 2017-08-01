@@ -7,7 +7,7 @@ Loop::Loop()
 
 Loop::~Loop()
 {
-	ToDelete->push_back(this->parsed);
+	delete this->parsed;
 }
 
 /// <summary>
@@ -60,7 +60,7 @@ void Loop::MainLoop()
 			string *message = new string("!Error!: ");
 			message->append(e->what());
 			Console->WriteLine(message);
-			ToDelete->push_back(message);
+			delete message;
 			continue;
 		}
 	}
@@ -71,7 +71,13 @@ void Loop::MainLoop()
 /// </summary>
 void Loop::FreeUpMemory()
 {
-	ToDelete->swap(*ToDelete);
+	register unsigned __int64 length = ToDelete->size();
+	for (register unsigned __int64 i = 0; i < length; i++)
+	{
+		delete ToDelete->at(i);
+	}
+
+	ToDelete->clear();
 }
 
 /// <summary>

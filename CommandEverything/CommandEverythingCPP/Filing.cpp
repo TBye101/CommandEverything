@@ -7,8 +7,8 @@ Filing::Filing()
 
 Filing::~Filing()
 {
-	ToDelete->push_back(this->ExePath);
-	ToDelete->push_back(this->LogDirectoryPath);
+	delete this->ExePath;
+	delete this->LogDirectoryPath;
 }
 
 void Filing::Startup()

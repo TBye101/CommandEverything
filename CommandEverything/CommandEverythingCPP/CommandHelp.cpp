@@ -23,25 +23,31 @@ void CommandHelp::Run(ParsedCommand * Parsed)
 
 	for (size_t i = 0; i < length; i++)
 	{
+		Name = Commands->at(i)->GetName();
+		HelpInfo = Commands->at(i)->GetHelp();
 		help = "";
-		help.append(*Commands->at(i)->GetName());
+		help.append(*Name);
 		help.append(": ");
-		help.append(*Commands->at(i)->GetHelp());
+		help.append(*HelpInfo);
 		Console->WriteLine(&help);
 
 		cout << "\r\n";
 		cout << "\r\n";
 		Console->Log << "\r\n";
 		Console->Log << "\r\n";
+		//ToDelete->push_back(Name);
+		//ToDelete->push_back(HelpInfo);
+		delete Name;
+		delete HelpInfo;
 	}
 }
 
-string * CommandHelp::GetName()
+string* CommandHelp::GetName()
 {
 	return new string("Help");
 }
 
-string * CommandHelp::GetHelp()
+string* CommandHelp::GetHelp()
 {
 	return new string("Shows some help information about all known commands.");
 }

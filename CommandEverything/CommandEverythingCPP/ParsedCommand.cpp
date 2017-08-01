@@ -20,5 +20,5 @@ ParsedCommand::ParsedCommand(string *Input)
 
 ParsedCommand::~ParsedCommand()
 {
-	ToDelete->push_back(this->Words);
+	delete this->Words;
 }
