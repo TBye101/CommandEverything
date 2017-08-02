@@ -6,92 +6,49 @@
 
 /* dmo c++ https://guidedhacking.com/ */
 
-//#include <Windows.h>
-//#include <iostream>
-
 using namespace std;
 
-//class MyHook
-//{
-//public:
-//	static MyHook& Instance()
-//	{
-//		static MyHook myHook;
-//		return myHook;
-//	}
-//
-//	HHOOK hook;
-//	MSLLHOOKSTRUCT mouseStruct;
-//	void InstallHook();
-//	void UninstallHook();
-//
-//	MSG msg;
-//	int Messsages();
-//};
-//
-//LRESULT WINAPI MyKeyboardCallback(int nCode, WPARAM wParam, LPARAM lParam);
-//
-//int MyHook::Messsages()
-//{
-//	while (MyHook::Instance().msg.message != WM_QUIT)
-//	{
-//		if (PeekMessage(&MyHook::Instance().msg, NULL, 0, 0, PM_REMOVE))
-//		{
-//			TranslateMessage(&MyHook::Instance().msg);
-//			DispatchMessage(&MyHook::Instance().msg);
-//		}
-//		Sleep(1);
-//	}
-//	MyHook::Instance().UninstallHook();
-//	return (int)MyHook::Instance().msg.wParam;
-//}
-//
-//void MyHook::InstallHook()
-//{
-//	if (!(MyHook::Instance().hook = SetWindowsHookEx(WH_KEYBOARD_LL, MyKeyboardCallback, NULL, GetCurrentThreadId())))
-//	{
-//		Console->WriteLine("Could not install keyboard hook.");
-//		ostringstream stream;
-//		stream << GetLastError();
-//		string str = "Error: ";
-//		str.append(stream.str());
-//		Console->WriteLine(&str);
-//	}
-//	else
-//	{
-//		Console->WriteLine("Installed hook successfully");
-//	}
-//}
-//
-//void MyHook::UninstallHook()
-//{
-//	UnhookWindowsHookEx(MyHook::Instance().hook);
-//}
-//
-//LRESULT WINAPI MyKeyboardCallback(int nCode, WPARAM wParam, LPARAM lParam)
-//{
-//	KBDLLHOOKSTRUCT* pMouseStruct = (KBDLLHOOKSTRUCT *)lParam;
-//	printf("Traffic");
-//
-//	if (nCode >= 0)
-//	{
-//		if (pMouseStruct != NULL)
-//		{
-//		}
-//
-//		switch (wParam)
-//		{
-//		case VK_TAB:
-//			printf_s("TAB \n");
-//			break;
-//		}
-//	}
-//	return CallNextHookEx(MyHook::Instance().hook, nCode, wParam, lParam);
-//}
+
+BOOL WINAPI HandlerRoutine(_In_ DWORD dwCtrlType)
+{
+	switch (dwCtrlType)
+	{
+		// Handle the CTRL-C signal. 
+	case CTRL_C_EVENT:
+		ControlCPressed = true;
+		return(TRUE);
+	case CTRL_CLOSE_EVENT:
+		Beep(600, 200);
+		printf("Ctrl-Close event\n\n");
+		return(TRUE);
+
+		// Pass other signals to the next handler. 
+	case CTRL_BREAK_EVENT:
+		Beep(900, 200);
+		printf("Ctrl-Break event\n\n");
+		return FALSE;
+
+	case CTRL_LOGOFF_EVENT:
+		Beep(1000, 200);
+		printf("Ctrl-Logoff event\n\n");
+		return FALSE;
+
+	case CTRL_SHUTDOWN_EVENT:
+		Beep(750, 500);
+		printf("Ctrl-Shutdown event\n\n");
+		return FALSE;
+
+	default:
+		return FALSE;
+	}
+}
 
 int main(int argc, char* argv[])
 {
-	//MyHook::Instance().InstallHook();
+	if (!SetConsoleCtrlHandler(HandlerRoutine, TRUE))
+	{
+		Console->WriteLine("!Error!: Could not set event handler.");
+	}
 	Loop* Program = new Loop();
 	Program->Startup();
 	Program->FreeUpMemory();
@@ -101,7 +58,6 @@ int main(int argc, char* argv[])
 	delete Console;
 	delete Utility;
 	delete Files;
-	//delete Complete;
 	delete Commands;
 	delete CommandNames;
 

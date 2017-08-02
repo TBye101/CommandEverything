@@ -47,3 +47,8 @@ extern string* FilePath;
 /// The last user input.
 /// </summary>
 extern string Input;
+
+/// <summary>
+/// Used to interrupt commands.
+/// </summary>
+extern bool ControlCPressed;

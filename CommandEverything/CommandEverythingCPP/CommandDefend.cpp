@@ -134,12 +134,9 @@ void CommandDefend::Defend()
 				string converted(ws.begin(), ws.end());
 				//https://stackoverflow.com/questions/45288937/avoid-killing-a-specific-process-c?noredirect=1#comment77540465_45288937
 
-				//char drive[4];
-				//char directory[MAX_PATH];
 				char filename[MAX_PATH];
 				char extension[MAX_PATH];
 				_splitpath_s(converted.c_str(), NULL, 0, NULL, 0, filename, MAX_PATH, extension, MAX_PATH);
-				//_splitpath(converted.c_str(), drive, directory, filename, extension);
 
 				if (filename[0] != 'c' || filename[1] != 'o' || filename[2] != 'n' || filename[3] != 'h'
 					|| filename[4] != 'o' || filename[5] != 's' || filename[6] != 't'

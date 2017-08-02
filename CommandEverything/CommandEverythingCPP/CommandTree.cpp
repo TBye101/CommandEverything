@@ -65,6 +65,10 @@ void CommandTree::TreeFromDirectory(char* name, __int64 indent)
 
 	while ((entry = readdir(dir)) != NULL)
 	{
+		if (ControlCPressed)
+		{
+			break;
+		}
 		if (entry->d_type == DT_DIR)
 		{
 			char path[MAX_PATH];

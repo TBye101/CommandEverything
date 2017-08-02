@@ -21,3 +21,8 @@ string* FilePath = new string("");
 /// The last user input.
 /// </summary>
 string Input;
+
+/// <summary>
+/// Used to interrupt commands.
+/// </summary>
+bool ControlCPressed = false;
