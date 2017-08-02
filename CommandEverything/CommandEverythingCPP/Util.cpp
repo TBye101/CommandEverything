@@ -31,3 +31,29 @@ string* Util::GetFileName(unsigned int pID)
 	CloseHandle(info);
 	return new string(filename);
 }
+
+string* Util::TrimWhitespace(string *withWhitespace)
+{
+	string* withoutWhitespace = new string("");
+
+	register unsigned __int64 length = withWhitespace->size();
+	char letter;
+	for (register unsigned __int64 i = 0; i < length; i++)
+	{
+		letter = withWhitespace->at(i);
+		if (letter != ' ')
+		{
+			withoutWhitespace->append(&letter);
+		}
+	}
+
+	return withoutWhitespace;
+}
+
+char* Util::ToCharStar(string* toConvert)
+{
+	string str = *toConvert;
+	char *cstr = new char[str.length() + 1];
+	strcpy(cstr, str.c_str());
+	return cstr;
+}
