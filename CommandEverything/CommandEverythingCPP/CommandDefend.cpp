@@ -53,11 +53,11 @@ string* CommandDefend::GetHelp()
 	return new string("Kills all applications that were not running before Defend was started.\r\n Usage: Defend Start to start Defend, Defend Stop to stop Defend.");
 }
 
-bool CommandDefend::DoesProcessExistInList(DWORD pID, DWORD numberOfProcesses)
+bool CommandDefend::DoesProcessExistInList(unsigned int pID, unsigned int numberOfProcesses)
 {
 	
-	register DWORD length = numberOfProcesses;
-	register size_t i;
+	register unsigned __int64 length = numberOfProcesses;
+	register unsigned __int64 i;
 
 	for (i = 0; i < numberOfProcesses; i++)
 	{
@@ -66,7 +66,6 @@ bool CommandDefend::DoesProcessExistInList(DWORD pID, DWORD numberOfProcesses)
 			return true;
 		}
 	}
-
 	length = this->FailedHitList.size();
 	for (i = 0; i < length; i++)
 	{
@@ -135,11 +134,12 @@ void CommandDefend::Defend()
 				string converted(ws.begin(), ws.end());
 				//https://stackoverflow.com/questions/45288937/avoid-killing-a-specific-process-c?noredirect=1#comment77540465_45288937
 
-				char drive[4];
-				char directory[MAX_PATH];
+				//char drive[4];
+				//char directory[MAX_PATH];
 				char filename[MAX_PATH];
 				char extension[MAX_PATH];
-				_splitpath(converted.c_str(), drive, directory, filename, extension);
+				_splitpath_s(converted.c_str(), NULL, 0, NULL, 0, filename, MAX_PATH, extension, MAX_PATH);
+				//_splitpath(converted.c_str(), drive, directory, filename, extension);
 
 				if (filename[0] != 'c' || filename[1] != 'o' || filename[2] != 'n' || filename[3] != 'h'
 					|| filename[4] != 'o' || filename[5] != 's' || filename[6] != 't'

@@ -33,18 +33,18 @@ private:
 	/// <summary>
 	/// A list of programs not to kill.
 	/// </summary>
-	DWORD AllowedProcesses[1024];
+	unsigned int AllowedProcesses[1024];
 	
 	/// <summary>
 	/// A list of programs that we failed to kill.
 	/// </summary>
-	vector<DWORD> FailedHitList;
+	vector<unsigned int> FailedHitList;
 	
 	/// <summary>
 	/// Determines if the given process exists in RunningProcesses.
 	/// </summary>
 	/// <returns></returns>
-	bool DoesProcessExistInList(DWORD pID, DWORD numberOfProcesses);
+	bool DoesProcessExistInList(unsigned int pID, unsigned int numberOfProcesses);
 
 	/// <summary>
 	/// Starts the commands execution.
