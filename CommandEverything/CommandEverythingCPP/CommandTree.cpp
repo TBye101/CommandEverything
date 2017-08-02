@@ -67,7 +67,7 @@ void CommandTree::TreeFromDirectory(char* name, __int64 indent)
 	{
 		if (entry->d_type == DT_DIR)
 		{
-			char path[1024];
+			char path[MAX_PATH];
 			if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
 			{
 				continue;
