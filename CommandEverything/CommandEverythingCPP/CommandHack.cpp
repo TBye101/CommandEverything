@@ -53,16 +53,35 @@ void CommandHack::Attempt(string* attempt)
 
 		++i;
 	}
+	////Enter
+	//ip.type = INPUT_KEYBOARD;
+	//ip.ki.time = 0;
+	//ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
+	//ip.ki.wScan = VK_RETURN; // Which key press to simulate
+	//ip.ki.wVk = 0;
+	//ip.ki.dwExtraInfo = 0;
+	//SendInput(1, &ip, sizeof(INPUT));
+	//ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release1*
+	//SendInput(1, &ip, sizeof(INPUT));
 
 	keybd_event(VK_RETURN, '5A', 0, 0);
 	keybd_event(VK_RETURN, '5A', KEYEVENTF_KEYUP, 0);
 
-	register unsigned __int8 ab = 0;
-
+	register unsigned __int8 ab = -20;
+	
 	while (ab != this->Length)
 	{
 		keybd_event(VK_BACK, '66', 0, 0);
 		keybd_event(VK_BACK, '66', KEYEVENTF_KEYUP, 0);
+		//ip.type = INPUT_KEYBOARD;
+		//ip.ki.time = 0;
+		//ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
+		//ip.ki.wScan = VK_BACK; // Which key press to simulate
+		//ip.ki.wVk = 0;
+		//ip.ki.dwExtraInfo = 0;
+		//SendInput(1, &ip, sizeof(INPUT));
+		//ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release1*
+		//SendInput(1, &ip, sizeof(INPUT));
 		++ab;
 	}
 }
@@ -90,12 +109,12 @@ void CommandHack::Crack()
 
 	ToDelete->push_back(Attemptter);
 }
-
 void CommandHack::makeCombinations(string* s, unsigned __int8 length)
 {
 	if (length == 0) // when length has been reached
 	{
 		this->Attempt(s); // print it out
+		Sleep(100);
 		return;
 	}
 	register string appended;
