@@ -18,6 +18,7 @@
 #include "CommandCrash.h"
 #include "CommandHack.h"
 #include "CommandKill.h"
+#include "CommandTree.h"
 
 using namespace std;
 

@@ -16,11 +16,9 @@ bool CommandTree::ShouldRunThisCommand(ParsedCommand* Parsed)
 }
 
 void CommandTree::Run(ParsedCommand* Parsed)
-{
-	string* parsed = Utility->TrimWhitespace(&Parsed->Words->at(1));
-	
+{	
 	//If no working directory, do all drives!
-	if (*parsed == "")
+	if (*FilePath == "")
 	{
 		unsigned long mydrives = 100; // buffer length
 		wchar_t lpBuffer[100]; // buffer for drive string storage
@@ -54,13 +52,16 @@ string* CommandTree::GetHelp()
 	return new string("Shows a tree structure just like CMDs. Lets you get an idea of the directory structure while using command line.");
 }
 
-void CommandTree::TreeFromDirectory(char* name, __int8 indent)
+void CommandTree::TreeFromDirectory(char* name, __int64 indent)
 {
 	DIR *dir;
 	struct dirent *entry;
+	string* ToLog = new string();
 
 	if (!(dir = opendir(name)))
+	{
 		return;
+	}
 
 	while ((entry = readdir(dir)) != NULL)
 	{
@@ -73,12 +74,35 @@ void CommandTree::TreeFromDirectory(char* name, __int8 indent)
 			}
 			snprintf(path, sizeof(path), "%s/%s", name, entry->d_name);
 			printf("%*s[%s]\n", indent, "", entry->d_name);
+			*ToLog = "";
+			register __int64 i = 0;
+
+			while (i != indent)
+			{
+				ToLog->append(" ");
+				++i;
+			}
+			ToLog->append(path);
+			Console->Log << *ToLog + "\r\n";
 			this->TreeFromDirectory(path, indent + 2);
 		}
 		else
 		{
 			printf("%*s- %s\n", indent, "", entry->d_name);
+			
+			*ToLog = "";
+			register __int64 i = 0;
+
+			while (i != indent)
+			{
+				ToLog->append(" ");
+				++i;
+			}
+			ToLog->append(entry->d_name);
+			Console->Log << *ToLog + "\r\n";
+
 		}
 	}
 	closedir(dir);
+	delete ToLog;
 }
