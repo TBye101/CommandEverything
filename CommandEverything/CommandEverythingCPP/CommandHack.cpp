@@ -34,6 +34,7 @@ string* CommandHack::GetHelp()
 
 void CommandHack::Attempt(string* attempt)
 {
+	Console->WriteLine(attempt);
 	register char next;
 	register unsigned int size = attempt->size();
 	register unsigned int i = 0;
@@ -114,7 +115,7 @@ void CommandHack::makeCombinations(string* s, unsigned __int8 length)
 	if (length == 0) // when length has been reached
 	{
 		this->Attempt(s); // print it out
-		Sleep(100);
+		Sleep(10);
 		return;
 	}
 	register string appended;
