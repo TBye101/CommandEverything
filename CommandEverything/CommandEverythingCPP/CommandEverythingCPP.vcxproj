@@ -834,9 +834,6 @@
     <ClCompile Include="Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="file.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="External Libs\thrust-1.8.2\detail\adjacent_difference.inl" />
     <None Include="External Libs\thrust-1.8.2\detail\advance.inl" />
     <None Include="External Libs\thrust-1.8.2\detail\allocator\allocator_traits.inl" />

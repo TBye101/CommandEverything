@@ -2103,11 +2103,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="file.txt">
-      <Filter>Framework\WIP Commands\Hack</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="External Libs\thrust-1.8.2\detail\complex\complex.inl">
       <Filter>External\Thrust</Filter>
     </None>
