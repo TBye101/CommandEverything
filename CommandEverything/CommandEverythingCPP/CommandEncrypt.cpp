@@ -24,7 +24,7 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 	}
 	else
 	{
-		if (!Files->DoesDirectoryExist(FilePath))
+		if (Files->DoesDirectoryExist(FilePath))
 		{
 			//Our output stream
 			ofstream encryptedFile;
@@ -45,9 +45,11 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 			encryptedFile.open(flPath);
 
 			string line;
+			char* encryptedChars = new char[4096];
+			std::copy(line.begin(), line.end(), encryptedChars);
 			while (std::getline(unencryptedFile, line))
 			{
-				encryptedFile << line;
+				encryptedFile << this->EncryptChar(encryptedChars, Parsed->Words->at(2).c_str());
 			}
 			unencryptedFile.close();
 			encryptedFile.flush();
