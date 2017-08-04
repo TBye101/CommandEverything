@@ -25,6 +25,5 @@ private:
 	/// </summary>
 	/// <param name="Path"></param>
 	/// <param name=""></param>
-	void TreeFromDirectory(char* Path, __int64 indent);
+	static void TreeFromDirectory(char* Path, __int64 indent);
 };
-

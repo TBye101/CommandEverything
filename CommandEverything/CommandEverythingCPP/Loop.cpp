@@ -16,6 +16,8 @@ Loop::~Loop()
 void Loop::MainLoop()
 {
 	bool CommandRun = false;
+	clock_t start;
+	double duration;
 	while (true)
 	{
 		try
@@ -40,14 +42,12 @@ void Loop::MainLoop()
 				{
 					if (Commands->at(i)->ShouldRunThisCommand(parsed))
 					{
-						std::clock_t start;
-						double duration;
 
-						start = std::clock();
+						start = clock();
 
 						Commands->at(i)->Run(parsed);
 
-						duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+						duration = (clock() - start) / (double)CLOCKS_PER_SEC;
 						Console->WriteLine(&("Command took: " + to_string(duration)));
 						CommandRun = true;
 						break;

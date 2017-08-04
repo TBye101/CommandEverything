@@ -20,15 +20,15 @@ void CommandTree::Run(ParsedCommand* Parsed)
 	//If no working directory, do all drives!
 	if (*FilePath == "")
 	{
-		unsigned long mydrives = 100; // buffer length
-		wchar_t lpBuffer[100]; // buffer for drive string storage
-		unsigned long test = GetLogicalDriveStrings(mydrives, lpBuffer);
-		__int8 drives = test / 4;
+		register unsigned long mydrives = 100; // buffer length
+		register wchar_t lpBuffer[100]; // buffer for drive string storage
+		register unsigned long test = GetLogicalDriveStrings(mydrives, lpBuffer);
+		register unsigned __int8 drives = test / 4;
 		string drive = "";
 		char strbuffer[64];
 
 
-		for (unsigned __int8 i = 0; i < drives; i++)
+		for (register unsigned __int8 i = 0; i < drives; i++)
 		{
 			wctomb(strbuffer, lpBuffer[i * 4]);
 			drive = strbuffer[0];
@@ -38,7 +38,7 @@ void CommandTree::Run(ParsedCommand* Parsed)
 	}
 	else
 	{
-		this->TreeFromDirectory(Utility->ToCharStar(FilePath), 0);
+		TreeFromDirectory(Utility->ToCharStar(FilePath), 0);
 	}
 }
 
@@ -88,7 +88,7 @@ void CommandTree::TreeFromDirectory(char* name, __int64 indent)
 			}
 			ToLog->append(path);
 			Console->Log << *ToLog + "\r\n";
-			this->TreeFromDirectory(path, indent + 2);
+			TreeFromDirectory(path, indent + 2);
 		}
 		else
 		{
