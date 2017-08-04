@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ICommand.h"
-//#include <sstream>
 //Solve CUDA: https://msdn.microsoft.com/en-us/library/7f0aews7.aspx
 
 /// <summary>
@@ -38,5 +37,5 @@ private:
 	/// <param name="Msg"></param>
 	/// <param name="Key"></param>
 	/// <returns></returns>
-	inline char* EncryptChar(char* Msg, const char* Key);
+	vector<char>* EncryptChar(char* Msg, const char* Key);
 };
