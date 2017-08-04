@@ -9,6 +9,8 @@ CommandHack::CommandHack()
 
 CommandHack::~CommandHack()
 {
+	delete[] this->Chars;
+
 }
 
 bool CommandHack::ShouldRunThisCommand(ParsedCommand* Parsed)

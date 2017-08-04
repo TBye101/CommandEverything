@@ -22,11 +22,28 @@ public:
 
 private:
 	/// <summary>
+	/// The key we encrypt off of.
+	/// </summary>
+	string* EncryptionKey;
+
+	/// <summary>
 	/// If true, stop all threads.
 	/// </summary>
 	bool StopThreads = false;
 
-	inline char EncryptChar(char character);
+	/// <summary>
+	/// Encrypts a string.
+	/// </summary>
+	/// <param name="character"></param>
+	/// <returns></returns>
+	inline void EncryptChar(char* character);
+
+	/// <summary>
+	/// Decrypts a string.
+	/// </summary>
+	/// <param name="character"></param>
+	/// <returns></returns>
+	inline void DecryptChar(char* character);
 
 	//SYSTEM_INFO sysinfo;
 	//GetSystemInfo(&sysinfo);
