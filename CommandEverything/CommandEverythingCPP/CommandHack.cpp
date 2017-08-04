@@ -47,7 +47,7 @@ void CommandHack::Run(ParsedCommand* Parsed)
 		}
 	}
 
-	Sleep(10000);
+	Sleep(20000);
 	this->Crack();
 }
 
@@ -78,22 +78,13 @@ void CommandHack::Attempt(string* attempt)
 		ip.ki.wVk = 0;
 		ip.ki.dwExtraInfo = 0;
 		SendInput(1, &ip, sizeof(INPUT));
-		ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release1*
+		ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release
 		SendInput(1, &ip, sizeof(INPUT));
 
 		++i;
 	}
-	////Enter
-	//ip.type = INPUT_KEYBOARD;
-	//ip.ki.time = 0;
-	//ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
-	//ip.ki.wScan = VK_RETURN; // Which key press to simulate
-	//ip.ki.wVk = 0;
-	//ip.ki.dwExtraInfo = 0;
-	//SendInput(1, &ip, sizeof(INPUT));
-	//ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release1*
-	//SendInput(1, &ip, sizeof(INPUT));
 
+	//Enter key
 	keybd_event(VK_RETURN, '5A', 0, 0);
 	keybd_event(VK_RETURN, '5A', KEYEVENTF_KEYUP, 0);
 
@@ -101,17 +92,9 @@ void CommandHack::Attempt(string* attempt)
 	
 	while (ab != this->Length)
 	{
+		//Backspace
 		keybd_event(VK_BACK, '66', 0, 0);
 		keybd_event(VK_BACK, '66', KEYEVENTF_KEYUP, 0);
-		//ip.type = INPUT_KEYBOARD;
-		//ip.ki.time = 0;
-		//ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
-		//ip.ki.wScan = VK_BACK; // Which key press to simulate
-		//ip.ki.wVk = 0;
-		//ip.ki.dwExtraInfo = 0;
-		//SendInput(1, &ip, sizeof(INPUT));
-		//ip.ki.dwFlags = KEYEVENTF_KEYUP; // KEYEVENTF_KEYUP for key release1*
-		//SendInput(1, &ip, sizeof(INPUT));
 		++ab;
 	}
 }

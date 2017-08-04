@@ -12,7 +12,6 @@ Writer::Writer()
 	using convert_type = codecvt_utf8<wchar_t>;
 	wstring_convert<convert_type, wchar_t> converter;
 
-	//use converter (.to_bytes: wstr->str, .from_bytes: str->wstr)
 	path = converter.to_bytes(*file->LogDirectoryPath);
 
 	path.append("\\");
