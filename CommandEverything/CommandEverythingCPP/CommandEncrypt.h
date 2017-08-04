@@ -25,7 +25,7 @@ private:
 	/// <summary>
 	/// The key we encrypt off of.
 	/// </summary>
-	string* EncryptionKey;
+	string* EncryptionKey = new string("");
 
 	/// <summary>
 	/// If true, stop all threads.

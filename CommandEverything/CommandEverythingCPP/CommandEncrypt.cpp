@@ -46,9 +46,9 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 
 			string line;
 			char* encryptedChars = new char[4096];
-			std::copy(line.begin(), line.end(), encryptedChars);
 			while (std::getline(unencryptedFile, line))
 			{
+				std::copy(line.begin(), line.end(), encryptedChars);
 				encryptedFile << this->EncryptChar(encryptedChars, Parsed->Words->at(2).c_str());
 			}
 			unencryptedFile.close();
@@ -81,7 +81,7 @@ inline char* CommandEncrypt::EncryptChar(char* character, const char* Key)
 	//Make the message and the key the same size.
 	while (this->EncryptionKey->size() < length)
 	{
-		this->EncryptionKey->append(*this->EncryptionKey);
+		this->EncryptionKey->append(Key);
 	}
 
 	char* Encrypted = new char[length];
