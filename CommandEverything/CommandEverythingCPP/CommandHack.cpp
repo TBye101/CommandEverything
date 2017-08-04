@@ -15,7 +15,7 @@ bool CommandHack::ShouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "hack");
 }
-
+//hack aAnNrRsStTuUyY1_mMeE
 void CommandHack::Run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() > 1)
@@ -56,7 +56,7 @@ string* CommandHack::GetName()
 
 string* CommandHack::GetHelp()
 {
-	return new string("In 10 seconds, it tries to hack into whatever input box the user is hovering over.");
+	return new string("In 10 seconds, it tries to hack into whatever input box the user is hovering over. Optional: hack (Characters here) will use only those characters in an attack. Doesn't handle spaces.");
 }
 
 void CommandHack::Attempt(string* attempt)
