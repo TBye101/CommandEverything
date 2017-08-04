@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ICommand.h"
+//#include <sstream>
 //Solve CUDA: https://msdn.microsoft.com/en-us/library/7f0aews7.aspx
 
 /// <summary>
@@ -34,18 +35,8 @@ private:
 	/// <summary>
 	/// Encrypts a string.
 	/// </summary>
-	/// <param name="character"></param>
+	/// <param name="Msg"></param>
+	/// <param name="Key"></param>
 	/// <returns></returns>
-	inline char* EncryptChar(char* character);
-
-	/// <summary>
-	/// Decrypts a string.
-	/// </summary>
-	/// <param name="character"></param>
-	/// <returns></returns>
-	inline char* DecryptChar(char* character);
-
-	//SYSTEM_INFO sysinfo;
-	//GetSystemInfo(&sysinfo);
-	//int numCPU = sysinfo.dwNumberOfProcessors;
+	inline char* EncryptChar(char* Msg, const char* Key);
 };

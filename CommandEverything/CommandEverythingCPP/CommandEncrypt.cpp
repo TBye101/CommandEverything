@@ -18,6 +18,39 @@ bool CommandEncrypt::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandEncrypt::Run(ParsedCommand* Parsed)
 {
+	if (Parsed->Words->size() < 3)
+	{
+		Console->WriteLine("Missing argument(s)!");
+	}
+	else
+	{
+		//Our output stream
+		ofstream encryptedFile;
+		
+		//The path to the directory the file is in
+		string flPath = *FilePath;
+		//flPath.append("\\");
+		//Add to the path the file.
+		flPath.append(Parsed->Words->at(1));
+
+		//Get an input stream from that file.
+		ifstream unencryptedFile(flPath);
+
+		//Add a new extension to signify that it is encrypted
+		flPath.append(".crypt");
+
+		//Create a new file.
+		encryptedFile.open(flPath);
+
+		string line;
+		while (std::getline(unencryptedFile, line))
+		{
+			encryptedFile << line;
+		}
+		unencryptedFile.close();
+		encryptedFile.flush();
+		encryptedFile.close();
+	}
 }
 
 string* CommandEncrypt::GetName()
@@ -27,10 +60,10 @@ string* CommandEncrypt::GetName()
 
 string* CommandEncrypt::GetHelp()
 {
-	return new string("Encrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" encrypt (your file name here) \" and it will encrypt the file and put it in the same directory");
+	return new string("Encrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" encrypt (your file name here) (YourKeyHere) \" and it will encrypt the file and put it in the same directory. Don't use spaces....");
 }
 
-inline char* CommandEncrypt::EncryptChar(char* character)
+inline char* CommandEncrypt::EncryptChar(char* character, const char* Key)
 {
 	//Determines which operation to do.
 	//0 = add, 1 = subtract, 2 = multiply, 3 = divide
@@ -46,7 +79,6 @@ inline char* CommandEncrypt::EncryptChar(char* character)
 		this->EncryptionKey->append(*this->EncryptionKey);
 	}
 
-	const char* Key = this->EncryptionKey->c_str();
 	char* Encrypted = new char[length];
 	while (i != length)
 	{
@@ -78,9 +110,4 @@ inline char* CommandEncrypt::EncryptChar(char* character)
 	}
 
 	return Encrypted;
-}
-
-inline char* CommandEncrypt::DecryptChar(char* character)
-{
-
 }
