@@ -60,9 +60,9 @@ void Writer::WriteLine(string *Str)
 
 void Writer::WriteLine(const char* Str)
 {
-	delete this->Msg;
-	Msg = new string(Str);
-	this->WriteLine(this->Msg);
+	string* Msg = new string(Str);
+	this->WriteLine(Msg);
+	delete Msg;
 }
 
 void Writer::LogLine(string *Str)

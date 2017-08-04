@@ -30,7 +30,7 @@ string* CommandEncrypt::GetHelp()
 	return new string("Encrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" encrypt (your file name here) \" and it will encrypt the file and put it in the same directory");
 }
 
-inline void CommandEncrypt::EncryptChar(char* character)
+inline char* CommandEncrypt::EncryptChar(char* character)
 {
 	//Determines which operation to do.
 	//0 = add, 1 = subtract, 2 = multiply, 3 = divide
@@ -47,22 +47,22 @@ inline void CommandEncrypt::EncryptChar(char* character)
 	}
 
 	const char* Key = this->EncryptionKey->c_str();
-	string* Encrypted = new string();
+	char* Encrypted = new char[length];
 	while (i != length)
 	{
 		switch (operation)
 		{
 		case 0:
-			Encrypted->push_back(Key[i] + character[i]);
+			Encrypted[i] = (Key[i] + character[i]);
 			break;
 		case 1:
-			//character[i] = this->EncryptionKey[i];
+			Encrypted[i] = (Key[i] - character[i]);
 			break;
 		case 2:
-
+			Encrypted[i] = (Key[i] * character[i]);
 			break;
 		case 3:
-
+			Encrypted[i] = (Key[i] / character[i]);
 			break;
 		default:
 			Console->WriteLine("Houston, we have a problem");
@@ -76,9 +76,11 @@ inline void CommandEncrypt::EncryptChar(char* character)
 			operation = 0;
 		}
 	}
+
+	return Encrypted;
 }
 
-inline void CommandEncrypt::DecryptChar(char* character)
+inline char* CommandEncrypt::DecryptChar(char* character)
 {
 
 }

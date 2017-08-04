@@ -40,11 +40,4 @@ public:
 	// you can't write in the root directory of the system drive;
 	// you should instead write e.g. in the current directory
 	ofstream Log;
-
-private:
-
-	/// <summary>
-	/// Storage for a message.
-	/// </summary>
-	string* Msg = new string();
 };

@@ -36,14 +36,14 @@ private:
 	/// </summary>
 	/// <param name="character"></param>
 	/// <returns></returns>
-	inline void EncryptChar(char* character);
+	inline char* EncryptChar(char* character);
 
 	/// <summary>
 	/// Decrypts a string.
 	/// </summary>
 	/// <param name="character"></param>
 	/// <returns></returns>
-	inline void DecryptChar(char* character);
+	inline char* DecryptChar(char* character);
 
 	//SYSTEM_INFO sysinfo;
 	//GetSystemInfo(&sysinfo);
