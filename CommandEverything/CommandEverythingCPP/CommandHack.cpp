@@ -18,6 +18,20 @@ bool CommandHack::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandHack::Run(ParsedCommand* Parsed)
 {
+	if (Parsed->Words->size() > 1)
+	{
+
+	}
+	else
+	{
+		register unsigned __int8 i = 32;
+		while (i != 128)
+		{
+			this->Chars[i - 32] = i;
+			++i;
+		}
+	}
+
 	Sleep(10000);
 	this->Crack();
 }
@@ -92,12 +106,6 @@ void CommandHack::Crack()
 	//32-137 
 	//Acquire common characters. 
 	register unsigned __int8 i = 32;
-	while (i != 128)
-	{
-		this->Chars[i - 32] = i;
-		++i;
-	}
-
 	i = 1;
 	string* Attemptter = new string("");
 	while (i != 128)

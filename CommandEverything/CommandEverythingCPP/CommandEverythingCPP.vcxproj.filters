@@ -87,6 +87,9 @@
     <Filter Include="Framework\Commands\Tree">
       <UniqueIdentifier>{765ce970-7b3f-4bf3-af0f-41b91b12c306}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\WIP Commands\Specs">
+      <UniqueIdentifier>{0d011e3f-604a-4373-8890-7f95bd7d702b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

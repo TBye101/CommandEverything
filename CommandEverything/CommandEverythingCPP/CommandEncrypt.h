@@ -1,5 +1,8 @@
 #pragma once
 
+#include "ICommand.h"
+//Solve CUDA: https://msdn.microsoft.com/en-us/library/7f0aews7.aspx
+
 /// <summary>
 /// Encrypts a file.
 /// </summary>
@@ -8,6 +11,14 @@ class CommandEncrypt
 public:
 	CommandEncrypt();
 	~CommandEncrypt();
+
+	bool ShouldRunThisCommand(ParsedCommand* Parsed);
+
+	void Run(ParsedCommand* Parsed);
+
+	string* GetName();
+
+	string* GetHelp();
 
 private:
 	/// <summary>
