@@ -56,7 +56,7 @@ inline void CommandEncrypt::EncryptChar(char* character)
 			Encrypted->push_back(Key[i] + character[i]);
 			break;
 		case 1:
-			character[i] = this->EncryptionKey[i];
+			//character[i] = this->EncryptionKey[i];
 			break;
 		case 2:
 
@@ -78,7 +78,7 @@ inline void CommandEncrypt::EncryptChar(char* character)
 	}
 }
 
-inline void CommandEncrypt::DecryptChar(string* character)
+inline void CommandEncrypt::DecryptChar(char* character)
 {
 
 }

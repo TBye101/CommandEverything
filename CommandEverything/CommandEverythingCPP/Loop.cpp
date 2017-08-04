@@ -40,7 +40,15 @@ void Loop::MainLoop()
 				{
 					if (Commands->at(i)->ShouldRunThisCommand(parsed))
 					{
+						std::clock_t start;
+						double duration;
+
+						start = std::clock();
+
 						Commands->at(i)->Run(parsed);
+
+						duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+						Console->WriteLine(&("Command took: " + to_string(duration)));
 						CommandRun = true;
 						break;
 					}

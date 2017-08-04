@@ -104,7 +104,6 @@ void CommandTree::TreeFromDirectory(char* name, __int64 indent)
 			}
 			ToLog->append(entry->d_name);
 			Console->Log << *ToLog + "\r\n";
-
 		}
 	}
 	closedir(dir);
