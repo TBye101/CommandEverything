@@ -2036,6 +2036,9 @@
     <ClInclude Include="CommandTree.h">
       <Filter>Framework\Commands\Tree</Filter>
     </ClInclude>
+    <ClInclude Include="CommandEncrypt.h">
+      <Filter>Framework\WIP Commands\Encrypt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -2100,6 +2103,9 @@
     </ClCompile>
     <ClCompile Include="CommandTree.cpp">
       <Filter>Framework\Commands\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandEncrypt.cpp">
+      <Filter>Framework\WIP Commands\Encrypt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
