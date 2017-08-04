@@ -20,10 +20,23 @@ void CommandHack::Run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() > 1)
 	{
+		string valid = Parsed->Words->at(1);
+		register unsigned __int8 length = valid.size();
+		this->Chars = new char[length];
+		this->CharsLength = length;
 
+		register unsigned __int8 i = 0;
+
+		while (i != length)
+		{
+			this->Chars[i] = valid[i];
+			i++;
+		}
 	}
 	else
 	{
+		this->Chars = new char[96];
+		this->CharsLength = 96;
 		register unsigned __int8 i = 32;
 		while (i != 128)
 		{
@@ -128,7 +141,7 @@ void CommandHack::makeCombinations(string* s, unsigned __int8 length)
 	}
 	register string appended;
 
-	for (register unsigned __int8 i = 0; i < 96; i++) // iterate through alphabet
+	for (register unsigned __int8 i = 0; i < this->CharsLength; i++) // iterate through alphabet
 	{
 		// Create new string with next character
 		// Call generate again until string has reached it's length

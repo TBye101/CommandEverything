@@ -23,7 +23,8 @@ public:
 
 private:
 
-	char Chars[96];
+	char* Chars;
+	unsigned __int8 CharsLength;
 	unsigned __int8 Length = 0;
 
 
