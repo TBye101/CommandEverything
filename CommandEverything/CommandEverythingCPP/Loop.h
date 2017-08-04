@@ -19,6 +19,7 @@
 #include "CommandHack.h"
 #include "CommandKill.h"
 #include "CommandTree.h"
+#include "CommandEncrypt.h"
 
 using namespace std;
 

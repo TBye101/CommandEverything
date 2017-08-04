@@ -7,7 +7,7 @@
 /// <summary>
 /// Encrypts a file.
 /// </summary>
-class CommandEncrypt
+class CommandEncrypt : public ICommand
 {
 public:
 	CommandEncrypt();

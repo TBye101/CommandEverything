@@ -24,32 +24,35 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 	}
 	else
 	{
-		//Our output stream
-		ofstream encryptedFile;
-		
-		//The path to the directory the file is in
-		string flPath = *FilePath;
-		//flPath.append("\\");
-		//Add to the path the file.
-		flPath.append(Parsed->Words->at(1));
-
-		//Get an input stream from that file.
-		ifstream unencryptedFile(flPath);
-
-		//Add a new extension to signify that it is encrypted
-		flPath.append(".crypt");
-
-		//Create a new file.
-		encryptedFile.open(flPath);
-
-		string line;
-		while (std::getline(unencryptedFile, line))
+		if (!Files->DoesDirectoryExist(FilePath))
 		{
-			encryptedFile << line;
+			//Our output stream
+			ofstream encryptedFile;
+
+			//The path to the directory the file is in
+			string flPath = *FilePath;
+			//flPath.append("\\");
+			//Add to the path the file.
+			flPath.append(Parsed->Words->at(1));
+
+			//Get an input stream from that file.
+			ifstream unencryptedFile(flPath);
+
+			//Add a new extension to signify that it is encrypted
+			flPath.append(".crypt");
+
+			//Create a new file.
+			encryptedFile.open(flPath);
+
+			string line;
+			while (std::getline(unencryptedFile, line))
+			{
+				encryptedFile << line;
+			}
+			unencryptedFile.close();
+			encryptedFile.flush();
+			encryptedFile.close();
 		}
-		unencryptedFile.close();
-		encryptedFile.flush();
-		encryptedFile.close();
 	}
 }
 
