@@ -25,16 +25,16 @@ public:
 	/// </summary>
 	/// <param name="Str"></param>
 	/// <param name="LogLevel">Represents the color and label attached to the log.</param>
-	void WriteLine(string* Str);
-	void WriteLine(const char* Str);
+	static void WriteLine(string* Str);
+	static void WriteLine(const char* Str);
 
 	/// <summary>
 	/// Logs a line, but does not write it to the console.
 	/// </summary>
 	/// <param name="Str"></param>
-	void LogLine(string* Str);
+	static void LogLine(string* Str);
 
-	const char* GetTime();
+	static const char* GetTime();
 
 	// notice that IIRC on modern Windows machines if you aren't admin
 	// you can't write in the root directory of the system drive;

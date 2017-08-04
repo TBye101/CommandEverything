@@ -53,6 +53,7 @@ wstring* Filing::GetPathToExe()
 	else
 	{
 		Console->WriteLine("Error! NullPointerException!");
+		return NULL;
 	}
 }
 

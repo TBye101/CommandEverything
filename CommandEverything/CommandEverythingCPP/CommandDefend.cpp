@@ -20,11 +20,11 @@ void CommandDefend::Run(ParsedCommand* Parsed)
 	//There wasn't another word to determine whether we were to start or stop
 	if (Parsed->Words->size() < 2)
 	{
-		std::string error = "Missing required command argument.";
+		string error = "Missing required command argument.";
 		Console->WriteLine(&error);
 		return;
 	}
-	std::string second = Parsed->Words->at(1);
+	string second = Parsed->Words->at(1);
 	std::transform(second.begin(), second.end(), second.begin(), ::tolower);
 
 	if (second == "start")
@@ -39,7 +39,7 @@ void CommandDefend::Run(ParsedCommand* Parsed)
 		return;
 	}
 
-	std::string error = "Invalid command argument";
+	string error = "Invalid command argument";
 	Console->WriteLine(&error);
 }
 
@@ -58,7 +58,7 @@ bool CommandDefend::DoesProcessExistInList(unsigned int pID, unsigned int number
 	
 	register unsigned __int64 length = numberOfProcesses;
 	register unsigned __int64 i;
-
+	
 	for (i = 0; i < numberOfProcesses; i++)
 	{
 		if (pID == this->AllowedProcesses[i])

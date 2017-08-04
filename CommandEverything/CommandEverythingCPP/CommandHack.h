@@ -24,7 +24,7 @@ public:
 private:
 
 	char* Chars;
-	unsigned __int8 CharsLength;
+	unsigned __int64 CharsLength;
 	unsigned __int8 Length = 0;
 
 

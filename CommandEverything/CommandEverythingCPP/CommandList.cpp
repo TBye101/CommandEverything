@@ -88,7 +88,7 @@ void CommandList::ListDriveLetters()
 	unsigned long mydrives = 100; // buffer length
 	wchar_t lpBuffer[100]; // buffer for drive string storage
 	unsigned long test = GetLogicalDriveStrings(mydrives, lpBuffer);
-	__int8 drives = test / 4;
+	__int64 drives = test / 4;
 	string drive = "";
 	char strbuffer[64];
 	for (unsigned __int8 i = 0; i < drives; i++)

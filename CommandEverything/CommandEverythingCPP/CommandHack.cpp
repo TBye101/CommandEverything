@@ -23,11 +23,11 @@ void CommandHack::Run(ParsedCommand* Parsed)
 	if (Parsed->Words->size() > 1)
 	{
 		string valid = Parsed->Words->at(1);
-		register unsigned __int8 length = valid.size();
+		register unsigned __int64 length = valid.size();
 		this->Chars = new char[length];
 		this->CharsLength = length;
 
-		register unsigned __int8 i = 0;
+		register unsigned __int64 i = 0;
 
 		while (i != length)
 		{
@@ -65,8 +65,8 @@ void CommandHack::Attempt(string* attempt)
 {
 	Console->WriteLine(attempt);
 	register char next;
-	register unsigned int size = attempt->size();
-	register unsigned int i = 0;
+	register unsigned __int64 size = attempt->size();
+	register unsigned __int64 i = 0;
 
 	while (i != size)
 	{

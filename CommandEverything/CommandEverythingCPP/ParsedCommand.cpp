@@ -4,7 +4,7 @@
 ParsedCommand::ParsedCommand(string *Input)
 {
 	//The size of the string.
-	register unsigned int si = Input->size();
+	register unsigned __int64 si = Input->size();
 
 	if (si != 0)
 	{
