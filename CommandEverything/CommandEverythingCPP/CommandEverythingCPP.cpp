@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 	TPool = new ThreadPool(sysinfo.dwNumberOfProcessors);
 
 	//Makes them think this thing runs faster than it actually will. :D
-	Console->WriteLine(&(to_string(sysinfo.dwNumberOfProcessors) + " CPUs detected"));
+	Console->WriteLine(&(to_string((sysinfo.dwNumberOfProcessors / 2)) + " CPUs detected"));
 
 	if (!SetConsoleCtrlHandler(HandlerRoutine, true))
 	{

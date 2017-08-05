@@ -13,6 +13,8 @@ Your entire command line history for each instance of the command line is saved 
 
 ## Commands:
 
+With 13 commands, Command Everything is a fast yet useful command line program.
+
 ### Cd Command:
 
 ### Crash Command:
