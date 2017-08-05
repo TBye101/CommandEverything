@@ -1,5 +1,7 @@
 #pragma once
 
+#include <amp.h>
+
 #include "ICommand.h"
 //Solve CUDA: https://msdn.microsoft.com/en-us/library/7f0aews7.aspx
 

@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "CommandEncrypt.h"
 
-
 CommandEncrypt::CommandEncrypt()
 {
 }
@@ -89,9 +88,10 @@ inline vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Ke
 	{
 		this->EncryptionKey->append(Key);
 	}
+
 	register const char* finishedKey = this->EncryptionKey->c_str();
 	register vector<char>* Encrypted = new vector<char>();
-	parallel_for
+
 	while (i != length)
 	{
 		switch (operation)

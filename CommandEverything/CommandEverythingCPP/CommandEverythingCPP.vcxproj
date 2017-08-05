@@ -802,6 +802,7 @@
     <ClInclude Include="ParsedCommand.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Writer.h" />
   </ItemGroup>
@@ -830,6 +831,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="Writer.cpp" />
   </ItemGroup>
