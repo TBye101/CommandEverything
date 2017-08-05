@@ -1,8 +1,8 @@
 #pragma once
 
-#include <amp.h>
-
 #include "ICommand.h"
+
+#include <thread>
 //Solve CUDA: https://msdn.microsoft.com/en-us/library/7f0aews7.aspx
 
 /// <summary>
@@ -40,4 +40,6 @@ private:
 	/// <param name="Key"></param>
 	/// <returns></returns>
 	vector<char>* EncryptChar(char* Msg, const char* Key);
+
+	void Go(ParsedCommand* Cmd);
 };

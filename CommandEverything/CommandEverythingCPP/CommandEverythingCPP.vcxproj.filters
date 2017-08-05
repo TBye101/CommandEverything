@@ -84,9 +84,6 @@
     <Filter Include="Framework\WIP Commands\Specs">
       <UniqueIdentifier>{0d011e3f-604a-4373-8890-7f95bd7d702b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\Util\ThreadPool">
-      <UniqueIdentifier>{11832bca-d50d-41ec-a4d4-1c4cbbf0be6d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -152,14 +149,11 @@
     <ClInclude Include="CommandEncrypt.h">
       <Filter>Framework\WIP Commands\Encrypt</Filter>
     </ClInclude>
-    <ClInclude Include="ThreadPool.h">
-      <Filter>Framework\Util\ThreadPool</Filter>
-    </ClInclude>
-    <ClInclude Include="Header Only\ThreadPool.h">
-      <Filter>External</Filter>
-    </ClInclude>
     <ClInclude Include="Header Only\dirent.h">
       <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool.h">
+      <Filter>Framework\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -227,7 +221,7 @@
       <Filter>Framework\WIP Commands\Encrypt</Filter>
     </ClCompile>
     <ClCompile Include="ThreadPool.cpp">
-      <Filter>Framework\Util\ThreadPool</Filter>
+      <Filter>Framework\Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

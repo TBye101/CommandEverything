@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h>
-#include "dirent.h"
+#include "Header Only\dirent.h"
 
 /// <summary>
 /// Lists all availible options for the Cd command.
@@ -25,4 +25,3 @@ private:
 	/// </summary>
 	void ListDriveLetters();
 };
-

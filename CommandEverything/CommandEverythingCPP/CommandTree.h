@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ICommand.h"
-#include "dirent.h"
+#include "Header Only\dirent.h"
 
 /// <summary>
 /// Shows a tree structure of where the current working directory is.

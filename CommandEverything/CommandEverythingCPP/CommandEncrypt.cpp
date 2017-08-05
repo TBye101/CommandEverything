@@ -23,43 +23,7 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 	}
 	else
 	{
-		if (Files->DoesDirectoryExist(FilePath))
-		{
-			//Our output stream
-			ofstream encryptedFile;
-
-			//The path to the directory the file is in
-			string flPath = *FilePath;
-			//flPath.append("\\");
-			//Add to the path the file.
-			flPath.append(Parsed->Words->at(1));
-
-			//Get an input stream from that file.
-			ifstream unencryptedFile(flPath);
-
-			//Add a new extension to signify that it is encrypted
-			flPath.append(".crypt");
-
-			//Create a new file.
-			encryptedFile.open(flPath);
-
-			register string line;
-			register char* encryptedChars = new char[1];
-			register vector<char>* encrypted;
-			while (std::getline(unencryptedFile, line))
-			{
-				delete encryptedChars;
-				encryptedChars = new char[line.size() + 1];
-				std::copy(line.begin(), line.end(), encryptedChars);
-				encryptedChars[line.size()] = '\0';
-				encrypted = this->EncryptChar(encryptedChars, Parsed->Words->at(2).c_str());
-				encryptedFile << string(encrypted->begin(), encrypted->end());
-				delete encrypted;
-			}
-			unencryptedFile.close();
-			encryptedFile.flush();
-			encryptedFile.close();
-		}
+		thread a;
 	}
 }
 
@@ -123,4 +87,45 @@ inline vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Ke
 
 	//delete finishedKey;
 	return Encrypted;
+}
+
+void CommandEncrypt::Go(ParsedCommand* Parsed)
+{
+	if (Files->DoesDirectoryExist(FilePath))
+	{
+		//Our output stream
+		ofstream encryptedFile;
+
+		//The path to the directory the file is in
+		string flPath = *FilePath;
+		//flPath.append("\\");
+		//Add to the path the file.
+		flPath.append(Parsed->Words->at(1));
+
+		//Get an input stream from that file.
+		ifstream unencryptedFile(flPath);
+
+		//Add a new extension to signify that it is encrypted
+		flPath.append(".crypt");
+
+		//Create a new file.
+		encryptedFile.open(flPath);
+
+		register string line;
+		register char* encryptedChars = new char[1];
+		register vector<char>* encrypted;
+		while (std::getline(unencryptedFile, line))
+		{
+			delete encryptedChars;
+			encryptedChars = new char[line.size() + 1];
+			std::copy(line.begin(), line.end(), encryptedChars);
+			encryptedChars[line.size()] = '\0';
+			encrypted = this->EncryptChar(encryptedChars, Parsed->Words->at(2).c_str());
+			encryptedFile << string(encrypted->begin(), encrypted->end());
+			delete encrypted;
+		}
+		unencryptedFile.close();
+		encryptedFile.flush();
+		encryptedFile.close();
+	}
 }

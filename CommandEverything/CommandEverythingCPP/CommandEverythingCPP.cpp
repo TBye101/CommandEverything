@@ -24,10 +24,16 @@ int WINAPI HandlerRoutine(_In_ unsigned long dwCtrlType)
 
 int main(int argc, char* argv[])
 {
+	SYSTEM_INFO sysinfo;
+	GetSystemInfo(&sysinfo);
+	//Makes them think this thing runs faster than it actually will. :D
+	Console->WriteLine(&(to_string(sysinfo.dwNumberOfProcessors) + " CPUs detected"));
+
 	if (!SetConsoleCtrlHandler(HandlerRoutine, true))
 	{
 		Console->WriteLine("!Error!: Could not set event handler.");
 	}
+
 	Loop* Program = new Loop();
 	Program->Startup();
 	Program->FreeUpMemory();

@@ -3,7 +3,7 @@
 #include <thread>
 
 /// <summary>
-/// A generic thread pool that executes whatever.
+/// A simple thread pool implementation.
 /// </summary>
 class ThreadPool
 {
@@ -12,14 +12,16 @@ public:
 	~ThreadPool();
 
 private:
-
 	/// <summary>
-	/// The number of CPUs on the current machine.
-	/// </summary>
-	unsigned __int8 CPUCount;
-	
-	/// <summary>
-	/// The threads we have to work with.
+	/// Our threads.
 	/// </summary>
 	vector<thread*>* Threads = new vector<thread*>();
+};
+
+/// <summary>
+/// A basic task.
+/// </summary>
+class ITask
+{
+	virtual void Go(__int8 argCount, ...) = 0;
 };
