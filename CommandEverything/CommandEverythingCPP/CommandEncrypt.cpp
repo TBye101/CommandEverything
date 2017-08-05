@@ -38,7 +38,7 @@ string* CommandEncrypt::GetHelp()
 	return new string("Encrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" encrypt (your file name here) (YourKeyHere) \" and it will encrypt the file and put it in the same directory. Don't use spaces....");
 }
 
-inline vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Key)
+vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Key)
 {
 	//Determines which operation to do.
 	//0 = add, 1 = subtract, 2 = multiply, 3 = divide
@@ -115,14 +115,29 @@ void CommandEncrypt::Go()
 		register string line;
 		register char* encryptedChars = new char[1];
 		register vector<char>* encrypted;
+
 		while (std::getline(unencryptedFile, line))
 		{
+			//Free up last memory, and delete the encrypted chars.
 			delete encryptedChars;
+
+			//Resize the array so it can fit all of the soon to be encrypted chars. (The pre encryption characters)
+			//Add 1 more character so we can null terminate it.
 			encryptedChars = new char[line.size() + 1];
+
+			//Copy the unencrypted characters into the char array.
 			std::copy(line.begin(), line.end(), encryptedChars);
+
+			//Null terminate the thing.
 			encryptedChars[line.size()] = '\0';
+
+			//Encrypt the characters.
 			encrypted = this->EncryptChar(encryptedChars, Cmd->Words->at(2).c_str());
+
+			//Spew those characters to file.
 			encryptedFile << string(encrypted->begin(), encrypted->end());
+
+			//Delete the encrypted characters.
 			delete encrypted;
 		}
 		unencryptedFile.close();
