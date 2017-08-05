@@ -23,5 +23,6 @@ private:
 /// </summary>
 class ITask
 {
-	virtual void Go(__int8 argCount, ...) = 0;
+	template<class Fn, class... Args>
+	auto Go(Fn c, Args... args) = 0;
 };

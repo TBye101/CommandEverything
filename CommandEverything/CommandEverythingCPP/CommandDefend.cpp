@@ -85,6 +85,7 @@ void CommandDefend::DefendStart()
 		delete this->DefenseThread;
 	}
 
+	
 	this->DefenseThread = new thread(&CommandDefend::Defend, this);
 }
 
