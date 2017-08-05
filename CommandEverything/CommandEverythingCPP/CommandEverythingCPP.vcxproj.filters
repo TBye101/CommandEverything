@@ -152,8 +152,8 @@
     <ClInclude Include="Header Only\dirent.h">
       <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="ThreadPool.h">
-      <Filter>Framework\Util</Filter>
+    <ClInclude Include="Header Only\ThreadPool.h">
+      <Filter>External</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -219,9 +219,6 @@
     </ClCompile>
     <ClCompile Include="CommandEncrypt.cpp">
       <Filter>Framework\WIP Commands\Encrypt</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreadPool.cpp">
-      <Filter>Framework\Util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

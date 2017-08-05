@@ -26,3 +26,5 @@ string Input;
 /// Used to interrupt commands.
 /// </summary>
 bool ControlCPressed = false;
+
+ThreadPool* TPool;

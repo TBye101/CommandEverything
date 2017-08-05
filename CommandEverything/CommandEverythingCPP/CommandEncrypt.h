@@ -28,6 +28,8 @@ private:
 	/// </summary>
 	string* EncryptionKey = new string("");
 
+	ParsedCommand* Cmd;
+
 	/// <summary>
 	/// If true, stop all threads.
 	/// </summary>
@@ -41,5 +43,5 @@ private:
 	/// <returns></returns>
 	vector<char>* EncryptChar(char* Msg, const char* Key);
 
-	void Go(ParsedCommand* Cmd);
+	void Go();
 };

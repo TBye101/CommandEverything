@@ -23,7 +23,8 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 	}
 	else
 	{
-		thread a;
+		this->Cmd = Parsed;
+		thread worker(&CommandEncrypt::Go, this);
 	}
 }
 
@@ -89,7 +90,7 @@ inline vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Ke
 	return Encrypted;
 }
 
-void CommandEncrypt::Go(ParsedCommand* Parsed)
+void CommandEncrypt::Go()
 {
 	if (Files->DoesDirectoryExist(FilePath))
 	{
@@ -100,7 +101,7 @@ void CommandEncrypt::Go(ParsedCommand* Parsed)
 		string flPath = *FilePath;
 		//flPath.append("\\");
 		//Add to the path the file.
-		flPath.append(Parsed->Words->at(1));
+		flPath.append(Cmd->Words->at(1));
 
 		//Get an input stream from that file.
 		ifstream unencryptedFile(flPath);
@@ -120,7 +121,7 @@ void CommandEncrypt::Go(ParsedCommand* Parsed)
 			encryptedChars = new char[line.size() + 1];
 			std::copy(line.begin(), line.end(), encryptedChars);
 			encryptedChars[line.size()] = '\0';
-			encrypted = this->EncryptChar(encryptedChars, Parsed->Words->at(2).c_str());
+			encrypted = this->EncryptChar(encryptedChars, Cmd->Words->at(2).c_str());
 			encryptedFile << string(encrypted->begin(), encrypted->end());
 			delete encrypted;
 		}

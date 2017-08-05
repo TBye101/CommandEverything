@@ -16,6 +16,7 @@
 #include "Util.h"
 #include "ICommand.h"
 #include "Filing.h"
+#include "Header Only\ThreadPool.h"
 //#include "TabCompletion.h"
 
 extern vector<void*>* ToDelete;
@@ -52,3 +53,5 @@ extern string Input;
 /// Used to interrupt commands.
 /// </summary>
 extern bool ControlCPressed;
+
+extern ThreadPool* TPool;

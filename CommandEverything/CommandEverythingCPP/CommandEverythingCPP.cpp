@@ -26,6 +26,8 @@ int main(int argc, char* argv[])
 {
 	SYSTEM_INFO sysinfo;
 	GetSystemInfo(&sysinfo);
+	TPool = new ThreadPool(sysinfo.dwNumberOfProcessors);
+
 	//Makes them think this thing runs faster than it actually will. :D
 	Console->WriteLine(&(to_string(sysinfo.dwNumberOfProcessors) + " CPUs detected"));
 
