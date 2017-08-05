@@ -24,7 +24,8 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 	else
 	{
 		this->Cmd = Parsed;
-		thread worker(&CommandEncrypt::Go, this);
+		//Give the threadpool the encryption command.
+		TPool->enqueue(&CommandEncrypt::Go, this);
 	}
 }
 
