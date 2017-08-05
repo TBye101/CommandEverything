@@ -1,8 +1,5 @@
 # CommandEverything
 A command line to do everything and anything.
-
-## Features:
-
 Written in C++, and optimizied for performance, this command line is as powerful and efficient as possible.
 
 ### Custom Scripts
@@ -13,3 +10,32 @@ Any command that is valid in the console is valid in the file.~~
 
 ### Logging
 Your entire command line history for each instance of the command line is saved to a text file under the "Logs" folder, in the same directory as your executable.
+
+## Commands:
+
+### Cd Command:
+
+### Crash Command:
+
+### Defend Command:
+
+### Delete Command:
+
+### Encrypt Command:
+
+### Execute Command:
+
+### Exit Command:
+
+### Hack Command:
+
+### Help Command:
+
+### Kill Command:
+
+### List Command:
+
+### Start Command:
+
+### Tree Command:
+
