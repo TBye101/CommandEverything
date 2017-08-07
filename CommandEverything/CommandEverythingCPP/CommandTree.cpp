@@ -23,7 +23,7 @@ void CommandTree::Run(ParsedCommand* Parsed)
 		register unsigned long mydrives = 100; // buffer length
 		register wchar_t lpBuffer[100]; // buffer for drive string storage
 		register unsigned long test = GetLogicalDriveStrings(mydrives, lpBuffer);
-		register unsigned __int8 drives = test / 4;
+		register unsigned __int32 drives = test / 4;
 		string drive = "";
 		char strbuffer[64];
 
@@ -52,7 +52,7 @@ string* CommandTree::GetHelp()
 	return new string("Shows a tree structure just like CMDs. Lets you get an idea of the directory structure while using command line.");
 }
 
-void CommandTree::TreeFromDirectory(char* name, __int64 indent)
+void CommandTree::TreeFromDirectory(char* name, unsigned __int32 indent)
 {
 	DIR *dir;
 	struct dirent *entry;

@@ -120,7 +120,7 @@ void CommandEncrypt::Go()
 		while (std::getline(unencryptedFile, line))
 		{
 			//Free up last memory, and delete the encrypted chars.
-			delete encryptedChars;
+			//delete encryptedChars;
 
 			//Resize the array so it can fit all of the soon to be encrypted chars. (The pre encryption characters)
 			//Add 1 more character so we can null terminate it.
@@ -139,7 +139,7 @@ void CommandEncrypt::Go()
 			encryptedFile << string(encrypted->begin(), encrypted->end());
 
 			//Delete the encrypted characters.
-			delete encrypted;
+			//delete encrypted;
 		}
 		unencryptedFile.close();
 		encryptedFile.flush();
