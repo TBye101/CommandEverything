@@ -116,33 +116,41 @@ void CommandEncrypt::Go()
 		register string line;
 		register char* encryptedChars = new char[1];
 		register vector<char>* encrypted;
-
-		while (std::getline(unencryptedFile, line))
+		try
 		{
-			//Free up last memory, and delete the encrypted chars.
-			//delete encryptedChars;
+			while (std::getline(unencryptedFile, line))
+			{
+				//Free up last memory, and delete the encrypted chars.
+				//delete encryptedChars;
 
-			//Resize the array so it can fit all of the soon to be encrypted chars. (The pre encryption characters)
-			//Add 1 more character so we can null terminate it.
-			encryptedChars = new char[line.size() + 1];
+				//Resize the array so it can fit all of the soon to be encrypted chars. (The pre encryption characters)
+				//Add 1 more character so we can null terminate it.
+				encryptedChars = new char[(line.size() + 1)];
 
-			//Copy the unencrypted characters into the char array.
-			std::copy(line.begin(), line.end(), encryptedChars);
+				//Copy the unencrypted characters into the char array.
+				std::copy(line.begin(), line.end(), encryptedChars);
 
-			//Null terminate the thing.
-			encryptedChars[line.size()] = '\0';
+				//Null terminate the thing.
+				encryptedChars[(line.size() -1)] = '\0';
 
-			//Encrypt the characters.
-			encrypted = this->EncryptChar(encryptedChars, Cmd->Words->at(2).c_str());
 
-			//Spew those characters to file.
-			encryptedFile << string(encrypted->begin(), encrypted->end());
+				//Encrypt the characters.
+				encrypted = this->EncryptChar(encryptedChars, Cmd->Words->at(2).c_str());
 
-			//Delete the encrypted characters.
-			//delete encrypted;
+				//Spew those characters to file.
+				encryptedFile << string(encrypted->begin(), encrypted->end());
+				encryptedFile.flush();
+
+				//Delete the encrypted characters.
+				//delete encrypted;
+			}
+			unencryptedFile.close();
+			encryptedFile.flush();
+			encryptedFile.close();
 		}
-		unencryptedFile.close();
-		encryptedFile.flush();
-		encryptedFile.close();
+		catch (int e)
+		{
+			Console->WriteLine(&(to_string(e)));
+		}
 	}
 }
