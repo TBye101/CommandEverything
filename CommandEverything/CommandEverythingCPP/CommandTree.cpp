@@ -17,6 +17,10 @@ bool CommandTree::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandTree::Run(ParsedCommand* Parsed)
 {	
+	clock_t start;
+	double duration;
+	start = clock();
+
 	//If no working directory, do all drives!
 	if (*FilePath == "")
 	{
@@ -40,6 +44,9 @@ void CommandTree::Run(ParsedCommand* Parsed)
 	{
 		TreeFromDirectory(Utility->ToCharStar(FilePath), 0);
 	}
+
+	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
+	Console->WriteLine(&("Command took: " + to_string(duration)));
 }
 
 string* CommandTree::GetName()
