@@ -34,7 +34,7 @@ public:
 	/// <param name="Str"></param>
 	void LogLine(string* Str);
 
-	const char* GetTime();
+	string* GetTime();
 
 	// notice that IIRC on modern Windows machines if you aren't admin
 	// you can't write in the root directory of the system drive;

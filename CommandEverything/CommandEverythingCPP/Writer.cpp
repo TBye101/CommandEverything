@@ -15,8 +15,7 @@ Writer::Writer()
 	path = converter.to_bytes(*file->LogDirectoryPath);
 
 	path.append("\\");
-	string* now = new string(this->GetTime());
-	path.append(*now);
+	path.append(*this->GetTime());
 	path.pop_back();
 	path.pop_back();
 	path.append(".txt");
@@ -34,7 +33,6 @@ Writer::Writer()
 	}
 
 	ToDelete->push_back(file);
-	ToDelete->push_back(now);
 }
 
 Writer::~Writer()
@@ -67,15 +65,15 @@ void Writer::WriteLine(const char* Str)
 
 void Writer::LogLine(string *Str)
 {
-	this->Log << this->GetTime();
+	this->Log << *this->GetTime();
 	this->Log << *Str;
 	this->Log << "\r\n";
 	this->Log.flush();
 }
 
-const char* Writer::GetTime()
+string* Writer::GetTime()
 {
-	string Formatted = "[";
+	string* Formatted = new string("[");
 	time_t rawtime;
 	tm* timeinfo;
 	char buffer[80];
@@ -83,9 +81,7 @@ const char* Writer::GetTime()
 	timeinfo = std::localtime(&rawtime);
 
 	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", timeinfo);
-	Formatted.append(buffer);
-	Formatted.append("]: ");
-	delete timeinfo;
-	const char* Ret = Formatted.c_str();
-	return Ret;
+	Formatted->append(buffer);
+	Formatted->append("]: ");
+	return Formatted;
 }
