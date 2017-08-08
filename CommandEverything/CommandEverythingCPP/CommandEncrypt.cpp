@@ -71,7 +71,15 @@ string CommandEncrypt::EncryptChar(string* character, const char* Key)
 			Encrypted.push_back(finishedKey.at(i) * character->at(i));
 			break;
 		case 3:
-			Encrypted.push_back(finishedKey.at(i) / character->at(i));
+
+			if (character->at(i) != 0)
+			{
+				Encrypted.push_back(finishedKey.at(i) / character->at(i));
+			}
+			else
+			{
+				Encrypted.push_back(0);
+			}
 			break;
 		default:
 			Console->WriteLine("Houston, we have a problem");
@@ -92,6 +100,10 @@ string CommandEncrypt::EncryptChar(string* character, const char* Key)
 
 void CommandEncrypt::Go()
 {
+	clock_t start;
+	double duration;
+	start = clock();
+
 	if (Files->DoesDirectoryExist(FilePath))
 	{
 		//Our output stream
@@ -122,9 +134,6 @@ void CommandEncrypt::Go()
 			//Spew those characters to file.
 			encryptedFile << encrypted;
 			encryptedFile.flush();
-
-			//delete encryptedChars;
-			//delete encrypted;
 		}
 		unencryptedFile.close();
 		encryptedFile.flush();
@@ -134,4 +143,7 @@ void CommandEncrypt::Go()
 
 		Console->WriteLine("Encryption done!");
 	}
+
+	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
+	Console->WriteLine(&("Command took: " + to_string(duration)));
 }
