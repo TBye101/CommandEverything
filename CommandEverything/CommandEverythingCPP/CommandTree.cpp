@@ -61,9 +61,9 @@ string* CommandTree::GetHelp()
 
 void CommandTree::TreeFromDirectory(char* name, unsigned __int32 indent)
 {
-	DIR *dir;
-	struct dirent *entry;
-	string* ToLog = new string();
+	register DIR *dir;
+	register struct dirent *entry;
+	register string* ToLog = new string();
 
 	if (!(dir = opendir(name)))
 	{
