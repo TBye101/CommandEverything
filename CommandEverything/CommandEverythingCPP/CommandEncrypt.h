@@ -25,7 +25,7 @@ private:
 	/// <summary>
 	/// The key we encrypt off of.
 	/// </summary>
-	string* EncryptionKey = new string("");
+	string* EncryptionKey;
 
 	vector<string> Cmd;
 

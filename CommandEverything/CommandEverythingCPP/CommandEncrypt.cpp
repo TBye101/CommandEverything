@@ -41,6 +41,8 @@ string* CommandEncrypt::GetHelp()
 
 string CommandEncrypt::EncryptChar(string* character, const char* Key)
 {
+	//this->EncryptionKey = "";
+
 	//Determines which operation to do.
 	//0 = add, 1 = subtract, 2 = multiply, 3 = divide
 	register unsigned __int8 operation = 0;
@@ -106,6 +108,8 @@ void CommandEncrypt::Go()
 
 	if (Files->DoesDirectoryExist(FilePath))
 	{
+			this->EncryptionKey = new string();
+
 		//Our output stream
 		ofstream encryptedFile;
 
@@ -126,6 +130,7 @@ void CommandEncrypt::Go()
 
 		register string line;
 		register string encrypted;
+
 		while (std::getline(unencryptedFile, line))
 		{
 			//Encrypt the characters.
@@ -133,14 +138,13 @@ void CommandEncrypt::Go()
 
 			//Spew those characters to file.
 			encryptedFile << encrypted;
-			encryptedFile.flush();
 		}
+
 		unencryptedFile.close();
 		encryptedFile.flush();
 		encryptedFile.close();
 
 		delete this->EncryptionKey;
-
 		Console->WriteLine("Encryption done!");
 	}
 
