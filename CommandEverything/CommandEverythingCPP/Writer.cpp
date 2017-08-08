@@ -75,7 +75,7 @@ void Writer::LogLine(string *Str)
 
 const char* Writer::GetTime()
 {
-	string* Formatted = new string("[");
+	string Formatted = "[";
 	time_t rawtime;
 	tm* timeinfo;
 	char buffer[80];
@@ -83,12 +83,9 @@ const char* Writer::GetTime()
 	timeinfo = std::localtime(&rawtime);
 
 	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", timeinfo);
-	Formatted->append(buffer);
-	Formatted->append("]: ");
-
-	ToDelete->push_back(Formatted);
-	ToDelete->push_back(timeinfo);
-
-	const char* Ret = Formatted->c_str();
+	Formatted.append(buffer);
+	Formatted.append("]: ");
+	delete timeinfo;
+	const char* Ret = Formatted.c_str();
 	return Ret;
 }

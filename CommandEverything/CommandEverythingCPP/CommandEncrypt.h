@@ -2,7 +2,6 @@
 
 #include "ICommand.h"
 
-#include <thread>
 //Solve CUDA: https://msdn.microsoft.com/en-us/library/7f0aews7.aspx
 
 /// <summary>
@@ -28,7 +27,7 @@ private:
 	/// </summary>
 	string* EncryptionKey = new string("");
 
-	ParsedCommand* Cmd;
+	vector<string> Cmd;
 
 	/// <summary>
 	/// If true, stop all threads.
@@ -41,7 +40,7 @@ private:
 	/// <param name="Msg"></param>
 	/// <param name="Key"></param>
 	/// <returns></returns>
-	vector<char>* EncryptChar(char* Msg, const char* Key);
+	vector<char>* EncryptChar(string* Msg, const char* Key);
 
 	void Go();
 };

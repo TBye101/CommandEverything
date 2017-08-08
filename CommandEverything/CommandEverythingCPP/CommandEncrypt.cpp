@@ -23,8 +23,8 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 	}
 	else
 	{
-		this->Cmd = Parsed;
-		//Give the threadpool the encryption command.
+		this->Cmd = *Parsed->Words;
+		//Give the thread pool the encryption command.
 		TPool->enqueue(&CommandEncrypt::Go, this);
 	}
 }
@@ -39,7 +39,7 @@ string* CommandEncrypt::GetHelp()
 	return new string("Encrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" encrypt (your file name here) (YourKeyHere) \" and it will encrypt the file and put it in the same directory. Don't use spaces....");
 }
 
-vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Key)
+vector<char>* CommandEncrypt::EncryptChar(string* character, const char* Key)
 {
 	//Determines which operation to do.
 	//0 = add, 1 = subtract, 2 = multiply, 3 = divide
@@ -47,7 +47,7 @@ vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Key)
 	register unsigned __int64 i = 0;
 
 	//Length of character
-	register unsigned __int64 length = strlen(character);
+	register unsigned __int64 length = character->size();
 
 	//Make the message and the key the same size.
 	while (this->EncryptionKey->size() < length)
@@ -55,7 +55,7 @@ vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Key)
 		this->EncryptionKey->append(Key);
 	}
 
-	register const char* finishedKey = this->EncryptionKey->c_str();
+	register string finishedKey = *this->EncryptionKey;
 	register vector<char>* Encrypted = new vector<char>();
 
 	while (i != length)
@@ -63,16 +63,16 @@ vector<char>* CommandEncrypt::EncryptChar(char* character, const char* Key)
 		switch (operation)
 		{
 		case 0:
-			Encrypted->push_back(finishedKey[i] + character[i]);
+			Encrypted->push_back(finishedKey.at(i) + character->at(i));
 			break;
 		case 1:
-			Encrypted->push_back(finishedKey[i] - character[i]);
+			Encrypted->push_back(finishedKey.at(i) - character->at(i));
 			break;
 		case 2:
-			Encrypted->push_back(finishedKey[i] * character[i]);
+			Encrypted->push_back(finishedKey.at(i) * character->at(i));
 			break;
 		case 3:
-			Encrypted->push_back(finishedKey[i] / character[i]);
+			Encrypted->push_back(finishedKey.at(i) / character->at(i));
 			break;
 		default:
 			Console->WriteLine("Houston, we have a problem");
@@ -102,7 +102,7 @@ void CommandEncrypt::Go()
 		string flPath = *FilePath;
 		//flPath.append("\\");
 		//Add to the path the file.
-		flPath.append(Cmd->Words->at(1));
+		flPath.append(Cmd.at(1));
 
 		//Get an input stream from that file.
 		ifstream unencryptedFile(flPath);
@@ -114,43 +114,23 @@ void CommandEncrypt::Go()
 		encryptedFile.open(flPath);
 
 		register string line;
-		register char* encryptedChars = new char[1];
 		register vector<char>* encrypted;
-		try
+		while (std::getline(unencryptedFile, line))
 		{
-			while (std::getline(unencryptedFile, line))
-			{
-				//Free up last memory, and delete the encrypted chars.
-				//delete encryptedChars;
+			//Encrypt the characters.
+			encrypted = this->EncryptChar(&line, Cmd.at(2).c_str());
 
-				//Resize the array so it can fit all of the soon to be encrypted chars. (The pre encryption characters)
-				//Add 1 more character so we can null terminate it.
-				encryptedChars = new char[(line.size() + 1)];
-
-				//Copy the unencrypted characters into the char array.
-				std::copy(line.begin(), line.end(), encryptedChars);
-
-				//Null terminate the thing.
-				encryptedChars[(line.size() -1)] = '\0';
-
-
-				//Encrypt the characters.
-				encrypted = this->EncryptChar(encryptedChars, Cmd->Words->at(2).c_str());
-
-				//Spew those characters to file.
-				encryptedFile << string(encrypted->begin(), encrypted->end());
-				encryptedFile.flush();
-
-				//Delete the encrypted characters.
-				//delete encrypted;
-			}
-			unencryptedFile.close();
+			//Spew those characters to file.
+			encryptedFile << string(encrypted->begin(), encrypted->end());
 			encryptedFile.flush();
-			encryptedFile.close();
+
+			//delete encryptedChars;
+			//delete encrypted;
 		}
-		catch (int e)
-		{
-			Console->WriteLine(&(to_string(e)));
-		}
+		unencryptedFile.close();
+		encryptedFile.flush();
+		encryptedFile.close();
+
+		Console->WriteLine("Encryption done!");
 	}
 }
