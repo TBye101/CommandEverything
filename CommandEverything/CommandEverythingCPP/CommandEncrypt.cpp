@@ -39,7 +39,7 @@ string* CommandEncrypt::GetHelp()
 	return new string("Encrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" encrypt (your file name here) (YourKeyHere) \" and it will encrypt the file and put it in the same directory. Don't use spaces....");
 }
 
-vector<char>* CommandEncrypt::EncryptChar(string* character, const char* Key)
+string CommandEncrypt::EncryptChar(string* character, const char* Key)
 {
 	//Determines which operation to do.
 	//0 = add, 1 = subtract, 2 = multiply, 3 = divide
@@ -56,23 +56,22 @@ vector<char>* CommandEncrypt::EncryptChar(string* character, const char* Key)
 	}
 
 	register string finishedKey = *this->EncryptionKey;
-	register vector<char>* Encrypted = new vector<char>();
-
+	register string Encrypted = "";
 	while (i != length)
 	{
 		switch (operation)
 		{
 		case 0:
-			Encrypted->push_back(finishedKey.at(i) + character->at(i));
+			Encrypted.push_back(finishedKey.at(i) + character->at(i));
 			break;
 		case 1:
-			Encrypted->push_back(finishedKey.at(i) - character->at(i));
+			Encrypted.push_back(finishedKey.at(i) - character->at(i));
 			break;
 		case 2:
-			Encrypted->push_back(finishedKey.at(i) * character->at(i));
+			Encrypted.push_back(finishedKey.at(i) * character->at(i));
 			break;
 		case 3:
-			Encrypted->push_back(finishedKey.at(i) / character->at(i));
+			Encrypted.push_back(finishedKey.at(i) / character->at(i));
 			break;
 		default:
 			Console->WriteLine("Houston, we have a problem");
@@ -114,14 +113,14 @@ void CommandEncrypt::Go()
 		encryptedFile.open(flPath);
 
 		register string line;
-		register vector<char>* encrypted;
+		register string encrypted;
 		while (std::getline(unencryptedFile, line))
 		{
 			//Encrypt the characters.
 			encrypted = this->EncryptChar(&line, Cmd.at(2).c_str());
 
 			//Spew those characters to file.
-			encryptedFile << string(encrypted->begin(), encrypted->end());
+			encryptedFile << encrypted;
 			encryptedFile.flush();
 
 			//delete encryptedChars;
@@ -130,6 +129,8 @@ void CommandEncrypt::Go()
 		unencryptedFile.close();
 		encryptedFile.flush();
 		encryptedFile.close();
+
+		delete this->EncryptionKey;
 
 		Console->WriteLine("Encryption done!");
 	}

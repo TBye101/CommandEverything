@@ -3,6 +3,7 @@
 
 Filing::Filing()
 {
+	this->Startup();
 }
 
 Filing::~Filing()

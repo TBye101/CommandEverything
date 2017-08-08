@@ -40,7 +40,7 @@ private:
 	/// <param name="Msg"></param>
 	/// <param name="Key"></param>
 	/// <returns></returns>
-	vector<char>* EncryptChar(string* Msg, const char* Key);
+	string EncryptChar(string* Msg, const char* Key);
 
 	void Go();
 };
