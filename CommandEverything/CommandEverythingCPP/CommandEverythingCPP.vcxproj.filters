@@ -155,6 +155,9 @@
     <ClInclude Include="Header Only\ThreadPool.h">
       <Filter>External</Filter>
     </ClInclude>
+    <ClInclude Include="CommandDecrypt.h">
+      <Filter>Framework\WIP Commands\Decrypt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -219,6 +222,9 @@
     </ClCompile>
     <ClCompile Include="CommandEncrypt.cpp">
       <Filter>Framework\WIP Commands\Encrypt</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandDecrypt.cpp">
+      <Filter>Framework\WIP Commands\Decrypt</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

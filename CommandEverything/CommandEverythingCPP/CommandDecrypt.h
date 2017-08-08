@@ -1,17 +1,9 @@
 #pragma once
-
-#include "ICommand.h"
-
-//Solve CUDA: https://msdn.microsoft.com/en-us/library/7f0aews7.aspx
-
-/// <summary>
-/// Encrypts a file.
-/// </summary>
-class CommandEncrypt : public ICommand
+class CommandDecrypt : public ICommand
 {
 public:
-	CommandEncrypt();
-	~CommandEncrypt();
+	CommandDecrypt();
+	~CommandDecrypt();
 
 	bool ShouldRunThisCommand(ParsedCommand* Parsed);
 
@@ -20,12 +12,11 @@ public:
 	string* GetName();
 
 	string* GetHelp();
-
 private:
 	/// <summary>
 	/// The key we encrypt off of.
 	/// </summary>
-	string* DecryptionKey;
+	string* EncryptionKey;
 
 	vector<string> Cmd;
 
@@ -35,7 +26,8 @@ private:
 	/// <param name="Msg"></param>
 	/// <param name="Key"></param>
 	/// <returns></returns>
-	string EncryptChar(string* Msg, const char* Key);
+	string DecryptChar(string* Msg, const char* Key);
 
 	void Go();
 };
+

@@ -1,21 +1,22 @@
 #include "stdafx.h"
-#include "CommandEncrypt.h"
+#include "CommandDecrypt.h"
 
-CommandEncrypt::CommandEncrypt()
+
+CommandDecrypt::CommandDecrypt()
 {
 }
 
 
-CommandEncrypt::~CommandEncrypt()
+CommandDecrypt::~CommandDecrypt()
 {
 }
 
-bool CommandEncrypt::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandDecrypt::ShouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "encrypt");
+	return (Parsed->Words->at(0) == "decrypt");
 }
 
-void CommandEncrypt::Run(ParsedCommand* Parsed)
+void CommandDecrypt::Run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 3)
 	{
@@ -25,21 +26,22 @@ void CommandEncrypt::Run(ParsedCommand* Parsed)
 	{
 		this->Cmd = *Parsed->Words;
 		//Give the thread pool the encryption command.
-		TPool->enqueue(&CommandEncrypt::Go, this);
+		TPool->enqueue(&CommandDecrypt::Go, this);
 	}
 }
 
-string* CommandEncrypt::GetName()
+string* CommandDecrypt::GetName()
 {
-	return new string("Encrypt");
+	return new string("Decrypt");
 }
 
-string* CommandEncrypt::GetHelp()
+string* CommandDecrypt::GetHelp()
 {
-	return new string("Encrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" encrypt (your file name here) (YourKeyHere) \" and it will encrypt the file and put it in the same directory. Don't use spaces....");
+	return new string("Decrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" decrypt (your file name here) (YourKeyHere) \" and it will decrypt the file and put it in the same directory. Don't use spaces....");
+
 }
 
-string CommandEncrypt::EncryptChar(string* character, const char* Key)
+string CommandDecrypt::DecryptChar(string* character, const char* Key)
 {
 	//this->EncryptionKey = "";
 
@@ -52,36 +54,35 @@ string CommandEncrypt::EncryptChar(string* character, const char* Key)
 	register unsigned __int64 length = character->size();
 
 	//Make the message and the key the same size.
-	while (this->DecryptionKey->size() < length)
+	while (this->EncryptionKey->size() < length)
 	{
-		this->DecryptionKey->append(Key);
+		this->EncryptionKey->append(Key);
 	}
 
-	register string finishedKey = *this->DecryptionKey;
+	register string finishedKey = *this->EncryptionKey;
 	register string Encrypted = "";
 	while (i != length)
 	{
 		switch (operation)
 		{
 		case 0:
-			Encrypted.push_back(finishedKey.at(i) + character->at(i));
-			break;
-		case 1:
 			Encrypted.push_back(finishedKey.at(i) - character->at(i));
 			break;
-		case 2:
-			Encrypted.push_back(finishedKey.at(i) * character->at(i));
+		case 1:
+			Encrypted.push_back(finishedKey.at(i) + character->at(i));
 			break;
-		case 3:
-
-			if (character->at(i) != 0)
-			{
-				Encrypted.push_back(finishedKey.at(i) / character->at(i));
-			}
-			else
+		case 2:
+			if (character->at(i) == 0)
 			{
 				Encrypted.push_back(0);
 			}
+			else
+			{
+				Encrypted.push_back(finishedKey.at(i) / character->at(i));
+			}
+			break;
+		case 3:
+				Encrypted.push_back(finishedKey.at(i) * character->at(i));
 			break;
 		default:
 			Console->WriteLine("Houston, we have a problem");
@@ -100,7 +101,7 @@ string CommandEncrypt::EncryptChar(string* character, const char* Key)
 	return Encrypted;
 }
 
-void CommandEncrypt::Go()
+void CommandDecrypt::Go()
 {
 	clock_t start;
 	double duration;
@@ -108,7 +109,7 @@ void CommandEncrypt::Go()
 
 	if (Files->DoesDirectoryExist(FilePath))
 	{
-		this->DecryptionKey = new string();
+		this->EncryptionKey = new string();
 
 		//Our output stream
 		ofstream encryptedFile;
@@ -145,18 +146,18 @@ void CommandEncrypt::Go()
 					break;
 				}
 			}
-				//Encrypt the characters.
-				encrypted = this->EncryptChar(&line, Cmd.at(2).c_str());
+			//decrypts the characters.
+			encrypted = this->DecryptChar(&line, Cmd.at(2).c_str());
 
-				//Spew those characters to file.
-				encryptedFile << encrypted;
+			//Spew those characters to file.
+			encryptedFile << encrypted;
 		}
 
 		unencryptedFile.close();
 		encryptedFile.flush();
 		encryptedFile.close();
 
-		delete this->DecryptionKey;
+		delete this->EncryptionKey;
 		Console->WriteLine("Encryption done!");
 	}
 

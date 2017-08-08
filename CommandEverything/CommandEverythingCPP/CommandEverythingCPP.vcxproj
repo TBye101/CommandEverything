@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="CommandCd.h" />
     <ClInclude Include="CommandCrash.h" />
+    <ClInclude Include="CommandDecrypt.h" />
     <ClInclude Include="CommandDefend.h" />
     <ClInclude Include="CommandDelete.h" />
     <ClInclude Include="CommandEncrypt.h" />
@@ -186,6 +187,7 @@
   <ItemGroup>
     <ClCompile Include="CommandCd.cpp" />
     <ClCompile Include="CommandCrash.cpp" />
+    <ClCompile Include="CommandDecrypt.cpp" />
     <ClCompile Include="CommandDefend.cpp" />
     <ClCompile Include="CommandDelete.cpp" />
     <ClCompile Include="CommandEncrypt.cpp" />

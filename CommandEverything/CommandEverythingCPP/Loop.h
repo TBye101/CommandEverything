@@ -20,6 +20,7 @@
 #include "CommandKill.h"
 #include "CommandTree.h"
 #include "CommandEncrypt.h"
+#include "CommandDecrypt.h"
 
 using namespace std;
 
