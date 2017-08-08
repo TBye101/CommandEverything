@@ -74,9 +74,9 @@ string CommandEncrypt::EncryptChar(string* character, const char* Key)
 			break;
 		case 3:
 
-			if (character->at(i) != 0)
+			if (finishedKey.at(i) != 0)
 			{
-				Encrypted.push_back(finishedKey.at(i) / character->at(i));
+				Encrypted.push_back(character->at(i) / finishedKey.at(i));
 			}
 			else
 			{

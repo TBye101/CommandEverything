@@ -78,7 +78,7 @@ string CommandDecrypt::DecryptChar(string* character, const char* Key)
 			}
 			else
 			{
-				Encrypted.push_back(finishedKey.at(i) / character->at(i));
+				Encrypted.push_back(character->at(i) / finishedKey.at(i));
 			}
 			break;
 		case 3:
@@ -124,7 +124,7 @@ void CommandDecrypt::Go()
 		ifstream unencryptedFile(flPath);
 
 		//Add a new extension to signify that it is encrypted
-		flPath.append(".crypt");
+		flPath.append(".decr");
 
 		//Create a new file.
 		encryptedFile.open(flPath);
@@ -158,7 +158,7 @@ void CommandDecrypt::Go()
 		encryptedFile.close();
 
 		delete this->EncryptionKey;
-		Console->WriteLine("Encryption done!");
+		Console->WriteLine("Decryption done!");
 	}
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
