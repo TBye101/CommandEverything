@@ -1,0 +1,14 @@
+Possible usable libs:
+
+librdkafka is a C library implementation of the Apache Kafka protocol,
+containing both Producer and Consumer support. 
+It was designed with message delivery reliability and high performance in mind, 
+current figures exceed 1 million msgs/second for the producer and 3 million msgs/second for the consumer.
+https://github.com/edenhill/librdkafka
+
+The ZeroMQ lightweight messaging kernel is a library which extends the standard socket interfaces with features traditionally provided by specialised messaging middleware products.
+ZeroMQ sockets provide an abstraction of asynchronous message queues, multiple messaging patterns, message filtering (subscriptions), seamless access to multiple transport protocols and more.
+https://github.com/zeromq/libzmq
+
+Single file header only libs. A whole list of them.
+https://github.com/nothings/stb

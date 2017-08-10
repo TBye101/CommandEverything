@@ -84,6 +84,9 @@
     <Filter Include="Framework\WIP Commands\Specs">
       <UniqueIdentifier>{0d011e3f-604a-4373-8890-7f95bd7d702b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="External\Cryptography">
+      <UniqueIdentifier>{23fe9cbc-91ee-412a-8534-0f15bc905944}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -158,6 +161,9 @@
     <ClInclude Include="CommandDecrypt.h">
       <Filter>Framework\WIP Commands\Decrypt</Filter>
     </ClInclude>
+    <ClInclude Include="tweetnacl.h">
+      <Filter>External\Cryptography</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -226,5 +232,11 @@
     <ClCompile Include="CommandDecrypt.cpp">
       <Filter>Framework\WIP Commands\Decrypt</Filter>
     </ClCompile>
+    <ClCompile Include="tweetnacl.c">
+      <Filter>External\Cryptography</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
