@@ -12,3 +12,11 @@ https://github.com/zeromq/libzmq
 
 Single file header only libs. A whole list of them.
 https://github.com/nothings/stb
+https://github.com/nothings/single_file_libs#crypto
+
+TODO:
+
+1. Parse command line arguments, and do stuff with them.
+2. Facial recognition
+3. Image resizing
+4. Chat

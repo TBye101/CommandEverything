@@ -84,8 +84,14 @@
     <Filter Include="Framework\WIP Commands\Specs">
       <UniqueIdentifier>{0d011e3f-604a-4373-8890-7f95bd7d702b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Cryptography">
-      <UniqueIdentifier>{23fe9cbc-91ee-412a-8534-0f15bc905944}</UniqueIdentifier>
+    <Filter Include="Framework\WIP Commands\Resize Image">
+      <UniqueIdentifier>{3fd5f02c-368d-4d08-9612-50d532ed1c4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Chat">
+      <UniqueIdentifier>{9aeff9bd-ccf8-4276-a17e-36ec183095a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PerformanceCLib">
+      <UniqueIdentifier>{82b53832-7f61-4aee-8c44-ba0767614434}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -161,8 +167,11 @@
     <ClInclude Include="CommandDecrypt.h">
       <Filter>Framework\WIP Commands\Decrypt</Filter>
     </ClInclude>
-    <ClInclude Include="tweetnacl.h">
-      <Filter>External\Cryptography</Filter>
+    <ClInclude Include="..\..\..\PerformanceC--2\PerformanceC\string.h">
+      <Filter>PerformanceCLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\PerformanceC--2\PerformanceC\types.h">
+      <Filter>PerformanceCLib</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -231,9 +240,6 @@
     </ClCompile>
     <ClCompile Include="CommandDecrypt.cpp">
       <Filter>Framework\WIP Commands\Decrypt</Filter>
-    </ClCompile>
-    <ClCompile Include="tweetnacl.c">
-      <Filter>External\Cryptography</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
