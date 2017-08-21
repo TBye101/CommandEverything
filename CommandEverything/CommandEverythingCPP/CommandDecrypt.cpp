@@ -123,8 +123,10 @@ void CommandDecrypt::Go()
 		//Add to the path the file.
 		flPath.append(Cmd.at(1));
 
-		//Get an input stream from that file.
-		ifstream unencryptedFile(flPath);
+		register vector<short> line;
+		register vector<__int16>* decrypted = new vector<__int16>();
+
+		line = Utility->read_shorts(flPath);
 
 		//Add a new extension to signify that it is encrypted
 		flPath.append(".decrypt");
@@ -132,38 +134,24 @@ void CommandDecrypt::Go()
 		//Create a new file.
 		encryptedFile.open(flPath);
 
-		register vector<__int16>* line = new vector<__int16>();
-		register vector<__int16>* decrypted = new vector<__int16>();
-		__int16 holder;
-		while (unencryptedFile.read(reinterpret_cast<char *>(&holder), sizeof(holder)))
+		//Decrypt the characters.
+		this->DecryptChar(&line, Cmd.at(2).c_str(), decrypted);
+
+		string temp = "";
+		register unsigned __int64 length = decrypted->size();
+		for (register unsigned __int16 i = 0; i < length; i++)
 		{
-			line->push_back(holder);
-			if (!unencryptedFile)
-			{
-				if (!std::cin.eof())
-				{
-					Console->WriteLine("Unknown error has occurred in file reading!");
-					break;
-				}
-			}
-			//Encrypt the characters.
-			this->DecryptChar(line, Cmd.at(2).c_str(), decrypted);
-
-			register unsigned __int64 length = decrypted->size();
-			for (register unsigned __int16 i = 0; i < length; i++)
-			{
-				encryptedFile << decrypted->at(i);
-			}
-			decrypted->clear();
+			temp.push_back((char)decrypted->at(i));
 		}
+		encryptedFile << temp;
+		decrypted->clear();
 
-		unencryptedFile.close();
 		encryptedFile.flush();
 		encryptedFile.close();
 
 		delete this->EncryptionKey;
 		delete decrypted;
-		Console->WriteLine("Encryption done!");
+		Console->WriteLine("Decryption done!");
 	}
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;

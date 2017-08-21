@@ -131,7 +131,7 @@ void CommandEncrypt::Go()
 		encryptedFile.open(flPath);
 
 		register string line;
-		register vector<__int16>* encrypted = new vector<__int16>();
+		register vector<short>* encrypted = new vector<short>();
 
 		while (unencryptedFile >> line)
 		{
@@ -146,11 +146,7 @@ void CommandEncrypt::Go()
 				//Encrypt the characters.
 				this->EncryptChar(&line, Cmd.at(2).c_str(), encrypted);
 
-				register unsigned __int64 length = encrypted->size();
-				for (register unsigned __int16 i = 0; i < length; i++)
-				{
-					encryptedFile.write(reinterpret_cast<const char *>(&encrypted[i]), sizeof(encrypted[i]));
-				}
+				Utility->write_shorts(flPath, *encrypted);
 				encrypted->clear();
 		}
 

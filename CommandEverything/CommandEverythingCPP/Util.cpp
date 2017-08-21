@@ -57,3 +57,29 @@ char* Util::ToCharStar(string* toConvert)
 	strcpy(cstr, str.c_str());
 	return cstr;
 }
+
+void Util::write_shorts(string filename, vector<short> shorts)
+{
+	ofstream f;
+
+	f.open(filename, ofstream::trunc | ofstream::binary);
+
+	for (auto s : shorts)
+	{
+		f.write(reinterpret_cast<char*>(&s), sizeof(s));
+	}
+}
+
+vector<short> Util::read_shorts(string filename)
+{
+	ifstream f(filename);
+	vector<short> res;
+	short x;
+
+	while (f.read(reinterpret_cast<char*>(&x), sizeof(x)))
+	{
+		res.push_back(x);
+	}
+
+	return res;
+}

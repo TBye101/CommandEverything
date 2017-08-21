@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <conio.h>
 #include <Psapi.h>
+#include <vector>
 
 using namespace std;
 
@@ -40,4 +41,18 @@ public:
 	/// <param name="toConvert"></param>
 	/// <returns></returns>
 	char* ToCharStar(string* toConvert);
+
+	/// <summary>
+	/// Writes shorts to binary file.
+	/// </summary>
+	/// <param name="filename"></param>
+	/// <param name="shorts"></param>
+	void write_shorts(string filename, vector<short> shorts);
+
+	/// <summary>
+	/// Reads shorts from binary file.
+	/// </summary>
+	/// <param name="filename"></param>
+	/// <returns></returns>
+	vector<short> read_shorts(string filename);
 };
