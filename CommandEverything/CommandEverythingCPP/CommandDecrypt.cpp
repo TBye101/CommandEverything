@@ -66,12 +66,12 @@ void CommandDecrypt::DecryptChar(vector<__int16>* character, const char* Key, ve
 		switch (operation)
 		{
 		case 0:
-			holder = finishedKey.at(i);
-			holder -= character->at(i);
+			holder = character->at(i);
+			holder -= finishedKey.at(i);
 			break;
 		case 1:
 			holder = finishedKey.at(i);
-			holder += character->at(i);
+			holder -= character->at(i);
 			break;
 		case 2:
 
@@ -85,10 +85,6 @@ void CommandDecrypt::DecryptChar(vector<__int16>* character, const char* Key, ve
 				holder = 0;
 			}
 			break;
-		case 3:
-			holder = finishedKey.at(i);
-			holder *= character->at(i);
-			break;
 		default:
 			Console->WriteLine("Houston, we have a problem");
 			break;
@@ -97,7 +93,7 @@ void CommandDecrypt::DecryptChar(vector<__int16>* character, const char* Key, ve
 
 		++i;
 		++operation;
-		if (operation == 4)
+		if (operation == 3)
 		{
 			operation = 0;
 		}

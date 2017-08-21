@@ -55,4 +55,7 @@ public:
 	/// <param name="filename"></param>
 	/// <returns></returns>
 	vector<short> read_shorts(string filename);
+
+private:
+	ifstream* crypt;
 };

@@ -75,18 +75,6 @@ void CommandEncrypt::EncryptChar(string* character, const char* Key, vector<__in
 			holder = finishedKey.at(i);
 			holder *= character->at(i);
 			break;
-		case 3:
-
-			if (finishedKey.at(i) != 0)
-			{
-				holder = character->at(i);
-				holder /= finishedKey.at(i);
-			}
-			else
-			{
-				holder = 0;
-			}
-			break;
 		default:
 			Console->WriteLine("Houston, we have a problem");
 			break;
@@ -95,7 +83,7 @@ void CommandEncrypt::EncryptChar(string* character, const char* Key, vector<__in
 
 		++i;
 		++operation;
-		if (operation == 4)
+		if (operation == 3)
 		{
 			operation = 0;
 		}
@@ -143,6 +131,7 @@ void CommandEncrypt::Go()
 					break;
 				}
 			}
+			//line += "\r\n";
 				//Encrypt the characters.
 				this->EncryptChar(&line, Cmd.at(2).c_str(), encrypted);
 
