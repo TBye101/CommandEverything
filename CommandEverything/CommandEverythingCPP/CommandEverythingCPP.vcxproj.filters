@@ -90,9 +90,6 @@
     <Filter Include="Framework\WIP Commands\Chat">
       <UniqueIdentifier>{9aeff9bd-ccf8-4276-a17e-36ec183095a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PerformanceCLib">
-      <UniqueIdentifier>{82b53832-7f61-4aee-8c44-ba0767614434}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -166,12 +163,6 @@
     </ClInclude>
     <ClInclude Include="CommandDecrypt.h">
       <Filter>Framework\WIP Commands\Decrypt</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\PerformanceC--2\PerformanceC\string.h">
-      <Filter>PerformanceCLib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\PerformanceC--2\PerformanceC\types.h">
-      <Filter>PerformanceCLib</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -41,7 +41,7 @@ string* CommandDecrypt::GetHelp()
 
 }
 
-string CommandDecrypt::DecryptChar(string* character, const char* Key)
+void CommandDecrypt::DecryptChar(vector<__int16>* character, const char* Key, vector<__int16>* storage)
 {
 	//this->EncryptionKey = "";
 
@@ -58,36 +58,42 @@ string CommandDecrypt::DecryptChar(string* character, const char* Key)
 	{
 		this->EncryptionKey->append(Key);
 	}
-
+	register __int16 holder = 0;
 	register string finishedKey = *this->EncryptionKey;
-	register string Encrypted = "";
+
 	while (i != length)
 	{
 		switch (operation)
 		{
 		case 0:
-			Encrypted.push_back(finishedKey.at(i) - character->at(i));
+			holder = finishedKey.at(i);
+			holder -= character->at(i);
 			break;
 		case 1:
-			Encrypted.push_back(finishedKey.at(i) + character->at(i));
+			holder = finishedKey.at(i);
+			holder += character->at(i);
 			break;
 		case 2:
-			if (character->at(i) == 0)
+
+			if (finishedKey.at(i) != 0)
 			{
-				Encrypted.push_back(0);
+				holder = character->at(i);
+				holder /= finishedKey.at(i);
 			}
 			else
 			{
-				Encrypted.push_back(character->at(i) / finishedKey.at(i));
+				holder = 0;
 			}
 			break;
 		case 3:
-				Encrypted.push_back(finishedKey.at(i) * character->at(i));
+			holder = finishedKey.at(i);
+			holder *= character->at(i);
 			break;
 		default:
 			Console->WriteLine("Houston, we have a problem");
 			break;
 		}
+		storage->push_back(holder);
 
 		++i;
 		++operation;
@@ -96,9 +102,6 @@ string CommandDecrypt::DecryptChar(string* character, const char* Key)
 			operation = 0;
 		}
 	}
-
-	//delete finishedKey;
-	return Encrypted;
 }
 
 void CommandDecrypt::Go()
@@ -116,7 +119,7 @@ void CommandDecrypt::Go()
 
 		//The path to the directory the file is in
 		string flPath = *FilePath;
-		//flPath.append("\\");
+
 		//Add to the path the file.
 		flPath.append(Cmd.at(1));
 
@@ -124,20 +127,17 @@ void CommandDecrypt::Go()
 		ifstream unencryptedFile(flPath);
 
 		//Add a new extension to signify that it is encrypted
-		flPath.append(".decr");
+		flPath.append(".decrypt");
 
 		//Create a new file.
 		encryptedFile.open(flPath);
 
-		register string line;
-		register string encrypted;
-
-		while (unencryptedFile >> line)
+		register vector<__int16>* line = new vector<__int16>();
+		register vector<__int16>* decrypted = new vector<__int16>();
+		__int16 holder;
+		while (unencryptedFile.read(reinterpret_cast<char *>(&holder), sizeof(holder)))
 		{
-			//if (unencryptedFile.eof())
-			//{
-			//	break;
-			//}
+			line->push_back(holder);
 			if (!unencryptedFile)
 			{
 				if (!std::cin.eof())
@@ -146,11 +146,15 @@ void CommandDecrypt::Go()
 					break;
 				}
 			}
-			//decrypts the characters.
-			encrypted = this->DecryptChar(&line, Cmd.at(2).c_str());
+			//Encrypt the characters.
+			this->DecryptChar(line, Cmd.at(2).c_str(), decrypted);
 
-			//Spew those characters to file.
-			encryptedFile << encrypted;
+			register unsigned __int64 length = decrypted->size();
+			for (register unsigned __int16 i = 0; i < length; i++)
+			{
+				encryptedFile << decrypted->at(i);
+			}
+			decrypted->clear();
 		}
 
 		unencryptedFile.close();
@@ -158,7 +162,8 @@ void CommandDecrypt::Go()
 		encryptedFile.close();
 
 		delete this->EncryptionKey;
-		Console->WriteLine("Decryption done!");
+		delete decrypted;
+		Console->WriteLine("Encryption done!");
 	}
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;

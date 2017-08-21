@@ -159,8 +159,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\PerformanceC--2\PerformanceC\string.h" />
-    <ClInclude Include="..\..\..\PerformanceC--2\PerformanceC\types.h" />
     <ClInclude Include="CommandCd.h" />
     <ClInclude Include="CommandCrash.h" />
     <ClInclude Include="CommandDecrypt.h" />

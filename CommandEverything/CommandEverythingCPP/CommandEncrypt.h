@@ -35,7 +35,7 @@ private:
 	/// <param name="Msg"></param>
 	/// <param name="Key"></param>
 	/// <returns></returns>
-	string EncryptChar(string* Msg, const char* Key);
+	void EncryptChar(string* Msg, const char* Key, vector<__int16>* storage);
 
 	void Go();
 };
