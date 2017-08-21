@@ -1,1 +1,1 @@
-git log --oneline --decorate --color --since=2/23/2017
+git log --oneline --decorate --color
