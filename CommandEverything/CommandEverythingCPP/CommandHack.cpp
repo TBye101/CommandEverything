@@ -121,7 +121,6 @@ void CommandHack::makeCombinations(string* s, unsigned __int8 length)
 	if (length == 0) // when length has been reached
 	{
 		this->Attempt(s); // print it out
-		Sleep(10);
 		return;
 	}
 	register string appended;
