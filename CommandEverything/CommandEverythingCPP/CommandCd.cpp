@@ -91,21 +91,22 @@ void CommandCd::GotoParentDir()
 void CommandCd::CdNormal(ParsedCommand* Parsed)
 {
 	string arg = *FilePath;
-	register size_t i;
-	register size_t length = Parsed->Words->size();
 
-	for (i = 0; i < length; i++)
+	register unsigned __int64 length = Input.size();
+
+	for (register unsigned __int64 i = 0; i < length; i++)
 	{
-
-		if (i != 0)
+		if (Input[i] == 'c' || Input[i] == 'C')
 		{
-			arg.append(Parsed->Words->at(i));
+			arg.append(Input.substr(i + 3));
+			break;
 		}
 	}
 
 	if (Files->DoesDirectoryExist(&arg))
 	{
-		FilePath->append(Parsed->Words->at(1));
+		delete FilePath;
+		FilePath = new string(arg);
 		FilePath->append("\\");
 	}
 	else
