@@ -56,6 +56,8 @@ public:
 	/// <returns></returns>
 	vector<short> read_shorts(string filename);
 
+	vector<string> split(char* arr);
+
 private:
 	ifstream* crypt;
 };

@@ -21,6 +21,7 @@
 #include "CommandTree.h"
 #include "CommandEncrypt.h"
 #include "CommandDecrypt.h"
+#include "RunScript.h"
 
 using namespace std;
 

@@ -83,3 +83,21 @@ vector<short> Util::read_shorts(string filename)
 
 	return res;
 }
+
+vector<string> Util::split(char * arr)
+{
+	std::string str = arr;
+	std::vector< std::string >result;
+	int beg = 0, end = 0;//begining and end of each line in the array
+	while (end = str.find('\n', beg + 1))
+	{
+		if (end == -1)
+		{
+			result.push_back(str.substr(beg));
+			break;
+		}
+		result.push_back(str.substr(beg, end - beg));
+		beg = end;
+	}
+	return result;
+}

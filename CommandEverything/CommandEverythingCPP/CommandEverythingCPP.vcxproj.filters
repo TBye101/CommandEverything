@@ -90,6 +90,9 @@
     <Filter Include="Framework\Commands\Cd">
       <UniqueIdentifier>{f28e51f0-e978-4ed3-8e81-037ef6965cff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\WIP Commands\Run Script">
+      <UniqueIdentifier>{23ca2949-41ed-498c-bb64-52e92e469a3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -164,6 +167,9 @@
     <ClInclude Include="CommandDecrypt.h">
       <Filter>Framework\WIP Commands\Decrypt</Filter>
     </ClInclude>
+    <ClInclude Include="RunScript.h">
+      <Filter>Framework\WIP Commands\Run Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -231,6 +237,9 @@
     </ClCompile>
     <ClCompile Include="CommandDecrypt.cpp">
       <Filter>Framework\WIP Commands\Decrypt</Filter>
+    </ClCompile>
+    <ClCompile Include="RunScript.cpp">
+      <Filter>Framework\WIP Commands\Run Script</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
