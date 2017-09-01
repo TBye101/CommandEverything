@@ -29,7 +29,6 @@ bool RunScript::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void RunScript::Run(ParsedCommand* Parsed)
 {
-	//Fread();
 	FILE* scriptFile;
 	register long lSize;
 	register char* buffer;
@@ -53,6 +52,7 @@ void RunScript::Run(ParsedCommand* Parsed)
 			Console->WriteLine("Memory error!");
 		}
 
+		//Read the file into the buffer.
 		result = fread(buffer, 1, lSize, scriptFile);
 
 		if (result != lSize)
@@ -60,13 +60,14 @@ void RunScript::Run(ParsedCommand* Parsed)
 			Console->WriteLine("File reading error!");
 		}
 
-		//Process line by line here.
-
+		//Split the buffer into separate line commands.
 		vector<string> commands = Utility->split(buffer);
 
 		bool CommandRun;
 		ParsedCommand* pars;
 		register unsigned __int64 length = commands.size();
+		//Iterate over each "input", and run it like a command.
+		//Very similar to Loop.cpp
 		for (register unsigned __int64 i = 0; i < length; i++)
 		{
 			CommandRun = false;
@@ -81,9 +82,9 @@ void RunScript::Run(ParsedCommand* Parsed)
 				transform(first.begin(), first.end(), first.begin(), ::tolower);
 				pars->Words->at(0) = first;
 
-				register size_t length = Commands->size();
+				register unsigned __int64 length = Commands->size();
 
-				for (register size_t i = 0; i < length; ++i)
+				for (register unsigned __int64 i = 0; i < length; ++i)
 				{
 					if (Commands->at(i)->ShouldRunThisCommand(pars))
 					{
