@@ -34,6 +34,8 @@ private:
 	/// Writes some information about the current state of the processors.
 	/// </summary>
 	void GetProcessorInfo();
+
+	string* GetProcessorName();
 };
 
 typedef struct _PROCESSOR_POWER_INFORMATION {

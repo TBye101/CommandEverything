@@ -81,10 +81,35 @@ void CommandSpecs::GetProcessorInfo()
 	while (i != SysInfo.dwNumberOfProcessors)
 	{
 		Console->WriteLine(&("Processor " + to_string(ProcessorInformations[i].Number)));
+		Console->WriteLine(&("Processor Type: " + *this->GetProcessorName()));
 		Console->WriteLine(&("Current Mhz: " + to_string(ProcessorInformations[i].CurrentMhz)));
-		Console->WriteLine(&("Max Mhz: " + to_string(ProcessorInformations[i].MaxMhz)));
 		Console->WriteLine(&("Mhz Limit: " + to_string(ProcessorInformations[i].MhzLimit)));
 		Console->WriteLine("\r\n");
 		++i;
 	}
+}
+
+string* CommandSpecs::GetProcessorName()
+{
+		int CPUInfo[4] = { -1 };
+		char CPUBrandString[0x40];
+		__cpuid(CPUInfo, 0x80000000);
+		unsigned int nExIds = CPUInfo[0];
+
+		memset(CPUBrandString, 0, sizeof(CPUBrandString));
+
+		// Get the information associated with each extended ID.
+		for (int i = 0x80000000; i <= nExIds; ++i)
+		{
+			__cpuid(CPUInfo, i);
+			// Interpret CPU brand string.
+			if (i == 0x80000002)
+				memcpy(CPUBrandString, CPUInfo, sizeof(CPUInfo));
+			else if (i == 0x80000003)
+				memcpy(CPUBrandString + 16, CPUInfo, sizeof(CPUInfo));
+			else if (i == 0x80000004)
+				memcpy(CPUBrandString + 32, CPUInfo, sizeof(CPUInfo));
+		}
+
+		return new string(CPUBrandString);
 }
