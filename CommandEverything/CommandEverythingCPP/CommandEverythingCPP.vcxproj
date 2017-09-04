@@ -171,6 +171,7 @@
     <ClInclude Include="CommandHelp.h" />
     <ClInclude Include="CommandKill.h" />
     <ClInclude Include="CommandList.h" />
+    <ClInclude Include="CommandSpecs.h" />
     <ClInclude Include="CommandStart.h" />
     <ClInclude Include="CommandTree.h" />
     <ClInclude Include="Filing.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="CommandHelp.cpp" />
     <ClCompile Include="CommandKill.cpp" />
     <ClCompile Include="CommandList.cpp" />
+    <ClCompile Include="CommandSpecs.cpp" />
     <ClCompile Include="CommandStart.cpp" />
     <ClCompile Include="CommandTree.cpp" />
     <ClCompile Include="Filing.cpp" />

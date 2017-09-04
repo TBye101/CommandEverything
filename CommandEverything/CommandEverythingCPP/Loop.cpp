@@ -114,6 +114,7 @@ void Loop::AddAllCommands()
 	Commands->push_back(new CommandKill());
 	Commands->push_back(new CommandList());
 	Commands->push_back(new RunScript());
+	Commands->push_back(new CommandSpecs());
 	Commands->push_back(new CommandStart());
 	Commands->push_back(new CommandTree());
 }

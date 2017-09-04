@@ -22,6 +22,7 @@
 #include "CommandEncrypt.h"
 #include "CommandDecrypt.h"
 #include "RunScript.h"
+#include "CommandSpecs.h"
 
 using namespace std;
 

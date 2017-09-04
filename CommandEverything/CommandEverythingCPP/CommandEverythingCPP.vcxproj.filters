@@ -170,6 +170,9 @@
     <ClInclude Include="RunScript.h">
       <Filter>Framework\WIP Commands\Run Script</Filter>
     </ClInclude>
+    <ClInclude Include="CommandSpecs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -240,6 +243,9 @@
     </ClCompile>
     <ClCompile Include="RunScript.cpp">
       <Filter>Framework\WIP Commands\Run Script</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandSpecs.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
