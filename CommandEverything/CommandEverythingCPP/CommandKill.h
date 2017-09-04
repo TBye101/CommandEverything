@@ -18,7 +18,4 @@ public:
 	string* GetName();
 
 	string* GetHelp();
-private:
-
 };
-

@@ -68,6 +68,8 @@ void Util::write_shorts(string filename, vector<short> shorts)
 	{
 		f.write(reinterpret_cast<char*>(&s), sizeof(s));
 	}
+
+	//f.close();
 }
 
 vector<short> Util::read_shorts(string filename)
@@ -80,14 +82,15 @@ vector<short> Util::read_shorts(string filename)
 	{
 		res.push_back(x);
 	}
+	//f.close();
 
 	return res;
 }
 
-vector<string> Util::split(char * arr)
+vector<string> Util::split(char* arr)
 {
-	std::string str = arr;
-	std::vector< std::string >result;
+	string str = arr;
+	vector<string> result;
 	int beg = 0, end = 0;//begining and end of each line in the array
 	while (end = str.find('\n', beg + 1))
 	{

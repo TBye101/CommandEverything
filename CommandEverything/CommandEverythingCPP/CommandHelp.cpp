@@ -21,7 +21,7 @@ void CommandHelp::Run(ParsedCommand * Parsed)
 	string* Name;
 	string* HelpInfo;
 
-	for (size_t i = 0; i < length; i++)
+	for (register unsigned __int64 i = 0; i < length; i++)
 	{
 		Name = Commands->at(i)->GetName();
 		HelpInfo = Commands->at(i)->GetHelp();
@@ -35,8 +35,7 @@ void CommandHelp::Run(ParsedCommand * Parsed)
 		cout << "\r\n";
 		Console->Log << "\r\n";
 		Console->Log << "\r\n";
-		//ToDelete->push_back(Name);
-		//ToDelete->push_back(HelpInfo);
+
 		delete Name;
 		delete HelpInfo;
 	}
