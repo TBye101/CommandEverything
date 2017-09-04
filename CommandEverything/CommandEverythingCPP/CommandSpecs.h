@@ -38,11 +38,12 @@ private:
 	string* GetProcessorName();
 };
 
-typedef struct _PROCESSOR_POWER_INFORMATION {
-	ULONG Number;
-	ULONG MaxMhz;
-	ULONG CurrentMhz;
-	ULONG MhzLimit;
-	ULONG MaxIdleState;
-	ULONG CurrentIdleState;
+typedef struct _PROCESSOR_POWER_INFORMATION
+{
+	unsigned long Number;
+	unsigned long MaxMhz;
+	unsigned long CurrentMhz;
+	unsigned long MhzLimit;
+	unsigned long MaxIdleState;
+	unsigned long CurrentIdleState;
 } PROCESSOR_POWER_INFORMATION, *PPROCESSOR_POWER_INFORMATION;
