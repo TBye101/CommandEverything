@@ -5,7 +5,6 @@ CommandDefend::CommandDefend()
 {
 }
 
-
 CommandDefend::~CommandDefend()
 {
 }
@@ -55,10 +54,9 @@ string* CommandDefend::GetHelp()
 
 bool CommandDefend::DoesProcessExistInList(unsigned int pID, unsigned int numberOfProcesses)
 {
-	
 	register unsigned __int64 length = numberOfProcesses;
 	register unsigned __int64 i;
-	
+
 	for (i = 0; i < numberOfProcesses; i++)
 	{
 		if (pID == this->AllowedProcesses[i])
@@ -85,7 +83,6 @@ void CommandDefend::DefendStart()
 		delete this->DefenseThread;
 	}
 
-	
 	this->DefenseThread = new thread(&CommandDefend::Defend, this);
 }
 
@@ -123,7 +120,7 @@ void CommandDefend::Defend()
 
 		for (i = 0; i < numberOfProcesses; i++)
 		{
-			if (!this->DoesProcessExistInList(aProcesses[i], numberOfProcesses)&& aProcesses[i] != CID)
+			if (!this->DoesProcessExistInList(aProcesses[i], numberOfProcesses) && aProcesses[i] != CID)
 			{
 				//Get process handle.
 				hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, aProcesses[i]);

@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CommandDecrypt.h"
 
-
 CommandDecrypt::CommandDecrypt()
 {
 }
-
 
 CommandDecrypt::~CommandDecrypt()
 {
@@ -38,7 +36,6 @@ string* CommandDecrypt::GetName()
 string* CommandDecrypt::GetHelp()
 {
 	return new string("Decrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" decrypt (your file name here) (YourKeyHere) \" and it will decrypt the file and put it in the same directory. Don't use spaces....");
-
 }
 
 void CommandDecrypt::DecryptChar(vector<__int16>* character, const char* Key, vector<__int16>* storage)

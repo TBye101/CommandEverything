@@ -27,4 +27,3 @@ private:
 	/// </summary>
 	void CdNormal(ParsedCommand*);
 };
-

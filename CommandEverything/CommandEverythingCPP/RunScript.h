@@ -21,4 +21,3 @@ public:
 
 	string* GetHelp();
 };
-

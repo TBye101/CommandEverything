@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CommandExecute.h"
 
-
 CommandExecute::CommandExecute()
 {
 }
-
 
 CommandExecute::~CommandExecute()
 {

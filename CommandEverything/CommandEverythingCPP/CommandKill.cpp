@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CommandKill.h"
 
-
 CommandKill::CommandKill()
 {
 }
-
 
 CommandKill::~CommandKill()
 {
@@ -24,7 +22,6 @@ void CommandKill::Run(ParsedCommand* Parsed)
 	}
 	else
 	{
-
 		transform(Parsed->Words->at(1).begin(), Parsed->Words->at(1).end(), Parsed->Words->at(1).begin(), ::tolower);
 		if (Parsed->Words->at(1) == "list")
 		{

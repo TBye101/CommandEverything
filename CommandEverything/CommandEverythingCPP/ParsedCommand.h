@@ -17,7 +17,6 @@ public:
 	/// <param name="input">The string input to parse.</param>
 	ParsedCommand(string* input);
 	~ParsedCommand();
-	
 
 	/// <summary>
 	///The first word of this is the command name.

@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Util.h"
 
-
 wstring Util::StringToWString(const string & s)
 {
 	int len;

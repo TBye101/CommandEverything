@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CommandDelete.h"
 
-
 CommandDelete::CommandDelete()
 {
 }
-
 
 CommandDelete::~CommandDelete()
 {
@@ -28,7 +26,7 @@ void CommandDelete::Run(ParsedCommand* Parsed)
 		size_t size = strlen(Parsed->Words->at(1).c_str());
 		size_t outSize;
 		mbstowcs_s(&outSize, path, Parsed->Words->at(1).c_str(), size);
-		
+
 		if (!DeleteFile(path))
 		{
 			Console->WriteLine("Failed to delete a file!");

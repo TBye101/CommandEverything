@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CommandList.h"
 
-
 CommandList::CommandList()
 {
 }
-
 
 CommandList::~CommandList()
 {
@@ -23,53 +21,53 @@ void CommandList::Run(ParsedCommand* Parsed)
 	{
 		ShowingFilesOnly = true;
 	}
-		if (FilePath->empty())
+	if (FilePath->empty())
+	{
+		this->ListDriveLetters();
+	}
+	else
+	{
+		DIR *dir;
+		struct dirent *ent;
+		if ((dir = opendir(FilePath->c_str())) != NULL)
 		{
-			this->ListDriveLetters();
-		}
-		else
-		{
-			DIR *dir;
-			struct dirent *ent;
-			if ((dir = opendir(FilePath->c_str())) != NULL)
+			//print all the directories within directory
+			if (ShowingFilesOnly)
 			{
-				//print all the directories within directory
-				if (ShowingFilesOnly)
+				while ((ent = readdir(dir)) != NULL)
 				{
-					while ((ent = readdir(dir)) != NULL)
+					//https://www.gnu.org/software/libc/manual/html_node/Directory-Entries.html has useful information on type flags.
+					if (ent->d_type == DT_REG)
 					{
-						//https://www.gnu.org/software/libc/manual/html_node/Directory-Entries.html has useful information on type flags.
-						if (ent->d_type == DT_REG)
-						{
-							Console->WriteLine(ent->d_name);
-						}
+						Console->WriteLine(ent->d_name);
 					}
-					closedir(dir);
 				}
-				else
-				{
-					while ((ent = readdir(dir)) != NULL)
-					{
-						if (ent->d_type == DT_DIR)
-						{
-							Console->WriteLine(ent->d_name);
-						}
-					}
-					closedir(dir);
-				}
-
-				ToDelete->push_back(ent);
+				closedir(dir);
 			}
 			else
 			{
-				//could not open directory
-				string err = "Could not open directory ";
-				err.append("\"");
-				err.append(*FilePath);
-				err.append("\"");
-				Console->WriteLine(&err);
+				while ((ent = readdir(dir)) != NULL)
+				{
+					if (ent->d_type == DT_DIR)
+					{
+						Console->WriteLine(ent->d_name);
+					}
+				}
+				closedir(dir);
 			}
-			ToDelete->push_back(dir);
+
+			ToDelete->push_back(ent);
+		}
+		else
+		{
+			//could not open directory
+			string err = "Could not open directory ";
+			err.append("\"");
+			err.append(*FilePath);
+			err.append("\"");
+			Console->WriteLine(&err);
+		}
+		ToDelete->push_back(dir);
 	}
 }
 

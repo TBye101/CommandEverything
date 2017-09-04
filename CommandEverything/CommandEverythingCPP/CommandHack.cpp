@@ -1,16 +1,13 @@
 #include "stdafx.h"
 #include "CommandHack.h"
 
-
 CommandHack::CommandHack()
 {
 }
 
-
 CommandHack::~CommandHack()
 {
 	delete[] this->Chars;
-
 }
 
 bool CommandHack::ShouldRunThisCommand(ParsedCommand* Parsed)
@@ -71,7 +68,7 @@ void CommandHack::Attempt(string* attempt)
 	while (i != size)
 	{
 		next = attempt->at(i);
-		ip.type = INPUT_KEYBOARD; 
+		ip.type = INPUT_KEYBOARD;
 		ip.ki.time = 0;
 		ip.ki.dwFlags = KEYEVENTF_UNICODE; // Specify the key as a Unicode character
 		ip.ki.wScan = next; // Which key press to simulate
@@ -89,7 +86,7 @@ void CommandHack::Attempt(string* attempt)
 	keybd_event(VK_RETURN, '5A', KEYEVENTF_KEYUP, 0);
 
 	register unsigned __int8 ab = -20;
-	
+
 	while (ab != this->Length)
 	{
 		//Backspace
@@ -101,8 +98,8 @@ void CommandHack::Attempt(string* attempt)
 
 void CommandHack::Crack()
 {
-	//32-137 
-	//Acquire common characters. 
+	//32-137
+	//Acquire common characters.
 	register unsigned __int8 i = 32;
 	i = 1;
 	string* Attemptter = new string("");

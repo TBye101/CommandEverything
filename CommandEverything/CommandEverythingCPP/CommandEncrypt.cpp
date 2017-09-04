@@ -5,7 +5,6 @@ CommandEncrypt::CommandEncrypt()
 {
 }
 
-
 CommandEncrypt::~CommandEncrypt()
 {
 }
@@ -133,10 +132,10 @@ void CommandEncrypt::Go()
 			}
 			//line += "\r\n";
 				//Encrypt the characters.
-				this->EncryptChar(&line, Cmd.at(2).c_str(), encrypted);
+			this->EncryptChar(&line, Cmd.at(2).c_str(), encrypted);
 
-				Utility->write_shorts(flPath, *encrypted);
-				encrypted->clear();
+			Utility->write_shorts(flPath, *encrypted);
+			encrypted->clear();
 		}
 
 		unencryptedFile.close();

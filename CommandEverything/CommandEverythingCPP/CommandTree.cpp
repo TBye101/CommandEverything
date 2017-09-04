@@ -3,9 +3,7 @@
 
 CommandTree::CommandTree()
 {
-	
 }
-
 
 CommandTree::~CommandTree()
 {
@@ -17,7 +15,7 @@ bool CommandTree::ShouldRunThisCommand(ParsedCommand* Parsed)
 }
 
 void CommandTree::Run(ParsedCommand* Parsed)
-{	
+{
 	clock_t start;
 	double duration;
 	start = clock();
@@ -31,7 +29,6 @@ void CommandTree::Run(ParsedCommand* Parsed)
 		register unsigned __int32 drives = test / 4;
 		string drive = "";
 		char strbuffer[64];
-
 
 		for (register unsigned __int8 i = 0; i < drives; i++)
 		{
@@ -101,7 +98,7 @@ void CommandTree::TreeFromDirectory(char* name, unsigned __int32 indent)
 		else
 		{
 			printf("%*s- %s\n", indent, "", entry->d_name);
-			
+
 			*ToLog = "";
 			register __int64 i = 0;
 

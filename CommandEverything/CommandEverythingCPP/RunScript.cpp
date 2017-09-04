@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "RunScript.h"
 
-
 RunScript::RunScript()
 {
 }
-
 
 RunScript::~RunScript()
 {
@@ -36,7 +34,7 @@ void RunScript::Run(ParsedCommand* Parsed)
 
 	string path = *FilePath;
 	path.append(Parsed->Words->at(2));
-	
+
 	scriptFile = fopen(path.c_str(), "rb");
 	if (scriptFile != NULL)
 	{

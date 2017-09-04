@@ -27,7 +27,6 @@ private:
 	unsigned __int64 CharsLength;
 	unsigned __int8 Length = 0;
 
-
 	/// <summary>
 	/// Tries a password.
 	/// </summary>
