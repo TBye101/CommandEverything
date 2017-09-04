@@ -17,4 +17,5 @@ Your entire command line history for each instance of the command line is saved 
 ## Libraries
 
 [Dirent](https://github.com/tronkko/dirent)
+
 [ThreadPool](https://github.com/progschj/ThreadPool)
