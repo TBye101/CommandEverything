@@ -81,9 +81,9 @@ void CommandSpecs::GetProcessorInfo()
 	while (i != SysInfo.dwNumberOfProcessors)
 	{
 		Console->WriteLine(&("Processor " + to_string(ProcessorInformations[i].Number)));
-		//Console->WriteLine(&("Current Mhz: " + to_string(ProcessorInformations[i].CurrentMhz)));
+		Console->WriteLine(&("Current Mhz: " + to_string(ProcessorInformations[i].CurrentMhz)));
 		Console->WriteLine(&("Max Mhz: " + to_string(ProcessorInformations[i].MaxMhz)));
-		//Console->WriteLine(&("Mhz Limit: " + to_string(ProcessorInformations[i].MhzLimit)));
+		Console->WriteLine(&("Mhz Limit: " + to_string(ProcessorInformations[i].MhzLimit)));
 		Console->WriteLine("\r\n");
 		++i;
 	}
