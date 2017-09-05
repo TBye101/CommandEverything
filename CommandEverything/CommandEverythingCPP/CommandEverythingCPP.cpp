@@ -4,10 +4,7 @@
 #include "stdafx.h"
 #include "Loop.h"
 
-/* dmo c++ https://guidedhacking.com/ */
-
 using namespace std;
-
 
 int WINAPI HandlerRoutine(_In_ unsigned long dwCtrlType)
 {

@@ -93,6 +93,12 @@
     <Filter Include="Framework\WIP Commands\Run Script">
       <UniqueIdentifier>{23ca2949-41ed-498c-bb64-52e92e469a3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\WIP Commands\Lock File System">
+      <UniqueIdentifier>{25216080-f299-4b55-9b6f-7a1552e3f0ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\WIP Commands\Unlock File System">
+      <UniqueIdentifier>{0f9b4e1a-c867-4c0c-bd88-5aed6688f125}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

@@ -94,6 +94,7 @@ void Loop::Startup()
 	std::sort(CommandNames->begin(), CommandNames->end());
 
 	this->FreeUpMemory();
+	this->ProtectProcess();
 }
 
 /// <summary>
@@ -117,4 +118,26 @@ void Loop::AddAllCommands()
 	Commands->push_back(new CommandSpecs());
 	Commands->push_back(new CommandStart());
 	Commands->push_back(new CommandTree());
+}
+
+void Loop::ProtectProcess()
+{
+	HANDLE hProcess = GetCurrentProcess();
+	PACL pEmptyDacl;
+	DWORD dwErr;
+
+	// using malloc guarantees proper alignment
+	pEmptyDacl = (PACL)malloc(sizeof(ACL));
+
+	if (!InitializeAcl(pEmptyDacl, sizeof(ACL), ACL_REVISION))
+	{
+		dwErr = GetLastError();
+	}
+	else
+	{
+		dwErr = SetSecurityInfo(hProcess, SE_KERNEL_OBJECT,
+			DACL_SECURITY_INFORMATION, NULL, NULL, pEmptyDacl, NULL);
+	}
+
+	free(pEmptyDacl);
 }

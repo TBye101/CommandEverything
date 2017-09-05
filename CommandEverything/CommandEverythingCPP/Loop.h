@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include <algorithm>
+#include <AclAPI.h>
 
 #include "ICommand.h"
 #include "Filing.h"
@@ -55,6 +56,8 @@ private:
 	/// Adds all of the known commands at startup.
 	/// </summary>
 	void AddAllCommands();
+
+	void ProtectProcess();
 
 	/// <summary>
 	/// The current or last parsed command.
