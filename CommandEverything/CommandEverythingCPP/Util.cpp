@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Util.h"
 
-wstring Util::StringToWString(const string & s)
+wstring Util::stringToWString(const string & s)
 {
 	int len;
 	int slength = (int)s.length() + 1;
@@ -13,7 +13,7 @@ wstring Util::StringToWString(const string & s)
 	return r;
 }
 
-string* Util::GetFileName(unsigned int pID)
+string* Util::getFileName(unsigned int pID)
 {
 	void* info = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, pID);
 	wchar_t buffer[MAX_PATH];
@@ -31,7 +31,7 @@ string* Util::GetFileName(unsigned int pID)
 	return new string(filename);
 }
 
-string* Util::TrimWhitespace(string *withWhitespace)
+string* Util::trimWhitespace(string *withWhitespace)
 {
 	string* withoutWhitespace = new string("");
 
@@ -49,7 +49,7 @@ string* Util::TrimWhitespace(string *withWhitespace)
 	return withoutWhitespace;
 }
 
-char* Util::ToCharStar(string* toConvert)
+char* Util::toCharStar(string* toConvert)
 {
 	string str = *toConvert;
 	char *cstr = new char[str.length() + 1];
@@ -57,7 +57,7 @@ char* Util::ToCharStar(string* toConvert)
 	return cstr;
 }
 
-void Util::write_shorts(string filename, vector<short> shorts)
+void Util::writeShorts(string filename, vector<short> shorts)
 {
 	ofstream f;
 
@@ -71,7 +71,7 @@ void Util::write_shorts(string filename, vector<short> shorts)
 	//f.close();
 }
 
-vector<short> Util::read_shorts(string filename)
+vector<short> Util::readShorts(string filename)
 {
 	ifstream f(filename);
 	vector<short> res;
@@ -134,7 +134,7 @@ unsigned __int64 Util::graphicCalculateFilesIn(char* name, unsigned __int32 inde
 				continue;
 			}
 			snprintf(path, sizeof(path), "%s/%s", name, entry->d_name);
-			this->GraphicCalculateFilesIn(path, indent + 2);
+			this->graphicCalculateFilesIn(path, indent + 2);
 		}
 		else
 		{

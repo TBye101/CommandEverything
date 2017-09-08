@@ -134,7 +134,7 @@ void CommandEncrypt::Go()
 				//Encrypt the characters.
 			this->EncryptChar(&line, Cmd.at(2).c_str(), encrypted);
 
-			Utility->write_shorts(flPath, *encrypted);
+			Utility->writeShorts(flPath, *encrypted);
 			encrypted->clear();
 		}
 

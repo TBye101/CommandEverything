@@ -35,12 +35,12 @@ void CommandTree::Run(ParsedCommand* Parsed)
 			wctomb(strbuffer, lpBuffer[i * 4]);
 			drive = strbuffer[0];
 			drive.append(":/");
-			this->TreeFromDirectory(Utility->ToCharStar(&drive), 0);
+			this->TreeFromDirectory(Utility->toCharStar(&drive), 0);
 		}
 	}
 	else
 	{
-		TreeFromDirectory(Utility->ToCharStar(FilePath), 0);
+		TreeFromDirectory(Utility->toCharStar(FilePath), 0);
 	}
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;

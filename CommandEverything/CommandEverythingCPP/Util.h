@@ -22,19 +22,19 @@ public:
 	/// </summary>
 	/// <param name="Str"></param>
 	/// <returns></returns>
-	wstring StringToWString(const string& Str);
+	wstring stringToWString(const string& Str);
 
 	/// <summary>
 	/// Gets the name of the executable of a running process.
 	/// </summary>
-	string* GetFileName(unsigned int pID);
+	string* getFileName(unsigned int pID);
 
 	/// <summary>
 	/// Trims the whitespace from the string.
 	/// </summary>
 	/// <param name=""></param>
 	/// <returns></returns>
-	string* TrimWhitespace(string*);
+	string* trimWhitespace(string*);
 
 	/// <summary>
 	/// Converts a string pointer to a char pointer.
@@ -42,21 +42,21 @@ public:
 	/// </summary>
 	/// <param name="toConvert"></param>
 	/// <returns></returns>
-	char* ToCharStar(string* toConvert);
+	char* toCharStar(string* toConvert);
 
 	/// <summary>
 	/// Writes shorts to binary file.
 	/// </summary>
 	/// <param name="filename"></param>
 	/// <param name="shorts"></param>
-	void write_shorts(string filename, vector<short> shorts);
+	void writeShorts(string filename, vector<short> shorts);
 
 	/// <summary>
 	/// Reads shorts from binary file.
 	/// </summary>
 	/// <param name="filename"></param>
 	/// <returns></returns>
-	vector<short> read_shorts(string filename);
+	vector<short> readShorts(string filename);
 
 	vector<string> split(char* arr);
 

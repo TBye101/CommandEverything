@@ -38,7 +38,7 @@ void CommandKill::Run(ParsedCommand* Parsed)
 			string Cant = "Unknown processes: ";
 			for (register unsigned int i = 0; i < numberOfProcesses; i++)
 			{
-				MSG = *Utility->GetFileName(aProcesses[i]);
+				MSG = *Utility->getFileName(aProcesses[i]);
 
 				if (MSG == "")
 				{

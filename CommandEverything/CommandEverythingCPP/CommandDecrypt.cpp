@@ -119,7 +119,7 @@ void CommandDecrypt::Go()
 		register vector<short> line;
 		register vector<__int16>* decrypted = new vector<__int16>();
 
-		line = Utility->read_shorts(flPath);
+		line = Utility->readShorts(flPath);
 
 		//Add a new extension to signify that it is encrypted
 		flPath.append(".decrypt");
