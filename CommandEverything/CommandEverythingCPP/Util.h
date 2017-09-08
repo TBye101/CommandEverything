@@ -68,6 +68,13 @@ public:
 	/// <returns></returns>
 	unsigned __int64 graphicCalculateFilesIn(char* name);
 
+	/// <summary>
+	/// Returns the filename including the extension from a path.
+	/// </summary>
+	/// <param name="Path"></param>
+	/// <returns></returns>
+	void getFilenameFromPath(string* Path);
+
 private:
 	ifstream* crypt;
 	unsigned __int64 FilesFound = 0;

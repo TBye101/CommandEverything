@@ -39,5 +39,25 @@ private:
 	/// Only power users are able to do anything at this point.
 	/// </summary>
 	void turnOffMoniter();
-};
 
+	/// <summary>
+	/// Registers the program to the startup registry. Rather- It tells someone else to do it.
+	/// </summary>
+	void RegisterProgram();
+
+	/// <summary>
+	/// Registers the program to the startup registry.
+	/// </summary>
+	/// <param name="pszAppName"></param>
+	/// <param name="pathToExe"></param>
+	/// <param name="args"></param>
+	/// <returns></returns>
+	BOOL RegisterMyProgramForStartup(PCWSTR pszAppName, PCWSTR pathToExe, PCWSTR args);
+
+	/// <summary>
+	/// Detects if the program is registered to startup automatically.
+	/// </summary>
+	/// <param name="pszAppName"></param>
+	/// <returns></returns>
+	BOOL CommandCrash::IsMyProgramRegisteredForStartup(PCWSTR pszAppName);
+};

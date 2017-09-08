@@ -110,6 +110,17 @@ unsigned __int64 Util::graphicCalculateFilesIn(char * name)
 	return this->graphicCalculateFilesIn(name, 0);
 }
 
+void Util::getFilenameFromPath(string* Path)
+{
+	// Remove directory if present.
+	// Do this before extension removal incase directory has a period character.
+	const size_t last_slash_idx = Path->find_last_of("\\/");
+	if (std::string::npos != last_slash_idx)
+	{
+		Path->erase(0, last_slash_idx + 1);
+	}
+}
+
 unsigned __int64 Util::graphicCalculateFilesIn(char* name, unsigned __int32 indent)
 {
 	register DIR *dir;
