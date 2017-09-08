@@ -103,3 +103,44 @@ vector<string> Util::split(char* arr)
 	}
 	return result;
 }
+
+unsigned __int64 Util::graphicCalculateFilesIn(char * name)
+{
+	this->FilesFound = 0;
+	return this->graphicCalculateFilesIn(name, 0);
+}
+
+unsigned __int64 Util::graphicCalculateFilesIn(char* name, unsigned __int32 indent)
+{
+	register DIR *dir;
+	register struct dirent *entry;
+
+	if (!(dir = opendir(name)))
+	{
+		return FilesFound;
+	}
+
+	while ((entry = readdir(dir)) != NULL)
+	{
+		if (ControlCPressed)
+		{
+			break;
+		}
+		if (entry->d_type == DT_DIR)
+		{
+			char path[MAX_PATH];
+			if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+			{
+				continue;
+			}
+			snprintf(path, sizeof(path), "%s/%s", name, entry->d_name);
+			this->GraphicCalculateFilesIn(path, indent + 2);
+		}
+		else
+		{
+			FilesFound++;
+		}
+	}
+	closedir(dir);
+	return FilesFound;
+}

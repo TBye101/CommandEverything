@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Header Only\dirent.h"
+
 #include <string>
 #include <Windows.h>
 #include <conio.h>
@@ -58,6 +60,23 @@ public:
 
 	vector<string> split(char* arr);
 
+	/// <summary>
+	/// Counts the number of files in a directory graphically on screen.
+	/// Also resets a class variable.
+	/// </summary>
+	/// <param name="name"></param>
+	/// <returns></returns>
+	unsigned __int64 graphicCalculateFilesIn(char* name);
+
 private:
 	ifstream* crypt;
+	unsigned __int64 FilesFound = 0;
+
+	/// <summary>
+	/// Counts the number of files in a directory graphically on screen.
+	/// </summary>
+	/// <param name="name"></param>
+	/// <param name="indent"></param>
+	/// <returns></returns>
+	unsigned __int64 graphicCalculateFilesIn(char* name, unsigned __int32 indent);
 };
