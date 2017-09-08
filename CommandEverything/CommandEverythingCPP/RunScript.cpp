@@ -9,7 +9,7 @@ RunScript::~RunScript()
 {
 }
 
-bool RunScript::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool RunScript::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() >= 2)
 	{
@@ -25,7 +25,7 @@ bool RunScript::ShouldRunThisCommand(ParsedCommand* Parsed)
 	return false;
 }
 
-void RunScript::Run(ParsedCommand* Parsed)
+void RunScript::run(ParsedCommand* Parsed)
 {
 	FILE* scriptFile;
 	register long lSize;
@@ -84,9 +84,9 @@ void RunScript::Run(ParsedCommand* Parsed)
 
 				for (register unsigned __int64 i = 0; i < length; ++i)
 				{
-					if (Commands->at(i)->ShouldRunThisCommand(pars))
+					if (Commands->at(i)->shouldRunThisCommand(pars))
 					{
-						Commands->at(i)->Run(pars);
+						Commands->at(i)->run(pars);
 						CommandRun = true;
 						break;
 					}
@@ -110,12 +110,12 @@ void RunScript::Run(ParsedCommand* Parsed)
 	}
 }
 
-string* RunScript::GetName()
+string* RunScript::getName()
 {
 	return new string("Run Script");
 }
 
-string* RunScript::GetHelp()
+string* RunScript::getHelp()
 {
 	return new string("Runs the specified file as if the user had inputted all of the text into the terminal line by line.");
 }

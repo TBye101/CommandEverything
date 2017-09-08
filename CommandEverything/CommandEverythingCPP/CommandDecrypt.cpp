@@ -9,12 +9,12 @@ CommandDecrypt::~CommandDecrypt()
 {
 }
 
-bool CommandDecrypt::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandDecrypt::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "decrypt");
 }
 
-void CommandDecrypt::Run(ParsedCommand* Parsed)
+void CommandDecrypt::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 3)
 	{
@@ -28,12 +28,12 @@ void CommandDecrypt::Run(ParsedCommand* Parsed)
 	}
 }
 
-string* CommandDecrypt::GetName()
+string* CommandDecrypt::getName()
 {
 	return new string("Decrypt");
 }
 
-string* CommandDecrypt::GetHelp()
+string* CommandDecrypt::getHelp()
 {
 	return new string("Decrypts the specified file. To use, cd your way to the directory your file is at.\r\n Then do \" decrypt (your file name here) (YourKeyHere) \" and it will decrypt the file and put it in the same directory. Don't use spaces....");
 }

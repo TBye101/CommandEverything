@@ -9,12 +9,12 @@ CommandKill::~CommandKill()
 {
 }
 
-bool CommandKill::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandKill::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "kill");
 }
 
-void CommandKill::Run(ParsedCommand* Parsed)
+void CommandKill::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 2)
 	{
@@ -74,12 +74,12 @@ void CommandKill::Run(ParsedCommand* Parsed)
 	}
 }
 
-string* CommandKill::GetName()
+string* CommandKill::getName()
 {
 	return new string("Kill");
 }
 
-string* CommandKill::GetHelp()
+string* CommandKill::getHelp()
 {
 	return new string("\"Kill (process name here)\" kills the specified process. \"Kill list\" lists all processes running.");
 }

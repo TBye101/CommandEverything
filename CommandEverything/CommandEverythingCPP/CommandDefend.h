@@ -18,13 +18,13 @@ public:
 	CommandDefend();
 	~CommandDefend();
 
-	bool ShouldRunThisCommand(ParsedCommand* Parsed);
+	bool shouldRunThisCommand(ParsedCommand* Parsed);
 
-	void Run(ParsedCommand* Parsed);
+	void run(ParsedCommand* Parsed);
 
-	string* GetName();
+	string* getName();
 
-	string* GetHelp();
+	string* getHelp();
 private:
 	//If this is true, the defense thread will stop execution.
 	bool StopThread = false;

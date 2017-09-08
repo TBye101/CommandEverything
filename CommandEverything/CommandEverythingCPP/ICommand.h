@@ -18,23 +18,23 @@ public:
 	/// </summary>
 	/// <param name="Parsed"></param>
 	/// <returns></returns>
-	virtual bool ShouldRunThisCommand(ParsedCommand* Parsed) = 0;
+	virtual bool shouldRunThisCommand(ParsedCommand* Parsed) = 0;
 
 	/// <summary>
 	/// Runs the command.
 	/// </summary>
 	/// <param name="Parsed"></param>
-	virtual void Run(ParsedCommand* Parsed) = 0;
+	virtual void run(ParsedCommand* Parsed) = 0;
 
 	/// <summary>
 	/// Returns the name of the command.
 	/// </summary>
 	/// <returns></returns>
-	virtual string* GetName() = 0;
+	virtual string* getName() = 0;
 
 	/// <summary>
 	/// Returns some help information about the command.
 	/// </summary>
 	/// <returns></returns>
-	virtual string* GetHelp() = 0;
+	virtual string* getHelp() = 0;
 };

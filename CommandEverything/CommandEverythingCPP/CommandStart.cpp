@@ -9,12 +9,12 @@ CommandStart::~CommandStart()
 {
 }
 
-bool CommandStart::ShouldRunThisCommand(ParsedCommand *Parsed)
+bool CommandStart::shouldRunThisCommand(ParsedCommand *Parsed)
 {
 	return (Parsed->Words->at(0) == "start");
 }
 
-void CommandStart::Run(ParsedCommand *Parsed)
+void CommandStart::run(ParsedCommand *Parsed)
 {
 	//https://stackoverflow.com/questions/15435994/how-do-i-open-an-exe-from-another-c-exe
 
@@ -45,12 +45,12 @@ void CommandStart::Run(ParsedCommand *Parsed)
 	CloseHandle(pi.hThread);
 }
 
-string * CommandStart::GetName()
+string * CommandStart::getName()
 {
 	return new string("Start");
 }
 
-string * CommandStart::GetHelp()
+string * CommandStart::getHelp()
 {
 	return new string("Starts a new instance of this command line.");
 }

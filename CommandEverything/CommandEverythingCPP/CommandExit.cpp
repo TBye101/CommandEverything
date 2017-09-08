@@ -9,22 +9,22 @@ CommandExit::~CommandExit()
 {
 }
 
-bool CommandExit::ShouldRunThisCommand(ParsedCommand *Parsed)
+bool CommandExit::shouldRunThisCommand(ParsedCommand *Parsed)
 {
 	return (Parsed->Words->at(0) == "exit");
 }
 
-void CommandExit::Run(ParsedCommand * Parsed)
+void CommandExit::run(ParsedCommand * Parsed)
 {
 	std::exit(0);
 }
 
-string* CommandExit::GetName()
+string* CommandExit::getName()
 {
 	return new string("Exit");
 }
 
-string* CommandExit::GetHelp()
+string* CommandExit::getHelp()
 {
 	return new string("Tells the console to release it's resources, and exit.");
 }

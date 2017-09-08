@@ -9,12 +9,12 @@ CommandDelete::~CommandDelete()
 {
 }
 
-bool CommandDelete::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandDelete::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "delete");
 }
 
-void CommandDelete::Run(ParsedCommand* Parsed)
+void CommandDelete::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 2)
 	{
@@ -34,12 +34,12 @@ void CommandDelete::Run(ParsedCommand* Parsed)
 	}
 }
 
-string* CommandDelete::GetName()
+string* CommandDelete::getName()
 {
 	return new string("Delete");
 }
 
-string* CommandDelete::GetHelp()
+string* CommandDelete::getHelp()
 {
 	return new string("Deletes the specified file. The second argument should be a file path.");
 }

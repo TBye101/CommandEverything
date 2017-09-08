@@ -9,13 +9,13 @@ public:
 	CommandCd();
 	~CommandCd();
 
-	bool ShouldRunThisCommand(ParsedCommand* Parsed);
+	bool shouldRunThisCommand(ParsedCommand* Parsed);
 
-	void Run(ParsedCommand* Parsed);
+	void run(ParsedCommand* Parsed);
 
-	string* GetName();
+	string* getName();
 
-	string* GetHelp();
+	string* getHelp();
 private:
 	/// <summary>
 	/// Does some logic for when the user wants to go to the parent directory.

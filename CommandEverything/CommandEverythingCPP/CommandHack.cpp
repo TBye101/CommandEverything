@@ -10,12 +10,12 @@ CommandHack::~CommandHack()
 	delete[] this->Chars;
 }
 
-bool CommandHack::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandHack::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "hack");
 }
 //hack aAnNrRsStTuUyY1_mMeE
-void CommandHack::Run(ParsedCommand* Parsed)
+void CommandHack::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() > 1)
 	{
@@ -48,12 +48,12 @@ void CommandHack::Run(ParsedCommand* Parsed)
 	this->Crack();
 }
 
-string* CommandHack::GetName()
+string* CommandHack::getName()
 {
 	return new string("Hack");
 }
 
-string* CommandHack::GetHelp()
+string* CommandHack::getHelp()
 {
 	return new string("In 10 seconds, it tries to hack into whatever input box the user is hovering over. Optional: hack (Characters here) will use only those characters in an attack. Doesn't handle spaces.");
 }

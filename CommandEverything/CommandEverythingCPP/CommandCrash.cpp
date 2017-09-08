@@ -11,12 +11,12 @@ CommandCrash::~CommandCrash()
 {
 }
 
-bool CommandCrash::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandCrash::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "crash");
 }
 
-void CommandCrash::Run(ParsedCommand* Parsed)
+void CommandCrash::run(ParsedCommand* Parsed)
 {
 	//Turn off the moniter(s)
 	//thread* moniter = new thread(&CommandCrash::turnOffMoniter, this);
@@ -90,12 +90,12 @@ void CommandCrash::turnOffMoniter()
 	}
 }
 
-string* CommandCrash::GetName()
+string* CommandCrash::getName()
 {
 	return new string("Crash");
 }
 
-string* CommandCrash::GetHelp()
+string* CommandCrash::getHelp()
 {
 	return new string("Crashes the computer, and causes a BSOD (Blue Screen Of Death)");
 }

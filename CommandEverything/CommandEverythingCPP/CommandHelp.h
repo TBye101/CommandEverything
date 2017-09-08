@@ -16,8 +16,8 @@ public:
 	CommandHelp();
 	~CommandHelp();
 
-	bool ShouldRunThisCommand(ParsedCommand* Parsed);
-	void Run(ParsedCommand* Parsed);
-	string* GetName();
-	string* GetHelp();
+	bool shouldRunThisCommand(ParsedCommand* Parsed);
+	void run(ParsedCommand* Parsed);
+	string* getName();
+	string* getHelp();
 };

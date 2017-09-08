@@ -17,13 +17,13 @@ public:
 	CommandSpecs();
 	~CommandSpecs();
 
-	bool ShouldRunThisCommand(ParsedCommand* Parsed);
+	bool shouldRunThisCommand(ParsedCommand* Parsed);
 
-	void Run(ParsedCommand* Parsed);
+	void run(ParsedCommand* Parsed);
 
-	string* GetName();
+	string* getName();
 
-	string* GetHelp();
+	string* getHelp();
 private:
 	/// <summary>
 	/// Writes some information about the OS to the console.

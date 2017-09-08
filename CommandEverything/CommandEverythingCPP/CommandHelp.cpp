@@ -9,12 +9,12 @@ CommandHelp::~CommandHelp()
 {
 }
 
-bool CommandHelp::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandHelp::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "help");
 }
 
-void CommandHelp::Run(ParsedCommand * Parsed)
+void CommandHelp::run(ParsedCommand * Parsed)
 {
 	string help = "";
 	unsigned __int64 length = Commands->size();
@@ -23,8 +23,8 @@ void CommandHelp::Run(ParsedCommand * Parsed)
 
 	for (register unsigned __int64 i = 0; i < length; i++)
 	{
-		Name = Commands->at(i)->GetName();
-		HelpInfo = Commands->at(i)->GetHelp();
+		Name = Commands->at(i)->getName();
+		HelpInfo = Commands->at(i)->getHelp();
 		help = "";
 		help.append(*Name);
 		help.append(": ");
@@ -41,12 +41,12 @@ void CommandHelp::Run(ParsedCommand * Parsed)
 	}
 }
 
-string* CommandHelp::GetName()
+string* CommandHelp::getName()
 {
 	return new string("Help");
 }
 
-string* CommandHelp::GetHelp()
+string* CommandHelp::getHelp()
 {
 	return new string("Shows some help information about all known commands.");
 }

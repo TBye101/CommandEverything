@@ -9,12 +9,12 @@ CommandCd::~CommandCd()
 {
 }
 
-bool CommandCd::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandCd::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "cd");
 }
 
-void CommandCd::Run(ParsedCommand* Parsed)
+void CommandCd::run(ParsedCommand* Parsed)
 {
 	//If there is a space in the filepath, we need to reparse the input directly.
 	//https://github.com/tronkko/dirent/blob/master/examples/ls.c
@@ -45,12 +45,12 @@ void CommandCd::Run(ParsedCommand* Parsed)
 	}
 }
 
-string* CommandCd::GetName()
+string* CommandCd::getName()
 {
 	return new string("CD");
 }
 
-string* CommandCd::GetHelp()
+string* CommandCd::getHelp()
 {
 	return new string("Changes the directory we are working from, just like in CMD. Cd \"..\" goes up to the parent directory, while cd \".\" goes to the current directory.");
 }

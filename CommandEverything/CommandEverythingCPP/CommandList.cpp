@@ -9,12 +9,12 @@ CommandList::~CommandList()
 {
 }
 
-bool CommandList::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandList::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "list");
 }
 
-void CommandList::Run(ParsedCommand* Parsed)
+void CommandList::run(ParsedCommand* Parsed)
 {
 	bool ShowingFilesOnly = false;
 	if (Parsed->Words->size() == 2 && Parsed->Words->at(1) == "files")
@@ -71,12 +71,12 @@ void CommandList::Run(ParsedCommand* Parsed)
 	}
 }
 
-string* CommandList::GetName()
+string* CommandList::getName()
 {
 	return new string("List");
 }
 
-string* CommandList::GetHelp()
+string* CommandList::getHelp()
 {
 	return new string("Lists all available options for the current state of the cd command.\r\n If you use \"List files\" you get all the files within the working directory.");
 }

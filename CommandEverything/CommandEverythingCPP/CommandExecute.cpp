@@ -9,12 +9,12 @@ CommandExecute::~CommandExecute()
 {
 }
 
-bool CommandExecute::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandExecute::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "execute");
 }
 
-void CommandExecute::Run(ParsedCommand* Parsed)
+void CommandExecute::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 2 || Parsed->Words->at(1) == "same" && Parsed->Words->size() < 3)
 	{
@@ -53,12 +53,12 @@ void CommandExecute::Run(ParsedCommand* Parsed)
 	}
 }
 
-string* CommandExecute::GetName()
+string* CommandExecute::getName()
 {
 	return new string("Execute");
 }
 
-string* CommandExecute::GetHelp()
+string* CommandExecute::getHelp()
 {
 	return new string("Launches the specified process.\r\n \"Execute same\" will open the process in the same console window as this one, if possible. You must specify a filepath including the filename and extension in the second or third word.");
 }

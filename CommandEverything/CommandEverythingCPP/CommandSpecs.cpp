@@ -11,23 +11,23 @@ CommandSpecs::~CommandSpecs()
 {
 }
 
-bool CommandSpecs::ShouldRunThisCommand(ParsedCommand * Parsed)
+bool CommandSpecs::shouldRunThisCommand(ParsedCommand * Parsed)
 {
 	return (Parsed->Words->at(0) == "specs");
 }
 
-void CommandSpecs::Run(ParsedCommand* Parsed)
+void CommandSpecs::run(ParsedCommand* Parsed)
 {
 	this->GetOSInfo();
 	this->GetProcessorInfo();
 }
 
-string* CommandSpecs::GetName()
+string* CommandSpecs::getName()
 {
 	return new string("Specs");
 }
 
-string* CommandSpecs::GetHelp()
+string* CommandSpecs::getHelp()
 {
 	return new string("Writes to the console some detailed information about your computer.");
 }

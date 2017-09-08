@@ -11,13 +11,13 @@ public:
 	CommandList();
 	~CommandList();
 
-	bool ShouldRunThisCommand(ParsedCommand* Parsed);
+	bool shouldRunThisCommand(ParsedCommand* Parsed);
 
-	void Run(ParsedCommand* Parsed);
+	void run(ParsedCommand* Parsed);
 
-	string* GetName();
+	string* getName();
 
-	string* GetHelp();
+	string* getHelp();
 
 private:
 	/// <summary>

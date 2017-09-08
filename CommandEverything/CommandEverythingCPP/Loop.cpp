@@ -39,9 +39,9 @@ void Loop::MainLoop()
 
 				for (register size_t i = 0; i < length; ++i)
 				{
-					if (Commands->at(i)->ShouldRunThisCommand(parsed))
+					if (Commands->at(i)->shouldRunThisCommand(parsed))
 					{
-						Commands->at(i)->Run(parsed);
+						Commands->at(i)->run(parsed);
 						CommandRun = true;
 						break;
 					}
@@ -89,7 +89,7 @@ void Loop::Startup()
 	register size_t length = Commands->size();
 	for (register size_t i = 0; i < length; i++)
 	{
-		CommandNames->push_back(Commands->at(i)->GetName());
+		CommandNames->push_back(Commands->at(i)->getName());
 	}
 	std::sort(CommandNames->begin(), CommandNames->end());
 

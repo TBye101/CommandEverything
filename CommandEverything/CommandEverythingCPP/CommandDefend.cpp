@@ -9,12 +9,12 @@ CommandDefend::~CommandDefend()
 {
 }
 
-bool CommandDefend::ShouldRunThisCommand(ParsedCommand* Parsed)
+bool CommandDefend::shouldRunThisCommand(ParsedCommand* Parsed)
 {
 	return (Parsed->Words->at(0) == "defend");
 }
 
-void CommandDefend::Run(ParsedCommand* Parsed)
+void CommandDefend::run(ParsedCommand* Parsed)
 {
 	//There wasn't another word to determine whether we were to start or stop
 	if (Parsed->Words->size() < 2)
@@ -42,12 +42,12 @@ void CommandDefend::Run(ParsedCommand* Parsed)
 	Console->WriteLine(&error);
 }
 
-string* CommandDefend::GetName()
+string* CommandDefend::getName()
 {
 	return new string("Defend");
 }
 
-string* CommandDefend::GetHelp()
+string* CommandDefend::getHelp()
 {
 	return new string("Kills all applications that were not running before Defend was started.\r\n Usage: Defend Start to start Defend, Defend Stop to stop Defend.");
 }
