@@ -123,7 +123,6 @@ void Util::getFilenameFromPath(string* Path)
 
 void Util::executeCommandLineArguments(char* argv[], int argC)
 {
-	RunScript* executer = new RunScript();
 	register unsigned __int64 i = 0;
 	bool CommandRun = false;
 	ParsedCommand* parsed;
@@ -166,9 +165,13 @@ void Util::executeCommandLineArguments(char* argv[], int argC)
 					Console->WriteLine("Invalid Command!");
 				}
 			}
+
 		}
 		++i;
 	}
+
+	delete parsed;
+	delete expendable;
 }
 
 unsigned __int64 Util::graphicCalculateFilesIn(char* name, unsigned __int32 indent)
