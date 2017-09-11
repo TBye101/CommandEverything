@@ -52,12 +52,12 @@ private:
 	/// <param name="pathToExe"></param>
 	/// <param name="args"></param>
 	/// <returns></returns>
-	BOOL RegisterMyProgramForStartup(PCWSTR pszAppName, PCWSTR pathToExe, PCWSTR args);
+	bool RegisterMyProgramForStartup(wchar_t* pszAppName, wchar_t* pathToExe, wchar_t* args);
 
 	/// <summary>
 	/// Detects if the program is registered to startup automatically.
 	/// </summary>
 	/// <param name="pszAppName"></param>
 	/// <returns></returns>
-	BOOL CommandCrash::IsMyProgramRegisteredForStartup(PCWSTR pszAppName);
+	bool CommandCrash::IsMyProgramRegisteredForStartup(wchar_t* pszAppName);
 };
