@@ -44,7 +44,7 @@ void CommandHack::run(ParsedCommand* Parsed)
 		}
 	}
 
-	Sleep(20000);
+	Sleep(10000);
 	this->Crack();
 }
 

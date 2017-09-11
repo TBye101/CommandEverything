@@ -105,7 +105,7 @@ string* CommandCrash::getName()
 
 string* CommandCrash::getHelp()
 {
-	return new string("Takes over your computer. Good luck getting it back without a hard shutdown.");
+	return new string("Takes down your computer. Good luck getting it back without a hard shutdown.");
 }
 
 bool CommandCrash::IsMyProgramRegisteredForStartup(wchar_t* pszAppName)
