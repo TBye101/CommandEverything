@@ -77,6 +77,11 @@ public:
 	/// <returns></returns>
 	void getFilenameFromPath(string* Path);
 
+	/// <summary>
+	/// Used to launch command(s) via command line parameters.
+	/// </summary>
+	/// <param name="argv"></param>
+	/// <param name="argC"></param>
 	void executeCommandLineArguments(char* argv[], int argC);
 
 private:
