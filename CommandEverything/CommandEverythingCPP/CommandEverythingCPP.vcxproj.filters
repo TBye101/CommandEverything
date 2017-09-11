@@ -90,14 +90,14 @@
     <Filter Include="Framework\Commands\Cd">
       <UniqueIdentifier>{f28e51f0-e978-4ed3-8e81-037ef6965cff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Run Script">
-      <UniqueIdentifier>{23ca2949-41ed-498c-bb64-52e92e469a3b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\WIP Commands\Lock File System">
       <UniqueIdentifier>{25216080-f299-4b55-9b6f-7a1552e3f0ea}</UniqueIdentifier>
     </Filter>
     <Filter Include="Framework\WIP Commands\Unlock File System">
       <UniqueIdentifier>{0f9b4e1a-c867-4c0c-bd88-5aed6688f125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Commands\Run Script">
+      <UniqueIdentifier>{23ca2949-41ed-498c-bb64-52e92e469a3b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -174,7 +174,7 @@
       <Filter>Framework\WIP Commands\Decrypt</Filter>
     </ClInclude>
     <ClInclude Include="RunScript.h">
-      <Filter>Framework\WIP Commands\Run Script</Filter>
+      <Filter>Framework\Commands\Run Script</Filter>
     </ClInclude>
     <ClInclude Include="CommandSpecs.h">
       <Filter>Framework\WIP Commands\Specs</Filter>
@@ -245,7 +245,7 @@
       <Filter>Framework\WIP Commands\Decrypt</Filter>
     </ClCompile>
     <ClCompile Include="RunScript.cpp">
-      <Filter>Framework\WIP Commands\Run Script</Filter>
+      <Filter>Framework\Commands\Run Script</Filter>
     </ClCompile>
     <ClCompile Include="ICommand.cpp">
       <Filter>Framework\WIP Commands</Filter>
