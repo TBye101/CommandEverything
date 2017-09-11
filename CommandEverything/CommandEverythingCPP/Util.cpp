@@ -121,6 +121,56 @@ void Util::getFilenameFromPath(string* Path)
 	}
 }
 
+void Util::executeCommandLineArguments(char* argv[], int argC)
+{
+	RunScript* executer = new RunScript();
+	register unsigned __int64 i = 0;
+	bool CommandRun = false;
+	ParsedCommand* parsed;
+	string* expendable = new string();
+	Console->WriteLine("Command line arguments:");
+	while (i != argC)
+	{
+		Console->WriteLine(argv[i]);
+		if (i != 0)
+		{
+			delete expendable;
+			CommandRun = false;
+			expendable = new string(argv[i]);
+			Console->LogLine(expendable);
+
+			parsed = new ParsedCommand(expendable);
+
+			//if there is valid input....
+			if (parsed->Words->size() > 0)
+			{
+				//convert the first word into the lower case
+				string first = parsed->Words->at(0);
+				transform(first.begin(), first.end(), first.begin(), ::tolower);
+				parsed->Words->at(0) = first;
+
+				register unsigned __int64 length = Commands->size();
+				register unsigned __int64 ii = 0;
+				for (ii = 0; ii < length; ++ii)
+				{
+					if (Commands->at(ii)->shouldRunThisCommand(parsed))
+					{
+						Commands->at(ii)->run(parsed);
+						CommandRun = true;
+						break;
+					}
+				}
+
+				if (!CommandRun)
+				{
+					Console->WriteLine("Invalid Command!");
+				}
+			}
+		}
+		++i;
+	}
+}
+
 unsigned __int64 Util::graphicCalculateFilesIn(char* name, unsigned __int32 indent)
 {
 	register DIR *dir;

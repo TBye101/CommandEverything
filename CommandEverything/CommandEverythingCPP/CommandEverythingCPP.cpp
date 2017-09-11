@@ -35,6 +35,9 @@ int main(int argc, char* argv[])
 
 	Loop* Program = new Loop();
 	Program->Startup();
+	
+	Utility->executeCommandLineArguments(argv, argc);
+
 	Program->FreeUpMemory();
 	Program->MainLoop();
 

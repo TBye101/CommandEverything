@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Header Only\dirent.h"
+#include "RunScript.h"
+#include "ParsedCommand.h"
 
 #include <string>
 #include <Windows.h>
@@ -74,6 +76,8 @@ public:
 	/// <param name="Path"></param>
 	/// <returns></returns>
 	void getFilenameFromPath(string* Path);
+
+	void executeCommandLineArguments(char* argv[], int argC);
 
 private:
 	ifstream* crypt;

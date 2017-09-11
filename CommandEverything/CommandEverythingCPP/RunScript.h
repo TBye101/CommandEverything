@@ -1,6 +1,10 @@
 #pragma once
 
+#include "ParsedCommand.h"
+#include "ICommand.h"
+
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
