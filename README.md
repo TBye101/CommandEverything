@@ -15,8 +15,11 @@ Any command that is valid in the console is valid in the file.
 Your entire command line history for each instance of the command line is saved to a text file under the "Logs" folder, in the same directory as your executable.
 
 ### Command Line Arguments
+
 This terminal now parses command line arguments.
+
 Ex: "Help Tree" would launch the help command, and the tree command.
+
 Ex: "CD C:/Program Files" would change the working directory to "C:/Program", and then try and execute a command called "Files" which doesn't exist. Yet.
 
 ## Libraries Consumed
