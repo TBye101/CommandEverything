@@ -126,52 +126,53 @@ void Util::executeCommandLineArguments(char* argv[], int argC)
 	register unsigned __int64 i = 0;
 	bool CommandRun = false;
 	ParsedCommand* parsed;
-	string* expendable = new string();
-	Console->WriteLine("Command line arguments:");
-	while (i != argC)
+	string expendable;
+
+	if (argC > 1)
 	{
-		Console->WriteLine(argv[i]);
-		if (i != 0)
+		Console->WriteLine("Command line arguments:");
+		while (i != argC)
 		{
-			delete expendable;
-			CommandRun = false;
-			expendable = new string(argv[i]);
-			Console->LogLine(expendable);
-
-			parsed = new ParsedCommand(expendable);
-
-			//if there is valid input....
-			if (parsed->Words->size() > 0)
+			if (i != 0)
 			{
-				//convert the first word into the lower case
-				string first = parsed->Words->at(0);
-				transform(first.begin(), first.end(), first.begin(), ::tolower);
-				parsed->Words->at(0) = first;
+				Console->WriteLine(argv[i]);
+				CommandRun = false;
+				expendable = string(argv[i]);
+				Console->LogLine(&expendable);
 
-				register unsigned __int64 length = Commands->size();
-				register unsigned __int64 ii = 0;
-				for (ii = 0; ii < length; ++ii)
+				parsed = new ParsedCommand(&expendable);
+
+				//if there is valid input....
+				if (parsed->Words->size() > 0)
 				{
-					if (Commands->at(ii)->shouldRunThisCommand(parsed))
+					//convert the first word into the lower case
+					string first = parsed->Words->at(0);
+					transform(first.begin(), first.end(), first.begin(), ::tolower);
+					parsed->Words->at(0) = first;
+
+					register unsigned __int64 length = Commands->size();
+					register unsigned __int64 ii = 0;
+					for (ii = 0; ii < length; ++ii)
 					{
-						Commands->at(ii)->run(parsed);
-						CommandRun = true;
-						break;
+						if (Commands->at(ii)->shouldRunThisCommand(parsed))
+						{
+							Commands->at(ii)->run(parsed);
+							CommandRun = true;
+							break;
+						}
 					}
+
+					if (!CommandRun)
+					{
+						Console->WriteLine("Invalid Command!");
+					}
+					delete parsed;
 				}
 
-				if (!CommandRun)
-				{
-					Console->WriteLine("Invalid Command!");
-				}
 			}
-
+			++i;
 		}
-		++i;
 	}
-
-	delete parsed;
-	delete expendable;
 }
 
 unsigned __int64 Util::graphicCalculateFilesIn(char* name, unsigned __int32 indent)
