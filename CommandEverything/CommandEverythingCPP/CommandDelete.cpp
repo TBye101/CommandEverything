@@ -16,16 +16,29 @@ bool CommandDelete::shouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandDelete::run(ParsedCommand* Parsed)
 {
+
 	if (Parsed->Words->size() < 2)
 	{
 		Console->WriteLine("Missing argument!");
 	}
 	else
 	{
+		string pat = *FilePath;
+		register unsigned __int64 length = Input.size();
+
+		for (register unsigned __int64 i = 0; i < length; i++)
+		{
+			if (Input[i] == 'd' || Input[i] == 'D')
+			{
+				pat.append(Input.substr(i + 7));
+				break;
+			}
+		}
+
 		wchar_t path[MAX_PATH];
-		size_t size = strlen(Parsed->Words->at(1).c_str());
+		size_t size = strlen(pat.c_str());
 		size_t outSize;
-		mbstowcs_s(&outSize, path, Parsed->Words->at(1).c_str(), size);
+		mbstowcs_s(&outSize, path, pat.c_str(), size);
 
 		if (!DeleteFile(path))
 		{
