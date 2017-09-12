@@ -42,9 +42,6 @@
     <Filter Include="Framework\Commands\Execute">
       <UniqueIdentifier>{ed7578ad-462b-4d25-97ad-f8265620986b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\Commands\Delete">
-      <UniqueIdentifier>{c9b3d648-61e7-4600-b42b-cdaa0e7a7188}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Commands\Defend">
       <UniqueIdentifier>{223279d5-59c1-4794-8998-459ec4523013}</UniqueIdentifier>
     </Filter>
@@ -99,6 +96,9 @@
     <Filter Include="Framework\Commands\Run Script">
       <UniqueIdentifier>{23ca2949-41ed-498c-bb64-52e92e469a3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\WIP Commands\Delete">
+      <UniqueIdentifier>{c9b3d648-61e7-4600-b42b-cdaa0e7a7188}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -147,7 +147,7 @@
       <Filter>Framework\Commands\Execute</Filter>
     </ClInclude>
     <ClInclude Include="CommandDelete.h">
-      <Filter>Framework\Commands\Delete</Filter>
+      <Filter>Framework\WIP Commands\Delete</Filter>
     </ClInclude>
     <ClInclude Include="CommandCrash.h">
       <Filter>Framework\WIP Commands\Crash</Filter>
@@ -224,7 +224,7 @@
       <Filter>Framework\Commands\Execute</Filter>
     </ClCompile>
     <ClCompile Include="CommandDelete.cpp">
-      <Filter>Framework\Commands\Delete</Filter>
+      <Filter>Framework\WIP Commands\Delete</Filter>
     </ClCompile>
     <ClCompile Include="CommandCrash.cpp">
       <Filter>Framework\WIP Commands\Crash</Filter>
