@@ -45,12 +45,6 @@
     <Filter Include="Framework\Commands\Defend">
       <UniqueIdentifier>{223279d5-59c1-4794-8998-459ec4523013}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Crash">
-      <UniqueIdentifier>{62a10e36-0563-4911-8c1d-198029827bb6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\WIP Commands\Hack">
-      <UniqueIdentifier>{34ac8ce0-2a83-4c61-9855-6ec56085fcdf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Commands\Kill">
       <UniqueIdentifier>{297a4d5b-7f09-49a8-8cfc-2763b1d36b9a}</UniqueIdentifier>
     </Filter>
@@ -96,8 +90,14 @@
     <Filter Include="Framework\Commands\Run Script">
       <UniqueIdentifier>{23ca2949-41ed-498c-bb64-52e92e469a3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\WIP Commands\Delete">
+    <Filter Include="Framework\Commands\Delete">
       <UniqueIdentifier>{c9b3d648-61e7-4600-b42b-cdaa0e7a7188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Commands\Hack">
+      <UniqueIdentifier>{34ac8ce0-2a83-4c61-9855-6ec56085fcdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Commands\Crash">
+      <UniqueIdentifier>{62a10e36-0563-4911-8c1d-198029827bb6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -147,13 +147,13 @@
       <Filter>Framework\Commands\Execute</Filter>
     </ClInclude>
     <ClInclude Include="CommandDelete.h">
-      <Filter>Framework\WIP Commands\Delete</Filter>
+      <Filter>Framework\Commands\Delete</Filter>
     </ClInclude>
     <ClInclude Include="CommandCrash.h">
-      <Filter>Framework\WIP Commands\Crash</Filter>
+      <Filter>Framework\Commands\Crash</Filter>
     </ClInclude>
     <ClInclude Include="CommandHack.h">
-      <Filter>Framework\WIP Commands\Hack</Filter>
+      <Filter>Framework\Commands\Hack</Filter>
     </ClInclude>
     <ClInclude Include="CommandKill.h">
       <Filter>Framework\Commands\Kill</Filter>
@@ -224,13 +224,13 @@
       <Filter>Framework\Commands\Execute</Filter>
     </ClCompile>
     <ClCompile Include="CommandDelete.cpp">
-      <Filter>Framework\WIP Commands\Delete</Filter>
+      <Filter>Framework\Commands\Delete</Filter>
     </ClCompile>
     <ClCompile Include="CommandCrash.cpp">
-      <Filter>Framework\WIP Commands\Crash</Filter>
+      <Filter>Framework\Commands\Crash</Filter>
     </ClCompile>
     <ClCompile Include="CommandHack.cpp">
-      <Filter>Framework\WIP Commands\Hack</Filter>
+      <Filter>Framework\Commands\Hack</Filter>
     </ClCompile>
     <ClCompile Include="CommandKill.cpp">
       <Filter>Framework\Commands\Kill</Filter>

@@ -37,8 +37,8 @@ void CommandDelete::run(ParsedCommand* Parsed)
 
 		wchar_t path[MAX_PATH];
 		const char* pat_c = pat.c_str();
-		size_t size = strlen(pat_c);
-		size_t outSize;
+		unsigned __int64 size = strlen(pat_c);
+		unsigned __int64 outSize;
 		mbstowcs_s(&outSize, path, pat_c, size);
 
 		if (!DeleteFile(path))
