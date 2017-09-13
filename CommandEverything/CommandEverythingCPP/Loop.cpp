@@ -124,7 +124,7 @@ void Loop::ProtectProcess()
 {
 	HANDLE hProcess = GetCurrentProcess();
 	PACL pEmptyDacl;
-	DWORD dwErr;
+	unsigned long dwErr;
 
 	// using malloc guarantees proper alignment
 	pEmptyDacl = (PACL)malloc(sizeof(ACL));

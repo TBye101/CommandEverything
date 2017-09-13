@@ -16,7 +16,6 @@ bool CommandDelete::shouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandDelete::run(ParsedCommand* Parsed)
 {
-
 	if (Parsed->Words->size() < 2)
 	{
 		Console->WriteLine("Missing argument!");

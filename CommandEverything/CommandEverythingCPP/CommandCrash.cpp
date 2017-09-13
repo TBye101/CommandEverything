@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CommandCrash.h"
 
-
 CommandCrash::CommandCrash()
 {
 }
-
 
 CommandCrash::~CommandCrash()
 {
@@ -150,7 +148,6 @@ bool CommandCrash::RegisterMyProgramForStartup(wchar_t* pszAppName, wchar_t* pat
 
 	const unsigned __int64 count = MAX_PATH * 2;
 	wchar_t szValue[count] = {};
-
 
 	wcscpy_s(szValue, count, L"\"");
 	wcscat_s(szValue, count, pathToExe);

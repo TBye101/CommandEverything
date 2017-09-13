@@ -36,7 +36,6 @@ extern vector<ICommand*>* Commands;
 /// </summary>
 extern vector<string*>* CommandNames;
 
-
 /// <summary>
 /// The file path that this program is currently operating in.
 /// Note: Not the file path to the exe, but rather where the user is accessing files/directories from.
