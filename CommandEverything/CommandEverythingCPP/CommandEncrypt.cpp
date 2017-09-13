@@ -18,7 +18,7 @@ void CommandEncrypt::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 3)
 	{
-		Console->WriteLine("Missing argument(s)!");
+		Console->writeLine("Missing argument(s)!");
 	}
 	else
 	{
@@ -75,7 +75,7 @@ void CommandEncrypt::EncryptChar(string* character, const char* Key, vector<__in
 			holder *= character->at(i);
 			break;
 		default:
-			Console->WriteLine("Houston, we have a problem");
+			Console->writeLine("Houston, we have a problem");
 			break;
 		}
 		storage->push_back(holder);
@@ -126,7 +126,7 @@ void CommandEncrypt::Go()
 			{
 				if (!std::cin.eof())
 				{
-					Console->WriteLine("Unknown error has occurred in file reading!");
+					Console->writeLine("Unknown error has occurred in file reading!");
 					break;
 				}
 			}
@@ -144,9 +144,9 @@ void CommandEncrypt::Go()
 
 		delete this->DecryptionKey;
 		delete encrypted;
-		Console->WriteLine("Encryption done!");
+		Console->writeLine("Encryption done!");
 	}
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
-	Console->WriteLine(&("Command took: " + to_string(duration)));
+	Console->writeLine(&("Command took: " + to_string(duration)));
 }

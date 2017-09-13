@@ -18,7 +18,7 @@ void CommandKill::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 2)
 	{
-		Console->WriteLine("Missing an argument!");
+		Console->writeLine("Missing an argument!");
 	}
 	else
 	{
@@ -49,10 +49,10 @@ void CommandKill::run(ParsedCommand* Parsed)
 				{
 					MSG.append(": ");
 					MSG.append(to_string(aProcesses[i]));
-					Console->WriteLine(&MSG);
+					Console->writeLine(&MSG);
 				}
 			}
-			Console->WriteLine(&Cant);
+			Console->writeLine(&Cant);
 		}
 		else
 		{
@@ -62,13 +62,13 @@ void CommandKill::run(ParsedCommand* Parsed)
 			if (TerminateProcess(hProcess, 1))
 			{
 				string msg = "Successfully killed a process.";
-				Console->WriteLine(&msg);
+				Console->writeLine(&msg);
 			}
 			else
 			{
 				string msg = "Failed to kill a process";
-				Console->WriteLine(&msg);
-				Console->WriteLine(&to_string(GetLastError()));
+				Console->writeLine(&msg);
+				Console->writeLine(&to_string(GetLastError()));
 			}
 		}
 	}

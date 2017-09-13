@@ -29,7 +29,7 @@ void CommandHelp::run(ParsedCommand * Parsed)
 		help.append(*Name);
 		help.append(": ");
 		help.append(*HelpInfo);
-		Console->WriteLine(&help);
+		Console->writeLine(&help);
 
 		cout << "\r\n";
 		cout << "\r\n";

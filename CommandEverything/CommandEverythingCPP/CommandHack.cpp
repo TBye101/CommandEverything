@@ -60,7 +60,7 @@ string* CommandHack::getHelp()
 
 void CommandHack::Attempt(string* attempt)
 {
-	Console->WriteLine(attempt);
+	Console->writeLine(attempt);
 	register char next;
 	register unsigned __int64 size = attempt->size();
 	register unsigned __int64 i = 0;

@@ -49,7 +49,7 @@ void Loop::MainLoop()
 
 				if (!CommandRun)
 				{
-					Console->WriteLine("Invalid Command!");
+					Console->writeLine("Invalid Command!");
 				}
 			}
 
@@ -60,7 +60,7 @@ void Loop::MainLoop()
 		{
 			string *message = new string("!Error!: ");
 			message->append(e->what());
-			Console->WriteLine(message);
+			Console->writeLine(message);
 			delete message;
 			continue;
 		}

@@ -130,12 +130,12 @@ void Util::executeCommandLineArguments(char* argv[], int argC)
 
 	if (argC > 1)
 	{
-		Console->WriteLine("Command line arguments:");
+		Console->writeLine("Command line arguments:");
 		while (i != argC)
 		{
 			if (i != 0)
 			{
-				Console->WriteLine(argv[i]);
+				Console->writeLine(argv[i]);
 				CommandRun = false;
 				expendable = string(argv[i]);
 				Console->LogLine(&expendable);
@@ -164,7 +164,7 @@ void Util::executeCommandLineArguments(char* argv[], int argC)
 
 					if (!CommandRun)
 					{
-						Console->WriteLine("Invalid Command!");
+						Console->writeLine("Invalid Command!");
 					}
 					delete parsed;
 				}

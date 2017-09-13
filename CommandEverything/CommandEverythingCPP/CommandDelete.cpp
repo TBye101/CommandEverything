@@ -18,7 +18,7 @@ void CommandDelete::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 2)
 	{
-		Console->WriteLine("Missing argument!");
+		Console->writeLine("Missing argument!");
 	}
 	else
 	{
@@ -42,7 +42,7 @@ void CommandDelete::run(ParsedCommand* Parsed)
 
 		if (!DeleteFile(path))
 		{
-			Console->WriteLine("Failed to delete a file!");
+			Console->writeLine("Failed to delete a file!");
 		}
 	}
 }

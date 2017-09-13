@@ -44,7 +44,7 @@ void CommandTree::run(ParsedCommand* Parsed)
 	}
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
-	Console->WriteLine(&("Command took: " + to_string(duration)));
+	Console->writeLine(&("Command took: " + to_string(duration)));
 }
 
 string* CommandTree::getName()

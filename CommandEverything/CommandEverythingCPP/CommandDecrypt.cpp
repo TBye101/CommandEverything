@@ -18,7 +18,7 @@ void CommandDecrypt::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 3)
 	{
-		Console->WriteLine("Missing argument(s)!");
+		Console->writeLine("Missing argument(s)!");
 	}
 	else
 	{
@@ -83,7 +83,7 @@ void CommandDecrypt::DecryptChar(vector<__int16>* character, const char* Key, ve
 			}
 			break;
 		default:
-			Console->WriteLine("Houston, we have a problem");
+			Console->writeLine("Houston, we have a problem");
 			break;
 		}
 		storage->push_back(holder);
@@ -144,9 +144,9 @@ void CommandDecrypt::Go()
 
 		delete this->EncryptionKey;
 		delete decrypted;
-		Console->WriteLine("Decryption done!");
+		Console->writeLine("Decryption done!");
 	}
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
-	Console->WriteLine(&("Command took: " + to_string(duration)));
+	Console->writeLine(&("Command took: " + to_string(duration)));
 }

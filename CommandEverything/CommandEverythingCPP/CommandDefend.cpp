@@ -20,7 +20,7 @@ void CommandDefend::run(ParsedCommand* Parsed)
 	if (Parsed->Words->size() < 2)
 	{
 		string error = "Missing required command argument.";
-		Console->WriteLine(&error);
+		Console->writeLine(&error);
 		return;
 	}
 	string second = Parsed->Words->at(1);
@@ -39,7 +39,7 @@ void CommandDefend::run(ParsedCommand* Parsed)
 	}
 
 	string error = "Invalid command argument";
-	Console->WriteLine(&error);
+	Console->writeLine(&error);
 }
 
 string* CommandDefend::getName()
@@ -146,15 +146,15 @@ void CommandDefend::Defend()
 					{
 						string msg = "Killed a process: ";
 						msg.append(converted);
-						Console->WriteLine(&msg);
+						Console->writeLine(&msg);
 					}
 					else
 					{
 						this->FailedHitList.push_back(aProcesses[i]);
 						string msg = "Failed to kill a process: ";
 						msg.append(converted);
-						Console->WriteLine(&msg);
-						Console->WriteLine(&to_string(GetLastError()));
+						Console->writeLine(&msg);
+						Console->writeLine(&to_string(GetLastError()));
 					}
 				}
 			}

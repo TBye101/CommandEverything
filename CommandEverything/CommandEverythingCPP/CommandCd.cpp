@@ -20,7 +20,7 @@ void CommandCd::run(ParsedCommand* Parsed)
 	//https://github.com/tronkko/dirent/blob/master/examples/ls.c
 	if (Parsed->Words->size() < 2)
 	{
-		Console->WriteLine("Missing required argument.");
+		Console->writeLine("Missing required argument.");
 	}
 	else
 	{
@@ -28,7 +28,7 @@ void CommandCd::run(ParsedCommand* Parsed)
 		if (Parsed->Words->at(1) == "..")
 		{
 			this->GotoParentDir();
-			Console->WriteLine(FilePath);
+			Console->writeLine(FilePath);
 			return;
 		}
 
@@ -41,7 +41,7 @@ void CommandCd::run(ParsedCommand* Parsed)
 		//If we want to go deeper into a subdirectory.
 		this->CdNormal(Parsed);
 
-		Console->WriteLine(FilePath);
+		Console->writeLine(FilePath);
 	}
 }
 
@@ -112,7 +112,7 @@ void CommandCd::CdNormal(ParsedCommand* Parsed)
 	{
 		string invalid = "Invalid directory: ";
 		invalid.append(arg);
-		Console->WriteLine("Directory does not exist!");
-		Console->WriteLine(&invalid);
+		Console->writeLine("Directory does not exist!");
+		Console->writeLine(&invalid);
 	}
 }
