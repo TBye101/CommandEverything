@@ -57,17 +57,17 @@ void CommandSpecs::GetOSInfo()
 	}
 	serviceMajor--;
 
-	Console->writeLine("OS Info: ");
-	Console->writeLine(&("Major: " + to_string(major)));
-	Console->writeLine(&("Minor: " + to_string(minor)));
-	Console->writeLine(&("Service: " + to_string(serviceMajor)));
+	Console->WriteLine("OS Info: ");
+	Console->WriteLine(&("Major: " + to_string(major)));
+	Console->WriteLine(&("Minor: " + to_string(minor)));
+	Console->WriteLine(&("Service: " + to_string(serviceMajor)));
 }
 
 void CommandSpecs::GetProcessorInfo()
 {
-	Console->writeLine("\r\n");
-	Console->writeLine("Processor Information: ");
-	Console->writeLine("\r\n");
+	Console->WriteLine("\r\n");
+	Console->WriteLine("Processor Information: ");
+	Console->WriteLine("\r\n");
 	SYSTEM_INFO SysInfo;
 	GetSystemInfo(&SysInfo);
 	//SysInfo->dwNumberOfProcessors
@@ -78,11 +78,11 @@ void CommandSpecs::GetProcessorInfo()
 
 	while (i != SysInfo.dwNumberOfProcessors)
 	{
-		Console->writeLine(&("Processor " + to_string(ProcessorInformations[i].Number)));
-		Console->writeLine(&("Processor Type: " + *this->GetProcessorName()));
-		Console->writeLine(&("Current Mhz: " + to_string(ProcessorInformations[i].CurrentMhz)));
-		Console->writeLine(&("Mhz Limit: " + to_string(ProcessorInformations[i].MhzLimit)));
-		Console->writeLine("\r\n");
+		Console->WriteLine(&("Processor " + to_string(ProcessorInformations[i].Number)));
+		Console->WriteLine(&("Processor Type: " + *this->GetProcessorName()));
+		Console->WriteLine(&("Current Mhz: " + to_string(ProcessorInformations[i].CurrentMhz)));
+		Console->WriteLine(&("Mhz Limit: " + to_string(ProcessorInformations[i].MhzLimit)));
+		Console->WriteLine("\r\n");
 		++i;
 	}
 }

@@ -15,47 +15,32 @@ Writer::Writer()
 	path = converter.to_bytes(*file->LogDirectoryPath);
 
 	path.append("\\");
-	path.append(*this->getTime());
+	path.append(*this->GetTime());
 	path.pop_back();
 	path.pop_back();
 	path.append(".txt");
 
-	this->fLog = fopen(path.c_str(), "wb");
+	this->Log.open(path, fstream::out);
 
-	FILE* a = this->fLog;
-
-	if (!fLog)
+	if (!Log)
 	{
 		throw new exception("Can't access file!");
 	}
 	else
 	{
 		string message = "Log has initialized successfully";
-		this->writeLine(&message);
+		this->WriteLine(&message);
 	}
 
-	//this->Log.open(path, fstream::out);
-
-	//if (!Log)
-	//{
-	//	throw new exception("Can't access file!");
-	//}
-	//else
-	//{
-	//	string message = "Log has initialized successfully";
-	//	this->writeLine(&message);
-	//}
-
-	//ToDelete->push_back(file);
+	ToDelete->push_back(file);
 }
 
 Writer::~Writer()
 {
-	//this->Log.close();
-	fclose(this->fLog);
+	this->Log.close();
 }
 
-void Writer::writeLine(string *Str)
+void Writer::WriteLine(string *Str)
 {
 	if (Str != NULL && Str->size() > 0)
 	{
@@ -67,32 +52,26 @@ void Writer::writeLine(string *Str)
 	else
 	{
 		string a = "Someone attempted to write a null or empty string to the console!";
-		this->writeLine(&a);
+		this->WriteLine(&a);
 	}
 }
 
-void Writer::writeLine(const char* Str)
+void Writer::WriteLine(const char* Str)
 {
 	string* Msg = new string(Str);
-	this->writeLine(Msg);
+	this->WriteLine(Msg);
 	delete Msg;
 }
 
 void Writer::LogLine(string *Str)
 {
-	string a = *this->getTime();
-	a.append(*Str);
-	a.append("\r\n");
-	const char* buffer = a.c_str();
-	fwrite(buffer, sizeof(char), a.size(), this->fLog);
-	//fflush(this->fLog);
-	//this->Log << *this->getTime();
-	//this->Log << *Str;
-	//this->Log << "\r\n";
-	//this->Log.flush();
+	this->Log << *this->GetTime();
+	this->Log << *Str;
+	this->Log << "\r\n";
+	this->Log.flush();
 }
 
-string* Writer::getTime()
+string* Writer::GetTime()
 {
 	string* Formatted = new string("[");
 	time_t rawtime;

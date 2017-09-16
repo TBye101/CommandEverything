@@ -17,7 +17,7 @@ bool RunScript::shouldRunThisCommand(ParsedCommand* Parsed)
 		{
 			if (Parsed->Words->size() == 2)
 			{
-				Console->writeLine("Argument missing!");
+				Console->WriteLine("Argument missing!");
 			}
 			return true;
 		}
@@ -47,7 +47,7 @@ void RunScript::run(ParsedCommand* Parsed)
 		buffer = (char*)malloc(sizeof(char)*lSize);
 		if (buffer == NULL)
 		{
-			Console->writeLine("Memory error!");
+			Console->WriteLine("Memory error!");
 		}
 
 		//Read the file into the buffer.
@@ -55,7 +55,7 @@ void RunScript::run(ParsedCommand* Parsed)
 
 		if (result != lSize)
 		{
-			Console->writeLine("File reading error!");
+			Console->WriteLine("File reading error!");
 		}
 
 		//Split the buffer into separate line commands.
@@ -94,7 +94,7 @@ void RunScript::run(ParsedCommand* Parsed)
 
 				if (!CommandRun)
 				{
-					Console->writeLine("Invalid Command!");
+					Console->WriteLine("Invalid Command!");
 				}
 			}
 
@@ -106,7 +106,7 @@ void RunScript::run(ParsedCommand* Parsed)
 	}
 	else
 	{
-		Console->writeLine("Invalid file!");
+		Console->WriteLine("Invalid file!");
 	}
 }
 

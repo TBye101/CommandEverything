@@ -18,7 +18,7 @@ void CommandExecute::run(ParsedCommand* Parsed)
 {
 	if (Parsed->Words->size() < 2 || Parsed->Words->at(1) == "same" && Parsed->Words->size() < 3)
 	{
-		Console->writeLine("Invalid argument(s)");
+		Console->WriteLine("Invalid argument(s)");
 	}
 	else
 	{
@@ -48,7 +48,7 @@ void CommandExecute::run(ParsedCommand* Parsed)
 
 		if (!success)
 		{
-			Console->writeLine("Failed to launch an application.");
+			Console->WriteLine("Failed to launch an application.");
 		}
 	}
 }

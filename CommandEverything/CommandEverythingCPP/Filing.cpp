@@ -23,7 +23,7 @@ bool Filing::DoesDirectoryExist(string* Path)
 
 	if (ftyp == INVALID_FILE_ATTRIBUTES)
 	{
-		Console->writeLine("Invalid path!");
+		Console->WriteLine("Invalid path!");
 		return false;  //something is wrong with your path!
 	}
 
@@ -53,7 +53,7 @@ wstring* Filing::GetPathToExe()
 	}
 	else
 	{
-		Console->writeLine("Error! NullPointerException!");
+		Console->WriteLine("Error! NullPointerException!");
 		return NULL;
 	}
 }
@@ -69,7 +69,7 @@ wstring* Filing::GetLogDirectoryPath()
 	}
 	else
 	{
-		Console->writeLine("Error! Directory not found from path!");
+		Console->WriteLine("Error! Directory not found from path!");
 	}
 	return directory;
 }

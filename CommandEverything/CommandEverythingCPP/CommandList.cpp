@@ -39,7 +39,7 @@ void CommandList::run(ParsedCommand* Parsed)
 					//https://www.gnu.org/software/libc/manual/html_node/Directory-Entries.html has useful information on type flags.
 					if (ent->d_type == DT_REG)
 					{
-						Console->writeLine(ent->d_name);
+						Console->WriteLine(ent->d_name);
 					}
 				}
 				closedir(dir);
@@ -50,7 +50,7 @@ void CommandList::run(ParsedCommand* Parsed)
 				{
 					if (ent->d_type == DT_DIR)
 					{
-						Console->writeLine(ent->d_name);
+						Console->WriteLine(ent->d_name);
 					}
 				}
 				closedir(dir);
@@ -65,7 +65,7 @@ void CommandList::run(ParsedCommand* Parsed)
 			err.append("\"");
 			err.append(*FilePath);
 			err.append("\"");
-			Console->writeLine(&err);
+			Console->WriteLine(&err);
 		}
 		ToDelete->push_back(dir);
 	}
@@ -94,6 +94,6 @@ void CommandList::ListDriveLetters()
 		wctomb(strbuffer, lpBuffer[i * 4]);
 		drive = strbuffer[0];
 		drive.append(":/");
-		Console->writeLine(&drive);
+		Console->WriteLine(&drive);
 	}
 }

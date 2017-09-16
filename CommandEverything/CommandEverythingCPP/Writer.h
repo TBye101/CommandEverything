@@ -25,8 +25,8 @@ public:
 	/// </summary>
 	/// <param name="Str"></param>
 	/// <param name="LogLevel">Represents the color and label attached to the log.</param>
-	void writeLine(string* Str);
-	void writeLine(const char* Str);
+	void WriteLine(string* Str);
+	void WriteLine(const char* Str);
 
 	/// <summary>
 	/// Logs a line, but does not write it to the console.
@@ -34,15 +34,10 @@ public:
 	/// <param name="Str"></param>
 	void LogLine(string* Str);
 
-	string* getTime();
+	string* GetTime();
 
 	// notice that IIRC on modern Windows machines if you aren't admin
 	// you can't write in the root directory of the system drive;
 	// you should instead write e.g. in the current directory
 	ofstream Log;
-private: 
-	/// <summary>
-	/// The log file.
-	/// </summary>
-	FILE* fLog;
 };
