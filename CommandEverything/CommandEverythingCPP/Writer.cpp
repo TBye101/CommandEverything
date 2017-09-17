@@ -65,7 +65,6 @@ void Writer::WriteLine(const char* Str)
 
 void Writer::putLine(const char * Str)
 {
-	puts(Str);
 	this->Log << *this->GetTime();
 	this->Log << Str;
 	this->Log << "\r\n";
