@@ -37,7 +37,8 @@ int main(int argc, char* argv[])
 	Program->Startup();
 	
 	Utility->executeCommandLineArguments(argv, argc);
-
+	Console->putLine("Test!");
+	Console->putLine("Test2!");
 	Program->FreeUpMemory();
 	Program->MainLoop();
 

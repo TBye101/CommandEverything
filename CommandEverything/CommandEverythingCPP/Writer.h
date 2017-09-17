@@ -29,6 +29,12 @@ public:
 	void WriteLine(const char* Str);
 
 	/// <summary>
+	/// Writes a line to the console, using the faster puts() function.
+	/// </summary>
+	/// <param name="Str"></param>
+	void putLine(const char* Str);
+
+	/// <summary>
 	/// Logs a line, but does not write it to the console.
 	/// </summary>
 	/// <param name="Str"></param>

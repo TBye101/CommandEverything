@@ -63,6 +63,15 @@ void Writer::WriteLine(const char* Str)
 	delete Msg;
 }
 
+void Writer::putLine(const char * Str)
+{
+	puts(Str);
+	this->Log << *this->GetTime();
+	this->Log << Str;
+	this->Log << "\r\n";
+	this->Log.flush();
+}
+
 void Writer::LogLine(string *Str)
 {
 	this->Log << *this->GetTime();
