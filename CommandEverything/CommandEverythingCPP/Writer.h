@@ -29,7 +29,7 @@ public:
 	void WriteLine(const char* Str);
 
 	/// <summary>
-	/// Writes a line to the console, using the faster puts() function.
+	/// Writes a line to the log, without flushing.
 	/// </summary>
 	/// <param name="Str"></param>
 	void putLine(const char* Str);

@@ -42,6 +42,7 @@ void CommandTree::run(ParsedCommand* Parsed)
 	{
 		TreeFromDirectory(Utility->toCharStar(FilePath), 0);
 	}
+	Console->Log.flush();
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
 	Console->WriteLine(&("Command took: " + to_string(duration)));
