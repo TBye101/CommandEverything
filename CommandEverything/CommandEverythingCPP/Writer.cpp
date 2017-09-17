@@ -65,10 +65,12 @@ void Writer::WriteLine(const char* Str)
 
 void Writer::putLine(const char * Str)
 {
-	this->Log << *this->GetTime();
+	string* time = this->GetTime();
+	this->Log << *time;
 	this->Log << Str;
 	this->Log << "\r\n";
 	this->Log.flush();
+	delete time;
 }
 
 void Writer::LogLine(string *Str)
