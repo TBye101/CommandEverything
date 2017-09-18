@@ -80,9 +80,7 @@ void Loop::FreeUpMemory()
 /// </summary>
 void Loop::Startup()
 {
-	Filing* fil = new Filing();
-	fil->Startup();
-	ToDelete->push_back(fil);
+	Files->Startup();
 
 	AddAllCommands();
 

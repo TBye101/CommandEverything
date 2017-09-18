@@ -76,7 +76,7 @@ void Writer::putLine(const char * Str)
 void Writer::LogLine(string *Str)
 {
 	string* time = this->GetTime();
-	this->Log << time;
+	this->Log << *time;
 	this->Log << *Str;
 	this->Log << "\r\n";
 	this->Log.flush();
