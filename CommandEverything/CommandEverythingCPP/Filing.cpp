@@ -15,6 +15,9 @@ Filing::~Filing()
 void Filing::Startup()
 {
 	CreateDirectory(LogDirectoryPath->c_str(), NULL);
+
+	//Session log directory.
+	CreateDirectory(this->currentInstanceLog->c_str(), NULL);
 }
 
 bool Filing::DoesDirectoryExist(string* Path)
@@ -72,4 +75,26 @@ wstring* Filing::GetLogDirectoryPath()
 		Console->WriteLine("Error! Directory not found from path!");
 	}
 	return directory;
+}
+
+wstring* Filing::getInstanceDirPath()
+{
+	wstring* dir = new wstring(*this->LogDirectoryPath);
+	dir->append(L"\\");
+
+	string* Formatted = new string("[");
+	time_t rawtime;
+	tm* timeinfo;
+	char buffer[80];
+	time(&rawtime);
+	timeinfo = std::localtime(&rawtime);
+
+	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", timeinfo);
+	Formatted->append(buffer);
+	Formatted->append("]");
+	wstring time(Formatted->begin(), Formatted->end());
+	dir->append(time);
+
+	delete Formatted;
+	return dir;
 }

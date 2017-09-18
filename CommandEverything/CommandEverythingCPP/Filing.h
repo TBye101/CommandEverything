@@ -22,6 +22,11 @@ public:
 	wstring* LogDirectoryPath = this->GetLogDirectoryPath();
 
 	/// <summary>
+	/// The folder for all logs in this instance of this program.
+	/// </summary>
+	wstring* currentInstanceLog = this->getInstanceDirPath();
+
+	/// <summary>
 	/// Kicks off some startup logic.
 	/// </summary>
 	void Startup();
@@ -45,6 +50,12 @@ private:
 	/// </summary>
 	/// <returns></returns>
 	wstring* GetLogDirectoryPath();
+
+	/// <summary>
+	/// Returns the folder for all logs this session.
+	/// </summary>
+	/// <returns></returns>
+	wstring* getInstanceDirPath();
 
 
 	/// <summary>
