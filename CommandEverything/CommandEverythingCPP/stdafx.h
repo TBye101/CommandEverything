@@ -18,8 +18,6 @@
 #include "Filing.h"
 #include "Header Only\ThreadPool.h"
 
-extern vector<void*>* ToDelete;
-
 extern Writer* Console;
 extern Util* Utility;
 extern Filing* Files;

@@ -7,10 +7,9 @@
 // TODO: reference any additional headers you need in STDAFX.H
 // and not in this file
 
-vector<void*>* ToDelete = new vector<void*>();
+Filing* Files = new Filing();
 Writer* Console = new Writer();
 Util* Utility = new Util();
-Filing* Files = new Filing();
 //TabCompletion* Complete = new TabCompletion();
 
 vector<ICommand*>* Commands = new vector<ICommand*>();

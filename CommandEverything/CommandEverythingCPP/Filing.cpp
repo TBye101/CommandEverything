@@ -23,7 +23,7 @@ bool Filing::DoesDirectoryExist(string* Path)
 
 	if (ftyp == INVALID_FILE_ATTRIBUTES)
 	{
-		Console->WriteLine("Invalid path!");
+		cout << "Invalid path!\r\n";
 		return false;  //something is wrong with your path!
 	}
 
@@ -53,7 +53,7 @@ wstring* Filing::GetPathToExe()
 	}
 	else
 	{
-		Console->WriteLine("Error! NullPointerException!");
+		cout << "Error! NullPointerException!";
 		return NULL;
 	}
 }

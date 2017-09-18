@@ -39,10 +39,8 @@ int main(int argc, char* argv[])
 	Utility->executeCommandLineArguments(argv, argc);
 	Console->putLine("Test!");
 	Console->putLine("Test2!");
-	Program->FreeUpMemory();
 	Program->MainLoop();
 
-	delete ToDelete;
 	delete Console;
 	delete Utility;
 	delete Files;

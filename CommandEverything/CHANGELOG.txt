@@ -1,0 +1,5 @@
+[0.4.3] (Unreleased)
+-Added this CHANGELOG
+-Fixed a memory leak (fixed in commit 03bcbf59)
+-Fixed a logging error where the time would be a pointer address, not a time (fixed in commit ff853ec0, introduced in commit 03bcbf59)
+-Decreased memory usage 

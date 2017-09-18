@@ -37,11 +37,6 @@ public:
 	~Loop();
 
 	/// <summary>
-	/// Frees up some memory, that we were waiting to delete.
-	/// </summary>
-	void FreeUpMemory();
-
-	/// <summary>
 	/// The main loop of the console.
 	/// </summary>
 	void MainLoop();

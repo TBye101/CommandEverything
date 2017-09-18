@@ -3,16 +3,13 @@
 
 Writer::Writer()
 {
-	Filing* file = new Filing();
-	file->Startup();
-
 	string path;
 
 	//setup converter
 	using convert_type = codecvt_utf8<wchar_t>;
 	wstring_convert<convert_type, wchar_t> converter;
-
-	path = converter.to_bytes(*file->LogDirectoryPath);
+	wstring* a = Files->LogDirectoryPath;
+	path = converter.to_bytes(*Files->LogDirectoryPath);
 
 	path.append("\\");
 	path.append(*this->GetTime());
@@ -31,8 +28,6 @@ Writer::Writer()
 		string message = "Log has initialized successfully";
 		this->WriteLine(&message);
 	}
-
-	ToDelete->push_back(file);
 }
 
 Writer::~Writer()

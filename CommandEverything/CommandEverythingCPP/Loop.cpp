@@ -53,7 +53,6 @@ void Loop::MainLoop()
 				}
 			}
 
-			FreeUpMemory();
 			delete parsed;
 		}
 		catch (exception* e)
@@ -68,30 +67,20 @@ void Loop::MainLoop()
 }
 
 /// <summary>
-/// Supposedly frees up all of that memory we were forgetting about.
-/// </summary>
-void Loop::FreeUpMemory()
-{
-	ToDelete->clear();
-}
-
-/// <summary>
 /// Has some startup logic.
 /// </summary>
 void Loop::Startup()
 {
 	Files->Startup();
-
 	AddAllCommands();
 
-	register size_t length = Commands->size();
-	for (register size_t i = 0; i < length; i++)
+	register unsigned __int64 length = Commands->size();
+	for (register unsigned __int64 i = 0; i < length; i++)
 	{
 		CommandNames->push_back(Commands->at(i)->getName());
 	}
 	std::sort(CommandNames->begin(), CommandNames->end());
 
-	this->FreeUpMemory();
 	this->ProtectProcess();
 }
 
