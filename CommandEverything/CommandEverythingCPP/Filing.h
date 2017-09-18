@@ -45,4 +45,17 @@ private:
 	/// </summary>
 	/// <returns></returns>
 	wstring* GetLogDirectoryPath();
+
+
+	/// <summary>
+	/// Creates a directory on all drives being used (RAID).
+	/// </summary>
+	/// <param name="path">The path to the directory to create. Must be relative to this program's file system.</param>
+	void createDir(const char* path);
+
+	/// <summary>
+	/// Creates a directory on all drives being used (RAID).
+	/// </summary>
+	/// <param name="path">The path to the directory to create. Must be relative to this program's file system.</param>
+	void createFile(const char* path);
 };
