@@ -99,6 +99,9 @@
     <Filter Include="Framework\Commands\Crash">
       <UniqueIdentifier>{62a10e36-0563-4911-8c1d-198029827bb6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\WIP Commands\Hide">
+      <UniqueIdentifier>{06ccf53c-166e-47bb-b916-16f0e24c190f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -179,6 +182,9 @@
     <ClInclude Include="CommandSpecs.h">
       <Filter>Framework\WIP Commands\Specs</Filter>
     </ClInclude>
+    <ClInclude Include="CommandHide.h">
+      <Filter>Framework\WIP Commands\Hide</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -252,6 +258,9 @@
     </ClCompile>
     <ClCompile Include="CommandSpecs.cpp">
       <Filter>Framework\WIP Commands\Specs</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandHide.cpp">
+      <Filter>Framework\WIP Commands\Hide</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

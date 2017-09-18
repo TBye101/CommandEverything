@@ -99,6 +99,7 @@ void Loop::AddAllCommands()
 	Commands->push_back(new CommandExit());
 	Commands->push_back(new CommandHack());
 	Commands->push_back(new CommandHelp());
+	Commands->push_back(new CommandHide());
 	Commands->push_back(new CommandKill());
 	Commands->push_back(new CommandList());
 	Commands->push_back(new RunScript());

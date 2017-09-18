@@ -175,6 +175,7 @@
     <ClInclude Include="CommandExit.h" />
     <ClInclude Include="CommandHack.h" />
     <ClInclude Include="CommandHelp.h" />
+    <ClInclude Include="CommandHide.h" />
     <ClInclude Include="CommandKill.h" />
     <ClInclude Include="CommandList.h" />
     <ClInclude Include="CommandSpecs.h" />
@@ -204,6 +205,7 @@
     <ClCompile Include="CommandExit.cpp" />
     <ClCompile Include="CommandHack.cpp" />
     <ClCompile Include="CommandHelp.cpp" />
+    <ClCompile Include="CommandHide.cpp" />
     <ClCompile Include="CommandKill.cpp" />
     <ClCompile Include="CommandList.cpp" />
     <ClCompile Include="CommandSpecs.cpp" />
