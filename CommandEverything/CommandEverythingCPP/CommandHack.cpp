@@ -111,7 +111,7 @@ void CommandHack::Crack()
 		++i;
 	}
 
-	ToDelete->push_back(Attemptter);
+	delete Attemptter;
 }
 void CommandHack::makeCombinations(string* s, unsigned __int8 length)
 {
