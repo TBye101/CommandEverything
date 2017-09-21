@@ -57,16 +57,21 @@ private:
 	/// <returns></returns>
 	wstring* getInstanceDirPath();
 
+	/// <summary>
+	/// An array that holds the path to the directory which is the root for CE on all drives.
+	/// </summary>
+	wstring* instanceRootDirs;
+
 
 	/// <summary>
 	/// Creates a directory on all drives being used (RAID).
 	/// </summary>
 	/// <param name="path">The path to the directory to create. Must be relative to this program's file system.</param>
-	void createDir(const char* path);
+	void createDirRaid(const char* path);
 
 	/// <summary>
 	/// Creates a directory on all drives being used (RAID).
 	/// </summary>
 	/// <param name="path">The path to the directory to create. Must be relative to this program's file system.</param>
-	void createFile(const char* path);
+	void createFileRaid(const char* path);
 };
