@@ -4,6 +4,7 @@
 Filing::Filing()
 {
 	this->Startup();
+	this->getDrives();
 }
 
 Filing::~Filing()
@@ -14,10 +15,10 @@ Filing::~Filing()
 
 void Filing::Startup()
 {
-	CreateDirectory(LogDirectoryPath->c_str(), NULL);
+	bool a = CreateDirectory(LogDirectoryPath->c_str(), NULL);
 
 	//Session log directory.
-	CreateDirectory(this->currentInstanceLog->c_str(), NULL);
+	bool b = CreateDirectory(this->currentInstanceLog->c_str(), NULL);
 }
 
 bool Filing::DoesDirectoryExist(string* Path)
@@ -97,4 +98,44 @@ wstring* Filing::getInstanceDirPath()
 
 	delete Formatted;
 	return dir;
+}
+
+char* Filing::getDrives()
+{
+	unsigned long mydrives = 100; // buffer length
+	wchar_t lpBuffer[100]; // buffer for drive string storage
+	unsigned long test = GetLogicalDriveStrings(mydrives, lpBuffer); //Gets size of drive string.
+	unsigned __int8 drives = test / 4; //Gets the number of drives.
+	char* driveLetters = new char[drives];//We will hold the actual drive letters here.
+	char* strbuffer = new char[1];//Holds the 1 character drive letter here.
+	wstring drive = L"";
+	string drivePath;
+	unsigned __int8 drivesUsable = 0;
+	int dir;//Holds whether the create directory succeeded or not.
+	unsigned __int64 error;//Holds the last error code fetched.
+
+
+	for (unsigned __int8 i = 0; i < drives; i++)
+	{
+		drive = L"";
+		wctomb(strbuffer, lpBuffer[i * 4]);
+		drivePath = string(strbuffer, 1);
+		drivePath.append(":\\CE");
+		//Check drive accessibility here
+		drive.append(Utility->stringToWString(drivePath));
+		dir = CreateDirectory(drive.c_str(), NULL);
+
+		error = GetLastError();
+		if (dir != 0 || error  == ERROR_ALREADY_EXISTS)
+		{
+			{
+				driveLetters[drivesUsable] = strbuffer[0];
+				++drivesUsable;
+			}
+		}
+	}
+	driveLetters[drivesUsable] = '\n';
+	delete strbuffer;
+
+	return driveLetters;
 }

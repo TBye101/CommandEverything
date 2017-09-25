@@ -62,6 +62,10 @@ private:
 	/// </summary>
 	wstring* instanceRootDirs;
 
+	/// <summary>
+	/// Returns a null terminated list of all drives connected to the computer that we can use.
+	/// </summary>
+	char* getDrives();
 
 	/// <summary>
 	/// Creates a directory on all drives being used (RAID).
