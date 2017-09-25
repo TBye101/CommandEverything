@@ -44,7 +44,7 @@ void RAIDFile::writeLine(const char* str)
 	this->logArray[this->logNext] << *time;
 	this->logArray[this->logNext] << str;
 	this->logArray[this->logNext] << "\r\n";
-	this->logArray[this->logNext].flush();
+	//this->logArray[this->logNext].flush();
 	delete time;
 	++this->logNext;
 	
