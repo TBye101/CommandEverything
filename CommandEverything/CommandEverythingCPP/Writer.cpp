@@ -28,6 +28,12 @@ Writer::Writer()
 		string message = "Log has initialized successfully";
 		this->WriteLine(&message);
 	}
+
+	string fileName = *this->GetTime();
+	fileName.pop_back();
+	fileName.pop_back();
+	fileName.append(".txt");
+	this->RAIDLog = new RAIDFile(Files->instanceRootDirs, Files->arraySize, "Logs\\", fileName.c_str());
 }
 
 Writer::~Writer()

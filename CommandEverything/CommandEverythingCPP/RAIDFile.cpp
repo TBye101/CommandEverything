@@ -5,6 +5,7 @@ RAIDFile::RAIDFile(wstring * rootPathArray, unsigned __int8 arraySize, const cha
 {
 	wstring* paths;
 	memcpy(paths, rootPathArray, (sizeof(wstring) * arraySize));
+
 }
 
 RAIDFile::~RAIDFile()

@@ -27,6 +27,16 @@ public:
 	wstring* currentInstanceLog = this->getInstanceDirPath();
 
 	/// <summary>
+	/// An array that holds the path to the directory which is the root for CE on all drives.
+	/// </summary>
+	wstring* instanceRootDirs;
+
+	/// <summary>
+	/// The size of instanceRootDirs.
+	/// </summary>
+	unsigned __int8 arraySize;
+
+	/// <summary>
 	/// Kicks off some startup logic.
 	/// </summary>
 	void Startup();
@@ -56,16 +66,6 @@ private:
 	/// </summary>
 	/// <returns></returns>
 	wstring* getInstanceDirPath();
-
-	/// <summary>
-	/// An array that holds the path to the directory which is the root for CE on all drives.
-	/// </summary>
-	wstring* instanceRootDirs;
-
-	/// <summary>
-	/// The size of instanceRootDirs.
-	/// </summary>
-	unsigned __int8 arraySize;
 
 	/// <summary>
 	/// Returns a null terminated list of all drives connected to the computer that we can use.
