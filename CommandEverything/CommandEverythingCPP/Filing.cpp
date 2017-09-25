@@ -19,6 +19,38 @@ void Filing::Startup()
 
 	//Session log directory.
 	bool b = CreateDirectory(this->currentInstanceLog->c_str(), NULL);
+
+	const char* driveLetters = this->getDrives();
+	wstring* time = this->getTime();
+
+	//Get size of driveLetters
+	register unsigned __int8 length = 0;
+
+	while (driveLetters[length] != '\n')
+	{
+		++length;
+	}
+
+	this->instanceRootDirs = new wstring[length];
+	this->arraySize = length;
+
+	register unsigned __int8 i = 0;
+	while (i != length)
+	{
+		this->instanceRootDirs[i] = driveLetters[i];
+		this->instanceRootDirs[i].append(L":\\CE\\");
+		this->instanceRootDirs[i].append(*time);
+		this->instanceRootDirs[i].append(L"\\");
+		bool c = CreateDirectory(this->instanceRootDirs[i].c_str(), NULL);
+
+		if (!c)
+		{
+			cout << "Error! Unable to create directory! This could cause critical errors.";
+		}
+
+		++i;
+	}
+	delete driveLetters;
 }
 
 bool Filing::DoesDirectoryExist(string* Path)
@@ -114,7 +146,6 @@ char* Filing::getDrives()
 	int dir;//Holds whether the create directory succeeded or not.
 	unsigned __int64 error;//Holds the last error code fetched.
 
-
 	for (unsigned __int8 i = 0; i < drives; i++)
 	{
 		drive = L"";
@@ -138,4 +169,34 @@ char* Filing::getDrives()
 	delete strbuffer;
 
 	return driveLetters;
+}
+
+wstring* Filing::getTime()
+{
+	wstring* dir = new wstring();
+	string* Formatted = new string("[");
+	time_t rawtime;
+	tm* timeinfo;
+	char buffer[80];
+	time(&rawtime);
+	timeinfo = std::localtime(&rawtime);
+
+	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", timeinfo);
+	Formatted->append(buffer);
+	Formatted->append("]");
+	wstring time(Formatted->begin(), Formatted->end());
+	dir->append(time);
+
+	delete Formatted;
+	return dir;
+}
+
+void Filing::createDirRaid(const char* path)
+{
+	register unsigned __int8 i = 0;
+
+	while (i != this->arraySize)
+	{
+		
+	}
 }
