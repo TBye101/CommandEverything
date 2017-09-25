@@ -5,7 +5,9 @@
 #include <iostream>
 #include <codecvt>
 #include <iostream>
+
 #include "Filing.h"
+#include "RAIDFile.h"
 
 using namespace std;
 
@@ -46,4 +48,6 @@ public:
 	// you can't write in the root directory of the system drive;
 	// you should instead write e.g. in the current directory
 	ofstream Log;
+
+	RAIDFile* RAIDLog;
 };

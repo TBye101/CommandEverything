@@ -85,10 +85,4 @@ private:
 	/// </summary>
 	/// <param name="path">Path must assume that the following string will be preappended to the path: "DriveLetter:\\CE\\InstanceDir\\</param>
 	void createDirRaid(const char* path);
-
-	/// <summary>
-	/// Creates a directory on all drives being used (RAID).
-	/// </summary>
-	/// <param name="path">The path to the directory to create. Must be relative to this program's file system.</param>
-	void createFileRaid(const char* path);
 };
