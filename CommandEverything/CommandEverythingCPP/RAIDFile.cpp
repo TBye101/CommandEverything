@@ -32,10 +32,18 @@ RAIDFile::RAIDFile(wstring* rootPathArray, unsigned __int8 arraySize, const char
 
 		++i;
 	}
+	delete paths;
 }
 
 RAIDFile::~RAIDFile()
 {
+	unsigned __int8 i = 0;
+	while (i != this->logArraySize)
+	{
+		this->logArray[i].close();
+		++i;
+	}
+	delete this->logArray;
 }
 
 void RAIDFile::writeLine(const char* str)

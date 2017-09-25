@@ -186,7 +186,7 @@
       <Filter>Framework\Commands\Hide</Filter>
     </ClInclude>
     <ClInclude Include="RAIDFile.h">
-      <Filter>Header Files</Filter>
+      <Filter>Framework\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -266,7 +266,7 @@
       <Filter>Framework\Commands\Hide</Filter>
     </ClCompile>
     <ClCompile Include="RAIDFile.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Framework\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
