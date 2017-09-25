@@ -15,7 +15,7 @@ Filing::~Filing()
 
 void Filing::Startup()
 {
-	bool a = CreateDirectory(LogDirectoryPath->c_str(), NULL);
+	//bool a = CreateDirectory(LogDirectoryPath->c_str(), NULL);
 
 	//Session log directory.
 	bool b = CreateDirectory(this->currentInstanceLog->c_str(), NULL);
@@ -45,11 +45,15 @@ void Filing::Startup()
 
 		if (!c)
 		{
-			cout << "Error! Unable to create directory! This could cause critical errors.";
+			cout << "Error! Unable to create directory! This could cause critical errors.\r\n";
 		}
 
 		++i;
 	}
+
+	this->createDirRaid("Logs");
+
+	delete time;
 	delete driveLetters;
 }
 
@@ -89,7 +93,7 @@ wstring* Filing::GetPathToExe()
 	}
 	else
 	{
-		cout << "Error! NullPointerException!";
+		cout << "Error! NullPointerException!\r\n";
 		return NULL;
 	}
 }
@@ -194,9 +198,19 @@ wstring* Filing::getTime()
 void Filing::createDirRaid(const char* path)
 {
 	register unsigned __int8 i = 0;
-
+	wstring p;
+	string pat = path;
+	bool success;
 	while (i != this->arraySize)
 	{
-		
+		p = this->instanceRootDirs[i];
+		p.append(wstring(pat.begin(), pat.end()));
+		success = CreateDirectory(p.c_str(), NULL);
+
+		if (!success && GetLastError() != ERROR_ALREADY_EXISTS)
+		{
+			cout << "Failed to create a directory\r\n";
+		}
+		++i;
 	}
 }
