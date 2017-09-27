@@ -23,7 +23,7 @@ void Loop::MainLoop()
 		{
 			CommandRun = false;
 			getline(cin, Input);
-			Console->LogLine(&Input);
+			Console->LogLine(Input.c_str());
 
 			parsed = new ParsedCommand(&Input);
 

@@ -138,7 +138,7 @@ void Util::executeCommandLineArguments(char* argv[], int argC)
 				Console->WriteLine(argv[i]);
 				CommandRun = false;
 				expendable = string(argv[i]);
-				Console->LogLine(&expendable);
+				Console->LogLine(expendable.c_str());
 
 				parsed = new ParsedCommand(&expendable);
 

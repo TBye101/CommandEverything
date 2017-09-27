@@ -40,7 +40,7 @@ void Writer::WriteLine(string *Str)
 		cout << *Str;
 		cout << "\r\n";
 		cout.flush();
-		this->LogLine(Str);
+		this->LogLine(Str->c_str());
 	}
 	else
 	{
@@ -56,20 +56,11 @@ void Writer::WriteLine(const char* Str)
 	delete Msg;
 }
 
-void Writer::putLine(const char * Str)
+void Writer::LogLine(const char* Str)
 {
 	char* time = this->GetTime();
 	this->Log << time;
-	this->Log << *Str;
-	this->Log << "\r\n";
-	//this->Log.flush();
-}
-
-void Writer::LogLine(string *Str)
-{
-	char* time = this->GetTime();
-	this->Log << time;
-	this->Log << *Str;
+	this->Log << Str;
 	this->Log << "\r\n";
 	//this->Log.flush();
 }
