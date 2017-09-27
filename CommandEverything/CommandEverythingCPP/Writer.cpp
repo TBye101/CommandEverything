@@ -4,17 +4,15 @@
 Writer::Writer()
 {
 	string path;
+	buffer[0] = '[';
 
 	//setup converter
 	using convert_type = codecvt_utf8<wchar_t>;
 	wstring_convert<convert_type, wchar_t> converter;
-	wstring* a = Files->LogDirectoryPath;
-	path = converter.to_bytes(*Files->LogDirectoryPath);
+	path = converter.to_bytes(*Files->currentInstanceLog);
 
 	path.append("\\");
-	path.append(*this->GetTime());
-	path.pop_back();
-	path.pop_back();
+	path.append("Main Log");
 	path.append(".txt");
 
 	this->Log.open(path, fstream::out);
@@ -60,35 +58,27 @@ void Writer::WriteLine(const char* Str)
 
 void Writer::putLine(const char * Str)
 {
-	string* time = this->GetTime();
-	this->Log << *time;
-	this->Log << Str;
+	char* time = this->GetTime();
+	this->Log << time;
+	this->Log << *Str;
 	this->Log << "\r\n";
 	//this->Log.flush();
-	delete time;
 }
 
 void Writer::LogLine(string *Str)
 {
-	string* time = this->GetTime();
-	this->Log << *time;
+	char* time = this->GetTime();
+	this->Log << time;
 	this->Log << *Str;
 	this->Log << "\r\n";
-	this->Log.flush();
-	delete time;
+	//this->Log.flush();
 }
 
-string* Writer::GetTime()
+char* Writer::GetTime()
 {
-	string* Formatted = new string("[");
-	time_t rawtime;
-	tm* timeinfo;
-	char buffer[80];
 	time(&rawtime);
 	timeinfo = std::localtime(&rawtime);
 
-	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", timeinfo);
-	Formatted->append(buffer);
-	Formatted->append("]: ");
-	return Formatted;
+	strftime(buffer + 1, 80, "%Y-%m-%d-%H-%M-%S]: ", timeinfo);
+	return buffer;
 }

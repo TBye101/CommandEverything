@@ -40,10 +40,14 @@ public:
 	/// <param name="Str"></param>
 	void LogLine(string* Str);
 
-	string* GetTime();
+	char* GetTime();
 
 	// notice that IIRC on modern Windows machines if you aren't admin
 	// you can't write in the root directory of the system drive;
 	// you should instead write e.g. in the current directory
 	ofstream Log;
+private:
+	time_t rawtime;
+	tm* timeinfo;
+	char* buffer = new char[81];
 };
