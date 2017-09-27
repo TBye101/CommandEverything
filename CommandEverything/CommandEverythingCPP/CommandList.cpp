@@ -23,7 +23,7 @@ void CommandList::run(ParsedCommand* Parsed)
 	}
 	if (FilePath->empty())
 	{
-		this->ListDriveLetters();
+		this->listDriveLetters();
 	}
 	else
 	{
@@ -78,7 +78,7 @@ string* CommandList::getHelp()
 	return new string("Lists all available options for the current state of the cd command.\r\n If you use \"List files\" you get all the files within the working directory.");
 }
 
-void CommandList::ListDriveLetters()
+void CommandList::listDriveLetters()
 {
 	unsigned long mydrives = 100; // buffer length
 	wchar_t lpBuffer[100]; // buffer for drive string storage

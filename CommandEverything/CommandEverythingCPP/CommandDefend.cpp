@@ -59,15 +59,15 @@ bool CommandDefend::DoesProcessExistInList(unsigned int pID, unsigned int number
 
 	for (i = 0; i < numberOfProcesses; i++)
 	{
-		if (pID == this->AllowedProcesses[i])
+		if (pID == this->allowedProcesses[i])
 		{
 			return true;
 		}
 	}
-	length = this->FailedHitList.size();
+	length = this->failedHitList.size();
 	for (i = 0; i < length; i++)
 	{
-		if (pID == this->FailedHitList[i])
+		if (pID == this->failedHitList[i])
 		{
 			return true;
 		}
@@ -78,22 +78,22 @@ bool CommandDefend::DoesProcessExistInList(unsigned int pID, unsigned int number
 
 void CommandDefend::DefendStart()
 {
-	if (!this->DefenseThread)
+	if (!this->defenseThread)
 	{
-		delete this->DefenseThread;
+		delete this->defenseThread;
 	}
 
-	this->DefenseThread = new thread(&CommandDefend::Defend, this);
+	this->defenseThread = new thread(&CommandDefend::Defend, this);
 }
 
 void CommandDefend::DefendStop()
 {
-	this->StopThread = true;
+	this->stopThread = true;
 }
 
 void CommandDefend::Defend()
 {
-	this->StopThread = false;
+	this->stopThread = false;
 	// Get the list of process identifiers.  
 	register unsigned long aProcesses[1024];
 	unsigned long cbNeeded;
@@ -102,15 +102,15 @@ void CommandDefend::Defend()
 	EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded);
 
 	numberOfProcesses = cbNeeded / sizeof(unsigned long);
-	//Copies the contents of aProcesses to this->AllowedProcesses.
-	memcpy(this->AllowedProcesses, aProcesses, sizeof(this->AllowedProcesses));
+	//Copies the contents of aProcesses to this->allowedProcesses.
+	memcpy(this->allowedProcesses, aProcesses, sizeof(this->allowedProcesses));
 
 	register unsigned int i = 0;
 	void* hProcess;
 	unsigned long CID = GetCurrentProcessId();
 	while (true)
 	{
-		if (this->StopThread)
+		if (this->stopThread)
 		{
 			break;
 		}
@@ -150,7 +150,7 @@ void CommandDefend::Defend()
 					}
 					else
 					{
-						this->FailedHitList.push_back(aProcesses[i]);
+						this->failedHitList.push_back(aProcesses[i]);
 						string msg = "Failed to kill a process: ";
 						msg.append(converted);
 						Console->WriteLine(&msg);

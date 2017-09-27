@@ -23,8 +23,8 @@ public:
 
 private:
 
-	char* Chars;
-	unsigned __int64 CharsLength;
+	char* chars;
+	unsigned __int64 charsLength;
 	unsigned __int8 Length = 0;
 
 	/// <summary>

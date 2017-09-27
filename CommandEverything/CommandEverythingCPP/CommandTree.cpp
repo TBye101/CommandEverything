@@ -35,12 +35,12 @@ void CommandTree::run(ParsedCommand* Parsed)
 			wctomb(strbuffer, lpBuffer[i * 4]);
 			drive = strbuffer[0];
 			drive.append(":/");
-			this->TreeFromDirectory(Utility->toCharStar(&drive), 0);
+			this->treeFromDirectory(Utility->toCharStar(&drive), 0);
 		}
 	}
 	else
 	{
-		TreeFromDirectory(Utility->toCharStar(FilePath), 0);
+		treeFromDirectory(Utility->toCharStar(FilePath), 0);
 	}
 	Console->Log.flush();
 
@@ -58,7 +58,7 @@ string* CommandTree::getHelp()
 	return new string("Shows a tree structure just like CMDs. Lets you get an idea of the directory structure while using command line.");
 }
 
-void CommandTree::TreeFromDirectory(char* name, unsigned __int32 indent)
+void CommandTree::treeFromDirectory(char* name, unsigned __int32 indent)
 {
 	register DIR *dir;
 	register struct dirent *entry;
@@ -93,7 +93,7 @@ void CommandTree::TreeFromDirectory(char* name, unsigned __int32 indent)
 			}
 			ToLog->append(path);
 			Console->LogLine(ToLog->c_str());
-			TreeFromDirectory(path, indent + 2);
+			treeFromDirectory(path, indent + 2);
 		}
 		else
 		{

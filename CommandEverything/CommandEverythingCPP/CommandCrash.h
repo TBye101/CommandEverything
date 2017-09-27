@@ -32,7 +32,7 @@ private:
 	/// <summary>
 	/// Kills all processes it can besides itself.
 	/// </summary>
-	void AttackProcesses();
+	void attackProcesses();
 
 	/// <summary>
 	/// Turns off the moniter. Really hard to fight back when you can't see your screen.
@@ -43,7 +43,7 @@ private:
 	/// <summary>
 	/// Registers the program to the startup registry. Rather- It tells someone else to do it.
 	/// </summary>
-	void RegisterProgram();
+	void registerProgram();
 
 	/// <summary>
 	/// Registers the program to the startup registry.
@@ -52,12 +52,12 @@ private:
 	/// <param name="pathToExe"></param>
 	/// <param name="args"></param>
 	/// <returns></returns>
-	bool RegisterMyProgramForStartup(wchar_t* pszAppName, wchar_t* pathToExe, wchar_t* args);
+	bool registerMyProgramForStartup(wchar_t* pszAppName, wchar_t* pathToExe, wchar_t* args);
 
 	/// <summary>
 	/// Detects if the program is registered to startup automatically.
 	/// </summary>
 	/// <param name="pszAppName"></param>
 	/// <returns></returns>
-	bool CommandCrash::IsMyProgramRegisteredForStartup(wchar_t* pszAppName);
+	bool CommandCrash::isMyProgramRegisteredForStartup(wchar_t* pszAppName);
 };

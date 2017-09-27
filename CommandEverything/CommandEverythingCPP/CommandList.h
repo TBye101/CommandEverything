@@ -23,5 +23,5 @@ private:
 	/// <summary>
 	/// Lists all valid drive letters.
 	/// </summary>
-	void ListDriveLetters();
+	void listDriveLetters();
 };

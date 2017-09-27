@@ -27,18 +27,18 @@ public:
 	string* getHelp();
 private:
 	//If this is true, the defense thread will stop execution.
-	bool StopThread = false;
-	thread* DefenseThread;
+	bool stopThread = false;
+	thread* defenseThread;
 
 	/// <summary>
 	/// A list of programs not to kill.
 	/// </summary>
-	unsigned int AllowedProcesses[1024];
+	unsigned int allowedProcesses[1024];
 
 	/// <summary>
 	/// A list of programs that we failed to kill.
 	/// </summary>
-	vector<unsigned int> FailedHitList;
+	vector<unsigned int> failedHitList;
 
 	/// <summary>
 	/// Determines if the given process exists in RunningProcesses.

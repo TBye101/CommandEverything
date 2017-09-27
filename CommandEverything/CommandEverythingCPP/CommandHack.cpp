@@ -7,7 +7,7 @@ CommandHack::CommandHack()
 
 CommandHack::~CommandHack()
 {
-	delete[] this->Chars;
+	delete[] this->chars;
 }
 
 bool CommandHack::shouldRunThisCommand(ParsedCommand* Parsed)
@@ -21,25 +21,25 @@ void CommandHack::run(ParsedCommand* Parsed)
 	{
 		string valid = Parsed->Words->at(1);
 		register unsigned __int64 length = valid.size();
-		this->Chars = new char[length];
-		this->CharsLength = length;
+		this->chars = new char[length];
+		this->charsLength = length;
 
 		register unsigned __int64 i = 0;
 
 		while (i != length)
 		{
-			this->Chars[i] = valid[i];
+			this->chars[i] = valid[i];
 			i++;
 		}
 	}
 	else
 	{
-		this->Chars = new char[96];
-		this->CharsLength = 96;
+		this->chars = new char[96];
+		this->charsLength = 96;
 		register unsigned __int8 i = 32;
 		while (i != 128)
 		{
-			this->Chars[i - 32] = i;
+			this->chars[i - 32] = i;
 			++i;
 		}
 	}
@@ -122,11 +122,11 @@ void CommandHack::makeCombinations(string* s, unsigned __int8 length)
 	}
 	register string appended;
 
-	for (register unsigned __int8 i = 0; i < this->CharsLength; i++) // iterate through alphabet
+	for (register unsigned __int8 i = 0; i < this->charsLength; i++) // iterate through alphabet
 	{
 		// Create new string with next character
 		// Call generate again until string has reached it's length
-		appended = *s + this->Chars[i];
+		appended = *s + this->chars[i];
 		this->makeCombinations(&appended, length - 1);
 	}
 }

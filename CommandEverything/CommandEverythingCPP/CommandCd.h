@@ -25,5 +25,5 @@ private:
 	/// <summary>
 	/// Actually cds a normal input.
 	/// </summary>
-	void CdNormal(ParsedCommand*);
+	void cdNormal(ParsedCommand*);
 };

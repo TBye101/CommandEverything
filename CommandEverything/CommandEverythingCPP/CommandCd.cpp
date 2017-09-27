@@ -39,7 +39,7 @@ void CommandCd::run(ParsedCommand* Parsed)
 		}
 
 		//If we want to go deeper into a subdirectory.
-		this->CdNormal(Parsed);
+		this->cdNormal(Parsed);
 
 		Console->WriteLine(FilePath);
 	}
@@ -87,7 +87,7 @@ void CommandCd::GotoParentDir()
 	}
 }
 
-void CommandCd::CdNormal(ParsedCommand* Parsed)
+void CommandCd::cdNormal(ParsedCommand* Parsed)
 {
 	string arg = *FilePath;
 
