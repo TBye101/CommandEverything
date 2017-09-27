@@ -83,6 +83,7 @@ void CommandTree::TreeFromDirectory(char* name, unsigned __int32 indent)
 				continue;
 			}
 			snprintf(path, sizeof(path), "%s/%s", name, entry->d_name);
+			//printf("%*s[%s]\n", indent, "", entry->d_name);
 			*ToLog = "";
 			register __int64 i = 0;
 
@@ -92,11 +93,14 @@ void CommandTree::TreeFromDirectory(char* name, unsigned __int32 indent)
 				++i;
 			}
 			ToLog->append(path);
+			//Console->Log << *ToLog + "\r\n";
 			Console->putLine(ToLog->c_str());
 			TreeFromDirectory(path, indent + 2);
 		}
 		else
 		{
+			//printf("%*s- %s\n", indent, "", entry->d_name);
+
 			*ToLog = "";
 			register __int64 i = 0;
 
@@ -106,6 +110,7 @@ void CommandTree::TreeFromDirectory(char* name, unsigned __int32 indent)
 				++i;
 			}
 			ToLog->append(entry->d_name);
+			//Console->Log << *ToLog + "\r\n";
 			Console->putLine(ToLog->c_str());
 		}
 	}

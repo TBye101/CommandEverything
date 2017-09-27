@@ -27,16 +27,6 @@ public:
 	wstring* currentInstanceLog = this->getInstanceDirPath();
 
 	/// <summary>
-	/// An array that holds the path to the directory which is the root for CE on all drives.
-	/// </summary>
-	wstring* instanceRootDirs;
-
-	/// <summary>
-	/// The size of instanceRootDirs.
-	/// </summary>
-	unsigned __int8 arraySize;
-
-	/// <summary>
 	/// Kicks off some startup logic.
 	/// </summary>
 	void Startup();
@@ -67,22 +57,16 @@ private:
 	/// <returns></returns>
 	wstring* getInstanceDirPath();
 
-	/// <summary>
-	/// Returns a null terminated list of all drives connected to the computer that we can use.
-	/// Creates a directory driveletter:/CE/ on every drive.
-	/// </summary>
-	char* getDrives();
-
-	/// <summary>
-	/// Returns the current time, formatted for a file path.
-	/// </summary>
-	/// <returns></returns>
-	wstring* getTime();
-
 
 	/// <summary>
 	/// Creates a directory on all drives being used (RAID).
 	/// </summary>
-	/// <param name="path">Path must assume that the following string will be preappended to the path: "DriveLetter:\\CE\\InstanceDir\\</param>
-	void createDirRaid(const char* path);
+	/// <param name="path">The path to the directory to create. Must be relative to this program's file system.</param>
+	void createDir(const char* path);
+
+	/// <summary>
+	/// Creates a directory on all drives being used (RAID).
+	/// </summary>
+	/// <param name="path">The path to the directory to create. Must be relative to this program's file system.</param>
+	void createFile(const char* path);
 };

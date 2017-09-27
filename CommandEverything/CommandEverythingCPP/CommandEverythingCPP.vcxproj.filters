@@ -185,9 +185,6 @@
     <ClInclude Include="CommandHide.h">
       <Filter>Framework\Commands\Hide</Filter>
     </ClInclude>
-    <ClInclude Include="RAIDFile.h">
-      <Filter>Framework\Util</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -264,9 +261,6 @@
     </ClCompile>
     <ClCompile Include="CommandHide.cpp">
       <Filter>Framework\Commands\Hide</Filter>
-    </ClCompile>
-    <ClCompile Include="RAIDFile.cpp">
-      <Filter>Framework\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
