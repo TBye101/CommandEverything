@@ -4,6 +4,7 @@
 Filing::Filing()
 {
 	this->Startup();
+	this->getDrives();
 }
 
 Filing::~Filing()
@@ -14,10 +15,46 @@ Filing::~Filing()
 
 void Filing::Startup()
 {
-	CreateDirectory(LogDirectoryPath->c_str(), NULL);
+	//bool a = CreateDirectory(LogDirectoryPath->c_str(), NULL);
 
 	//Session log directory.
-	CreateDirectory(this->currentInstanceLog->c_str(), NULL);
+	bool b = CreateDirectory(this->currentInstanceLog->c_str(), NULL);
+
+	const char* driveLetters = this->getDrives();
+	wstring* time = this->getTime();
+
+	//Get size of driveLetters
+	register unsigned __int8 length = 0;
+
+	while (driveLetters[length] != '\n')
+	{
+		++length;
+	}
+
+	this->instanceRootDirs = new wstring[length];
+	this->arraySize = length;
+
+	register unsigned __int8 i = 0;
+	while (i != length)
+	{
+		this->instanceRootDirs[i] = driveLetters[i];
+		this->instanceRootDirs[i].append(L":\\CE\\");
+		this->instanceRootDirs[i].append(*time);
+		this->instanceRootDirs[i].append(L"\\");
+		bool c = CreateDirectory(this->instanceRootDirs[i].c_str(), NULL);
+
+		if (!c)
+		{
+			cout << "Error! Unable to create directory! This could cause critical errors.\r\n";
+		}
+
+		++i;
+	}
+
+	this->createDirRaid("Logs");
+
+	delete time;
+	delete driveLetters;
 }
 
 bool Filing::DoesDirectoryExist(string* Path)
@@ -56,7 +93,7 @@ wstring* Filing::GetPathToExe()
 	}
 	else
 	{
-		cout << "Error! NullPointerException!";
+		cout << "Error! NullPointerException!\r\n";
 		return NULL;
 	}
 }
@@ -97,4 +134,83 @@ wstring* Filing::getInstanceDirPath()
 
 	delete Formatted;
 	return dir;
+}
+
+char* Filing::getDrives()
+{
+	unsigned long mydrives = 100; // buffer length
+	wchar_t lpBuffer[100]; // buffer for drive string storage
+	unsigned long test = GetLogicalDriveStrings(mydrives, lpBuffer); //Gets size of drive string.
+	unsigned __int8 drives = test / 4; //Gets the number of drives.
+	char* driveLetters = new char[drives];//We will hold the actual drive letters here.
+	char* strbuffer = new char[1];//Holds the 1 character drive letter here.
+	wstring drive = L"";
+	string drivePath;
+	unsigned __int8 drivesUsable = 0;
+	int dir;//Holds whether the create directory succeeded or not.
+	unsigned __int64 error;//Holds the last error code fetched.
+
+	for (unsigned __int8 i = 0; i < drives; i++)
+	{
+		drive = L"";
+		wctomb(strbuffer, lpBuffer[i * 4]);
+		drivePath = string(strbuffer, 1);
+		drivePath.append(":\\CE");
+		//Check drive accessibility here
+		drive.append(Utility->stringToWString(drivePath));
+		dir = CreateDirectory(drive.c_str(), NULL);
+
+		error = GetLastError();
+		if (dir != 0 || error  == ERROR_ALREADY_EXISTS)
+		{
+			{
+				driveLetters[drivesUsable] = strbuffer[0];
+				++drivesUsable;
+			}
+		}
+	}
+	driveLetters[drivesUsable] = '\n';
+	delete strbuffer;
+
+	return driveLetters;
+}
+
+wstring* Filing::getTime()
+{
+	wstring* dir = new wstring();
+	string* Formatted = new string("[");
+	time_t rawtime;
+	tm* timeinfo;
+	char buffer[80];
+	time(&rawtime);
+	timeinfo = std::localtime(&rawtime);
+
+	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", timeinfo);
+	Formatted->append(buffer);
+	Formatted->append("]");
+	wstring time(Formatted->begin(), Formatted->end());
+	dir->append(time);
+
+	delete Formatted;
+	return dir;
+}
+
+void Filing::createDirRaid(const char* path)
+{
+	register unsigned __int8 i = 0;
+	wstring p;
+	string pat = path;
+	bool success;
+	while (i != this->arraySize)
+	{
+		p = this->instanceRootDirs[i];
+		p.append(wstring(pat.begin(), pat.end()));
+		success = CreateDirectory(p.c_str(), NULL);
+
+		if (!success && GetLastError() != ERROR_ALREADY_EXISTS)
+		{
+			cout << "Failed to create a directory\r\n";
+		}
+		++i;
+	}
 }

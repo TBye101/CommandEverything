@@ -187,6 +187,7 @@
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Loop.h" />
     <ClInclude Include="ParsedCommand.h" />
+    <ClInclude Include="RAIDFile.h" />
     <ClInclude Include="RunScript.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="ICommand.cpp" />
     <ClCompile Include="Loop.cpp" />
     <ClCompile Include="ParsedCommand.cpp" />
+    <ClCompile Include="RAIDFile.cpp" />
     <ClCompile Include="RunScript.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
