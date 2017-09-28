@@ -19,6 +19,8 @@ class Util
 {
 public:
 
+	Util();
+
 	/// <summary>
 	/// Converts a string to a wstring.
 	/// </summary>
@@ -83,10 +85,21 @@ public:
 	/// <param name="argv"></param>
 	/// <param name="argC"></param>
 	void executeCommandLineArguments(char* argv[], int argC);
+	
+	/// <summary>
+	/// Gets the current time.
+	/// Don't delete the address pointed to by this methods return address. It is reused.
+	/// </summary>
+	/// <returns></returns>
+	char* getTime();
 
 private:
 	ifstream* crypt;
 	unsigned __int64 FilesFound = 0;
+
+	time_t rawtime;
+	tm* timeinfo;
+	char* buffer = new char[81];
 
 	/// <summary>
 	/// Counts the number of files in a directory graphically on screen.

@@ -25,5 +25,18 @@ private:
 	/// </summary>
 	/// <param name="Path"></param>
 	/// <param name=""></param>
-	static void treeFromDirectory(char* Path, unsigned __int32 indent);
+	void treeFromDirectory(char* Path, unsigned __int32 indent);
+
+	/// <summary>
+	/// Writes a line to the dedicated tree log file.
+	/// </summary>
+	/// <param name="str"></param>
+	void logLine(const char* str);
+
+	/// <summary>
+	/// Sets up a new log.
+	/// </summary>
+	void initializeLog();
+
+	ofstream treeLog;
 };

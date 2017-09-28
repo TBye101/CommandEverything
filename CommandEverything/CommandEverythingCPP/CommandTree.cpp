@@ -19,7 +19,7 @@ void CommandTree::run(ParsedCommand* Parsed)
 	clock_t start;
 	double duration;
 	start = clock();
-
+	this->initializeLog();
 	//If no working directory, do all drives!
 	if (*FilePath == "")
 	{
@@ -43,6 +43,7 @@ void CommandTree::run(ParsedCommand* Parsed)
 		treeFromDirectory(Utility->toCharStar(FilePath), 0);
 	}
 	Console->Log.flush();
+	this->treeLog.close();
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
 	Console->WriteLine(&("Command took: " + to_string(duration)));
@@ -92,7 +93,7 @@ void CommandTree::treeFromDirectory(char* name, unsigned __int32 indent)
 				++i;
 			}
 			ToLog->append(path);
-			Console->LogLine(ToLog->c_str());
+			this->logLine(ToLog->c_str());
 			treeFromDirectory(path, indent + 2);
 		}
 		else
@@ -106,9 +107,43 @@ void CommandTree::treeFromDirectory(char* name, unsigned __int32 indent)
 				++i;
 			}
 			ToLog->append(entry->d_name);
-			Console->LogLine(ToLog->c_str());
+			this->logLine(ToLog->c_str());
 		}
 	}
 	closedir(dir);
 	delete ToLog;
+}
+
+void CommandTree::logLine(const char * str)
+{
+	char* time = Utility->getTime();
+	this->treeLog << time;
+	this->treeLog << str;
+	this->treeLog << "\r\n";
+}
+
+void CommandTree::initializeLog()
+{
+	string path;
+
+	//setup converter
+	using convert_type = codecvt_utf8<wchar_t>;
+	wstring_convert<convert_type, wchar_t> converter;
+	path = converter.to_bytes(*Files->currentInstanceLog);
+
+	path.append("\\");
+	path.append(Utility->getTime());
+	path.append(" tree");
+	path.append(".txt");
+
+	this->treeLog.open(path, fstream::out);
+
+	if (!this->treeLog)
+	{
+		cout << "Can't access file!\r\n";
+	}
+	else
+	{
+		//cout << "Log has initialized successfully\r\n";
+	}
 }

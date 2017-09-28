@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "Util.h"
 
+Util::Util()
+{
+	this->buffer[0] = '[';
+}
+
 wstring Util::stringToWString(const string & s)
 {
 	int len;
@@ -173,6 +178,15 @@ void Util::executeCommandLineArguments(char* argv[], int argC)
 			++i;
 		}
 	}
+}
+
+char* Util::getTime()
+{
+	time(&rawtime);
+	timeinfo = std::localtime(&rawtime);
+
+	strftime(buffer + 1, 80, "%Y-%m-%d-%H-%M-%S] ", timeinfo);
+	return buffer;
 }
 
 unsigned __int64 Util::graphicCalculateFilesIn(char* name, unsigned __int32 indent)
