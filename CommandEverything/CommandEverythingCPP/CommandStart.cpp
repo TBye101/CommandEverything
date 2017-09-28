@@ -11,7 +11,7 @@ CommandStart::~CommandStart()
 
 bool CommandStart::shouldRunThisCommand(ParsedCommand *Parsed)
 {
-	return (Parsed->Words->at(0) == "start");
+	return (Parsed->words->at(0) == "start");
 }
 
 void CommandStart::run(ParsedCommand *Parsed)

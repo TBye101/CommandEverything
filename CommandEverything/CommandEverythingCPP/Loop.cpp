@@ -28,12 +28,12 @@ void Loop::MainLoop()
 			parsed = new ParsedCommand(&Input);
 
 			//if there is valid input....
-			if (parsed->Words->size() > 0)
+			if (parsed->words->size() > 0)
 			{
 				//convert the first word into the lower case
-				string first = parsed->Words->at(0);
+				string first = parsed->words->at(0);
 				transform(first.begin(), first.end(), first.begin(), ::tolower);
-				parsed->Words->at(0) = first;
+				parsed->words->at(0) = first;
 
 				register size_t length = Commands->size();
 

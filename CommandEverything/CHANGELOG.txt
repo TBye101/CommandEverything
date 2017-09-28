@@ -3,8 +3,6 @@
 ## Features
 
 -Each session gets it's own log directory now (commit e42622f2)
-	-Multi file logging coming soon for certain commands
--Each drive gets it's own CE directory, instance directory, and log directory
 
 [0.4.3]
 

@@ -11,18 +11,18 @@ CommandDecrypt::~CommandDecrypt()
 
 bool CommandDecrypt::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "decrypt");
+	return (Parsed->words->at(0) == "decrypt");
 }
 
 void CommandDecrypt::run(ParsedCommand* Parsed)
 {
-	if (Parsed->Words->size() < 3)
+	if (Parsed->words->size() < 3)
 	{
 		Console->WriteLine("Missing argument(s)!");
 	}
 	else
 	{
-		this->Cmd = *Parsed->Words;
+		this->Cmd = *Parsed->words;
 		//Give the thread pool the encryption command.
 		TPool->enqueue(&CommandDecrypt::Go, this);
 	}

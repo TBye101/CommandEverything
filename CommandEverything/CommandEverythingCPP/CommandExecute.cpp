@@ -11,12 +11,12 @@ CommandExecute::~CommandExecute()
 
 bool CommandExecute::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "execute");
+	return (Parsed->words->at(0) == "execute");
 }
 
 void CommandExecute::run(ParsedCommand* Parsed)
 {
-	if (Parsed->Words->size() < 2 || Parsed->Words->at(1) == "same" && Parsed->Words->size() < 3)
+	if (Parsed->words->size() < 2 || Parsed->words->at(1) == "same" && Parsed->words->size() < 3)
 	{
 		Console->WriteLine("Invalid argument(s)");
 	}
@@ -30,16 +30,16 @@ void CommandExecute::run(ParsedCommand* Parsed)
 		bool success = false;
 
 		//If we want to open the process in this console window or not.
-		if (Parsed->Words->at(1) == "same")
+		if (Parsed->words->at(1) == "same")
 		{
-			size = strlen(Parsed->Words->at(2).c_str());;
-			mbstowcs_s(&outSize, path, Parsed->Words->at(2).c_str(), size);
+			size = strlen(Parsed->words->at(2).c_str());;
+			mbstowcs_s(&outSize, path, Parsed->words->at(2).c_str(), size);
 			success = CreateProcess(path, NULL, NULL, NULL, true, 0, NULL, NULL, &info, &processInfo);
 		}
 		else
 		{
-			size = strlen(Parsed->Words->at(1).c_str());
-			mbstowcs_s(&outSize, path, Parsed->Words->at(1).c_str(), size);
+			size = strlen(Parsed->words->at(1).c_str());
+			mbstowcs_s(&outSize, path, Parsed->words->at(1).c_str(), size);
 			success = CreateProcess(path, NULL, NULL, NULL, true, CREATE_NEW_CONSOLE, NULL, NULL, &info, &processInfo);
 		}
 

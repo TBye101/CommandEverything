@@ -11,21 +11,21 @@ CommandCd::~CommandCd()
 
 bool CommandCd::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "cd");
+	return (Parsed->words->at(0) == "cd");
 }
 
 void CommandCd::run(ParsedCommand* Parsed)
 {
 	//If there is a space in the filepath, we need to reparse the input directly.
 	//https://github.com/tronkko/dirent/blob/master/examples/ls.c
-	if (Parsed->Words->size() < 2)
+	if (Parsed->words->size() < 2)
 	{
 		Console->WriteLine("Missing required argument.");
 	}
 	else
 	{
 		//If we need to go up a directory.
-		if (Parsed->Words->at(1) == "..")
+		if (Parsed->words->at(1) == "..")
 		{
 			this->GotoParentDir();
 			Console->WriteLine(FilePath);
@@ -33,7 +33,7 @@ void CommandCd::run(ParsedCommand* Parsed)
 		}
 
 		//If we need to stay at the same one.
-		if (Parsed->Words->at(1) == ".")
+		if (Parsed->words->at(1) == ".")
 		{
 			return;
 		}

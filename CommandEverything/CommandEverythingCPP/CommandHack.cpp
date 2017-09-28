@@ -12,14 +12,14 @@ CommandHack::~CommandHack()
 
 bool CommandHack::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "hack");
+	return (Parsed->words->at(0) == "hack");
 }
 //hack aAnNrRsStTuUyY1_mMeE
 void CommandHack::run(ParsedCommand* Parsed)
 {
-	if (Parsed->Words->size() > 1)
+	if (Parsed->words->size() > 1)
 	{
-		string valid = Parsed->Words->at(1);
+		string valid = Parsed->words->at(1);
 		register unsigned __int64 length = valid.size();
 		this->chars = new char[length];
 		this->charsLength = length;

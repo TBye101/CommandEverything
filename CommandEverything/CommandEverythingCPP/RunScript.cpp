@@ -11,11 +11,11 @@ RunScript::~RunScript()
 
 bool RunScript::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	if (Parsed->Words->size() >= 2)
+	if (Parsed->words->size() >= 2)
 	{
-		if (Parsed->Words->at(0) == "run" && Parsed->Words->at(1) == "script")
+		if (Parsed->words->at(0) == "run" && Parsed->words->at(1) == "script")
 		{
-			if (Parsed->Words->size() == 2)
+			if (Parsed->words->size() == 2)
 			{
 				Console->WriteLine("Argument missing!");
 			}
@@ -33,7 +33,7 @@ void RunScript::run(ParsedCommand* Parsed)
 	register unsigned __int64 result;
 
 	string path = *FilePath;
-	path.append(Parsed->Words->at(2));
+	path.append(Parsed->words->at(2));
 
 	scriptFile = fopen(path.c_str(), "rb");
 	if (scriptFile != NULL)
@@ -73,12 +73,12 @@ void RunScript::run(ParsedCommand* Parsed)
 			pars = new ParsedCommand(&commands[i]);
 
 			//if there is valid input....
-			if (pars->Words->size() > 0)
+			if (pars->words->size() > 0)
 			{
 				//convert the first word into the lower case
-				string first = pars->Words->at(0);
+				string first = pars->words->at(0);
 				transform(first.begin(), first.end(), first.begin(), ::tolower);
-				pars->Words->at(0) = first;
+				pars->words->at(0) = first;
 
 				register unsigned __int64 length = Commands->size();
 

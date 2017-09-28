@@ -11,19 +11,19 @@ CommandDefend::~CommandDefend()
 
 bool CommandDefend::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "defend");
+	return (Parsed->words->at(0) == "defend");
 }
 
 void CommandDefend::run(ParsedCommand* Parsed)
 {
 	//There wasn't another word to determine whether we were to start or stop
-	if (Parsed->Words->size() < 2)
+	if (Parsed->words->size() < 2)
 	{
 		string error = "Missing required command argument.";
 		Console->WriteLine(&error);
 		return;
 	}
-	string second = Parsed->Words->at(1);
+	string second = Parsed->words->at(1);
 	std::transform(second.begin(), second.end(), second.begin(), ::tolower);
 
 	if (second == "start")

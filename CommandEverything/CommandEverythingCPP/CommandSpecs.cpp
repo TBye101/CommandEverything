@@ -11,7 +11,7 @@ CommandSpecs::~CommandSpecs()
 
 bool CommandSpecs::shouldRunThisCommand(ParsedCommand * Parsed)
 {
-	return (Parsed->Words->at(0) == "specs");
+	return (Parsed->words->at(0) == "specs");
 }
 
 void CommandSpecs::run(ParsedCommand* Parsed)

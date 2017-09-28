@@ -11,13 +11,13 @@ CommandList::~CommandList()
 
 bool CommandList::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "list");
+	return (Parsed->words->at(0) == "list");
 }
 
 void CommandList::run(ParsedCommand* Parsed)
 {
 	bool ShowingFilesOnly = false;
-	if (Parsed->Words->size() == 2 && Parsed->Words->at(1) == "files")
+	if (Parsed->words->size() == 2 && Parsed->words->at(1) == "files")
 	{
 		ShowingFilesOnly = true;
 	}

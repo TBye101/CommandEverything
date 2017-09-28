@@ -11,7 +11,7 @@ CommandCrash::~CommandCrash()
 
 bool CommandCrash::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "crash");
+	return (Parsed->words->at(0) == "crash");
 }
 
 void CommandCrash::run(ParsedCommand* Parsed)

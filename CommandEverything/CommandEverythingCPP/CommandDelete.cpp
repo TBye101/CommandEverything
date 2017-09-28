@@ -11,12 +11,12 @@ CommandDelete::~CommandDelete()
 
 bool CommandDelete::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "delete");
+	return (Parsed->words->at(0) == "delete");
 }
 
 void CommandDelete::run(ParsedCommand* Parsed)
 {
-	if (Parsed->Words->size() < 2)
+	if (Parsed->words->size() < 2)
 	{
 		Console->WriteLine("Missing argument!");
 	}

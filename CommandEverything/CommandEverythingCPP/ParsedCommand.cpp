@@ -13,12 +13,12 @@ ParsedCommand::ParsedCommand(string *Input)
 
 		while (ss >> buf)
 		{
-			this->Words->push_back(buf);
+			this->words->push_back(buf);
 		}
 	}
 }
 
 ParsedCommand::~ParsedCommand()
 {
-	delete this->Words;
+	delete this->words;
 }

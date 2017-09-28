@@ -13,7 +13,7 @@ CommandHide::~CommandHide()
 
 bool CommandHide::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "hide");
+	return (Parsed->words->at(0) == "hide");
 }
 
 void CommandHide::run(ParsedCommand* Parsed)

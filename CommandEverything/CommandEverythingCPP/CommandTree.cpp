@@ -11,7 +11,7 @@ CommandTree::~CommandTree()
 
 bool CommandTree::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "tree");
+	return (Parsed->words->at(0) == "tree");
 }
 
 void CommandTree::run(ParsedCommand* Parsed)

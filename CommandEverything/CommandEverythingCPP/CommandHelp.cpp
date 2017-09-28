@@ -11,7 +11,7 @@ CommandHelp::~CommandHelp()
 
 bool CommandHelp::shouldRunThisCommand(ParsedCommand* Parsed)
 {
-	return (Parsed->Words->at(0) == "help");
+	return (Parsed->words->at(0) == "help");
 }
 
 void CommandHelp::run(ParsedCommand * Parsed)

@@ -11,7 +11,7 @@ CommandExit::~CommandExit()
 
 bool CommandExit::shouldRunThisCommand(ParsedCommand *Parsed)
 {
-	return (Parsed->Words->at(0) == "exit");
+	return (Parsed->words->at(0) == "exit");
 }
 
 void CommandExit::run(ParsedCommand * Parsed)
