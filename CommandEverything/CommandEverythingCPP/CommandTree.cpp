@@ -16,6 +16,11 @@ bool CommandTree::shouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandTree::run(ParsedCommand* Parsed)
 {
+	TPool->enqueue(&CommandTree::runThreaded, this);
+}
+
+void CommandTree::runThreaded()
+{
 	clock_t start;
 	double duration;
 	start = clock();

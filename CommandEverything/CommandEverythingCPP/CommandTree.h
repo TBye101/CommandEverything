@@ -38,5 +38,10 @@ private:
 	/// </summary>
 	void initializeLog();
 
+	/// <summary>
+	/// Where the thread pool is pointed to when running this command.
+	/// </summary>
+	void runThreaded();
+
 	ofstream treeLog;
 };
