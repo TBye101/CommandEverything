@@ -3,6 +3,10 @@
 ## Features
 
 -Each session gets it's own log directory now (commit e42622f2)
+-Each tree command creates a new log file per usage (commit 6d46f334)
+
+## Bugs
+-Removed some test messages
 
 [0.4.3]
 

@@ -82,19 +82,23 @@ wstring* Filing::getInstanceDirPath()
 	wstring* dir = new wstring(*this->LogDirectoryPath);
 	dir->append(L"\\");
 
-	string* Formatted = new string("[");
 	time_t rawtime;
 	tm* timeinfo;
-	char buffer[80];
+	char buffer[81];
 	time(&rawtime);
 	timeinfo = std::localtime(&rawtime);
 
-	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", timeinfo);
-	Formatted->append(buffer);
-	Formatted->append("]");
-	wstring time(Formatted->begin(), Formatted->end());
-	dir->append(time);
+	strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S]", timeinfo);
 
-	delete Formatted;
+	int len;
+	int slength = 82;
+	len = MultiByteToWideChar(CP_ACP, 0, buffer, slength, 0, 0);
+	wchar_t* buf = new wchar_t[len];
+	MultiByteToWideChar(CP_ACP, 0, buffer, slength, buf, len);
+	wstring r(buf);
+
+	dir->append(r);
+
+	delete[] buf;
 	return dir;
 }

@@ -37,8 +37,6 @@ int main(int argc, char* argv[])
 	Program->Startup();
 	
 	Utility->executeCommandLineArguments(argv, argc);
-	Console->LogLine("Test!");
-	Console->LogLine("Test2!");
 	Program->MainLoop();
 
 	delete Console;
