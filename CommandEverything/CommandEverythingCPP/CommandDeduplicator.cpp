@@ -118,6 +118,74 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 	//If we need to fetch the size of our index...
 	if (end == -1)
 	{
-
+		end = this->getIndexSize();
 	}
+
+	//If we don't have anything in the index yet...
+	if (end == 0)
+	{
+		//Just add it.
+		this->fileNameLog << path;
+		this->fileNameLog << "\r\n";
+	}
+	else
+	{
+		//Start binary searching.
+		unsigned __int64 middle = (start + end) / 2;
+		unsigned __int8 compareValue = this->compareStrings(path, this->getFromIndex(middle));
+
+		if (compareValue == GREATER_THAN)
+		{
+			//Insert position must be in the top half of the working range.
+			this->addNameToIndex(path, middle, end);
+		}
+		else
+		{
+			if (compareValue == LESS_THAN)
+			{
+				//Insert position must be in the bottom half of the working range.
+				this->addNameToIndex(path, 0, middle);
+			}
+			else
+			{
+				//We found it! middle is the insert position.
+				this->insertInNameIndex(middle, path);
+				return middle;
+			}
+		}
+	}
+}
+
+unsigned __int8 CommandDeduplicator::compareStrings(char* one, char* two)
+{
+	//I hope these are null terminated
+	unsigned __int64 oneSize = strlen(one);
+	unsigned __int64 twoSize = strlen(two);
+	register unsigned __int64 leastSize;
+	register unsigned __int64 i = 0;
+
+	//Get the size of the smaller string
+	if (oneSize > twoSize || oneSize == twoSize)
+	{
+		leastSize = oneSize;
+	}
+	else
+	{
+		leastSize = twoSize;
+	}
+
+	while (i != leastSize)
+	{
+		if (one[i] > two[i])
+		{
+			return GREATER_THAN;
+		}
+		if (one[i] < two[i])
+		{
+			return LESS_THAN;
+		}
+		++i;
+	}
+
+	return EQUAL;
 }

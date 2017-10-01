@@ -8,6 +8,10 @@
 #define SAME_CONTENTS 2
 #define SAME_NAME_AND_CONTENTS 3
 
+#define EQUAL 0
+#define GREATER_THAN 1
+#define LESS_THAN 2
+
 class CommandDeduplicator : public ICommand
 {
 public:
@@ -91,9 +95,24 @@ private:
 	unsigned __int64 addNameToIndex(char* path, unsigned __int64 start, unsigned __int64 end);
 	void addHashToIndex(char* hash, unsigned __int64 position);
 
+	unsigned __int8 compareStrings(char* one, char* two);
+
 	/// <summary>
 	/// Returns the size of our file name index.
 	/// </summary>
 	/// <returns></returns>
 	unsigned __int64 getIndexSize();
+
+	/// <summary>
+	/// Returns the name of the file at the specified position in the index.
+	/// </summary>
+	/// <param name="position"></param>
+	/// <returns></returns>
+	char* getFromIndex(unsigned __int64 position);
+
+	/// <summary>
+	/// Inserts the string at the specified position in the name index.
+	/// </summary>
+	/// <param name="position"></param>
+	void insertInNameIndex(unsigned __int64 position, char* str);
 };
