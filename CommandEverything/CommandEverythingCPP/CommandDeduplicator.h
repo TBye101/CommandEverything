@@ -1,6 +1,12 @@
 #pragma once
 
-//#include <iostream>
+#include <iostream>
+#include <fstream>
+
+#define NO_DUPLICATE 0
+#define SAME_NAME 1
+#define SAME_CONTENTS 2
+#define SAME_NAME_AND_CONTENTS 3
 
 class CommandDeduplicator : public ICommand
 {
@@ -20,11 +26,13 @@ private:
 	/// The file where we write down each file name.
 	/// </summary>
 	ofstream fileNameLog;
+	ifstream fileNameLogReader;
 
 	/// <summary>
 	/// The file where we keep our hashes, that corrospond with each file.
 	/// </summary>
 	ofstream hashLog;
+	ifstream hashLogReader;
 
 	/// <summary>
 	/// The file where we talk about which files have duplicates, and how identical they are.
@@ -61,8 +69,25 @@ private:
 	/// </summary>
 	void fileIterator(char* dir);
 
-	bool areFilesIdentical(char* path1, char* path2);
-	bool filesHaveSameName(char* path1, char* path2);
-	void addNameToIndex(char* path);
+	/// <summary>
+	/// Returns NO_DUPLICATE if the file system has no file named the same as it.
+	/// Returns SAME_NAME if the file system has a file with the same name as it.
+	/// Returns SAME_CONTENTS if the file system has a file with the same contents as it.
+	/// Returns SAME_NAME_AND_CONTENTS if the file system has a file with the same name and contents as it.
+	/// Writes this information to the appropiete log.
+	/// </summary>
+	/// <param name="path">The path to the file in question.</param>
+	/// <returns></returns>
+	unsigned __int8 hasDuplicate(char* path);
+
+	/// <summary>
+	/// Inserts the file name into the correct position in the index file.
+	/// Returns the position, so the hash might be put into the corrosponding place.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <param name="endRange">The maximum size of our range of options.
+	/// If -1, then we will allow the maximum amount of options possible.</param>
+	/// <returns></returns>
+	unsigned __int64 addNameToIndex(char* path, unsigned __int64 endRange);
 	void addHashToIndex(char* hash, unsigned __int64 position);
 };

@@ -107,6 +107,14 @@ public:
 	/// <returns></returns>
 	ofstream initializeNewLog(char* filename);
 
+	/// <summary>
+	/// Does the same as initializeNewLog, but also initializes a ifstream on the same file before the path is lost forever.
+	/// </summary>
+	/// <param name="filename"></param>
+	/// <param name="out"></param>
+	/// <returns></returns>
+	ofstream initializeNewLogAndReader(char* filename, ifstream* out);
+
 private:
 	ifstream* crypt;
 	unsigned __int64 FilesFound = 0;

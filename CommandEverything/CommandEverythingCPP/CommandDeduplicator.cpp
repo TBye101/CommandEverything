@@ -36,8 +36,8 @@ void CommandDeduplicator::seperateThread()
 	double duration;
 	start = clock();
 
-	this->fileNameLog = Utility->initializeNewLog("deduplicator file names");
-	this->hashLog = Utility->initializeNewLog("deduplicator file hashes");
+	this->fileNameLog = Utility->initializeNewLogAndReader("deduplicator file names", &this->fileNameLogReader);
+	this->hashLog = Utility->initializeNewLogAndReader("deduplicator file hashes", &this->hashLogReader);
 	this->duplicatesLog = Utility->initializeNewLog("deduplicator duplicates found");
 
 	register unsigned long mydrives = 100; // buffer length
@@ -67,7 +67,9 @@ void CommandDeduplicator::seperateThread()
 		wctomb(strbuffer, lpBuffer[i * 4]);
 		drive = strbuffer[0];
 		drive.append(":/");
-		//this->treeFromDirectory(Utility->toCharStar(&drive), 0); Iterate over drive here.
+
+		//Indexes all files on drive.
+		this->fileIterator(Utility->toCharStar(&drive));
 	}
 
 	this->fileNameLog.close();
@@ -105,7 +107,13 @@ void CommandDeduplicator::fileIterator(char* name)
 		else
 		{
 			//File found. Work on it.
+			this->addNameToIndex(entry->d_name, -1);
 		}
 	}
 	closedir(dir);
+}
+
+unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int64)
+{
+	
 }

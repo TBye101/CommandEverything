@@ -220,6 +220,31 @@ ofstream Util::initializeNewLog(char* filename)
 	return newLog;
 }
 
+ofstream Util::initializeNewLogAndReader(char* filename, ifstream* out)
+{
+	string path;
+	ofstream newLog;
+	//setup converter
+	using convert_type = codecvt_utf8<wchar_t>;
+	wstring_convert<convert_type, wchar_t> converter;
+	path = converter.to_bytes(*Files->currentInstanceLog);
+
+	path.append("\\");
+	path.append(Utility->getTime());
+	path.append(filename);
+	path.append(".txt");
+
+	newLog.open(path, fstream::out);
+	out->open(path, fstream::in);
+
+	if (!newLog)
+	{
+		cout << "Can't access file!\r\n";
+	}
+
+	return newLog;
+}
+
 unsigned __int64 Util::graphicCalculateFilesIn(const char* name, unsigned __int32 indent)
 {
 	register DIR *dir;
