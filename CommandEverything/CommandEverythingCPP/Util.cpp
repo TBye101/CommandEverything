@@ -109,7 +109,7 @@ vector<string> Util::split(char* arr)
 	return result;
 }
 
-unsigned __int64 Util::graphicCalculateFilesIn(char * name)
+unsigned __int64 Util::graphicCalculateFilesIn(const char * name)
 {
 	this->FilesFound = 0;
 	return this->graphicCalculateFilesIn(name, 0);
@@ -213,7 +213,7 @@ ofstream Util::initializeNewLog(char* filename)
 	return newLog;
 }
 
-unsigned __int64 Util::graphicCalculateFilesIn(char* name, unsigned __int32 indent)
+unsigned __int64 Util::graphicCalculateFilesIn(const char* name, unsigned __int32 indent)
 {
 	register DIR *dir;
 	register struct dirent *entry;

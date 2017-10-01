@@ -70,7 +70,7 @@ public:
 	/// </summary>
 	/// <param name="name"></param>
 	/// <returns></returns>
-	unsigned __int64 graphicCalculateFilesIn(char* name);
+	unsigned __int64 graphicCalculateFilesIn(const char* name);
 
 	/// <summary>
 	/// Returns the filename including the extension from a path.
@@ -113,5 +113,5 @@ private:
 	/// <param name="name"></param>
 	/// <param name="indent"></param>
 	/// <returns></returns>
-	unsigned __int64 graphicCalculateFilesIn(char* name, unsigned __int32 indent);
+	unsigned __int64 graphicCalculateFilesIn(const char* name, unsigned __int32 indent);
 };

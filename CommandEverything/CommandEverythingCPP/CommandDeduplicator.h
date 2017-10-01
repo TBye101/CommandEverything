@@ -26,13 +26,22 @@ private:
 	unsigned __int64 filesDone = 0;
 
 	/// <summary>
+	/// Number of files found with duplicate names.
+	/// </summary>
+	unsigned __int64 duplicateNameFiles = 0;
+
+	/// <summary>
+	/// The number of files found that were identical.
+	/// </summary>
+	unsigned __int64 identicalFiles = 0;
+
+	/// <summary>
 	/// The entry point for the seperate thread to check for duplicates.
 	/// </summary>
 	void seperateThread();
 
 	/// <summary>
-	/// Iterates over all accessible files in the tree.
+	/// Iterates over all accessible files in the directory
 	/// </summary>
-	void fileIterator();
+	void fileIterator(char* dir);
 };
-
