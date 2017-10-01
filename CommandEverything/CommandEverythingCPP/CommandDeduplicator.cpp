@@ -18,7 +18,7 @@ bool CommandDeduplicator::shouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandDeduplicator::run(ParsedCommand* Parsed)
 {
-	ofstream log = Utility->initializeNewLog("testLog");
+	TPool->enqueue(&CommandDeduplicator::seperateThread, this);
 }
 
 string* CommandDeduplicator::getName()
@@ -29,4 +29,24 @@ string* CommandDeduplicator::getName()
 string* CommandDeduplicator::getHelp()
 {
 	return new string("Writes to a file all duplicates found in the file system.");
+}
+
+void CommandDeduplicator::seperateThread()
+{
+	clock_t start;
+	double duration;
+	start = clock();
+
+	this->log = Utility->initializeNewLog("deduplicator");
+
+	
+
+	this->log.close();
+
+	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
+	Console->WriteLine(&("Deduplicator took: " + to_string(duration)));
+}
+
+void CommandDeduplicator::fileIterator()
+{
 }
