@@ -93,6 +93,12 @@ public:
 	/// <returns></returns>
 	char* getTime();
 
+	/// <summary>
+	/// Initializes a new log in our log directory, with the time preappended to the filename.
+	/// </summary>
+	/// <returns></returns>
+	ofstream initializeNewLog(char* filename);
+
 private:
 	ifstream* crypt;
 	unsigned __int64 FilesFound = 0;

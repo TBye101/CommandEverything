@@ -91,6 +91,7 @@ void Loop::AddAllCommands()
 {
 	Commands->push_back(new CommandCd());
 	Commands->push_back(new CommandCrash());
+	Commands->push_back(new CommandDeduplicator());
 	Commands->push_back(new CommandDefend());
 	//Commands->push_back(new CommandDecrypt());
 	Commands->push_back(new CommandDelete());

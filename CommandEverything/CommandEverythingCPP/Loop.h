@@ -25,6 +25,7 @@
 #include "RunScript.h"
 #include "CommandSpecs.h"
 #include "CommandHide.h"
+#include "CommandDeduplicator.h"
 
 using namespace std;
 

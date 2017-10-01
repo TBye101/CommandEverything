@@ -18,7 +18,7 @@ bool CommandDeduplicator::shouldRunThisCommand(ParsedCommand* Parsed)
 
 void CommandDeduplicator::run(ParsedCommand* Parsed)
 {
-	
+	ofstream log = Utility->initializeNewLog("testLog");
 }
 
 string* CommandDeduplicator::getName()
