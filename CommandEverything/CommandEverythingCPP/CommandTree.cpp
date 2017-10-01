@@ -147,8 +147,4 @@ void CommandTree::initializeLog()
 	{
 		cout << "Can't access file!\r\n";
 	}
-	else
-	{
-		//cout << "Log has initialized successfully\r\n";
-	}
 }

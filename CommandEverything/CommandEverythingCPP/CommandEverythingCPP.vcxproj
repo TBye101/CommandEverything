@@ -168,6 +168,7 @@
     <ClInclude Include="CommandCd.h" />
     <ClInclude Include="CommandCrash.h" />
     <ClInclude Include="CommandDecrypt.h" />
+    <ClInclude Include="CommandDeduplicator.h" />
     <ClInclude Include="CommandDefend.h" />
     <ClInclude Include="CommandDelete.h" />
     <ClInclude Include="CommandEncrypt.h" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Loop.h" />
     <ClInclude Include="ParsedCommand.h" />
     <ClInclude Include="RunScript.h" />
+    <ClInclude Include="SHA256.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Util.h" />
@@ -197,6 +199,7 @@
     <ClCompile Include="CommandCd.cpp" />
     <ClCompile Include="CommandCrash.cpp" />
     <ClCompile Include="CommandDecrypt.cpp" />
+    <ClCompile Include="CommandDeduplicator.cpp" />
     <ClCompile Include="CommandDefend.cpp" />
     <ClCompile Include="CommandDelete.cpp" />
     <ClCompile Include="CommandEncrypt.cpp" />
@@ -216,6 +219,7 @@
     <ClCompile Include="Loop.cpp" />
     <ClCompile Include="ParsedCommand.cpp" />
     <ClCompile Include="RunScript.cpp" />
+    <ClCompile Include="SHA256.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -106,7 +106,20 @@ void CommandEncrypt::Go()
 		string flPath = *FilePath;
 
 		//Add to the path the file.
-		flPath.append(Cmd.at(1));
+		unsigned __int8 i = 1;
+		unsigned __int8 length = Cmd.size();
+
+		//We don't want to add the key to the file name.
+		--length;
+
+		//Add the filepath.
+		//This handles spaces.
+		while (i != length)
+		{
+			flPath.append(Cmd.at(i));
+			flPath.append(" ");
+			++i;
+		}
 
 		//Get an input stream from that file.
 		ifstream unencryptedFile(flPath);
@@ -132,7 +145,7 @@ void CommandEncrypt::Go()
 			}
 			//line += "\r\n";
 				//Encrypt the characters.
-			this->EncryptChar(&line, Cmd.at(2).c_str(), encrypted);
+			this->EncryptChar(&line, Cmd.at(Cmd.size() - 1).c_str(), encrypted);
 
 			Utility->writeShorts(flPath, *encrypted);
 			encrypted->clear();
