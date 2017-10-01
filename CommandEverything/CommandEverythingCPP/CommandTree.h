@@ -34,11 +34,6 @@ private:
 	void logLine(const char* str);
 
 	/// <summary>
-	/// Sets up a new log.
-	/// </summary>
-	void initializeLog();
-
-	/// <summary>
 	/// Where the thread pool is pointed to when running this command.
 	/// </summary>
 	void runThreaded();

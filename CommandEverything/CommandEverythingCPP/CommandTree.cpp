@@ -24,7 +24,7 @@ void CommandTree::runThreaded()
 	clock_t start;
 	double duration;
 	start = clock();
-	this->initializeLog();
+	this->treeLog = Utility->initializeNewLog("tree");
 	//If no working directory, do all drives!
 	if (*FilePath == "")
 	{
@@ -125,26 +125,4 @@ void CommandTree::logLine(const char * str)
 	this->treeLog << time;
 	this->treeLog << str;
 	this->treeLog << "\r\n";
-}
-
-void CommandTree::initializeLog()
-{
-	string path;
-
-	//setup converter
-	using convert_type = codecvt_utf8<wchar_t>;
-	wstring_convert<convert_type, wchar_t> converter;
-	path = converter.to_bytes(*Files->currentInstanceLog);
-
-	path.append("\\");
-	path.append(Utility->getTime());
-	path.append(" tree");
-	path.append(".txt");
-
-	this->treeLog.open(path, fstream::out);
-
-	if (!this->treeLog)
-	{
-		cout << "Can't access file!\r\n";
-	}
 }
