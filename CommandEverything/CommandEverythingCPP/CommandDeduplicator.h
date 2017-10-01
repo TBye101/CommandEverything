@@ -60,4 +60,9 @@ private:
 	/// Iterates over all accessible files in the directory
 	/// </summary>
 	void fileIterator(char* dir);
+
+	bool areFilesIdentical(char* path1, char* path2);
+	bool filesHaveSameName(char* path1, char* path2);
+	void addNameToIndex(char* path);
+	void addHashToIndex(char* hash, unsigned __int64 position);
 };
