@@ -107,13 +107,17 @@ void CommandDeduplicator::fileIterator(char* name)
 		else
 		{
 			//File found. Work on it.
-			this->addNameToIndex(entry->d_name, -1);
+			this->addNameToIndex(entry->d_name, 0, -1);
 		}
 	}
 	closedir(dir);
 }
 
-unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int64)
+unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int64 start, unsigned __int64 end)
 {
-	
+	//If we need to fetch the size of our index...
+	if (end == -1)
+	{
+
+	}
 }

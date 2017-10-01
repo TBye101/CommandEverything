@@ -85,9 +85,15 @@ private:
 	/// Returns the position, so the hash might be put into the corrosponding place.
 	/// </summary>
 	/// <param name="path"></param>
-	/// <param name="endRange">The maximum size of our range of options.
+	/// <param name="end">The maximum size of our range of options.
 	/// If -1, then we will allow the maximum amount of options possible.</param>
 	/// <returns></returns>
-	unsigned __int64 addNameToIndex(char* path, unsigned __int64 endRange);
+	unsigned __int64 addNameToIndex(char* path, unsigned __int64 start, unsigned __int64 end);
 	void addHashToIndex(char* hash, unsigned __int64 position);
+
+	/// <summary>
+	/// Returns the size of our file name index.
+	/// </summary>
+	/// <returns></returns>
+	unsigned __int64 getIndexSize();
 };
