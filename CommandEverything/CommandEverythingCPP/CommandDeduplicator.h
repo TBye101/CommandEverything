@@ -1,4 +1,7 @@
 #pragma once
+
+//#include <iostream>
+
 class CommandDeduplicator : public ICommand
 {
 public:
@@ -13,7 +16,20 @@ public:
 
 	string* getHelp();
 private:
-	ofstream log;
+	/// <summary>
+	/// The file where we write down each file name.
+	/// </summary>
+	ofstream fileNameLog;
+
+	/// <summary>
+	/// The file where we keep our hashes, that corrospond with each file.
+	/// </summary>
+	ofstream hashLog;
+
+	/// <summary>
+	/// The file where we talk about which files have duplicates, and how identical they are.
+	/// </summary>
+	ofstream duplicatesLog;
 
 	/// <summary>
 	/// The total number of files found.

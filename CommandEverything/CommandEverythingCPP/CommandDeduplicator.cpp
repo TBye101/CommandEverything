@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "CommandDeduplicator.h"
 
-
 CommandDeduplicator::CommandDeduplicator()
 {
 }
@@ -37,7 +36,9 @@ void CommandDeduplicator::seperateThread()
 	double duration;
 	start = clock();
 
-	this->log = Utility->initializeNewLog("deduplicator");
+	this->fileNameLog = Utility->initializeNewLog("deduplicator file names");
+	this->hashLog = Utility->initializeNewLog("deduplicator file hashes");
+	this->duplicatesLog = Utility->initializeNewLog("deduplicator duplicates found");
 
 	register unsigned long mydrives = 100; // buffer length
 	register wchar_t lpBuffer[100]; // buffer for drive string storage
@@ -58,6 +59,8 @@ void CommandDeduplicator::seperateThread()
 		this->totalFiles += files;
 	}
 
+	Utility->logLine(&duplicatesLog, (to_string(this->totalFiles) + " files found to deduplicate").c_str());
+
 	//Iterates over all files.
 	for (register unsigned __int8 i = 0; i < drives; i++)
 	{
@@ -67,7 +70,7 @@ void CommandDeduplicator::seperateThread()
 		//this->treeFromDirectory(Utility->toCharStar(&drive), 0); Iterate over drive here.
 	}
 
-	this->log.close();
+	this->fileNameLog.close();
 
 	duration = (clock() - start) / (double)CLOCKS_PER_SEC;
 	Console->WriteLine(&("Deduplicator took: " + to_string(duration)));

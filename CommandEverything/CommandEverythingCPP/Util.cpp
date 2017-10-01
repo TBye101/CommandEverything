@@ -189,6 +189,13 @@ char* Util::getTime()
 	return buffer;
 }
 
+void Util::logLine(ofstream* log, const char* msg)
+{
+	*log<< this->getTime();
+	*log << msg;
+	*log << "\r\n";
+}
+
 ofstream Util::initializeNewLog(char* filename)
 {
 	string path;

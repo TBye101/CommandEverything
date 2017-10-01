@@ -94,6 +94,14 @@ public:
 	char* getTime();
 
 	/// <summary>
+	/// Logs the specified line to the specified log.
+	/// Doesn't delete msg.
+	/// </summary>
+	/// <param name="log"></param>
+	/// <param name="msg"></param>
+	void logLine(ofstream* log, const char* msg);
+
+	/// <summary>
 	/// Initializes a new log in our log directory, with the time preappended to the filename.
 	/// </summary>
 	/// <returns></returns>
