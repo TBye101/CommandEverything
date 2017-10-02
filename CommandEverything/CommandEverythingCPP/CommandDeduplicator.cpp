@@ -132,7 +132,7 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 	{
 		//Start binary searching.
 		unsigned __int64 middle = (start + end) / 2;
-		unsigned __int8 compareValue = this->compareStrings(path, this->getFromIndex(middle));
+		unsigned __int8 compareValue = this->compareStrings(path, this->getNameFromIndex(middle));
 
 		if (compareValue == GREATER_THAN)
 		{
@@ -200,4 +200,32 @@ unsigned __int64 CommandDeduplicator::getFileNameIndexSize()
 	}
 
 	return i;
+}
+
+char* CommandDeduplicator::getNameFromIndex(unsigned __int64 position)
+{
+	string line;
+	char* ret = Utility->toCharStar(&line);
+	unsigned __int64 i = 0;
+	while (i != position)
+	{
+		getline(this->fileNameLogReader, line);
+		++i;
+	}
+
+	return ret;
+}
+
+char* CommandDeduplicator::getHashFromIndex(unsigned __int64 position)
+{
+	string line;
+	char* ret = Utility->toCharStar(&line);
+	unsigned __int64 i = 0;
+	while (i != position)
+	{
+		getline(this->hashLogReader, line);
+		++i;
+	}
+
+	return ret;
 }
