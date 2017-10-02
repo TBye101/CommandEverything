@@ -3,6 +3,7 @@
 
 #include <string>
 
+//Taken shamelessly from http://www.zedwood.com/article/cpp-sha256-function
 class SHA256
 {
 protected:

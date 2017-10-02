@@ -107,7 +107,15 @@ void CommandDeduplicator::fileIterator(char* name)
 		else
 		{
 			//File found. Work on it.
-			this->addNameToIndex(entry->d_name, 0, -1);
+
+			//Insert it into the file name index
+			unsigned __int64 position = this->addNameToIndex(entry->d_name, 0, -1);
+
+			//Get the hash of the file.
+			string sha = sha256(this->readContentsOfFile(entry->d_name));
+
+			//Add the hash to the proper index.
+			this->addHashToIndex(Utility->toCharStar(&sha), position);
 		}
 	}
 	closedir(dir);
@@ -228,4 +236,9 @@ char* CommandDeduplicator::getHashFromIndex(unsigned __int64 position)
 	}
 
 	return ret;
+}
+
+string CommandDeduplicator::readContentsOfFile(char * path)
+{
+	return string();
 }

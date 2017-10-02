@@ -1,5 +1,7 @@
 #pragma once
 
+#include "SHA256.h"
+
 #include <iostream>
 #include <fstream>
 
@@ -42,6 +44,8 @@ private:
 	/// The file where we talk about which files have duplicates, and how identical they are.
 	/// </summary>
 	ofstream duplicatesLog;
+
+	SHA256 sha;
 
 	/// <summary>
 	/// The total number of files found.
@@ -95,6 +99,13 @@ private:
 	unsigned __int64 addNameToIndex(char* path, unsigned __int64 start, unsigned __int64 end);
 	void addHashToIndex(char* hash, unsigned __int64 position);
 
+	/// <summary>
+	/// Compares the strings, and returns:
+	/// EQUAL, GREATER_THAN, or LESS_THAN depending on how the strings compare.
+	/// </summary>
+	/// <param name="one"></param>
+	/// <param name="two"></param>
+	/// <returns></returns>
 	unsigned __int8 compareStrings(char* one, char* two);
 
 	/// <summary>
@@ -122,4 +133,11 @@ private:
 	/// </summary>
 	/// <param name="position"></param>
 	void insertInNameIndex(unsigned __int64 position, char* str);
+
+	/// <summary>
+	/// Reads the contents of the specified file, and returns them as a string.
+	/// </summary>
+	/// <param name="path"></param>
+	/// <returns></returns>
+	string readContentsOfFile(char* path);
 };
