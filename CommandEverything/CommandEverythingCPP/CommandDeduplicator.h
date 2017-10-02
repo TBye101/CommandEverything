@@ -101,14 +101,21 @@ private:
 	/// Returns the size of our file name index.
 	/// </summary>
 	/// <returns></returns>
-	unsigned __int64 getIndexSize();
+	unsigned __int64 getFileNameIndexSize();
 
 	/// <summary>
 	/// Returns the name of the file at the specified position in the index.
 	/// </summary>
 	/// <param name="position"></param>
 	/// <returns></returns>
-	char* getFromIndex(unsigned __int64 position);
+	char* getNameFromIndex(unsigned __int64 position);
+
+	/// <summary>
+	/// Returns the hash from the specified position in the index.
+	/// </summary>
+	/// <param name="position"></param>
+	/// <returns></returns>
+	char* getHashFromIndex(unsigned __int64 position);
 
 	/// <summary>
 	/// Inserts the string at the specified position in the name index.

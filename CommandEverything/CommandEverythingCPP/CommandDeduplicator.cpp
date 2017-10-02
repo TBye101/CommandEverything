@@ -59,7 +59,7 @@ void CommandDeduplicator::seperateThread()
 		this->totalFiles += files;
 	}
 
-	Utility->logLine(&duplicatesLog, (to_string(this->totalFiles) + " files found to deduplicate").c_str());
+	Utility->logLine(&duplicatesLog, (to_string(this->totalFiles) + " files found to check for duplicates").c_str());
 
 	//Iterates over all files.
 	for (register unsigned __int8 i = 0; i < drives; i++)
@@ -118,7 +118,7 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 	//If we need to fetch the size of our index...
 	if (end == -1)
 	{
-		end = this->getIndexSize();
+		end = this->getFileNameIndexSize();
 	}
 
 	//If we don't have anything in the index yet...
@@ -188,4 +188,16 @@ unsigned __int8 CommandDeduplicator::compareStrings(char* one, char* two)
 	}
 
 	return EQUAL;
+}
+
+unsigned __int64 CommandDeduplicator::getFileNameIndexSize()
+{
+	string line;
+	unsigned __int64 i = 0;
+	while (getline(this->fileNameLogReader, line))
+	{
+		++i;
+	}
+
+	return i;
 }
