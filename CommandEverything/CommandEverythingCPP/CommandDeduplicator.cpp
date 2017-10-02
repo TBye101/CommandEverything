@@ -36,8 +36,8 @@ void CommandDeduplicator::seperateThread()
 	double duration;
 	start = clock();
 
-	this->fileNameLog = Utility->initializeNewLogAndReader("deduplicator file names", &this->fileNameLogReader);
-	this->hashLog = Utility->initializeNewLogAndReader("deduplicator file hashes", &this->hashLogReader);
+	this->fileNameLog = Utility->initializeNewLogAndReader("deduplicator file names");
+	this->hashLog = Utility->initializeNewLogAndReader("deduplicator file hashes");
 	this->duplicatesLog = Utility->initializeNewLog("deduplicator duplicates found");
 
 	register unsigned long mydrives = 100; // buffer length
@@ -121,6 +121,11 @@ void CommandDeduplicator::fileIterator(char* name)
 	closedir(dir);
 }
 
+unsigned __int8 CommandDeduplicator::hasDuplicate(unsigned __int64 position)
+{
+	return 0;
+}
+
 unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int64 start, unsigned __int64 end)
 {
 	//If we need to fetch the size of our index...
@@ -164,6 +169,10 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 	}
 }
 
+void CommandDeduplicator::addHashToIndex(char * hash, unsigned __int64 position)
+{
+}
+
 unsigned __int8 CommandDeduplicator::compareStrings(char* one, char* two)
 {
 	//I hope these are null terminated
@@ -201,8 +210,12 @@ unsigned __int8 CommandDeduplicator::compareStrings(char* one, char* two)
 unsigned __int64 CommandDeduplicator::getFileNameIndexSize()
 {
 	string line;
+
+	//Reset the position of the stream.
+	this->fileNameLog.seekg(0);
+
 	unsigned __int64 i = 0;
-	while (getline(this->fileNameLogReader, line))
+	while (getline(this->fileNameLog, line))
 	{
 		++i;
 	}
@@ -212,12 +225,15 @@ unsigned __int64 CommandDeduplicator::getFileNameIndexSize()
 
 char* CommandDeduplicator::getNameFromIndex(unsigned __int64 position)
 {
+	//Tell the disk to move positions in the stream
+	this->fileNameLog.seekg(0);
+
 	string line;
 	char* ret = Utility->toCharStar(&line);
 	unsigned __int64 i = 0;
 	while (i != position)
 	{
-		getline(this->fileNameLogReader, line);
+		getline(this->fileNameLog, line);
 		++i;
 	}
 
@@ -227,34 +243,69 @@ char* CommandDeduplicator::getNameFromIndex(unsigned __int64 position)
 char* CommandDeduplicator::getHashFromIndex(unsigned __int64 position)
 {
 	string line;
-	char* ret = Utility->toCharStar(&line);
+
+	this->hashLog.seekg(0);
+	
 	unsigned __int64 i = 0;
 	while (i != position)
 	{
-		getline(this->hashLogReader, line);
+		getline(this->hashLog, line);
 		++i;
 	}
 
-	return ret;
+	return Utility->toCharStar(&line);
 }
 
 void CommandDeduplicator::insertInNameIndex(unsigned __int64 position, char* str)
 {
-	char* toShift = new char[20];
 
 	string line;
-	unsigned __int64 i = 0;
 
+	this->fileNameLog.seekg(0);
+
+	unsigned __int64 i = 0;
 	//skip to the position.
 	while (i != position)
 	{
-		//Use read file to jump the file head to the position
-		//Then read up to 1000 values after that, write your new string, then write the old, repeat.
+		getline(this->fileNameLog, line);
 		++i;
 	}
+
+	//Read until end.
+	while (getline(this->fileNameLog, line))
+	{
+		this->toShift1.push_back(line.c_str());
+	}
+
+	this->fileNameLog.seekg(i);
+	this->fileNameLog << str;
+
+	i = 0;
+	unsigned __int64 length = this->toShift1.size();
+	//Big no no, but I think it might be faster than waiting until we're done processing to release memory.
+	while (i != length)
+	{
+		this->fileNameLog << this->toShift1[i];
+		++i;
+	}
+
+
+	this->toShift1.clear();
+	this->toShift1.shrink_to_fit();
 }
 
-string CommandDeduplicator::readContentsOfFile(char * path)
+string CommandDeduplicator::readContentsOfFile(char* path)
 {
-	return string();
+	ifstream fl;
+	fl.open(path, ofstream::in);
+
+	string line = "";
+	string ret = "";
+	unsigned __int64 i = 0;
+	while (getline(fl, line))
+	{
+		ret.append(line);
+	}
+
+	return ret;
 }

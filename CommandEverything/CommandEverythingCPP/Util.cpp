@@ -220,10 +220,10 @@ ofstream Util::initializeNewLog(char* filename)
 	return newLog;
 }
 
-ofstream Util::initializeNewLogAndReader(char* filename, ifstream* out)
+fstream Util::initializeNewLogAndReader(char* filename)
 {
 	string path;
-	ofstream newLog;
+	fstream newLog;
 	//setup converter
 	using convert_type = codecvt_utf8<wchar_t>;
 	wstring_convert<convert_type, wchar_t> converter;
@@ -234,8 +234,7 @@ ofstream Util::initializeNewLogAndReader(char* filename, ifstream* out)
 	path.append(filename);
 	path.append(".txt");
 
-	newLog.open(path, fstream::out);
-	out->open(path, fstream::in);
+	newLog.open(path);
 
 	if (!newLog)
 	{

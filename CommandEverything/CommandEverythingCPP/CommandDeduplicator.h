@@ -31,21 +31,27 @@ private:
 	/// <summary>
 	/// The file where we write down each file name.
 	/// </summary>
-	ofstream fileNameLog;
-	ifstream fileNameLogReader;
+	fstream fileNameLog;
 
 	/// <summary>
 	/// The file where we keep our hashes, that corrospond with each file.
 	/// </summary>
-	ofstream hashLog;
-	ifstream hashLogReader;
+	fstream hashLog;
 
 	/// <summary>
 	/// The file where we talk about which files have duplicates, and how identical they are.
 	/// </summary>
 	ofstream duplicatesLog;
 
+	/// <summary>
+	/// Our hashing algorithm is in this class.
+	/// </summary>
 	SHA256 sha;
+
+	/// <summary>
+	/// Used to shift text lines down.
+	/// </summary>
+	vector<const char*> toShift1;
 
 	/// <summary>
 	/// The total number of files found.

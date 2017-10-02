@@ -108,12 +108,12 @@ public:
 	ofstream initializeNewLog(char* filename);
 
 	/// <summary>
-	/// Does the same as initializeNewLog, but also initializes a ifstream on the same file before the path is lost forever.
+	/// Initializes a fstream object.
 	/// </summary>
 	/// <param name="filename"></param>
 	/// <param name="out"></param>
 	/// <returns></returns>
-	ofstream initializeNewLogAndReader(char* filename, ifstream* out);
+	fstream initializeNewLogAndReader(char* filename);
 
 private:
 	ifstream* crypt;
