@@ -245,10 +245,11 @@ void CommandDeduplicator::insertInNameIndex(unsigned __int64 position, char* str
 	string line;
 	unsigned __int64 i = 0;
 
-	//Move the file to the position.
+	//skip to the position.
 	while (i != position)
 	{
-		//Move file writer here.
+		//Use read file to jump the file head to the position
+		//Then read up to 1000 values after that, write your new string, then write the old, repeat.
 		++i;
 	}
 }
