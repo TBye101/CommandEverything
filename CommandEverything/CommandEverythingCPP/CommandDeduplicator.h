@@ -83,10 +83,11 @@ private:
 	/// Returns SAME_CONTENTS if the file system has a file with the same contents as it.
 	/// Returns SAME_NAME_AND_CONTENTS if the file system has a file with the same name and contents as it.
 	/// Writes this information to the appropiete log.
+	/// 
+	/// position is the index in the hash log, and the file name log.
 	/// </summary>
-	/// <param name="path">The path to the file in question.</param>
 	/// <returns></returns>
-	unsigned __int8 hasDuplicate(char* path);
+	unsigned __int8 hasDuplicate(unsigned __int64 position);
 
 	/// <summary>
 	/// Inserts the file name into the correct position in the index file.

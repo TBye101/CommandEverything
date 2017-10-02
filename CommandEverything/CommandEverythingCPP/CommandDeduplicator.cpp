@@ -238,6 +238,21 @@ char* CommandDeduplicator::getHashFromIndex(unsigned __int64 position)
 	return ret;
 }
 
+void CommandDeduplicator::insertInNameIndex(unsigned __int64 position, char* str)
+{
+	char* toShift = new char[20];
+
+	string line;
+	unsigned __int64 i = 0;
+
+	//Move the file to the position.
+	while (i != position)
+	{
+		//Move file writer here.
+		++i;
+	}
+}
+
 string CommandDeduplicator::readContentsOfFile(char * path)
 {
 	return string();
