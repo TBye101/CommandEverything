@@ -396,8 +396,3 @@ bool CommandDeduplicator::isDuplicateInName(unsigned __int64 position, char* nam
 	delete name;
 	return false;
 }
-
-bool CommandDeduplicator::isDuplicateInContents(unsigned __int64 position, char * names)
-{
-	return false;
-}
