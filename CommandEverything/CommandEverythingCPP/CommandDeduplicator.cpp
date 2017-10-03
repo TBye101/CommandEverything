@@ -123,11 +123,47 @@ void CommandDeduplicator::fileIterator(char* name)
 
 unsigned __int8 CommandDeduplicator::hasDuplicate(unsigned __int64 position)
 {
-	return 0;
+	char* nameMessage;
+	char* contentsMessage;
+
+	bool nameDup = this->isDuplicateInName(position, nameMessage);
+	bool contentsDup = this->isDuplicateInContents(position, contentsMessage);
+
+	if (nameMessage != NULL)
+	{
+		Utility->logLine(&this->duplicatesLog, nameMessage);
+	}
+
+	if (contentsMessage != NULL)
+	{
+		Utility->logLine(&this->duplicatesLog, contentsMessage);
+	}
+
+	delete nameMessage;
+	delete contentsMessage;
+	if (nameDup && contentsDup)
+	{
+		return SAME_NAME_AND_CONTENTS;
+	}
+	if (nameDup)
+	{
+		return SAME_NAME;
+	}
+	if (contentsDup)
+	{
+		return SAME_CONTENTS;
+	}
+
+	return NO_DUPLICATE;
 }
 
 unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int64 start, unsigned __int64 end)
 {
+	char* withoutPath;
+
+	strcpy(withoutPath, path);
+	this->removePath(path);
+	
 	//If we need to fetch the size of our index...
 	if (end == -1)
 	{
@@ -145,7 +181,10 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 	{
 		//Start binary searching.
 		unsigned __int64 middle = (start + end) / 2;
-		unsigned __int8 compareValue = this->compareStrings(path, this->getNameFromIndex(middle));
+
+		char* middleName = this->getNameFromIndex(middle);
+		this->removePath(middleName);
+		unsigned __int8 compareValue = this->compareStrings(path, middleName);
 
 		if (compareValue == GREATER_THAN)
 		{
@@ -166,7 +205,10 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 				return middle;
 			}
 		}
+		delete middleName;
 	}
+
+	delete withoutPath;
 }
 
 void CommandDeduplicator::addHashToIndex(char* hash, unsigned __int64 position)

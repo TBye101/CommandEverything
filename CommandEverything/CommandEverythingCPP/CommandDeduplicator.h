@@ -88,7 +88,7 @@ private:
 	/// Returns SAME_NAME if the file system has a file with the same name as it.
 	/// Returns SAME_CONTENTS if the file system has a file with the same contents as it.
 	/// Returns SAME_NAME_AND_CONTENTS if the file system has a file with the same name and contents as it.
-	/// Writes this information to the appropiete log.
+	/// Writes this information to the appropriate log.
 	/// 
 	/// position is the index in the hash log, and the file name log.
 	/// </summary>
@@ -149,11 +149,19 @@ private:
 	string readContentsOfFile(char* path);
 
 	/// <summary>
-	/// 
+	/// Returns true if the file shares it's name with another file.
 	/// </summary>
-	/// <param name="str"></param>
+	/// <param name="names">The message about the results if any.</param>
 	/// <returns></returns>
-	bool isDuplicateInName(char* str);
+	bool isDuplicateInName(unsigned __int64 position, char* names);
+
+	/// <summary>
+	/// Returns true if the file has identical contents to another file.
+	/// </summary>
+	/// <param name="position">The position of the file in question in our index.</param>
+	/// <param name="names">The message about the results if any.</param>
+	/// <returns></returns>
+	bool isDuplicateInContents(unsigned __int64 position, char* names);
 
 	/// <summary>
 	/// Removes the path from the string, leaving only the name and file extension.
