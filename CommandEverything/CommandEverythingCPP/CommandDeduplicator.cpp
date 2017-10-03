@@ -169,8 +169,37 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 	}
 }
 
-void CommandDeduplicator::addHashToIndex(char * hash, unsigned __int64 position)
+void CommandDeduplicator::addHashToIndex(char* hash, unsigned __int64 position)
 {
+	string line;
+
+	this->hashLog.seekg(0);
+
+	unsigned __int64 i = 0;
+	//skip to the position.
+	while (i != position)
+	{
+		getline(this->hashLog, line);
+		++i;
+	}
+
+	//Get the string we are about to overwrite.
+	getline(this->hashLog, toShift1);
+	//Jump up a position
+	this->hashLog.seekg(i);
+	//Write our str.
+	this->hashLog << hash;
+
+	//Shift everything down.
+	while (getline(this->hashLog, line))
+	{
+		this->hashLog.seekg(i - 1);
+		this->hashLog << line;
+		++i;
+	}
+
+	//That last extra line.
+	this->hashLog << line;
 }
 
 unsigned __int8 CommandDeduplicator::compareStrings(char* one, char* two)
@@ -225,40 +254,26 @@ unsigned __int64 CommandDeduplicator::getFileNameIndexSize()
 
 char* CommandDeduplicator::getNameFromIndex(unsigned __int64 position)
 {
-	//Tell the disk to move positions in the stream
-	this->fileNameLog.seekg(0);
+	//Tell the disk to move to the position of the name.
+	this->fileNameLog.seekg(position);
 
 	string line;
-	char* ret = Utility->toCharStar(&line);
-	unsigned __int64 i = 0;
-	while (i != position)
-	{
-		getline(this->fileNameLog, line);
-		++i;
-	}
-
-	return ret;
+	getline(this->fileNameLog, line);
+	return Utility->toCharStar(&line);
 }
 
 char* CommandDeduplicator::getHashFromIndex(unsigned __int64 position)
 {
 	string line;
 
-	this->hashLog.seekg(0);
-	
-	unsigned __int64 i = 0;
-	while (i != position)
-	{
-		getline(this->hashLog, line);
-		++i;
-	}
-
+	//Tell the stream to move to the position of our hash.
+	this->hashLog.seekg(position);
+	getline(this->hashLog, line);
 	return Utility->toCharStar(&line);
 }
 
 void CommandDeduplicator::insertInNameIndex(unsigned __int64 position, char* str)
 {
-
 	string line;
 
 	this->fileNameLog.seekg(0);
@@ -271,27 +286,23 @@ void CommandDeduplicator::insertInNameIndex(unsigned __int64 position, char* str
 		++i;
 	}
 
-	//Read until end.
-	while (getline(this->fileNameLog, line))
-	{
-		this->toShift1.push_back(line.c_str());
-	}
-
+	//Get the string we are about to overwrite.
+	getline(this->fileNameLog, toShift1);
+	//Jump up a position
 	this->fileNameLog.seekg(i);
+	//Write our str.
 	this->fileNameLog << str;
 
-	i = 0;
-	unsigned __int64 length = this->toShift1.size();
-	//Big no no, but I think it might be faster than waiting until we're done processing to release memory.
-	while (i != length)
+	//Shift everything down.
+	while (getline(this->fileNameLog, line))
 	{
-		this->fileNameLog << this->toShift1[i];
+		this->fileNameLog.seekg(i - 1);
+		this->fileNameLog << line;
 		++i;
 	}
-
-
-	this->toShift1.clear();
-	this->toShift1.shrink_to_fit();
+	
+	//That last extra line.
+	this->fileNameLog << line;
 }
 
 string CommandDeduplicator::readContentsOfFile(char* path)

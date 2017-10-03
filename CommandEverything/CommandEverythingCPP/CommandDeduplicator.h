@@ -51,7 +51,7 @@ private:
 	/// <summary>
 	/// Used to shift text lines down.
 	/// </summary>
-	vector<const char*> toShift1;
+	string toShift1;
 
 	/// <summary>
 	/// The total number of files found.
@@ -147,4 +147,17 @@ private:
 	/// <param name="path"></param>
 	/// <returns></returns>
 	string readContentsOfFile(char* path);
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="str"></param>
+	/// <returns></returns>
+	bool isDuplicateInName(char* str);
+
+	/// <summary>
+	/// Removes the path from the string, leaving only the name and file extension.
+	/// </summary>
+	/// <param name="path"></param>
+	void removePath(char* path);
 };
