@@ -362,3 +362,42 @@ string CommandDeduplicator::readContentsOfFile(char* path)
 
 	return ret;
 }
+
+bool CommandDeduplicator::isDuplicateInName(unsigned __int64 position, char* names)
+{
+	string* duplicates = new string();
+	string line;
+	char* name = this->getNameFromIndex(position);
+
+	char* nameWithoutPath;
+	strcpy(nameWithoutPath, name);
+	this->removePath(nameWithoutPath);
+
+	this->fileNameLog.seekg(0);
+
+	while (getline(this->fileNameLog, line))
+	{
+		char* pathWithoutName = Utility->toCharStar(&line);
+		this->removePath(pathWithoutName);
+		if (this->compareStrings(name, pathWithoutName) == EQUAL)
+		{
+			if (duplicates->empty())
+			{
+				duplicates->append("Files with duplicate names: ");
+				duplicates->append(name);
+			}
+			duplicates->append(line);
+		}
+
+		delete pathWithoutName;
+	}
+
+	delete nameWithoutPath;
+	delete name;
+	return false;
+}
+
+bool CommandDeduplicator::isDuplicateInContents(unsigned __int64 position, char * names)
+{
+	return false;
+}

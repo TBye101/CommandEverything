@@ -1,4 +1,10 @@
-[0.4.4] (Unreleased)
+[0.5.4]
+
+## Features
+
+## Bugs
+
+[0.4.4]
 
 ## Features
 
