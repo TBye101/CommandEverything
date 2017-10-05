@@ -105,6 +105,12 @@
     <Filter Include="Framework\WIP Commands\Deduplicator">
       <UniqueIdentifier>{f2ff2c63-7e50-4323-bbf3-f86e0a2b4b0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Commands\Math Solver">
+      <UniqueIdentifier>{1413f042-4ae6-4d14-95f5-f2aec047e8e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Commands\Math Solver\With Steps">
+      <UniqueIdentifier>{f48e5d46-ef8e-44bd-a04f-f7676c7d196a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
