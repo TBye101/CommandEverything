@@ -28,13 +28,26 @@ public:
 	StepMath();
 	~StepMath();
 
-private:
+public:
 
 	/// <summary>
 	/// The steps to display to the user on how to solve the math problem.
 	/// </summary>
 	vector<string>* shownSteps = new vector<string>();
 
+	/// <summary>
+	/// Adds 'b' to 'a'.
+	/// </summary>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
+	/// <returns></returns>
 	__int64 add(__int64 a, __int64 b);
+
+	/// <summary>
+	/// Subtracts 'b' from 'a'.
+	/// </summary>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
+	/// <returns></returns>
 	__int64 subtract(__int64 a, __int64 b);
 };

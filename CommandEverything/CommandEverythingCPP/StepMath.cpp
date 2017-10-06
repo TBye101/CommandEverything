@@ -32,7 +32,8 @@ __int64 StepMath::add(__int64 a, __int64 b)
 
 __int64 StepMath::subtract(__int64 a, __int64 b)
 {
-	if (b >= 0)
+
+	if (b < 0)
 	{
 		string step = to_string(a);
 		step.append(" - ");
@@ -45,5 +46,13 @@ __int64 StepMath::subtract(__int64 a, __int64 b)
 	else
 	{
 		return this->add(a, b * -1);
+	}
+
+	if (b == 0)
+	{
+		string step = to_string(a);
+		step.append(" - 0 = ");
+		step.append(to_string(a));
+		return a;
 	}
 }

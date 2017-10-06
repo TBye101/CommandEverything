@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "Loop.h"
+#include "StepMath.h"
 
 using namespace std;
 
@@ -32,6 +33,9 @@ int main(int argc, char* argv[])
 	{
 		Console->WriteLine("!Error!: Could not set event handler.");
 	}
+	StepMath* a = new StepMath();
+	a->add(1, -2);
+	a->subtract(2, -1);
 
 	Loop* Program = new Loop();
 	Program->Startup();
