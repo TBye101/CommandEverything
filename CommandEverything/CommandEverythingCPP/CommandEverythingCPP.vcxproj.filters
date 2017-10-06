@@ -102,6 +102,9 @@
     <Filter Include="Framework\Commands\Hide">
       <UniqueIdentifier>{06ccf53c-166e-47bb-b916-16f0e24c190f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\WIP Commands\Math Solver">
+      <UniqueIdentifier>{3f023ea1-4c88-4fa6-8d6d-ae43765691b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -185,6 +188,9 @@
     <ClInclude Include="CommandHide.h">
       <Filter>Framework\Commands\Hide</Filter>
     </ClInclude>
+    <ClInclude Include="StepMath.h">
+      <Filter>Framework\WIP Commands\Math Solver</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -261,6 +267,9 @@
     </ClCompile>
     <ClCompile Include="CommandHide.cpp">
       <Filter>Framework\Commands\Hide</Filter>
+    </ClCompile>
+    <ClCompile Include="StepMath.cpp">
+      <Filter>Framework\WIP Commands\Math Solver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
