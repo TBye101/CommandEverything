@@ -396,3 +396,32 @@ bool CommandDeduplicator::isDuplicateInName(unsigned __int64 position, char* nam
 	delete name;
 	return false;
 }
+
+bool CommandDeduplicator::isDuplicateInContents(unsigned __int64 position, char* names)
+{
+	string* duplicates = new string();
+	string line;
+	char* hash = this->getHashFromIndex(position);
+
+	this->hashLog.seekg(0);
+
+	while (getline(this->hashLog, line))
+	{
+		char* nextHash = Utility->toCharStar(&line);
+		if (this->compareStrings(hash, nextHash) == EQUAL)
+		{
+			if (duplicates->empty())
+			{
+				duplicates->append("Files with duplicate contents: ");
+				duplicates->append(hash);
+			}
+			duplicates->append(line);
+		}
+
+		delete nextHash;
+	}
+
+	delete hash;
+	return false;
+}
+
