@@ -34,10 +34,9 @@ int main(int argc, char* argv[])
 		Console->WriteLine("!Error!: Could not set event handler.");
 	}
 	StepMath* a = new StepMath();
-	a->add(1, -2);
-	a->subtract(2, -1);
+	a->multiply(8, 79799797797);
 
-	Loop* Program = new Loop();
+	Loop* Program = new Loop(); 
 	Program->Startup();
 	
 	Utility->executeCommandLineArguments(argv, argc);

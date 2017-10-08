@@ -105,6 +105,9 @@
     <Filter Include="Framework\WIP Commands\Math Solver">
       <UniqueIdentifier>{3f023ea1-4c88-4fa6-8d6d-ae43765691b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="External\BIG INT">
+      <UniqueIdentifier>{4b354f48-7b59-4005-b73e-8178f7ab78f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -191,6 +194,27 @@
     <ClInclude Include="StepMath.h">
       <Filter>Framework\WIP Commands\Math Solver</Filter>
     </ClInclude>
+    <ClInclude Include="BIGINT\BigInteger.hh">
+      <Filter>External\BIG INT</Filter>
+    </ClInclude>
+    <ClInclude Include="BIGINT\BigIntegerAlgorithms.hh">
+      <Filter>External\BIG INT</Filter>
+    </ClInclude>
+    <ClInclude Include="BIGINT\BigIntegerLibrary.hh">
+      <Filter>External\BIG INT</Filter>
+    </ClInclude>
+    <ClInclude Include="BIGINT\BigIntegerUtils.hh">
+      <Filter>External\BIG INT</Filter>
+    </ClInclude>
+    <ClInclude Include="BIGINT\BigUnsigned.hh">
+      <Filter>External\BIG INT</Filter>
+    </ClInclude>
+    <ClInclude Include="BIGINT\BigUnsignedInABase.hh">
+      <Filter>External\BIG INT</Filter>
+    </ClInclude>
+    <ClInclude Include="BIGINT\NumberlikeArray.hh">
+      <Filter>External\BIG INT</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -270,6 +294,21 @@
     </ClCompile>
     <ClCompile Include="StepMath.cpp">
       <Filter>Framework\WIP Commands\Math Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="BIGINT\BigInteger.cc">
+      <Filter>External\BIG INT</Filter>
+    </ClCompile>
+    <ClCompile Include="BIGINT\BigIntegerAlgorithms.cc">
+      <Filter>External\BIG INT</Filter>
+    </ClCompile>
+    <ClCompile Include="BIGINT\BigIntegerUtils.cc">
+      <Filter>External\BIG INT</Filter>
+    </ClCompile>
+    <ClCompile Include="BIGINT\BigUnsigned.cc">
+      <Filter>External\BIG INT</Filter>
+    </ClCompile>
+    <ClCompile Include="BIGINT\BigUnsignedInABase.cc">
+      <Filter>External\BIG INT</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -15,13 +15,21 @@ public:
 
 //Supported:
 
-//Future:
 #define AdditionProblem 0
 #define SubtractionProblem 1
+
+//Future:
 #define MultiplicationProblem 2
 #define DivisionProblem 3
-#define SolveFor1Variable 4 //Any problem with just 1 variable
-#define Exponent 5
+#define Exponent 4
+#define SolveFor1Variable 5 //Any problem with just 1 variable
+
+#pragma endregion
+
+#pragma region Error_Codes
+
+#define NO_ERROR 0
+#define DIVIDE_BY_ZERO 1
 
 #pragma endregion
 
@@ -50,4 +58,21 @@ public:
 	/// <param name="b"></param>
 	/// <returns></returns>
 	__int64 subtract(__int64 a, __int64 b);
+
+	/// <summary>
+	/// Multiplies 'a' by 'b'.
+	/// </summary>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
+	/// <returns></returns>
+	__int64 multiply(__int64 a, __int64 b);
+
+	/// <summary>
+	/// Divides 'b' from 'a'.
+	/// </summary>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
+	/// <param name="errorCode>If a error has occurred, it will be set here.</param>
+	/// <returns></returns>
+	__int64 divide(__int64 a, __int64 b, __int8& errorCode);
 };
