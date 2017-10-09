@@ -11,7 +11,11 @@ public:
 	/// Converts whatever this is to string.
 	/// </summary>
 	/// <returns></returns>
-	virtual string* toString() = 0;
+	virtual void toString(string& str) = 0;
+
+#pragma region Operator Overloading
+	
+	//https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B#Arithmetic_operatorss
 
 	/// <summary>
 	/// Sets this IMathObject equal to mathObject.
@@ -27,6 +31,8 @@ public:
 	/// <param name="mathObject"></param>
 	virtual IMathObject& operator+(IMathObject& mathObject) = 0;
 	virtual IMathObject& operator+(IMathObject* mathObject) = 0;
+	virtual IMathObject& operator+=(IMathObject& mathObject) = 0;
+	virtual IMathObject& operator+=(IMathObject* mathObject) = 0;
 
 	/// <summary>
 	/// Subtracts mathObject from this IMathObject.
@@ -35,6 +41,8 @@ public:
 	/// <returns></returns>
 	virtual IMathObject& operator-(IMathObject& mathObject) = 0;
 	virtual IMathObject& operator-(IMathObject* mathObject) = 0;
+	virtual IMathObject& operator-=(IMathObject& mathObject) = 0;
+	virtual IMathObject& operator-=(IMathObject* mathObject) = 0;
 
 	/// <summary>
 	/// Multiplies this IMathObject by mathObject.
@@ -43,6 +51,8 @@ public:
 	/// <returns></returns>
 	virtual IMathObject& operator*(IMathObject& mathObject) = 0;
 	virtual IMathObject& operator*(IMathObject* mathObject) = 0;
+	virtual IMathObject& operator*=(IMathObject& mathObject) = 0;
+	virtual IMathObject& operator*=(IMathObject* mathObject) = 0;
 
 	/// <summary>
 	/// Divides this IMathObject by mathObject.
@@ -51,6 +61,8 @@ public:
 	/// <returns></returns>
 	virtual IMathObject& operator/(IMathObject& mathObject) = 0;
 	virtual IMathObject& operator/(IMathObject* mathObject) = 0;
+	virtual IMathObject& operator/=(IMathObject& mathObject) = 0;
+	virtual IMathObject& operator/=(IMathObject* mathObject) = 0;
 
 	/// <summary>
 	/// Returns the value of this IMathObject % mathObject.
@@ -59,6 +71,8 @@ public:
 	/// <returns></returns>
 	virtual IMathObject& operator%(IMathObject& mathObject) = 0;
 	virtual IMathObject& operator%(IMathObject* mathObject) = 0;
+	virtual IMathObject& operator%=(IMathObject& mathObject) = 0;
+	virtual IMathObject& operator%=(IMathObject* mathObject) = 0;
 
 	/// <summary>
 	/// Determines if mathObject is equal to this object.
@@ -91,4 +105,23 @@ public:
 	/// <returns></returns>
 	virtual bool operator<(IMathObject& mathObject) = 0;
 	virtual bool operator<(IMathObject* mathObject) = 0;
+
+	/// <summary>
+	/// Determines if this IMathObject is greater than or equal to mathObject.
+	/// </summary>
+	/// <param name="mathObject"></param>
+	/// <returns></returns>
+	virtual bool operator>=(IMathObject& mathObject) = 0;
+	virtual bool operator>=(IMathObject* mathObject) = 0;
+
+	/// <summary>
+	/// Determines if this IMathObject is less than or equal to mathObject.
+	/// </summary>
+	/// <param name="mathObject"></param>
+	/// <returns></returns>
+	virtual bool operator<=(IMathObject& mathObject) = 0;
+	virtual bool operator<=(IMathObject* mathObject) = 0;
+
+#pragma endregion
+
 };
