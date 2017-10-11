@@ -1,59 +1,71 @@
 #pragma once
 
-#include "IMathObject.h"
+#include <string>
+#include <vector>
 
-class BigInt : public IMathObject
+
+struct TwoDigit
+{
+	__int8 digit1 : 4;
+	__int8 digit2 : 4;
+};
+
+class BigInt
 {
 public:
 
-	vector<string>* steps;
-
-	BigInt(vector<string>* step);
+	BigInt();
 	~BigInt();
 
-	IMathObject& operator=(IMathObject& mathObject);
-	IMathObject& operator=(IMathObject* mathObject);
+	BigInt& operator=(BigInt& mathObject);
+	BigInt& operator=(BigInt* mathObject);
 
-	IMathObject& operator+(IMathObject& mathObject);
-	IMathObject& operator+(IMathObject* mathObject);
-	IMathObject& operator+=(IMathObject& mathObject);
-	IMathObject& operator+=(IMathObject* mathObject);
+	BigInt& operator+(BigInt& mathObject);
+	BigInt& operator+(BigInt* mathObject);
+	BigInt& operator+=(BigInt& mathObject);
+	BigInt& operator+=(BigInt* mathObject);
 
-	IMathObject& operator-(IMathObject& mathObject);
-	IMathObject& operator-(IMathObject* mathObject);
-	IMathObject& operator-=(IMathObject& mathObject);
-	IMathObject& operator-=(IMathObject* mathObject);
+	BigInt& operator-(BigInt& mathObject);
+	BigInt& operator-(BigInt* mathObject);
+	BigInt& operator-=(BigInt& mathObject);
+	BigInt& operator-=(BigInt* mathObject);
 
-	IMathObject& operator*(IMathObject& mathObject);
-	IMathObject& operator*(IMathObject* mathObject);
-	IMathObject& operator*=(IMathObject& mathObject);
-	IMathObject& operator*=(IMathObject* mathObject);
+	BigInt& operator*(BigInt& mathObject);
+	BigInt& operator*(BigInt* mathObject);
+	BigInt& operator*=(BigInt& mathObject);
+	BigInt& operator*=(BigInt* mathObject);
 
-	IMathObject& operator/(IMathObject& mathObject);
-	IMathObject& operator/(IMathObject* mathObject);
-	IMathObject& operator/=(IMathObject& mathObject);
-	IMathObject& operator/=(IMathObject* mathObject);
+	BigInt& operator/(BigInt& mathObject);
+	BigInt& operator/(BigInt* mathObject);
+	BigInt& operator/=(BigInt& mathObject);
+	BigInt& operator/=(BigInt* mathObject);
 
-	IMathObject& operator%(IMathObject& mathObject);
-	IMathObject& operator%(IMathObject* mathObject);
-	IMathObject& operator%=(IMathObject& mathObject);
-	IMathObject& operator%=(IMathObject* mathObject);
+	BigInt& operator%(BigInt& mathObject);
+	BigInt& operator%(BigInt* mathObject);
+	BigInt& operator%=(BigInt& mathObject);
+	BigInt& operator%=(BigInt* mathObject);
 
-	bool operator==(IMathObject& mathObject);
-	bool operator==(IMathObject* mathObject);
+	bool operator==(BigInt& mathObject);
+	bool operator==(BigInt* mathObject);
 
-	bool operator!=(IMathObject& mathObject);
-	bool operator!=(IMathObject* mathObject);
+	bool operator!=(BigInt& mathObject);
+	bool operator!=(BigInt* mathObject);
 
-	bool operator>(IMathObject& mathObject);
-	bool operator>(IMathObject* mathObject);
+	bool operator>(BigInt& mathObject);
+	bool operator>(BigInt* mathObject);
 
-	bool operator<(IMathObject& mathObject);
-	bool operator<(IMathObject* mathObject);
+	bool operator<(BigInt& mathObject);
+	bool operator<(BigInt* mathObject);
 
-	bool operator>=(IMathObject& mathObject);
-	bool operator>=(IMathObject* mathObject);
+	bool operator>=(BigInt& mathObject);
+	bool operator>=(BigInt* mathObject);
 
-	bool operator<=(IMathObject& mathObject);
-	bool operator<=(IMathObject* mathObject);
+	bool operator<=(BigInt& mathObject);
+	bool operator<=(BigInt* mathObject);
+
+private:
+	/// <summary>
+	/// An array of digits.
+	/// </summary>
+	TwoDigit* digits;
 };

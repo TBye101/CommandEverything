@@ -2,11 +2,17 @@
 #include "BigInt.h"
 
 
-BigInt::BigInt(vector<string>* step)
+BigInt::BigInt()
 {
-	this->steps = step;
+	this->digits = new TwoDigit[1];
 }
 
 BigInt::~BigInt()
 {
+}
+
+BigInt & BigInt::operator=(BigInt& mathObject)
+{
+	
+	// TODO: insert return statement here
 }
