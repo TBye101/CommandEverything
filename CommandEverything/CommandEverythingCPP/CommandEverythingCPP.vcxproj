@@ -186,7 +186,6 @@
     <ClInclude Include="Header Only\dirent.h" />
     <ClInclude Include="Header Only\ThreadPool.h" />
     <ClInclude Include="ICommand.h" />
-    <ClInclude Include="IMathObject.h" />
     <ClInclude Include="Loop.h" />
     <ClInclude Include="ParsedCommand.h" />
     <ClInclude Include="RunScript.h" />
@@ -217,7 +216,6 @@
     <ClCompile Include="CommandTree.cpp" />
     <ClCompile Include="Filing.cpp" />
     <ClCompile Include="ICommand.cpp" />
-    <ClCompile Include="IMathObject.cpp" />
     <ClCompile Include="Loop.cpp" />
     <ClCompile Include="ParsedCommand.cpp" />
     <ClCompile Include="RunScript.cpp" />

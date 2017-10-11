@@ -194,9 +194,6 @@
     <ClInclude Include="StepMath.h">
       <Filter>Framework\WIP Commands\Math Solver</Filter>
     </ClInclude>
-    <ClInclude Include="IMathObject.h">
-      <Filter>Framework\WIP Commands\Math Solver\Math Objects</Filter>
-    </ClInclude>
     <ClInclude Include="BigInt.h">
       <Filter>Framework\WIP Commands\Math Solver\Math Objects</Filter>
     </ClInclude>
@@ -279,9 +276,6 @@
     </ClCompile>
     <ClCompile Include="StepMath.cpp">
       <Filter>Framework\WIP Commands\Math Solver</Filter>
-    </ClCompile>
-    <ClCompile Include="IMathObject.cpp">
-      <Filter>Framework\WIP Commands\Math Solver\Math Objects</Filter>
     </ClCompile>
     <ClCompile Include="BigInt.cpp">
       <Filter>Framework\WIP Commands\Math Solver\Math Objects</Filter>
