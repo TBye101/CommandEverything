@@ -17,51 +17,48 @@ public:
 	BigInt();
 	~BigInt();
 
-	BigInt& operator=(BigInt& mathObject);
-	BigInt& operator=(BigInt* mathObject);
+	//BigInt& operator+(BigInt& mathObject);
+	//BigInt& operator+(BigInt* mathObject);
+	//BigInt& operator+=(BigInt& mathObject);
+	//BigInt& operator+=(BigInt* mathObject);
 
-	BigInt& operator+(BigInt& mathObject);
-	BigInt& operator+(BigInt* mathObject);
-	BigInt& operator+=(BigInt& mathObject);
-	BigInt& operator+=(BigInt* mathObject);
+	//BigInt& operator-(BigInt& mathObject);
+	//BigInt& operator-(BigInt* mathObject);
+	//BigInt& operator-=(BigInt& mathObject);
+	//BigInt& operator-=(BigInt* mathObject);
 
-	BigInt& operator-(BigInt& mathObject);
-	BigInt& operator-(BigInt* mathObject);
-	BigInt& operator-=(BigInt& mathObject);
-	BigInt& operator-=(BigInt* mathObject);
+	//BigInt& operator*(BigInt& mathObject);
+	//BigInt& operator*(BigInt* mathObject);
+	//BigInt& operator*=(BigInt& mathObject);
+	//BigInt& operator*=(BigInt* mathObject);
 
-	BigInt& operator*(BigInt& mathObject);
-	BigInt& operator*(BigInt* mathObject);
-	BigInt& operator*=(BigInt& mathObject);
-	BigInt& operator*=(BigInt* mathObject);
+	//BigInt& operator/(BigInt& mathObject);
+	//BigInt& operator/(BigInt* mathObject);
+	//BigInt& operator/=(BigInt& mathObject);
+	//BigInt& operator/=(BigInt* mathObject);
 
-	BigInt& operator/(BigInt& mathObject);
-	BigInt& operator/(BigInt* mathObject);
-	BigInt& operator/=(BigInt& mathObject);
-	BigInt& operator/=(BigInt* mathObject);
+	//BigInt& operator%(BigInt& mathObject);
+	//BigInt& operator%(BigInt* mathObject);
+	//BigInt& operator%=(BigInt& mathObject);
+	//BigInt& operator%=(BigInt* mathObject);
 
-	BigInt& operator%(BigInt& mathObject);
-	BigInt& operator%(BigInt* mathObject);
-	BigInt& operator%=(BigInt& mathObject);
-	BigInt& operator%=(BigInt* mathObject);
+	//bool operator==(BigInt& mathObject);
+	//bool operator==(BigInt* mathObject);
 
-	bool operator==(BigInt& mathObject);
-	bool operator==(BigInt* mathObject);
+	//bool operator!=(BigInt& mathObject);
+	//bool operator!=(BigInt* mathObject);
 
-	bool operator!=(BigInt& mathObject);
-	bool operator!=(BigInt* mathObject);
+	//bool operator>(BigInt& mathObject);
+	//bool operator>(BigInt* mathObject);
 
-	bool operator>(BigInt& mathObject);
-	bool operator>(BigInt* mathObject);
+	//bool operator<(BigInt& mathObject);
+	//bool operator<(BigInt* mathObject);
 
-	bool operator<(BigInt& mathObject);
-	bool operator<(BigInt* mathObject);
+	//bool operator>=(BigInt& mathObject);
+	//bool operator>=(BigInt* mathObject);
 
-	bool operator>=(BigInt& mathObject);
-	bool operator>=(BigInt* mathObject);
-
-	bool operator<=(BigInt& mathObject);
-	bool operator<=(BigInt* mathObject);
+	//bool operator<=(BigInt& mathObject);
+	//bool operator<=(BigInt* mathObject);
 
 private:
 	/// <summary>

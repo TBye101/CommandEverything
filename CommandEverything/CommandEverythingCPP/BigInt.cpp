@@ -10,9 +10,3 @@ BigInt::BigInt()
 BigInt::~BigInt()
 {
 }
-
-BigInt & BigInt::operator=(BigInt& mathObject)
-{
-	
-	// TODO: insert return statement here
-}
