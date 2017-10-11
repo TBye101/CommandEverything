@@ -197,6 +197,9 @@
     <ClInclude Include="IMathObject.h">
       <Filter>Framework\WIP Commands\Math Solver\Math Objects</Filter>
     </ClInclude>
+    <ClInclude Include="BigInt.h">
+      <Filter>Framework\WIP Commands\Math Solver\Math Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -278,6 +281,9 @@
       <Filter>Framework\WIP Commands\Math Solver</Filter>
     </ClCompile>
     <ClCompile Include="IMathObject.cpp">
+      <Filter>Framework\WIP Commands\Math Solver\Math Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BigInt.cpp">
       <Filter>Framework\WIP Commands\Math Solver\Math Objects</Filter>
     </ClCompile>
   </ItemGroup>

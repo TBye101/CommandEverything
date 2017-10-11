@@ -16,7 +16,7 @@ public:
 #pragma region Operator Overloading
 	
 	//https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B#Arithmetic_operatorss
-
+	
 	/// <summary>
 	/// Sets this IMathObject equal to mathObject.
 	/// </summary>
