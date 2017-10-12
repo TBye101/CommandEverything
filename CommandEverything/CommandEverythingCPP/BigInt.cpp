@@ -42,6 +42,23 @@ int* BigInt::getDigits(unsigned __int64 size)
 	return ret;
 }
 
-void BigInt::setDigits(int * yourDigits, unsigned __int64 size)
+void BigInt::setDigits(int* yourDigits, unsigned __int64 size)
 {
+	this->digits->clear();
+	TwoDigit digitSet;
+
+	for (unsigned __int64 i = 0; i < size; i++)
+	{
+		//If it's time to set the second section.
+		if (i % 2 == 1)
+		{
+			digitSet.digit2 = yourDigits[i];
+			this->digits->push_back(digitSet);
+		}
+		//If it's time to set the first section.
+		else
+		{
+			digitSet.digit1 = yourDigits[i];
+		}
+	}
 }
