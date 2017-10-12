@@ -17,7 +17,7 @@ public:
 	BigInt();
 	~BigInt();
 
-	//BigInt& operator+(BigInt& mathObject);
+	BigInt& operator+(BigInt& mathObject);
 	//BigInt& operator+(BigInt* mathObject);
 	//BigInt& operator+=(BigInt& mathObject);
 	//BigInt& operator+=(BigInt* mathObject);
@@ -61,8 +61,18 @@ public:
 	//bool operator<=(BigInt* mathObject);
 
 private:
+
 	/// <summary>
-	/// An array of digits.
+	/// All the digits in this number digits.
+	/// Order of digits: [10 & 9] [8 & 7] [6 & 5]...
 	/// </summary>
-	TwoDigit* digits;
+	vector<TwoDigit>* digits = new vector<TwoDigit>();
+
+	/// <summary>
+	/// Converts digits to a int pointer.
+	/// </summary>
+	/// <param name="size">How many elements are in the array.</param>
+	/// <returns></returns>
+	int* getDigits(unsigned __int64 size);
+	void setDigits(int* yourDigits, unsigned __int64 size);
 };
