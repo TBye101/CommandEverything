@@ -74,5 +74,5 @@ private:
 	/// <param name="size">How many elements are in the array.</param>
 	/// <returns></returns>
 	int* getDigits(unsigned __int64 size);
-	void setDigits(int* yourDigits, unsigned __int64 size);
+	void setDigits(__int8* yourDigits, unsigned __int64 size);
 };

@@ -14,9 +14,62 @@ BigInt& BigInt::operator+(BigInt& mathObject)
 {
 	//Gonna add just like I would by hand.
 
-	__int8* topArray = new __int8[this->digits->size() + 1];
-	__int8* bottomArray = new __int8[mathObject.digits->size() + 1];
+	unsigned __int64 length;
 	
+	if (this->digits->size() > mathObject.digits->size())
+	{
+		length = this->digits->size();
+	}
+	else
+	{
+		length = mathObject.digits->size();
+	}
+
+	//Each TwoDigit has two numbers, and when adding it is possible to overflow up 1 digit.
+
+	//The contents of this BigInt
+	__int8* newNumber = new __int8[(length * 2) + 1];
+
+	//Two digits in a TwoDigit struct.
+	length *= 2;
+
+	//Prepare the arrays to add.
+	for (unsigned __int64 i = 0; i < length; ++i)
+	{
+		//Do the second section of a TwoDigit
+		if (i % 2 == 1)
+		{
+			newNumber[i] += this->digits->at(i / 2).digit2 + mathObject.digits->at(i / 2).digit2;
+		}
+		//Do the first section of a TwoDigit
+		else
+		{
+			newNumber[i] += this->digits->at(i / 2).digit1 + mathObject.digits->at(i / 2).digit1;
+		}
+
+		//Carry the 1...
+		if (newNumber[i] > 9)
+		{
+			newNumber[i + 1] = 1;
+			newNumber[i] -= 9;
+		}
+	}
+
+	unsigned __int64 actualLength;
+	//Time to remove the excess digits.
+	//First, I have to find out the size of my int array that isn't just useless 0's.
+	for (unsigned __int64 i = length; i > 0; --i)
+	{
+		if (newNumber[i] != 0)
+		{
+			actualLength = i;
+			break;
+		}
+	}
+
+	this->setDigits(newNumber, actualLength);
+	delete newNumber;
+	//Why not use a int* instead of a vector?
 }
 
 int* BigInt::getDigits(unsigned __int64 size)
@@ -42,7 +95,7 @@ int* BigInt::getDigits(unsigned __int64 size)
 	return ret;
 }
 
-void BigInt::setDigits(int* yourDigits, unsigned __int64 size)
+void BigInt::setDigits(__int8* yourDigits, unsigned __int64 size)
 {
 	this->digits->clear();
 	TwoDigit digitSet;
