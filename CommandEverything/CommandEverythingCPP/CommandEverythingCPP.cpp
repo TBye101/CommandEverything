@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "Loop.h"
 #include "StepMath.h"
+#include "BigInt.h"
 
 using namespace std;
 
@@ -33,10 +34,16 @@ int main(int argc, char* argv[])
 	{
 		Console->WriteLine("!Error!: Could not set event handler.");
 	}
-	StepMath* a = new StepMath();
-	a->multiply(8, 79799797797);
+//	StepMath* a = new StepMath();
+//	a->multiply(8, 79799797797);
+	BigInt a = BigInt(10);
+	BigInt b = BigInt(-93474);
+	BigInt c = b + a;
 
-	Loop* Program = new Loop(); 
+	cout << "test: ";
+	cout << *c.digits;
+	cout << "\r\n";
+	Loop* Program = new Loop();
 	Program->Startup();
 	
 	Utility->executeCommandLineArguments(argv, argc);

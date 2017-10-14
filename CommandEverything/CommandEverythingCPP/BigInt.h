@@ -15,8 +15,8 @@ class BigInt
 public:
 
 	BigInt();
-	BigInt(__int64& num);
-	BigInt(unsigned __int64& num);
+	BigInt(const __int64& num);
+	//BigInt(const unsigned __int64& num);
 
 	~BigInt();
 
@@ -24,8 +24,8 @@ public:
 	//BigInt& operator+(BigInt* mathObject);
 	//BigInt& operator+=(BigInt& mathObject);
 	//BigInt& operator+=(BigInt* mathObject);
-	BigInt& operator+(__int64& num);
-	BigInt& operator+=(__int64& num);
+	//BigInt& operator+(__int64& num);
+	//BigInt& operator+=(__int64& num);
 
 	//BigInt& operator-(BigInt& mathObject);
 	//BigInt& operator-(BigInt* mathObject);
@@ -65,8 +65,6 @@ public:
 	//bool operator<=(BigInt& mathObject);
 	//bool operator<=(BigInt* mathObject);
 
-private:
-
 	/// <summary>
 	/// All the digits in this number digits.
 	/// Order of digits: 9, 8, 7, 6, 5, 4, 3, 2, 1...
@@ -77,6 +75,7 @@ private:
 	/// The size of the digits array.
 	/// </summary>
 	unsigned __int64 digitSize = 1;
+private:
 
 	/// <summary>
 	/// Counts the number of digits in a int.

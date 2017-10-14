@@ -6,10 +6,12 @@ BigInt::BigInt()
 {
 }
 
-BigInt::BigInt(__int64& num)
+BigInt::BigInt(const __int64& num)
 {
 	unsigned __int8 digitCount = this->count(num);
+	this->digitSize = digitCount;
 	unsigned __int8 length = digitCount;
+	__int64 number = num;
 
 	if (this->digitSize < digitCount)
 	{
@@ -19,30 +21,31 @@ BigInt::BigInt(__int64& num)
 	unsigned __int8 i = 0;
 	while (digitCount--)
 	{
-		this->digits[i] = num % 10;
-		num /= 10;
+		this->digits[digitCount] = num % 10;
+		number /= 10;
 		++i;
 	}
-}
-
-BigInt::BigInt(unsigned __int64& num)
-{
-	unsigned __int8 digitCount = this->count(num);
-	unsigned __int8 length = digitCount;
-
-	if (this->digitSize < digitCount)
-	{
-		realloc(this->digits, digitCount);
-	}
-
-	unsigned __int8 i = 0;
-	while (digitCount--)
-	{
-		this->digits[i] = num % 10;
-		num /= 10;
-		++i;
-	}
-}
+} 
+//
+//BigInt::BigInt(const unsigned __int64& num)
+//{
+//	unsigned __int8 digitCount = this->count(num);
+//	unsigned __int8 length = digitCount;
+//	unsigned __int64 number = num;
+//
+//	if (this->digitSize < digitCount)
+//	{
+//		realloc(this->digits, digitCount);
+//	}
+//
+//	unsigned __int8 i = 0;
+//	while (digitCount--)
+//	{
+//		this->digits[i] = num % 10;
+//		number /= 10;
+//		++i;
+//	}
+//}
 
 BigInt::~BigInt()
 {
@@ -95,6 +98,8 @@ BigInt& BigInt::operator+(BigInt& mathObject)
 			break;
 		}
 	}
+
+	return *this;
 }
 
 unsigned __int8 BigInt::count(__int64 i)
