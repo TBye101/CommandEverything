@@ -15,12 +15,17 @@ class BigInt
 public:
 
 	BigInt();
+	BigInt(__int64& num);
+	BigInt(unsigned __int64& num);
+
 	~BigInt();
 
 	BigInt& operator+(BigInt& mathObject);
 	//BigInt& operator+(BigInt* mathObject);
 	//BigInt& operator+=(BigInt& mathObject);
 	//BigInt& operator+=(BigInt* mathObject);
+	BigInt& operator+(__int64& num);
+	BigInt& operator+=(__int64& num);
 
 	//BigInt& operator-(BigInt& mathObject);
 	//BigInt& operator-(BigInt* mathObject);
@@ -64,15 +69,20 @@ private:
 
 	/// <summary>
 	/// All the digits in this number digits.
-	/// Order of digits: [10 & 9] [8 & 7] [6 & 5]...
+	/// Order of digits: 9, 8, 7, 6, 5, 4, 3, 2, 1...
 	/// </summary>
-	vector<TwoDigit>* digits = new vector<TwoDigit>();
+	__int8* digits = new __int8[1];
 
 	/// <summary>
-	/// Converts digits to a int pointer.
+	/// The size of the digits array.
 	/// </summary>
-	/// <param name="size">How many elements are in the array.</param>
+	unsigned __int64 digitSize = 1;
+
+	/// <summary>
+	/// Counts the number of digits in a int.
+	/// </summary>
+	/// <param name="i"></param>
 	/// <returns></returns>
-	int* getDigits(unsigned __int64 size);
-	void setDigits(__int8* yourDigits, unsigned __int64 size);
+	unsigned __int8 count(__int64 i);
+	unsigned __int8 count(unsigned __int64 i);
 };
