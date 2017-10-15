@@ -165,7 +165,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BigInt.h" />
     <ClInclude Include="CommandCd.h" />
     <ClInclude Include="CommandCrash.h" />
     <ClInclude Include="CommandDecrypt.h" />
@@ -196,7 +195,6 @@
     <ClInclude Include="Writer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BigInt.cpp" />
     <ClCompile Include="CommandCd.cpp" />
     <ClCompile Include="CommandCrash.cpp" />
     <ClCompile Include="CommandDecrypt.cpp" />
