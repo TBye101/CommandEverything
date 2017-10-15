@@ -9,22 +9,26 @@ BigInt::BigInt()
 BigInt::BigInt(const __int64& num)
 {
 	unsigned __int8 digitCount = this->count(num);
-	this->digitSize = digitCount;
 	unsigned __int8 length = digitCount;
 	__int64 number = num;
 
 	if (this->digitSize < digitCount)
 	{
-		realloc(this->digits, digitCount);
+		//realloc(this->digits, digitCount * sizeof(__int8));
+		__int8* newArr = new __int8[digitCount];
+		memcpy(newArr, this->digits, this->digitSize * sizeof(__int8));
+		delete this->digits;
+		this->digits = newArr;
 	}
 
 	unsigned __int8 i = 0;
-	while (digitCount--)
+	while (i != digitCount)
 	{
-		this->digits[digitCount] = num % 10;
+		this->digits[i] = num % 10;
 		number /= 10;
 		++i;
 	}
+	this->digitSize = digitCount;
 } 
 //
 //BigInt::BigInt(const unsigned __int64& num)

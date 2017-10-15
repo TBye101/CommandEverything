@@ -37,6 +37,16 @@ int main(int argc, char* argv[])
 //	StepMath* a = new StepMath();
 //	a->multiply(8, 79799797797);
 	BigInt a = BigInt(10);
+	for (size_t i = 0; i < a.digitSize; i++)
+	{
+		
+		cout << a.digits[i];
+	}
+	printf(a.digits);
+	int one = a.digits[0];
+	int two = a.digits[1];
+	cout << a.digits;
+	cout.flush();
 	BigInt b = BigInt(-93474);
 	BigInt c = b + a;
 
