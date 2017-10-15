@@ -68,8 +68,6 @@ __int64 StepMath::subtract(__int64 a, __int64 b)
 
 __int64 StepMath::multiply(__int64 a, __int64 b)
 {
-	//INT64_MAX
-	//INT64_MIN
 	string step1 = to_string(a);
 	step1.append(" * ");
 	step1.append(to_string(b));
@@ -77,4 +75,27 @@ __int64 StepMath::multiply(__int64 a, __int64 b)
 	step1.append(to_string(a * b));
 	this->shownSteps->push_back(step1);
 	return a * b;
+}
+
+__int64 StepMath::divide(__int64 a, __int64 b, __int8 & errorCode)
+{
+	if (b == 0)
+	{
+		errorCode = DIVIDE_BY_ZERO;
+		this->shownSteps->push_back("Divide by Zero: Undefined");
+	}
+	else
+	{
+		string step = to_string(a);
+		step.append(" / ");
+		step.append(to_string(b));
+		step.append(" = ");
+		step.append(to_string(a / b));
+		this->shownSteps->push_back(step);
+		if (a % b != 0)
+		{
+			this->shownSteps->push_back("Precision loss!");
+		}
+		return a / b;
+	}
 }

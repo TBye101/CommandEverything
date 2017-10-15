@@ -1,4 +1,39 @@
+/*
+This file is used to do math step by step, and display the results of this step by step.
+*/
+
 #pragma once
+
+/// <summary>
+/// Represents a fraction.
+/// </summary>
+struct Fraction
+{
+	__int64 numerator;
+	__int64 denominator;
+};
+
+/// <summary>
+/// Represents a number in a radical.
+/// </summary>
+struct Radical
+{
+	/// <summary>
+	/// The N root of number.
+	/// </summary>
+	__int64 index;
+
+	/// <summary>
+	/// The number under the radical.
+	/// </summary>
+	__int64 number;
+};
+
+struct RadicalFraction
+{
+	Radical numberator;
+	Radical denominator;
+};
 
 /// <summary>
 /// This class is used to do math step by step, and show those steps. 
@@ -23,6 +58,13 @@ public:
 #define DivisionProblem 3
 #define Exponent 4
 #define SolveFor1Variable 5 //Any problem with just 1 variable
+#define Sin 6
+#define Cos 7
+#define Tan 8
+#define Csc 9
+#define Sec 10
+#define Cot 11
+
 
 #pragma endregion
 
@@ -69,6 +111,7 @@ public:
 
 	/// <summary>
 	/// Divides 'b' from 'a'.
+	/// This does not keep precision if a % b != 0.
 	/// </summary>
 	/// <param name="a"></param>
 	/// <param name="b"></param>

@@ -4,7 +4,6 @@
 #include "stdafx.h"
 #include "Loop.h"
 #include "StepMath.h"
-#include "BigInt.h"
 
 using namespace std;
 
@@ -36,7 +35,6 @@ int main(int argc, char* argv[])
 	}
 	StepMath* a = new StepMath();
 	a->multiply(8, 79799797797);
-	BigInt big = BigInt(98);
 
 	Loop* Program = new Loop(); 
 	Program->Startup();
