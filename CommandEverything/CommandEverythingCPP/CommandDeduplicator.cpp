@@ -425,3 +425,19 @@ bool CommandDeduplicator::isDuplicateInContents(unsigned __int64 position, char*
 	return false;
 }
 
+void CommandDeduplicator::removePath(char* path)
+{
+	char sep = '/';
+
+#ifdef _WIN32
+	sep = '\\';
+#endif
+
+	string s = string(path);
+	size_t i = s.rfind(sep, s.length());
+	if (i != string::npos) 
+	{
+		delete path;
+		path = Utility->toCharStar(&(s.substr(i + 1, s.length() - i)));
+	}
+}
