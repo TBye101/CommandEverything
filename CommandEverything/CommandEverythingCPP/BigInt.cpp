@@ -1,9 +1,20 @@
 #include "stdafx.h"
 #include "BigInt.h"
 
-
-BigInt::BigInt()
+BigInt::BigInt(__int64 a)
 {
+	unsigned __int8 digitCount = this->count(a);
+	
+	unsigned __int8 i = 0;
+	__int8* digs = new __int8[digitCount];
+	while (i != digitCount)
+	{
+		digs[i] = this->getDigit(a, i);
+		++i;
+	}
+
+	this->setDigits(digs, digitCount);
+	delete digs;
 }
 
 BigInt::~BigInt()
@@ -69,7 +80,7 @@ BigInt& BigInt::operator+(BigInt& mathObject)
 
 	this->setDigits(newNumber, actualLength);
 	delete newNumber;
-	//Why not use a int* instead of a vector?
+	return *this;
 }
 
 int* BigInt::getDigits(unsigned __int64 size)
@@ -114,4 +125,28 @@ void BigInt::setDigits(__int8* yourDigits, unsigned __int64 size)
 			digitSet.digit1 = yourDigits[i];
 		}
 	}
+}
+
+unsigned __int8 BigInt::count(__int64 i)
+{
+	unsigned __int8 ret = 1;
+
+	while (i /= 10) ret++;
+
+	return ret;
+}
+
+unsigned __int8 BigInt::count(unsigned __int64 i)
+{
+	unsigned __int8 ret = 1;
+
+	while (i /= 10) ret++;
+
+	return ret;
+}
+
+__int8 BigInt::getDigit(__int64 num, unsigned __int8 position)
+{
+	__int8 ret =  (num / (int)pow(10, floor(log10(num)) - position)) % 10;
+	return ret;
 }

@@ -14,7 +14,7 @@ class BigInt
 {
 public:
 
-	BigInt();
+	BigInt(__int64 a);
 	~BigInt();
 
 	BigInt& operator+(BigInt& mathObject);
@@ -75,4 +75,19 @@ private:
 	/// <returns></returns>
 	int* getDigits(unsigned __int64 size);
 	void setDigits(__int8* yourDigits, unsigned __int64 size);
+
+	/// <summary>
+	/// Returns how many digits in a number.
+	/// </summary>
+	/// <param name="i"></param>
+	/// <returns></returns>
+	unsigned __int8 count(__int64 i);
+	unsigned __int8 count(unsigned __int64 i);
+
+	/// <summary>
+	/// Gets a specific digit of a number.
+	/// </summary>
+	/// <param name="num"></param>
+	/// <returns></returns>
+	__int8 getDigit(__int64 num, unsigned __int8 position);
 };
