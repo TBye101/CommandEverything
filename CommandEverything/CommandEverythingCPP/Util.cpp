@@ -239,6 +239,7 @@ fstream Util::initializeNewLogAndReader(char* filename)
 	if (!newLog)
 	{
 		cout << "Can't access file!\r\n";
+		Utility->DescribeIosFailure(newLog);
 	}
 
 	return newLog;
@@ -277,4 +278,51 @@ unsigned __int64 Util::graphicCalculateFilesIn(const char* name, unsigned __int3
 	}
 	closedir(dir);
 	return FilesFound;
+}
+
+std::string Util::DescribeIosFailure(const std::ios & stream)
+{
+	std::string result;
+
+	if (stream.eof()) {
+		result = "Unexpected end of file.";
+	}
+
+#ifdef WIN32
+	// GetLastError() gives more details than errno.
+	else if (GetLastError() != 0) {
+		//Get the error message, if any.
+		DWORD errorMessageID = ::GetLastError();
+		if (errorMessageID == 0)
+			return std::string(); //No error message has been recorded
+
+		LPSTR messageBuffer = nullptr;
+		size_t size = FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL, errorMessageID, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&messageBuffer, 0, NULL);
+
+		std::string message(messageBuffer, size);
+
+		Console->WriteLine(&message);
+		//Free the buffer.
+		LocalFree(messageBuffer);
+	}
+#endif
+
+	else if (errno) {
+#if defined(__unix__)
+		// We use strerror_r because it's threadsafe.
+		// GNU's strerror_r returns a string and may ignore buffer completely.
+		char buffer[255];
+		result = std::string(strerror_r(errno, buffer, sizeof(buffer)));
+#else
+		result = std::string(strerror(errno));
+#endif
+	}
+
+	else {
+		result = "Unknown file error.";
+	}
+
+	//boost::trim_right(result);  // from Boost String Algorithms library
+	return result;
 }

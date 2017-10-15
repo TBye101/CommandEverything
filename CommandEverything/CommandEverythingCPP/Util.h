@@ -9,6 +9,7 @@
 #include <conio.h>
 #include <Psapi.h>
 #include <vector>
+#include <WinBase.h>
 
 using namespace std;
 
@@ -130,4 +131,6 @@ private:
 	/// <param name="indent"></param>
 	/// <returns></returns>
 	unsigned __int64 graphicCalculateFilesIn(const char* name, unsigned __int32 indent);
+
+	std::string DescribeIosFailure(const std::ios& stream);
 };
