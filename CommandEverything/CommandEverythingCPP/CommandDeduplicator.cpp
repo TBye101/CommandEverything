@@ -161,6 +161,8 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 {
 	char* withoutPath;
 
+	unsigned __int64 length = strlen(path);
+	withoutPath = new char[length + 1];
 	strcpy(withoutPath, path);
 	this->removePath(path);
 	
@@ -208,7 +210,7 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 		delete middleName;
 	}
 
-	delete withoutPath;
+	delete[] withoutPath;
 }
 
 void CommandDeduplicator::addHashToIndex(char* hash, unsigned __int64 position)
@@ -242,6 +244,7 @@ void CommandDeduplicator::addHashToIndex(char* hash, unsigned __int64 position)
 
 	//That last extra line.
 	this->hashLog << line;
+	this->hashLog.flush();
 }
 
 unsigned __int8 CommandDeduplicator::compareStrings(char* one, char* two)
@@ -345,6 +348,7 @@ void CommandDeduplicator::insertInNameIndex(unsigned __int64 position, char* str
 	
 	//That last extra line.
 	this->fileNameLog << line;
+	this->fileNameLog.flush();
 }
 
 string CommandDeduplicator::readContentsOfFile(char* path)

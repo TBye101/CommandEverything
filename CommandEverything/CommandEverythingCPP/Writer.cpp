@@ -70,6 +70,6 @@ char* Writer::GetTime()
 	time(&rawtime);
 	timeinfo = std::localtime(&rawtime);
 
-	strftime(buffer + 1, 80, "%Y-%m-%d-%H-%M-%S]: ", timeinfo);
+	strftime(buffer + 1, 80, "[%Y-%m-%d-%H-%M-%S]: ", timeinfo);
 	return buffer;
 }

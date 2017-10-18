@@ -185,7 +185,7 @@ char* Util::getTime()
 	time(&rawtime);
 	timeinfo = std::localtime(&rawtime);
 
-	strftime(buffer + 1, 80, "[%Y-%m-%d-%H-%M-%S] ", timeinfo);
+	strftime(buffer + 1, 80, "%Y-%m-%d-%H-%M-%S] ", timeinfo);
 	return buffer;
 }
 
@@ -194,6 +194,7 @@ void Util::logLine(ofstream* log, const char* msg)
 	*log<< this->getTime();
 	*log << msg;
 	*log << "\r\n";
+	log->flush();
 }
 
 ofstream Util::initializeNewLog(char* filename)
@@ -234,7 +235,7 @@ fstream Util::initializeNewLogAndReader(char* filename)
 	path.append(filename);
 	path.append(".txt");
 
-	newLog.open(path);
+	newLog.open(path, ios::in | fstream::out | fstream::trunc);
 
 	if (!newLog)
 	{
