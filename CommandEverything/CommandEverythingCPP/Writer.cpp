@@ -62,7 +62,7 @@ void Writer::LogLine(const char* Str)
 	this->Log << time;
 	this->Log << Str;
 	this->Log << "\r\n";
-	//this->Log.flush();
+	this->Log.flush();
 }
 
 char* Writer::GetTime()
