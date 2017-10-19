@@ -22,10 +22,10 @@
 class compareFileName
 {
 public:
-	bool operator()(string* path1, string* path2)
+	bool operator()(string path1, string path2)
 	{
-		unsigned __int64 oneSize = path1->size();
-		unsigned __int64 twoSize = path2->size();
+		unsigned __int64 oneSize = path1.size();
+		unsigned __int64 twoSize = path2.size();
 		register unsigned __int64 leastSize;
 		register unsigned __int64 i = 0;
 
@@ -84,7 +84,7 @@ private:
 	fstream fileNameLog;
 
 	/// <summary>
-	/// The file where we keep our hashes, that corrospond with each file.
+	/// The file where we keep our hashes, that correspond with each file.
 	/// </summary>
 	fstream hashLog;
 
@@ -106,7 +106,7 @@ private:
 	/// <summary>
 	/// The total number of files found.
 	/// </summary>
-	unsigned __int64 totalFiles;
+	unsigned __int64 totalFiles = 0;
 
 	/// <summary>
 	/// The number of files we have checked.
@@ -124,7 +124,7 @@ private:
 	unsigned __int64 identicalFiles = 0;
 
 	/// <summary>
-	/// The entry point for the seperate thread to check for duplicates.
+	/// The entry point for the separate thread to check for duplicates.
 	/// </summary>
 	void seperateThread();
 
@@ -134,84 +134,11 @@ private:
 	void fileIterator(char* dir);
 
 	/// <summary>
-	/// Returns NO_DUPLICATE if the file system has no file named the same as it.
-	/// Returns SAME_NAME if the file system has a file with the same name as it.
-	/// Returns SAME_CONTENTS if the file system has a file with the same contents as it.
-	/// Returns SAME_NAME_AND_CONTENTS if the file system has a file with the same name and contents as it.
-	/// Writes this information to the appropriate log.
-	/// 
-	/// position is the index in the hash log, and the file name log.
-	/// </summary>
-	/// <returns></returns>
-	unsigned __int8 hasDuplicate(unsigned __int64 position);
-
-	/// <summary>
-	/// Inserts the file name into the correct position in the index file.
-	/// Returns the position, so the hash might be put into the corrosponding place.
-	/// </summary>
-	/// <param name="path"></param>
-	/// <param name="end">The maximum size of our range of options.
-	/// If -1, then we will allow the maximum amount of options possible.</param>
-	/// <returns></returns>
-	unsigned __int64 addNameToIndex(char* path, unsigned __int64 start, unsigned __int64 end);
-	void addHashToIndex(char* hash, unsigned __int64 position);
-
-	/// <summary>
-	/// Compares the strings, and returns:
-	/// EQUAL, GREATER_THAN, or LESS_THAN depending on how the strings compare.
-	/// </summary>
-	/// <param name="one"></param>
-	/// <param name="two"></param>
-	/// <returns></returns>
-	unsigned __int8 compareStrings(char* one, char* two);
-
-	/// <summary>
-	/// Returns the size of our file name index.
-	/// </summary>
-	/// <returns></returns>
-	unsigned __int64 getFileNameIndexSize();
-
-	/// <summary>
-	/// Returns the name of the file at the specified position in the index.
-	/// </summary>
-	/// <param name="position"></param>
-	/// <returns></returns>
-	char* getNameFromIndex(unsigned __int64 position);
-
-	/// <summary>
-	/// Returns the hash from the specified position in the index.
-	/// </summary>
-	/// <param name="position"></param>
-	/// <returns></returns>
-	char* getHashFromIndex(unsigned __int64 position);
-
-	/// <summary>
-	/// Inserts the string at the specified position in the name index.
-	/// </summary>
-	/// <param name="position"></param>
-	void insertInNameIndex(unsigned __int64 position, char* str);
-
-	/// <summary>
 	/// Reads the contents of the specified file, and returns them as a string.
 	/// </summary>
 	/// <param name="path"></param>
 	/// <returns></returns>
 	string readContentsOfFile(char* path);
-
-	/// <summary>
-	/// Returns true if the file shares it's name with another file.
-	/// </summary>
-	/// <param name="names">The message about the results if any.</param>
-	/// <returns></returns>
-	bool isDuplicateInName(unsigned __int64 position, char* names);
-
-	/// <summary>
-	/// Returns true if the file has identical contents to another file.
-	/// </summary>
-	/// <param name="position">The position of the file in question in our index.</param>
-	/// <param name="names">The message about the results if any.</param>
-	/// <returns></returns>
-	bool isDuplicateInContents(unsigned __int64 position, char* names);
 
 	/// <summary>
 	/// Removes the path from the string, leaving only the name and file extension.
