@@ -109,7 +109,7 @@ void CommandDeduplicator::fileIterator(char* name)
 			//File found. Work on it.
 
 			//Insert it into the file name index
-			unsigned __int64 position = this->addNameToIndex(entry->d_name, 0, -1);
+			unsigned __int64 position = this->addNameToIndex(entry->d_name, 0, 0);
 
 			//Get the hash of the file.
 			string sha = sha256(this->readContentsOfFile(entry->d_name));
@@ -167,7 +167,7 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 	this->removePath(path);
 	
 	//If we need to fetch the size of our index...
-	if (end == -1)
+	if (end == 0)
 	{
 		end = this->getFileNameIndexSize();
 	}
@@ -203,13 +203,16 @@ unsigned __int64 CommandDeduplicator::addNameToIndex(char* path, unsigned __int6
 			else
 			{
 				//We found it! middle is the insert position.
-				this->insertInNameIndex(middle, path);
+				this->fileNameLog.seekg(middle);
+				this->fileNameLog << path;
+				this->fileNameLog << "\r\n";
 				return middle;
 			}
 		}
 		delete middleName;
 	}
 
+	this->fileNameLog.flush();
 	delete[] withoutPath;
 }
 
