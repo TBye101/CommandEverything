@@ -39,6 +39,7 @@ void CommandDeduplicator::seperateThread()
 	this->fileNameLog = Utility->initializeNewLogAndReader("deduplicator_file_names");
 	this->hashLog = Utility->initializeNewLogAndReader("deduplicator_file_hashes");
 	this->duplicatesLog = Utility->initializeNewLog("deduplicator_duplicates_found");
+	
 	//this->fileNameLog << "Test";
 	//this->fileNameLog.flush();
 
@@ -110,14 +111,9 @@ void CommandDeduplicator::fileIterator(char* name)
 		{
 			//File found. Work on it.
 
-			//Insert it into the file name index
-			unsigned __int64 position = this->addNameToIndex(entry->d_name, 0, 0);
-
 			//Get the hash of the file.
 			string sha = sha256(this->readContentsOfFile(entry->d_name));
-
-			//Add the hash to the proper index.
-			this->addHashToIndex(Utility->toCharStar(&sha), position);
+			this->fileData->insert(pair<string, string>(entry->d_name, sha));
 		}
 	}
 	closedir(dir);
@@ -288,17 +284,23 @@ unsigned __int8 CommandDeduplicator::compareStrings(char* one, char* two)
 
 unsigned __int64 CommandDeduplicator::getFileNameIndexSize()
 {
+	//this->fileNameLog << "Test1";
+	//this->fileNameLog.flush();
 	string line;
 
 	//Reset the position of the stream.
-	this->fileNameLog.seekg(0);
+	this->fileNameLog.seekp(0);
+	////this->fileNameLog << "Test2";
+	//this->fileNameLog.flush();
+	this->fileNameLog.seekp(0);
 
 	unsigned __int64 i = 0;
-	while (getline(this->fileNameLog, line))
+	while (this->fileNameLog >> line)
 	{
 		++i;
 	}
-
+	//this->fileNameLog << "Test3";
+	//this->fileNameLog.flush();
 	return i;
 }
 
@@ -449,4 +451,24 @@ void CommandDeduplicator::removePath(char* path)
 		delete path;
 		path = Utility->toCharStar(&(s.substr(i + 1, s.length() - i)));
 	}
+}
+
+string CommandDeduplicator::removePath(string* path)
+{
+	char sep = '/';
+
+#ifdef _WIN32
+	sep = '\\';
+#endif
+
+	string s = *path;
+	size_t i = s.rfind(sep, s.length());
+	if (i != string::npos)
+	{
+		delete path;
+		s = Utility->toCharStar(&(s.substr(i + 1, s.length() - i)));
+		return s;
+	}
+
+	return NULL;
 }

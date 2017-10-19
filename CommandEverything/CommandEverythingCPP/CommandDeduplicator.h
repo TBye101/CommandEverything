@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <map>
 
 #define NO_DUPLICATE 0
 #define SAME_NAME 1
@@ -13,6 +14,47 @@
 #define EQUAL 0
 #define GREATER_THAN 1
 #define LESS_THAN 2
+
+
+/// <summary>
+/// A comparator that compares strings with a file path, but only compares the filename.
+/// </summary>
+class compareFileName
+{
+public:
+	bool operator()(string* path1, string* path2)
+	{
+		unsigned __int64 oneSize = path1->size();
+		unsigned __int64 twoSize = path2->size();
+		register unsigned __int64 leastSize;
+		register unsigned __int64 i = 0;
+
+		//Get the size of the smaller string
+		if (oneSize > twoSize || oneSize == twoSize)
+		{
+			leastSize = oneSize;
+		}
+		else
+		{
+			leastSize = twoSize;
+		}
+
+		while (i != leastSize)
+		{
+			if (path1[i] > path2[i])
+			{
+				return false;
+			}
+			if (path1[i] < path2[i])
+			{
+				return true;;
+			}
+			++i;
+		}
+
+		return true;
+	}
+};
 
 class CommandDeduplicator : public ICommand
 {
@@ -28,6 +70,14 @@ public:
 
 	string* getHelp();
 private:
+	/// <summary>
+	/// Holds all known data about the files found.
+	/// Key: filename
+	/// Value: hash
+	/// </summary>
+	map<string, string, compareFileName>* fileData = new map<string, string, compareFileName>();
+	compareFileName* Comparator = new compareFileName();
+
 	/// <summary>
 	/// The file where we write down each file name.
 	/// </summary>
@@ -168,4 +218,5 @@ private:
 	/// </summary>
 	/// <param name="path"></param>
 	void removePath(char* path);
+	string removePath(string* path);
 };
