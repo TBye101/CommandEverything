@@ -39,6 +39,8 @@ void CommandDeduplicator::seperateThread()
 	this->fileNameLog = Utility->initializeNewLogAndReader("deduplicator_file_names");
 	this->hashLog = Utility->initializeNewLogAndReader("deduplicator_file_hashes");
 	this->duplicatesLog = Utility->initializeNewLog("deduplicator_duplicates_found");
+	//this->fileNameLog << "Test";
+	//this->fileNameLog.flush();
 
 	register unsigned long mydrives = 100; // buffer length
 	register wchar_t lpBuffer[100]; // buffer for drive string storage
