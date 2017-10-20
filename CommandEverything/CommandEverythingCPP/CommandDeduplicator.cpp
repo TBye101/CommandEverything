@@ -113,7 +113,8 @@ void CommandDeduplicator::fileIterator(char* name)
 
 			//Get the hash of the file.
 			string sha = sha256(this->readContentsOfFile(entry->d_name));
-			this->fileData->insert(pair<string, string>(entry->d_name, sha));
+			string namePath = string(name + string(entry->d_name));
+			this->fileData->insert(pair<string, string>(namePath, sha));
 		}
 	}
 	closedir(dir);
@@ -133,41 +134,4 @@ string CommandDeduplicator::readContentsOfFile(char* path)
 	}
 
 	return ret;
-}
-
-void CommandDeduplicator::removePath(char* path)
-{
-	char sep = '/';
-
-#ifdef _WIN32
-	sep = '\\';
-#endif
-
-	string s = string(path);
-	size_t i = s.rfind(sep, s.length());
-	if (i != string::npos) 
-	{
-		delete path;
-		path = Utility->toCharStar(&(s.substr(i + 1, s.length() - i)));
-	}
-}
-
-string CommandDeduplicator::removePath(string* path)
-{
-	char sep = '/';
-
-#ifdef _WIN32
-	sep = '\\';
-#endif
-
-	string s = *path;
-	size_t i = s.rfind(sep, s.length());
-	if (i != string::npos)
-	{
-		delete path;
-		s = Utility->toCharStar(&(s.substr(i + 1, s.length() - i)));
-		return s;
-	}
-
-	return NULL;
 }

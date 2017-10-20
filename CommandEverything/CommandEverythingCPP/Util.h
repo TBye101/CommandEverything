@@ -23,6 +23,13 @@ public:
 	Util();
 
 	/// <summary>
+	/// Removes the path from the string, leaving only the name and file extension.
+	/// </summary>
+	/// <param name="path"></param>
+	void removePath(char* path);
+	string removePath(string* path);
+
+	/// <summary>
 	/// Converts a string to a wstring.
 	/// </summary>
 	/// <param name="Str"></param>

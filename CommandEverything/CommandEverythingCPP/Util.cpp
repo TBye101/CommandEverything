@@ -6,6 +6,45 @@ Util::Util()
 	this->buffer[0] = '[';
 }
 
+void Util::removePath(char* path)
+{
+	char sep = '/';
+
+#ifdef _WIN32
+	sep = '\\';
+#endif
+
+	string s = string(path);
+	size_t i = s.rfind(sep, s.length());
+	if (i != string::npos)
+	{
+		delete path;
+		path = Utility->toCharStar(&(s.substr(i + 1, s.length() - i)));
+	}
+}
+
+string Util::removePath(string* path)
+{
+	//char sep = '/';
+	const char seper[2] = { '\\', '/' };
+
+//#ifdef _WIN32
+//	sep = '\\';
+//#endif
+
+	string s = *path;
+	size_t i = s.rfind(seper, s.length());
+	return s.substr(s.find_last_of(seper) + 1, s.size());
+	//if (i != string::npos)
+	//{
+	//	delete path;
+	//	s = Utility->toCharStar(&(s.substr(i + 1, s.length() - i)));
+	//	return s;
+	//}
+
+	//return NULL;
+}
+
 wstring Util::stringToWString(const string & s)
 {
 	int len;

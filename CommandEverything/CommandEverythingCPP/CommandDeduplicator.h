@@ -24,13 +24,15 @@ class compareFileName
 public:
 	bool operator()(string path1, string path2)
 	{
-		unsigned __int64 oneSize = path1.size();
-		unsigned __int64 twoSize = path2.size();
+		string p1 = Utility->removePath(&path1);
+		string p2 = Utility->removePath(&path2);
+		unsigned __int64 oneSize = p1.size();
+		unsigned __int64 twoSize = p2.size();
 		register unsigned __int64 leastSize;
 		register unsigned __int64 i = 0;
 
 		//Get the size of the smaller string
-		if (oneSize > twoSize || oneSize == twoSize)
+		if (oneSize < twoSize || oneSize == twoSize)
 		{
 			leastSize = oneSize;
 		}
@@ -41,13 +43,13 @@ public:
 
 		while (i != leastSize)
 		{
-			if (path1[i] > path2[i])
+			if (p1[i] > p2[i])
 			{
 				return false;
 			}
-			if (path1[i] < path2[i])
+			if (p1[i] < p2[i])
 			{
-				return true;;
+				return true;
 			}
 			++i;
 		}
@@ -139,11 +141,4 @@ private:
 	/// <param name="path"></param>
 	/// <returns></returns>
 	string readContentsOfFile(char* path);
-
-	/// <summary>
-	/// Removes the path from the string, leaving only the name and file extension.
-	/// </summary>
-	/// <param name="path"></param>
-	void removePath(char* path);
-	string removePath(string* path);
 };
