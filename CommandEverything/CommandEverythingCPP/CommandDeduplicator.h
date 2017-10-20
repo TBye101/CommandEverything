@@ -27,9 +27,20 @@ public:
 		//try
 		//{
 		//	
+		
 		string p1 = Utility->removePath(&path1);
 		string p2 = Utility->removePath(&path2);
-		return p1 < p2;
+		//return p1 < p2;
+
+		return lexicographical_compare(p1.begin(), p1.end(), p2.begin(), p2.end());
+		//if (p1 == p2)
+		//{
+		//	return false;
+		//}
+		//else
+		//{
+		//	return p1 < p2;
+		//}
 		//	unsigned __int64 oneSize = p1.size();
 		//	unsigned __int64 twoSize = p2.size();
 		//	register unsigned __int64 leastSize = 0;
