@@ -32,6 +32,13 @@ string* CommandDeduplicator::getHelp()
 
 void CommandDeduplicator::seperateThread()
 {
+	//compareFileName a;
+	//cout << a("C:/test.txt", "C:/test.txt");
+	//cout << a("C:/test.txt", "C:/test.txta");
+	//cout << a("C:/test.tr", "C:/test.txt");
+	//cout << a("C:/test.txt", "C:/test.txa");
+	//cout << a("C:/test.txt", "A:/test.txt");
+	//cout << a("A:/test.txt", "C:/test.txt");
 	clock_t start;
 	double duration;
 	start = clock();

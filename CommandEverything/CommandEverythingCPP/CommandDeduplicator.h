@@ -24,46 +24,56 @@ class compareFileName
 public:
 	bool operator()(string path1, string path2)
 	{
-		try
-		{
-			string p1 = Utility->removePath(&path1);
-			string p2 = Utility->removePath(&path2);
-			unsigned __int64 oneSize = p1.size();
-			unsigned __int64 twoSize = p2.size();
-			register unsigned __int64 leastSize = 0;
-			register unsigned __int64 i = 0;
+		//try
+		//{
+		//	
+		string p1 = Utility->removePath(&path1);
+		string p2 = Utility->removePath(&path2);
+		return p1 < p2;
+		//	unsigned __int64 oneSize = p1.size();
+		//	unsigned __int64 twoSize = p2.size();
+		//	register unsigned __int64 leastSize = 0;
+		//	register unsigned __int64 i = 0;
 
-			//Get the size of the smaller string
-			if (oneSize < twoSize || oneSize == twoSize)
-			{
-				leastSize = oneSize;
-			}
-			else
-			{
-				leastSize = twoSize;
-			}
+		//	//Get the size of the smaller string
+		//	if (oneSize < twoSize || oneSize == twoSize)
+		//	{
+		//		leastSize = oneSize;
+		//	}
+		//	else
+		//	{
+		//		leastSize = twoSize;
+		//	}
 
-			while (i != leastSize)
-			{
-				if (p1[i] > p2[i])
-				{
-					return false;
-				}
-				if (p1[i] < p2[i])
-				{
-					return true;
-				}
-				++i;
-			}
+		//	while (i != leastSize)
+		//	{
+		//		if (p1[i] > p2[i])
+		//		{
+		//			return false;
+		//		}
+		//		if (p1[i] < p2[i])
+		//		{
+		//			return true;
+		//		}
+		//		++i;
+		//	}
 
-			return false;
-		}
-		catch (exception e)
-		{
-			Console->WriteLine(e.what());
-			cout << e.what() << "\r\n";
-			cout.flush();
-		}
+		//	if (oneSize != twoSize)
+		//	{
+		//		return (oneSize < twoSize);
+		//	}
+		//	else
+		//	{
+		//		return false;
+		//	}
+		//}
+		//catch (exception e)
+		//{
+		//	Console->WriteLine(e.what());
+		//	cout << e.what() << "\r\n";
+		//	cout.flush();
+		//}
+	//}
 	}
 };
 
