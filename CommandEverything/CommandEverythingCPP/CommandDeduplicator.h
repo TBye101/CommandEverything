@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <functional>
 
 #define NO_DUPLICATE 0
 #define SAME_NAME 1
@@ -24,15 +25,16 @@ class compareFileName
 public:
 	bool operator()(string path1, string path2)
 	{
+		
 		//try
 		//{
 		//	
-		
+		//return true;
 		string p1 = Utility->removePath(&path1);
 		string p2 = Utility->removePath(&path2);
-		//return p1 < p2;
-
-		return lexicographical_compare(p1.begin(), p1.end(), p2.begin(), p2.end());
+		////return p1 < p2;
+		bool a =  !lexicographical_compare(p1.begin(), p1.end(), p2.begin(), p2.end());
+		return a;
 		//if (p1 == p2)
 		//{
 		//	return false;
@@ -41,42 +43,42 @@ public:
 		//{
 		//	return p1 < p2;
 		//}
-		//	unsigned __int64 oneSize = p1.size();
-		//	unsigned __int64 twoSize = p2.size();
-		//	register unsigned __int64 leastSize = 0;
-		//	register unsigned __int64 i = 0;
+			//unsigned __int64 oneSize = p1.size();
+			//unsigned __int64 twoSize = p2.size();
+			//register unsigned __int64 leastSize = 0;
+			//register unsigned __int64 i = 0;
 
-		//	//Get the size of the smaller string
-		//	if (oneSize < twoSize || oneSize == twoSize)
-		//	{
-		//		leastSize = oneSize;
-		//	}
-		//	else
-		//	{
-		//		leastSize = twoSize;
-		//	}
+			////Get the size of the smaller string
+			//if (oneSize < twoSize || oneSize == twoSize)
+			//{
+			//	leastSize = oneSize;
+			//}
+			//else
+			//{
+			//	leastSize = twoSize;
+			//}
 
-		//	while (i != leastSize)
-		//	{
-		//		if (p1[i] > p2[i])
-		//		{
-		//			return false;
-		//		}
-		//		if (p1[i] < p2[i])
-		//		{
-		//			return true;
-		//		}
-		//		++i;
-		//	}
+			//while (i != leastSize)
+			//{
+			//	if (p1[i] > p2[i])
+			//	{
+			//		return false;
+			//	}
+			//	if (p1[i] < p2[i])
+			//	{
+			//		return true;
+			//	}
+			//	++i;
+			//}
 
-		//	if (oneSize != twoSize)
-		//	{
-		//		return (oneSize < twoSize);
-		//	}
-		//	else
-		//	{
-		//		return false;
-		//	}
+			//if (oneSize != twoSize)
+			//{
+			//	return (oneSize < twoSize);
+			//}
+			//else
+			//{
+			//	return false;
+			//}
 		//}
 		//catch (exception e)
 		//{
@@ -104,11 +106,12 @@ public:
 private:
 	/// <summary>
 	/// Holds all known data about the files found.
-	/// Key: filename
-	/// Value: hash
+	/// Key: hash
+	/// Value: file name
 	/// </summary>
-	map<string, string, compareFileName>* fileData = new map<string, string, compareFileName>();
-	compareFileName* Comparator = new compareFileName();
+	map<string, string> fileData;
+
+	hash<string> strHasher;
 
 	/// <summary>
 	/// The file where we write down each file name.
@@ -167,8 +170,10 @@ private:
 
 	/// <summary>
 	/// Reads the contents of the specified file, and returns them as a string.
+	/// Returns if the file could be opened and read.
 	/// </summary>
 	/// <param name="path"></param>
+	/// <param name="out">The output of the function.</param>
 	/// <returns></returns>
-	string readContentsOfFile(char* path);
+	bool readContentsOfFile(string& path, string& out);
 };

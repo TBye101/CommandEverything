@@ -33,12 +33,15 @@ string* CommandDeduplicator::getHelp()
 void CommandDeduplicator::seperateThread()
 {
 	//compareFileName a;
-	//cout << a("C:/test.txt", "C:/test.txt");
-	//cout << a("C:/test.txt", "C:/test.txta");
-	//cout << a("C:/test.tr", "C:/test.txt");
-	//cout << a("C:/test.txt", "C:/test.txa");
-	//cout << a("C:/test.txt", "A:/test.txt");
-	//cout << a("A:/test.txt", "C:/test.txt");
+	//string x = "a:/a.txt";
+	//string y = "b:/b.txt";
+	//string z = "a:/a.txta";
+	//cout << a(x, x);
+	//cout << a(x, y);
+	//cout << !a(y, x);
+	//cout << a(y, x);
+	//cout << a(x, z);
+	//cout << a(z, x);
 	clock_t start;
 	double duration;
 	start = clock();
@@ -117,28 +120,49 @@ void CommandDeduplicator::fileIterator(char* name)
 		else
 		{
 			//File found. Work on it.
-
-			//Get the hash of the file.
-			string sha = sha256(this->readContentsOfFile(entry->d_name));
 			string namePath = string(name + string(entry->d_name));
-			this->fileData->insert(pair<string, string>(namePath, sha));
+			string sha;
+			if (this->readContentsOfFile(namePath, sha))
+			{
+				//this->strHasher(sha);
+				sha256(sha);
+				this->fileData.insert(pair<string, string>(sha, namePath));
+			}
 		}
 	}
 	closedir(dir);
 }
 
-string CommandDeduplicator::readContentsOfFile(char* path)
+bool CommandDeduplicator::readContentsOfFile(string& path, string& out)
 {
 	ifstream fl;
+	if (path[4] != '$')
+	{
+		int i = 0;
+	}
+	path.replace(2, 3, "\\");
+	Utility->myreplace(path, "/", "\\");
+
 	fl.open(path, ofstream::in);
 
-	string line = "";
-	string ret = "";
-	unsigned __int64 i = 0;
-	while (getline(fl, line))
+	if (!fl)
 	{
-		ret.append(line);
+  		Console->WriteLine(&("Failed to open file: " + string(path)));
+		Utility->DescribeIosFailure(fl);
+		return false;
 	}
+	else
+	{
+		string line;
+		string ret;
+		unsigned __int64 i = 0;
+		while (getline(fl, line))
+		{
+			ret.append(line);
+		}
 
-	return ret;
+		fl.close();
+		out = ret;
+		return (ret.empty());
+	}
 }

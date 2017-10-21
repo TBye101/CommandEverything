@@ -366,3 +366,8 @@ std::string Util::DescribeIosFailure(const std::ios & stream)
 	//boost::trim_right(result);  // from Boost String Algorithms library
 	return result;
 }
+
+std::string Util::myreplace(std::string & s, const std::string & toReplace, const std::string & replaceWith)
+{
+	return(s.replace(s.find(toReplace), toReplace.length(), replaceWith));
+}

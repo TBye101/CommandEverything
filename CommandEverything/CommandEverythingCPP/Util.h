@@ -123,6 +123,24 @@ public:
 	/// <returns></returns>
 	fstream initializeNewLogAndReader(char* filename);
 
+	/// <summary>
+	/// Tells you why your io stream failed.
+	/// </summary>
+	/// <param name="stream"></param>
+	/// <returns></returns>
+	string DescribeIosFailure(const std::ios& stream);
+
+	/// <summary>
+	/// Find and replace in the string.
+	/// </summary>
+	/// <param name="s"></param>
+	/// <param name="toReplace"></param>
+	/// <param name="replaceWith"></param>
+	/// <returns></returns>
+	std::string myreplace(std::string &s,
+		const std::string &toReplace,
+		const std::string &replaceWith);
+
 private:
 	ifstream* crypt;
 	unsigned __int64 FilesFound = 0;
@@ -138,6 +156,4 @@ private:
 	/// <param name="indent"></param>
 	/// <returns></returns>
 	unsigned __int64 graphicCalculateFilesIn(const char* name, unsigned __int32 indent);
-
-	std::string DescribeIosFailure(const std::ios& stream);
 };
