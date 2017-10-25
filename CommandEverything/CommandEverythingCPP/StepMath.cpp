@@ -77,7 +77,7 @@ __int64 StepMath::multiply(__int64 a, __int64 b)
 	return a * b;
 }
 
-__int64 StepMath::divide(__int64 a, __int64 b, __int8 & errorCode)
+__int64 StepMath::divide(__int64 a, __int64 b, __int8& errorCode)
 {
 	if (b == 0)
 	{

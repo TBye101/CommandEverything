@@ -31,7 +31,25 @@ struct Radical
 
 struct RadicalFraction
 {
-	Radical numberator;
+	Radical numerator;
+	Radical denominator;
+};
+
+/// <summary>
+/// Represents a fraction with a radical as the numerator and a normal number as the denominator.
+/// </summary>
+struct TRadicalFraction
+{
+	Radical numerator;
+	__int64 denominator;
+};
+
+/// <summary>
+/// Represents a fraction with a normal number as the numerator and a radical as the deonominator.
+/// </summary>
+struct BRadicalFraction
+{
+	__int64 numerator;
 	Radical denominator;
 };
 
@@ -72,6 +90,7 @@ public:
 
 #define NO_ERROR 0
 #define DIVIDE_BY_ZERO 1
+#define UNDEFINED 2
 
 #pragma endregion
 
