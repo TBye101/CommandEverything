@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "StepMath.h"
 
+using namespace mth;
+
 StepMath::StepMath()
 {
 }
@@ -98,4 +100,9 @@ __int64 StepMath::divide(__int64 a, __int64 b, __int8& errorCode)
 		}
 		return a / b;
 	}
+}
+
+void mth::IMathObject::toString(string& out)
+{
+	out = "SOMEONE FORGOT TO DEFINE TOSTRING(). OOPS.";
 }
