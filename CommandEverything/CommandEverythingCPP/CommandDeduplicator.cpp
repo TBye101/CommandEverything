@@ -136,10 +136,6 @@ void CommandDeduplicator::fileIterator(char* name)
 bool CommandDeduplicator::readContentsOfFile(string& path, string& out)
 {
 	ifstream fl;
-	if (path[4] != '$')
-	{
-		int i = 0;
-	}
 	path.replace(2, 3, "\\");
 	Utility->myreplace(path, "/", "\\");
 
@@ -156,7 +152,7 @@ bool CommandDeduplicator::readContentsOfFile(string& path, string& out)
 		string line;
 		string ret;
 		unsigned __int64 i = 0;
-		while (getline(fl, line))
+		while (fl >> line)
 		{
 			ret.append(line);
 		}
