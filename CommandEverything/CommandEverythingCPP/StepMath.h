@@ -65,6 +65,17 @@ namespace mth
 	};
 
 	/// <summary>
+	/// Represents a unknown variable.
+	/// </summary>
+	class Variable : IMathObject
+	{
+		/// <summary>
+		/// The letter/character that the variable is represented by.
+		/// </summary>
+		char Symbol;
+	};
+
+	/// <summary>
 	/// This class is used to do math step by step, and show those steps. 
 	/// All answers will be given in simplest form without using decimals if possible.
 	/// </summary>
