@@ -68,37 +68,38 @@ Number StepMath::subtract(Number a, Number b)
 	}
 }
 
-__int64 StepMath::multiply(__int64 a, __int64 b)
+Number StepMath::multiply(Number a, Number b)
 {
-	string step1 = to_string(a);
+	string step1 = to_string(a.number);
 	step1.append(" * ");
-	step1.append(to_string(b));
+	step1.append(to_string(b.number));
 	step1.append(" = ");
-	step1.append(to_string(a * b));
+	step1.append(to_string(a.number * b.number));
 	this->shownSteps->push_back(step1);
-	return a * b;
+	return Number(a.number * b.number);
 }
 
-__int64 StepMath::divide(__int64 a, __int64 b, __int8& errorCode)
+Number StepMath::divide(Number a, Number b, __int8& errorCode)
 {
-	if (b == 0)
+	if (b.number == 0)
 	{
-		errorCode = DIVIDE_BY_ZERO;
+		errorCode = MTH_DIVIDE_BY_ZERO;
 		this->shownSteps->push_back("Divide by Zero: Undefined");
+		return Number(0);
 	}
 	else
 	{
-		string step = to_string(a);
+		string step = to_string(a.number);
 		step.append(" / ");
-		step.append(to_string(b));
+		step.append(to_string(b.number));
 		step.append(" = ");
-		step.append(to_string(a / b));
+		step.append(to_string(a.number / b.number));
 		this->shownSteps->push_back(step);
-		if (a % b != 0)
+		if (a.number % b.number != 0)
 		{
 			this->shownSteps->push_back("Precision loss!");
 		}
-		return a / b;
+		return Number(a.number / b.number);
 	}
 }
 

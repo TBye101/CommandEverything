@@ -93,15 +93,22 @@ namespace mth
 	#define Csc 9
 	#define Sec 10
 	#define Cot 11
-
+	#define ArcSin 12
+	#define ArcCos 13
+	#define ArcTan 14
+	#define ArcCsc 15
+	#define ArcSec 16
+	#define ArcCot 17
+	#define SqrRoot 18
+	#define Log 19
 
 	#pragma endregion
 
 	#pragma region Error_Codes
 
-	#define NO_ERROR 0
-	#define DIVIDE_BY_ZERO 1
-	#define UNDEFINED 2
+	#define MTH_NO_ERROR 0
+	#define MTH_DIVIDE_BY_ZERO 1
+	#define MTH_UNDEFINED 2
 
 	#pragma endregion
 
@@ -137,7 +144,7 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		__int64 multiply(__int64 a, __int64 b);
+		Number multiply(Number a, Number b);
 
 		/// <summary>
 		/// Divides 'b' from 'a'.
@@ -147,6 +154,6 @@ namespace mth
 		/// <param name="b"></param>
 		/// <param name="errorCode>If a error has occurred, it will be set here.</param>
 		/// <returns></returns>
-		__int64 divide(__int64 a, __int64 b, __int8& errorCode);
+		Number divide(Number a, Number b, __int8& errorCode);
 	};
 }
