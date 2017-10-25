@@ -12,28 +12,28 @@ StepMath::~StepMath()
 {
 }
 
-__int64 StepMath::add(__int64 a, __int64 b)
+__int64 StepMath::add(Number a, Number b)
 {
-	if (b < 0)
+	if (b.number < 0)
 	{
-		string step1 = to_string(a);
+		string step1 = to_string(a.number);
 		step1.append(" +");
-		step1.append(to_string(b));
+		step1.append(to_string(b.number));
 		step1.append(" = ");
 		this->shownSteps->push_back(step1);
-		return this->subtract(a, b * -1);
+		return this->subtract(a.number, b.number * -1);
 	}
 	else 
 	{
-		string step2 = to_string(a);
+		string step2 = to_string(a.number);
 		step2.append(" + ");
-		step2.append(to_string(b));
+		step2.append(to_string(b.number));
 		step2.append(" = ");
-		step2.append(to_string(a + b));
+		step2.append(to_string(a.number + b.number));
 		this->shownSteps->push_back(step2);
 
 	}
-	return a + b;
+	return a.number + b.number;
 }
 
 __int64 StepMath::subtract(__int64 a, __int64 b)

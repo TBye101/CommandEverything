@@ -117,7 +117,7 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		__int64 add(__int64 a, __int64 b);
+		__int64 add(Number a, Number b);
 
 		/// <summary>
 		/// Subtracts 'b' from 'a'.
