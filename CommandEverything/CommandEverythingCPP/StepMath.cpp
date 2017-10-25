@@ -12,7 +12,7 @@ StepMath::~StepMath()
 {
 }
 
-__int64 StepMath::add(Number a, Number b)
+Number StepMath::add(Number a, Number b)
 {
 	if (b.number < 0)
 	{
@@ -21,7 +21,7 @@ __int64 StepMath::add(Number a, Number b)
 		step1.append(to_string(b.number));
 		step1.append(" = ");
 		this->shownSteps->push_back(step1);
-		return this->subtract(a.number, b.number * -1);
+		return this->subtract(a, Number(b.number * -1));
 	}
 	else 
 	{
@@ -36,35 +36,35 @@ __int64 StepMath::add(Number a, Number b)
 	return a.number + b.number;
 }
 
-__int64 StepMath::subtract(__int64 a, __int64 b)
+Number StepMath::subtract(Number a, Number b)
 {
-	if (b == 0)
+	if (b.number == 0)
 	{
-		string step1 = to_string(a);
+		string step1 = to_string(a.number);
 		step1.append(" - 0 = ");
-		step1.append(to_string(a));
+		step1.append(to_string(a.number));
 		this->shownSteps->push_back(step1);
-		return a;
+		return a.number;
 	}
 
-	if (b > 0)
+	if (b.number > 0)
 	{
-		string step2 = to_string(a);
+		string step2 = to_string(a.number);
 		step2.append(" - ");
-		step2.append(to_string(b));
+		step2.append(to_string(b.number));
 		step2.append(" = ");
-		step2.append(to_string(a - b));
+		step2.append(to_string(a.number - b.number));
 		this->shownSteps->push_back(step2);
-		return a - b;
+		return Number(a.number - b.number);
 	}
 	else
 	{
-		string step3 = to_string(a);
+		string step3 = to_string(a.number);
 		step3.append(" -");
-		step3.append(to_string(b));
+		step3.append(to_string(b.number));
 		step3.append(" = ");
 		this->shownSteps->push_back(step3);
-		return this->add(a, b * -1);
+		return this->add(a, Number(b.number * -1));
 	}
 }
 

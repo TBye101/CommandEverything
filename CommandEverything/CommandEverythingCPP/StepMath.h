@@ -20,6 +20,10 @@ namespace mth
 	{
 	public:
 		__int64 number;
+		Number(__int64 a)
+		{
+			number = a;
+		}
 	};
 
 	/// <summary>
@@ -117,7 +121,7 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		__int64 add(Number a, Number b);
+		Number add(Number a, Number b);
 
 		/// <summary>
 		/// Subtracts 'b' from 'a'.
@@ -125,7 +129,7 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		__int64 subtract(__int64 a, __int64 b);
+		Number subtract(Number a, Number b);
 
 		/// <summary>
 		/// Multiplies 'a' by 'b'.
