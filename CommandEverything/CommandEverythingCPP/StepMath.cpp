@@ -12,8 +12,10 @@ StepMath::~StepMath()
 {
 }
 
-Number StepMath::add(Number a, Number b)
+Number StepMath::add(Number a, Number b, __int8& errorCode)
 {
+	errorCode = this->rangeCheckAdd(a, b);
+
 	if (b.number < 0)
 	{
 		string step1 = to_string(a.number);
@@ -21,7 +23,7 @@ Number StepMath::add(Number a, Number b)
 		step1.append(to_string(b.number));
 		step1.append(" = ");
 		this->shownSteps->push_back(step1);
-		return this->subtract(a, Number(b.number * -1));
+		return this->subtract(a, Number(b.number * -1), errorCode);
 	}
 	else 
 	{
@@ -36,8 +38,9 @@ Number StepMath::add(Number a, Number b)
 	return a.number + b.number;
 }
 
-Number StepMath::subtract(Number a, Number b)
+Number mth::StepMath::subtract(Number a, Number b, __int8& errorCode)
 {
+	errorCode = this->rangeCheckSubtract(a, b);
 	if (b.number == 0)
 	{
 		string step1 = to_string(a.number);
@@ -64,12 +67,14 @@ Number StepMath::subtract(Number a, Number b)
 		step3.append(to_string(b.number));
 		step3.append(" = ");
 		this->shownSteps->push_back(step3);
-		return this->add(a, Number(b.number * -1));
+		return this->add(a, Number(b.number * -1), errorCode);
 	}
 }
 
-Number StepMath::multiply(Number a, Number b)
+Number mth::StepMath::multiply(Number a, Number b, __int8& errorCode)
 {
+	errorCode = this->rangeCheckMultiply(a, b);
+
 	string step1 = to_string(a.number);
 	step1.append(" * ");
 	step1.append(to_string(b.number));
@@ -81,14 +86,15 @@ Number StepMath::multiply(Number a, Number b)
 
 Number StepMath::divide(Number a, Number b, __int8& errorCode)
 {
+	//Throw a divide by zero error here.
 	if (b.number == 0)
 	{
 		errorCode = MTH_DIVIDE_BY_ZERO;
-		this->shownSteps->push_back("Divide by Zero: Undefined");
+		//this->shownSteps->push_back("Divide by Zero: Undefined");
 		return Number(0);
 	}
-	else
-	{
+
+
 		string step = to_string(a.number);
 		step.append(" / ");
 		step.append(to_string(b.number));
@@ -97,10 +103,58 @@ Number StepMath::divide(Number a, Number b, __int8& errorCode)
 		this->shownSteps->push_back(step);
 		if (a.number % b.number != 0)
 		{
-			this->shownSteps->push_back("Precision loss!");
+			errorCode = MTH_PRECISION_LOSS;
+			return Number(MTH_PRECISION_LOSS);
 		}
 		return Number(a.number / b.number);
+}
+
+__int8 mth::StepMath::rangeCheckAdd(Number a, Number b)
+{
+	Number c = b;
+	c.number * -1;
+
+	return this->rangeCheckSubtract(a, c);
+}
+
+__int8 mth::StepMath::rangeCheckSubtract(Number a, Number b)
+{
+	//Do a check to see if this operation will stay within __int64 bounds.
+	if (b.number < 0)
+	{
+		if (INT64_MAX - abs(b.number) < a.number)
+		{
+			//We will go past the upper bound of our int range here.
+			return MTH_OUT_OF_RANGE;
+		}
 	}
+	else
+	{
+		if ((INT64_MIN + b.number) > a.number)
+		{
+			//We will drop past the lower range of an int here.
+			return MTH_OUT_OF_RANGE;
+		}
+	}
+
+	return MTH_NO_ERROR;
+}
+
+__int8 mth::StepMath::rangeCheckMultiply(Number a, Number b)
+{
+	//Check to make sure we won't go past an integer's max or min range.
+	if (INT64_MAX / abs(b.number) <= abs(a.number))
+	{
+		//Operation would have been out of range.
+		return MTH_OUT_OF_RANGE;
+	}
+
+	return MTH_NO_ERROR;
+}
+
+void mth::StepMath::publishError(__int8& errorCode)
+{
+	this->shownSteps->push_back("Error code: " + to_string(errorCode));
 }
 
 void mth::IMathObject::toString(string& out)
