@@ -109,6 +109,37 @@ void mth::StepMath::divide(Number a, Number b, Number& ret, __int8& errorCode)
 	ret =  Number(a.number / b.number);
 }
 
+void mth::StepMath::divide(Number a, Number b, Fraction& ret, __int8& errorCode)
+{
+	if (b.number == 0)
+	{
+		errorCode = MTH_DIVIDE_BY_ZERO;
+		ret = Fraction(a, b);
+	}
+	else
+	{
+		ret.numerator = a;
+		ret.denominator = b;
+		this->shownSteps->push_back(a.toString() + " / " + b.toString() + " = " + ret.toString());
+		this->simplifyFraction(ret, errorCode);
+	}
+}
+
+void mth::StepMath::simplifyFraction(Fraction& fraction, __int8& errorCode)
+{
+	//Number& den = Number(0);
+	//Number& num = Number(0);
+
+	//den = dynamic_cast<Number&>(fraction.denominator);
+	//num = dynamic_cast<Number&>(fraction.numerator);
+
+	//if ()
+	//{
+
+	//}
+	//__int64 gcf = this->greatestCommonDivisor(fraction.numerator, fraction.denominator);
+}
+
 __int8 mth::StepMath::rangeCheckAdd(Number a, Number b)
 {
 	Number c = b;
@@ -157,7 +188,12 @@ void mth::StepMath::publishError(__int8& errorCode)
 	this->shownSteps->push_back("Error code: " + to_string(errorCode));
 }
 
-void mth::IMathObject::toString(string& out)
+__int64 mth::StepMath::greatestCommonDivisor(__int64 a, __int64 b)
 {
-	out = "SOMEONE FORGOT TO DEFINE TOSTRING(). OOPS.";
+		return b == 0 ? a : this->greatestCommonDivisor(b, a % b);
+}
+
+string mth::IMathObject::toString()
+{
+	return "SOMEONE FORGOT TO DEFINE TOSTRING(). OOPS.";
 }

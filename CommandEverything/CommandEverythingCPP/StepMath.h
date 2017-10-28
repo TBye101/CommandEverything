@@ -17,6 +17,9 @@ Any parameter values called "ret" are values returned by reference.
 
 namespace mth
 {
+
+#include <math.h>
+
 	class IMathObject
 	{
 	public:
@@ -24,10 +27,10 @@ namespace mth
 		/// Converts the object to a string.
 		/// </summary>
 		/// <param name="out"></param>
-		virtual void toString(string& out);
+		virtual string toString();
 	};
 
-	class Number : IMathObject
+	class Number : public IMathObject
 	{
 	public:
 		__int64 number;
@@ -40,16 +43,31 @@ namespace mth
 	/// <summary>
 	/// Represents a fraction.
 	/// </summary>
-	class Fraction : IMathObject
+	class Fraction : public IMathObject
 	{
+	public:
+
+		/// <summary>
+		/// The value on top of the fraction.
+		/// </summary>
 		IMathObject numerator;
+
+		/// <summary>
+		/// The value on the bottom of the fraction.
+		/// </summary>
 		IMathObject denominator;
+
+		Fraction(IMathObject numerator, IMathObject denominator)
+		{
+			this->numerator = numerator;
+			this->denominator = denominator;
+		}
 	};
 
 	/// <summary>
 	/// Represents a number in a radical.
 	/// </summary>
-	class Radical : IMathObject
+	class Radical : public IMathObject
 	{
 		/// <summary>
 		/// The N root of number.
@@ -65,7 +83,7 @@ namespace mth
 	/// <summary>
 	/// Encompasses a math object, and declares to what Nth power it is being raised.
 	/// </summary>
-	class Exponent : IMathObject
+	class Exponent : public IMathObject
 	{
 		/// <summary>
 		/// The math object that is being raised to the Nth power.
@@ -77,7 +95,7 @@ namespace mth
 	/// <summary>
 	/// Represents a unknown variable.
 	/// </summary>
-	class Variable : IMathObject
+	class Variable : public IMathObject
 	{
 		/// <summary>
 		/// The letter/character that the variable is represented by.
@@ -132,6 +150,7 @@ namespace mth
 	#define MTH_UNDEFINED 2
 	#define MTH_OUT_OF_RANGE 3
 	#define MTH_PRECISION_LOSS 4
+	#define MTH_INVALID_PARAMETER 5
 
 	#pragma endregion
 
@@ -177,7 +196,27 @@ namespace mth
 		/// <param name="b"></param>
 		/// <returns></returns>
 		void divide(Number a, Number b, Number& ret, __int8& errorCode);
-		//Fraction divide(Number a, Number b, __int8& errorCode);
+
+		/// <summary>
+		/// Divides 'b' from 'a'. This will maintain precision.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <param name="ret"></param>
+		/// <param name="errorCode"></param>
+		void divide(Number a, Number b, Fraction& ret, __int8& errorCode);
+
+#pragma region Simplification
+
+		/// <summary>
+		/// Simplifies the specified fraction as much as possible.
+		/// Currently only supports when the fraction has two integers as it's numerator and denominator.
+		/// </summary>
+		/// <param name="fraction"></param>
+		void simplifyFraction(Fraction& fraction, __int8& errorCode);
+
+#pragma endregion
+
 
 #pragma region Range_Checking
 
@@ -214,6 +253,14 @@ namespace mth
 		/// </summary>
 		/// <param name="errorCode"></param>
 		void publishError(__int8& errorCode);
+
+		/// <summary>
+		/// Returns the greatest common divisor (aka greatest common factor) of the two numbers. 
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		__int64 greatestCommonDivisor(__int64 a, __int64 b);
 
 #pragma endregion
 
