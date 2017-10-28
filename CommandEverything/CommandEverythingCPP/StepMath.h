@@ -9,6 +9,7 @@ This library is used for precision math. Decimals or any other form of non-preci
 ## Technical information
 
 All usages of __int8& errorCode are used to return an error code if something goes wrong.
+Any parameter values called "ret" are values returned by reference.
 
 */
 
@@ -70,7 +71,6 @@ namespace mth
 		/// The math object that is being raised to the Nth power.
 		/// </summary>
 		IMathObject exponentSubject;
-
 		IMathObject N;
 	};
 
@@ -106,7 +106,7 @@ namespace mth
 	#define DivisionProblem 3
 
 	//Future:
-	#define Exponent 4
+	#define Xponent 4
 	#define SolveFor1Variable 5 //Any problem with just 1 variable
 	#define Sin 6
 	#define Cos 7
@@ -145,15 +145,13 @@ namespace mth
 		/// </summary>
 		vector<string>* shownSteps = new vector<string>();
 
-#pragma region Number_Return_Value
-
 		/// <summary>
 		/// Adds 'b' to 'a'.
 		/// </summary>
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		Number add(Number a, Number b, __int8& errorCode);
+		void add(Number a, Number b, Number& ret, __int8& errorCode);
 
 		/// <summary>
 		/// Subtracts 'b' from 'a'.
@@ -161,7 +159,7 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		Number subtract(Number a, Number b, __int8& errorCode);
+		void subtract(Number a, Number b, Number& ret, __int8& errorCode);
 
 		/// <summary>
 		/// Multiplies 'a' by 'b'.
@@ -169,7 +167,7 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		Number multiply(Number a, Number b, __int8& errorCode);
+		void multiply(Number a, Number b, Number& ret, __int8& errorCode);
 
 		/// <summary>
 		/// Divides 'b' from 'a'.
@@ -178,9 +176,8 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		Number divide(Number a, Number b, __int8& errorCode);
-
-#pragma endregion
+		void divide(Number a, Number b, Number& ret, __int8& errorCode);
+		//Fraction divide(Number a, Number b, __int8& errorCode);
 
 #pragma region Range_Checking
 
