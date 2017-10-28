@@ -17,9 +17,6 @@ Any parameter values called "ret" are values returned by reference.
 
 namespace mth
 {
-
-#include <math.h>
-
 	class IMathObject
 	{
 	public:
@@ -56,6 +53,7 @@ namespace mth
 		/// The value on the bottom of the fraction.
 		/// </summary>
 		IMathObject denominator;
+
 
 		Fraction(IMathObject numerator, IMathObject denominator)
 		{
