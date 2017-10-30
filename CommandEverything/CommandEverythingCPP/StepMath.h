@@ -17,9 +17,33 @@ Any parameter values called "ret" are values returned by reference.
 
 namespace mth
 {
+
+#define FUNCTION_NOT_IMPLEMENTED "Someone forgot to define this!"
+
+	/// <summary>
+	/// The class the holds a bunch of IMathObjects that modify each other. 
+	/// </summary>
+	//class MathPart
+	//{
+	//	/// <summary>
+	//	/// Holds all of the IMathObjects that modify each other.
+	//	/// </summary>
+	//	vector<IMathObject> objects;
+	//};
+
+	/// <summary>
+	/// The base class for various data representations such as a number, fraction, or exponent.
+	/// </summary>
 	class IMathObject
 	{
 	public:
+
+		//These functions will throw a exception if you do not define them.
+		virtual void add(IMathObject& a, IMathObject& b, IMathObject& ret);
+		virtual void subtract(IMathObject& a, IMathObject& b, IMathObject& ret);
+		virtual void multiply(IMathObject& a, IMathObject& b, IMathObject& ret);
+		virtual void divide(IMathObject& a, IMathObject& c, IMathObject& ret);
+
 		/// <summary>
 		/// Converts the object to a string.
 		/// </summary>
@@ -60,46 +84,53 @@ namespace mth
 			this->numerator = numerator;
 			this->denominator = denominator;
 		}
+
+		//void add(Fraction& a, IMathObject& b, IMathObject& ret);
+		//void add(Fraction& a, Fraction& b, IMathObject& ret);
+
+		//void subtract(IMathObject& a, IMathObject& b, IMathObject& ret);
+		//void multiply(IMathObject& a, IMathObject& b, IMathObject& ret);
+		//void divide(IMathObject& a, IMathObject& c, IMathObject& ret);
 	};
 
-	/// <summary>
-	/// Represents a number in a radical.
-	/// </summary>
-	class Radical : public IMathObject
-	{
-		/// <summary>
-		/// The N root of number.
-		/// </summary>
-		IMathObject index;
+	///// <summary>
+	///// Represents a number in a radical.
+	///// </summary>
+	//class Radical : public IMathObject
+	//{
+	//	/// <summary>
+	//	/// The N root of number.
+	//	/// </summary>
+	//	IMathObject index;
 
-		/// <summary>
-		/// The number under the radical.
-		/// </summary>
-		IMathObject number;
-	};
+	//	/// <summary>
+	//	/// The number under the radical.
+	//	/// </summary>
+	//	IMathObject number;
+	//};
 
-	/// <summary>
-	/// Encompasses a math object, and declares to what Nth power it is being raised.
-	/// </summary>
-	class Exponent : public IMathObject
-	{
-		/// <summary>
-		/// The math object that is being raised to the Nth power.
-		/// </summary>
-		IMathObject exponentSubject;
-		IMathObject N;
-	};
+	///// <summary>
+	///// Encompasses a math object, and declares to what Nth power it is being raised.
+	///// </summary>
+	//class Exponent : public IMathObject
+	//{
+	//	/// <summary>
+	//	/// The math object that is being raised to the Nth power.
+	//	/// </summary>
+	//	IMathObject exponentSubject;
+	//	IMathObject N;
+	//};
 
 	/// <summary>
 	/// Represents a unknown variable.
 	/// </summary>
-	class Variable : public IMathObject
-	{
-		/// <summary>
-		/// The letter/character that the variable is represented by.
-		/// </summary>
-		char Symbol;
-	};
+	//class Variable : public IMathObject
+	//{
+	//	/// <summary>
+	//	/// The letter/character that the variable is represented by.
+	//	/// </summary>
+	//	char Symbol;
+	//};
 
 	/// <summary>
 	/// This class is used to do math step by step, and show those steps. 

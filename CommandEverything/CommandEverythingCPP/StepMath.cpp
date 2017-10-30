@@ -138,6 +138,9 @@ void mth::StepMath::simplifyFraction(Fraction& fraction, __int8& errorCode)
 
 	//}
 	//__int64 gcf = this->greatestCommonDivisor(fraction.numerator, fraction.denominator);
+
+	//HELP? How do I redesign so I don't have to guess and check for the types of the values of the fraction?
+	//Without a ton of boilerplate code.
 }
 
 __int8 mth::StepMath::rangeCheckAdd(Number a, Number b)
@@ -193,7 +196,36 @@ __int64 mth::StepMath::greatestCommonDivisor(__int64 a, __int64 b)
 		return b == 0 ? a : this->greatestCommonDivisor(b, a % b);
 }
 
+void mth::IMathObject::add(IMathObject& a, IMathObject& b, IMathObject& ret)
+{
+	throw new exception(FUNCTION_NOT_IMPLEMENTED);
+}
+
+void mth::IMathObject::subtract(IMathObject& a, IMathObject& b, IMathObject& ret)
+{
+	throw new exception(FUNCTION_NOT_IMPLEMENTED);
+}
+
+void mth::IMathObject::multiply(IMathObject& a, IMathObject& b, IMathObject& ret)
+{
+	throw new exception(FUNCTION_NOT_IMPLEMENTED);
+}
+
+void mth::IMathObject::divide(IMathObject& a, IMathObject& c, IMathObject& ret)
+{
+	throw new exception(FUNCTION_NOT_IMPLEMENTED);
+}
+
 string mth::IMathObject::toString()
 {
 	return "SOMEONE FORGOT TO DEFINE TOSTRING(). OOPS.";
 }
+
+//void mth::Fraction::add(Fraction& a, IMathObject& b, IMathObject& ret)
+//{
+//
+//}
+//
+//void mth::Fraction::add(Fraction& a, Fraction& b, IMathObject& ret)
+//{
+//}

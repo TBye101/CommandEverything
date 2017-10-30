@@ -34,9 +34,12 @@ int main(int argc, char* argv[])
 		Console->WriteLine("!Error!: Could not set event handler.");
 	}
 	__int8 error = MTH_NO_ERROR;
-	mth::Number E = mth::Number(0);
+	mth::Number E = mth::Number(9);
+	mth::Number C = mth::Number(3);
+	mth::Fraction D = mth::Fraction(E, C);
 	mth::StepMath* a = new mth::StepMath();
-	a->multiply(8, 79799797797, E, error);
+	//a->multiply(8, 79799797797, E, error);
+	D.add(D, D, D);
 
 	Loop* Program = new Loop(); 
 	Program->Startup();
