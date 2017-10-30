@@ -12,7 +12,7 @@ StepMath::~StepMath()
 {
 }
 
-void mth::StepMath::add(Number a, Number b, Number& ret, __int8 & errorCode)
+void mth::Number::add(Number a, Number b, Number& ret, __int8& errorCode)
 {
 	errorCode = this->rangeCheckAdd(a, b);
 
@@ -22,7 +22,7 @@ void mth::StepMath::add(Number a, Number b, Number& ret, __int8 & errorCode)
 		step1.append(" +");
 		step1.append(to_string(b.number));
 		step1.append(" = ");
-		this->shownSteps->push_back(step1);
+		shownSteps->push_back(step1);
 		return this->subtract(a, Number(b.number * -1), ret, errorCode);
 	}
 	else
@@ -32,13 +32,13 @@ void mth::StepMath::add(Number a, Number b, Number& ret, __int8 & errorCode)
 		step2.append(to_string(b.number));
 		step2.append(" = ");
 		step2.append(to_string(a.number + b.number));
-		this->shownSteps->push_back(step2);
+		shownSteps->push_back(step2);
 
 	}
 	ret = a.number + b.number;
 }
 
-void mth::StepMath::subtract(Number a, Number b, Number& ret, __int8& errorCode)
+void mth::Number::subtract(Number a, Number b, Number& ret, __int8& errorCode)
 {
 	errorCode = this->rangeCheckSubtract(a, b);
 	if (b.number == 0)
@@ -46,7 +46,7 @@ void mth::StepMath::subtract(Number a, Number b, Number& ret, __int8& errorCode)
 		string step1 = to_string(a.number);
 		step1.append(" - 0 = ");
 		step1.append(to_string(a.number));
-		this->shownSteps->push_back(step1);
+		shownSteps->push_back(step1);
 		ret = a.number;
 	}
 
@@ -57,7 +57,7 @@ void mth::StepMath::subtract(Number a, Number b, Number& ret, __int8& errorCode)
 		step2.append(to_string(b.number));
 		step2.append(" = ");
 		step2.append(to_string(a.number - b.number));
-		this->shownSteps->push_back(step2);
+		shownSteps->push_back(step2);
 		ret = Number(a.number - b.number);
 	}
 	else
@@ -66,12 +66,12 @@ void mth::StepMath::subtract(Number a, Number b, Number& ret, __int8& errorCode)
 		step3.append(" -");
 		step3.append(to_string(b.number));
 		step3.append(" = ");
-		this->shownSteps->push_back(step3);
+		shownSteps->push_back(step3);
 		this->add(a, Number(b.number * -1), ret, errorCode);
 	}
 }
 
-void mth::StepMath::multiply(Number a, Number b, Number& ret, __int8& errorCode)
+void mth::Number::multiply(Number a, Number b, Number& ret, __int8& errorCode)
 {
 	errorCode = this->rangeCheckMultiply(a, b);
 
@@ -80,11 +80,11 @@ void mth::StepMath::multiply(Number a, Number b, Number& ret, __int8& errorCode)
 	step1.append(to_string(b.number));
 	step1.append(" = ");
 	step1.append(to_string(a.number * b.number));
-	this->shownSteps->push_back(step1);
+	shownSteps->push_back(step1);
 	ret =  Number(a.number * b.number);
 }
 
-void mth::StepMath::divide(Number a, Number b, Number& ret, __int8& errorCode)
+void mth::Number::divide(Number a, Number b, IMathObject& ret, __int8& errorCode)
 {
 	//Throw a divide by zero error here.
 	if (b.number == 0)
@@ -94,56 +94,26 @@ void mth::StepMath::divide(Number a, Number b, Number& ret, __int8& errorCode)
 		ret = Number(0);
 	}
 
-
+	
 	string step = to_string(a.number);
 	step.append(" / ");
 	step.append(to_string(b.number));
 	step.append(" = ");
-	step.append(to_string(a.number / b.number));
-	this->shownSteps->push_back(step);
-	if (a.number % b.number != 0)
-	{
-		errorCode = MTH_PRECISION_LOSS;
-		ret =  Number(MTH_PRECISION_LOSS);
-	}
-	ret =  Number(a.number / b.number);
+
+	Fraction r = Fraction(a, b);
+	r.simplifyFraction(r, errorCode);
+
+	step.append(r.toString());
+	ret = r;
+	shownSteps->push_back(step);
 }
 
-void mth::StepMath::divide(Number a, Number b, Fraction& ret, __int8& errorCode)
+void mth::Fraction::simplifyFraction(Fraction& fraction, __int8& errorCode)
 {
-	if (b.number == 0)
-	{
-		errorCode = MTH_DIVIDE_BY_ZERO;
-		ret = Fraction(a, b);
-	}
-	else
-	{
-		ret.numerator = a;
-		ret.denominator = b;
-		this->shownSteps->push_back(a.toString() + " / " + b.toString() + " = " + ret.toString());
-		this->simplifyFraction(ret, errorCode);
-	}
+	throw new exception("Not implemented!");
 }
 
-void mth::StepMath::simplifyFraction(Fraction& fraction, __int8& errorCode)
-{
-	//Number& den = Number(0);
-	//Number& num = Number(0);
-
-	//den = dynamic_cast<Number&>(fraction.denominator);
-	//num = dynamic_cast<Number&>(fraction.numerator);
-
-	//if ()
-	//{
-
-	//}
-	//__int64 gcf = this->greatestCommonDivisor(fraction.numerator, fraction.denominator);
-
-	//HELP? How do I redesign so I don't have to guess and check for the types of the values of the fraction?
-	//Without a ton of boilerplate code.
-}
-
-__int8 mth::StepMath::rangeCheckAdd(Number a, Number b)
+__int8 mth::Number::rangeCheckAdd(Number a, Number b)
 {
 	Number c = b;
 	c.number * -1;
@@ -151,7 +121,7 @@ __int8 mth::StepMath::rangeCheckAdd(Number a, Number b)
 	return this->rangeCheckSubtract(a, c);
 }
 
-__int8 mth::StepMath::rangeCheckSubtract(Number a, Number b)
+__int8 mth::Number::rangeCheckSubtract(Number a, Number b)
 {
 	//Do a check to see if this operation will stay within __int64 bounds.
 	if (b.number < 0)
@@ -174,7 +144,7 @@ __int8 mth::StepMath::rangeCheckSubtract(Number a, Number b)
 	return MTH_NO_ERROR;
 }
 
-__int8 mth::StepMath::rangeCheckMultiply(Number a, Number b)
+__int8 mth::Number::rangeCheckMultiply(Number a, Number b)
 {
 	//Check to make sure we won't go past an integer's max or min range.
 	if (INT64_MAX / abs(b.number) <= abs(a.number))
@@ -188,7 +158,7 @@ __int8 mth::StepMath::rangeCheckMultiply(Number a, Number b)
 
 void mth::StepMath::publishError(__int8& errorCode)
 {
-	this->shownSteps->push_back("Error code: " + to_string(errorCode));
+	shownSteps->push_back("Error code: " + to_string(errorCode));
 }
 
 __int64 mth::StepMath::greatestCommonDivisor(__int64 a, __int64 b)
@@ -196,22 +166,22 @@ __int64 mth::StepMath::greatestCommonDivisor(__int64 a, __int64 b)
 		return b == 0 ? a : this->greatestCommonDivisor(b, a % b);
 }
 
-void mth::IMathObject::add(IMathObject& a, IMathObject& b, IMathObject& ret)
+void mth::IMathObject::add(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
 
-void mth::IMathObject::subtract(IMathObject& a, IMathObject& b, IMathObject& ret)
+void mth::IMathObject::subtract(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
 
-void mth::IMathObject::multiply(IMathObject& a, IMathObject& b, IMathObject& ret)
+void mth::IMathObject::multiply(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
 
-void mth::IMathObject::divide(IMathObject& a, IMathObject& c, IMathObject& ret)
+void mth::IMathObject::divide(IMathObject& a, IMathObject& c, IMathObject& ret, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }

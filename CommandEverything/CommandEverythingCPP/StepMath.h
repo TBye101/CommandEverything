@@ -18,6 +18,10 @@ Any parameter values called "ret" are values returned by reference.
 namespace mth
 {
 
+	/// <summary>
+	/// The steps to display to the user on how to solve the math problem.
+	/// </summary>
+	static vector<string>* shownSteps = new vector<string>();
 #define FUNCTION_NOT_IMPLEMENTED "Someone forgot to define this!"
 
 	/// <summary>
@@ -39,10 +43,10 @@ namespace mth
 	public:
 
 		//These functions will throw a exception if you do not define them.
-		virtual void add(IMathObject& a, IMathObject& b, IMathObject& ret);
-		virtual void subtract(IMathObject& a, IMathObject& b, IMathObject& ret);
-		virtual void multiply(IMathObject& a, IMathObject& b, IMathObject& ret);
-		virtual void divide(IMathObject& a, IMathObject& c, IMathObject& ret);
+		virtual void add(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
+		virtual void subtract(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
+		virtual void multiply(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
+		virtual void divide(IMathObject& a, IMathObject& c, IMathObject& ret, __int8& errorCode);
 
 		/// <summary>
 		/// Converts the object to a string.
@@ -59,6 +63,72 @@ namespace mth
 		{
 			number = a;
 		}
+
+		/// <summary>
+		/// Adds 'b' to 'a'.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		void add(Number a, Number b, Number& ret, __int8& errorCode);
+
+		/// <summary>
+		/// Checks to make sure that the addition operation will not cause the integer to fall out of an integer's range.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		__int8 rangeCheckAdd(Number a, Number b);
+
+		/// <summary>
+		/// Checks to make sure that the subtraction operation will not cause the integer to fall out of an integer's range.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		__int8 rangeCheckSubtract(Number a, Number b);
+
+		/// <summary>
+		/// Checks to make sure that the multiplication operation will not cause the integer to fall out of an integer's range.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		__int8 rangeCheckMultiply(Number a, Number b);
+
+		/// <summary>
+		/// Subtracts 'b' from 'a'.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		void subtract(Number a, Number b, Number& ret, __int8& errorCode);
+
+		/// <summary>
+		/// Multiplies 'a' by 'b'.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		void multiply(Number a, Number b, Number& ret, __int8& errorCode);
+
+		/// <summary>
+		/// Divides 'b' from 'a'.
+		/// This does not keep precision if a % b != 0.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		void divide(Number a, Number b, IMathObject& ret, __int8& errorCode);
+
+		/// <summary>
+		///// Divides 'b' from 'a'. This will maintain precision.
+		///// </summary>
+		///// <param name="a"></param>
+		///// <param name="b"></param>
+		///// <param name="ret"></param>
+		///// <param name="errorCode"></param>
+		//void divide(Number a, Number b, Fraction& ret, __int8& errorCode);
 	};
 
 	/// <summary>
@@ -84,6 +154,13 @@ namespace mth
 			this->numerator = numerator;
 			this->denominator = denominator;
 		}
+
+		/// <summary>
+		/// Simplifies the specified fraction as much as possible.
+		/// Currently only supports when the fraction has two integers as it's numerator and denominator.
+		/// </summary>
+		/// <param name="fraction"></param>
+		void simplifyFraction(Fraction& fraction, __int8& errorCode);
 
 		//void add(Fraction& a, IMathObject& b, IMathObject& ret);
 		//void add(Fraction& a, Fraction& b, IMathObject& ret);
@@ -187,93 +264,6 @@ namespace mth
 		~StepMath();
 
 	public:
-
-		/// <summary>
-		/// The steps to display to the user on how to solve the math problem.
-		/// </summary>
-		vector<string>* shownSteps = new vector<string>();
-
-		/// <summary>
-		/// Adds 'b' to 'a'.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		void add(Number a, Number b, Number& ret, __int8& errorCode);
-
-		/// <summary>
-		/// Subtracts 'b' from 'a'.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		void subtract(Number a, Number b, Number& ret, __int8& errorCode);
-
-		/// <summary>
-		/// Multiplies 'a' by 'b'.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		void multiply(Number a, Number b, Number& ret, __int8& errorCode);
-
-		/// <summary>
-		/// Divides 'b' from 'a'.
-		/// This does not keep precision if a % b != 0.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		void divide(Number a, Number b, Number& ret, __int8& errorCode);
-
-		/// <summary>
-		/// Divides 'b' from 'a'. This will maintain precision.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <param name="ret"></param>
-		/// <param name="errorCode"></param>
-		void divide(Number a, Number b, Fraction& ret, __int8& errorCode);
-
-#pragma region Simplification
-
-		/// <summary>
-		/// Simplifies the specified fraction as much as possible.
-		/// Currently only supports when the fraction has two integers as it's numerator and denominator.
-		/// </summary>
-		/// <param name="fraction"></param>
-		void simplifyFraction(Fraction& fraction, __int8& errorCode);
-
-#pragma endregion
-
-
-#pragma region Range_Checking
-
-		/// <summary>
-		/// Checks to make sure that the addition operation will not cause the integer to fall out of an integer's range.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		__int8 rangeCheckAdd(Number a, Number b);
-
-		/// <summary>
-		/// Checks to make sure that the subtraction operation will not cause the integer to fall out of an integer's range.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		__int8 rangeCheckSubtract(Number a, Number b);
-
-		/// <summary>
-		/// Checks to make sure that the multiplication operation will not cause the integer to fall out of an integer's range.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		__int8 rangeCheckMultiply(Number a, Number b);
-
-#pragma endregion
 
 #pragma region Utility
 

@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 	mth::Fraction D = mth::Fraction(E, C);
 	mth::StepMath* a = new mth::StepMath();
 	//a->multiply(8, 79799797797, E, error);
-	D.add(D, D, D);
+	D.add(D, D, D, error);
 
 	Loop* Program = new Loop(); 
 	Program->Startup();
