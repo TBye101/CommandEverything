@@ -120,15 +120,6 @@ namespace mth
 		/// <param name="b"></param>
 		/// <returns></returns>
 		void divide(Number a, Number b, IMathObject& ret, __int8& errorCode);
-
-		/// <summary>
-		///// Divides 'b' from 'a'. This will maintain precision.
-		///// </summary>
-		///// <param name="a"></param>
-		///// <param name="b"></param>
-		///// <param name="ret"></param>
-		///// <param name="errorCode"></param>
-		//void divide(Number a, Number b, Fraction& ret, __int8& errorCode);
 	};
 
 	/// <summary>
@@ -154,13 +145,6 @@ namespace mth
 			this->numerator = numerator;
 			this->denominator = denominator;
 		}
-
-		/// <summary>
-		/// Simplifies the specified fraction as much as possible.
-		/// Currently only supports when the fraction has two integers as it's numerator and denominator.
-		/// </summary>
-		/// <param name="fraction"></param>
-		void simplifyFraction(Fraction& fraction, __int8& errorCode);
 
 		//void add(Fraction& a, IMathObject& b, IMathObject& ret);
 		//void add(Fraction& a, Fraction& b, IMathObject& ret);
@@ -249,7 +233,7 @@ namespace mth
 
 	#pragma endregion
 
-	#pragma region Error_Codes
+	#pragma region Messages
 
 	#define MTH_NO_ERROR 0
 	#define MTH_DIVIDE_BY_ZERO 1
@@ -257,6 +241,7 @@ namespace mth
 	#define MTH_OUT_OF_RANGE 3
 	#define MTH_PRECISION_LOSS 4
 	#define MTH_INVALID_PARAMETER 5
+	#define MTH_UNSIMPLIFIABLE 6
 
 	#pragma endregion
 
@@ -266,6 +251,15 @@ namespace mth
 	public:
 
 #pragma region Utility
+
+
+		/// <summary>
+		/// Simplifies the specified fraction as much as possible.
+		/// Currently only supports when the fraction has two integers as it's numerator and denominator.
+		/// </summary>
+		/// <param name="fraction"></param>
+		static void simplifyFraction(IMathObject& numerator, IMathObject& denominator, Fraction& ret, __int8& errorCode);
+		static void simplifyFraction(Number& numerator, Number& denominator, Fraction& ret, __int8& errorCode);
 
 		/// <summary>
 		/// Pushes the error code and message into the steps stack.
@@ -279,7 +273,7 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		__int64 greatestCommonDivisor(__int64 a, __int64 b);
+		static __int64 greatestCommonDivisor(__int64 a, __int64 b);
 
 #pragma endregion
 

@@ -101,16 +101,11 @@ void mth::Number::divide(Number a, Number b, IMathObject& ret, __int8& errorCode
 	step.append(" = ");
 
 	Fraction r = Fraction(a, b);
-	r.simplifyFraction(r, errorCode);
+	mth::StepMath::simplifyFraction(r.numerator, r.denominator, r, errorCode);
 
 	step.append(r.toString());
 	ret = r;
 	shownSteps->push_back(step);
-}
-
-void mth::Fraction::simplifyFraction(Fraction& fraction, __int8& errorCode)
-{
-	throw new exception("Not implemented!");
 }
 
 __int8 mth::Number::rangeCheckAdd(Number a, Number b)
@@ -156,6 +151,18 @@ __int8 mth::Number::rangeCheckMultiply(Number a, Number b)
 	return MTH_NO_ERROR;
 }
 
+void mth::StepMath::simplifyFraction(IMathObject& numerator, IMathObject& denominator, Fraction& ret, __int8 & errorCode)
+{
+	errorCode = MTH_UNSIMPLIFIABLE;
+}
+
+void mth::StepMath::simplifyFraction(Number& numerator, Number& denominator, Fraction& ret, __int8& errorCode)
+{
+	Number gcd = Number(StepMath::greatestCommonDivisor(numerator.number, denominator.number));
+	numerator.divide(numerator, gcd, ret.numerator, errorCode);
+	denominator.divide(denominator, gcd, ret.denominator, errorCode);
+}
+
 void mth::StepMath::publishError(__int8& errorCode)
 {
 	shownSteps->push_back("Error code: " + to_string(errorCode));
@@ -163,7 +170,7 @@ void mth::StepMath::publishError(__int8& errorCode)
 
 __int64 mth::StepMath::greatestCommonDivisor(__int64 a, __int64 b)
 {
-		return b == 0 ? a : this->greatestCommonDivisor(b, a % b);
+		return b == 0 ? a : mth::StepMath::greatestCommonDivisor(b, a % b);
 }
 
 void mth::IMathObject::add(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
@@ -190,12 +197,3 @@ string mth::IMathObject::toString()
 {
 	return "SOMEONE FORGOT TO DEFINE TOSTRING(). OOPS.";
 }
-
-//void mth::Fraction::add(Fraction& a, IMathObject& b, IMathObject& ret)
-//{
-//
-//}
-//
-//void mth::Fraction::add(Fraction& a, Fraction& b, IMathObject& ret)
-//{
-//}
