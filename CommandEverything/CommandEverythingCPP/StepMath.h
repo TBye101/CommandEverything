@@ -46,7 +46,8 @@ namespace mth
 		virtual void add(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
 		virtual void subtract(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
 		virtual void multiply(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
-		virtual void divide(IMathObject& a, IMathObject& c, IMathObject& ret, __int8& errorCode);
+		virtual void divide(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
+		virtual bool equals(IMathObject& a, IMathObject& b, __int8& errorCode);
 
 		/// <summary>
 		/// Converts the object to a string.
@@ -120,6 +121,15 @@ namespace mth
 		/// <param name="b"></param>
 		/// <returns></returns>
 		void divide(Number a, Number b, IMathObject& ret, __int8& errorCode);
+
+		/// <summary>
+		/// Determines if the two Number objects are equal.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <param name="errorCode"></param>
+		/// <returns></returns>
+		virtual bool equals(Number& a, Number& b, __int8& errorCode);
 	};
 
 	/// <summary>

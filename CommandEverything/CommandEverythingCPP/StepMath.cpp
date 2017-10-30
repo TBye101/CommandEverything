@@ -108,6 +108,11 @@ void mth::Number::divide(Number a, Number b, IMathObject& ret, __int8& errorCode
 	shownSteps->push_back(step);
 }
 
+bool mth::Number::equals(Number& a, Number& b, __int8& errorCode)
+{
+	return (a.number == b.number);
+}
+
 __int8 mth::Number::rangeCheckAdd(Number a, Number b)
 {
 	Number c = b;
@@ -189,6 +194,11 @@ void mth::IMathObject::multiply(IMathObject& a, IMathObject& b, IMathObject& ret
 }
 
 void mth::IMathObject::divide(IMathObject& a, IMathObject& c, IMathObject& ret, __int8& errorCode)
+{
+	throw new exception(FUNCTION_NOT_IMPLEMENTED);
+}
+
+bool mth::IMathObject::equals(IMathObject & a, IMathObject & b, __int8 & errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
