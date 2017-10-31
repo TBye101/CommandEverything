@@ -198,12 +198,34 @@ void mth::IMathObject::divide(IMathObject& a, IMathObject& c, IMathObject& ret, 
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
 
-bool mth::IMathObject::equals(IMathObject & a, IMathObject & b, __int8 & errorCode)
+bool mth::IMathObject::equals(IMathObject& a, IMathObject& b, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
 
 string mth::IMathObject::toString()
 {
-	return "SOMEONE FORGOT TO DEFINE TOSTRING(). OOPS.";
+	return FUNCTION_NOT_IMPLEMENTED;
+}
+
+void mth::Fraction::add(Fraction& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
+{
+
+}
+
+void mth::Fraction::add(Fraction& a, Fraction& b, IMathObject& ret, __int8& errorCode)
+{
+	/*
+	Equation used:
+	a/b + c/d = (ad + cb)/bd
+	*/
+
+	IMathObject numerator;
+	IMathObject denominator;
+
+	//b.numerator.multiply(a.denominator, b.numerator, numerator, errorCode);
+	//a.numerator.multiply(a.numerator, b.denominator, denominator, errorCode);
+	
+
+	ret = Fraction(numerator, denominator);
 }

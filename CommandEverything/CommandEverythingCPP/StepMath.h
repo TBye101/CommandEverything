@@ -22,7 +22,8 @@ namespace mth
 	/// The steps to display to the user on how to solve the math problem.
 	/// </summary>
 	static vector<string>* shownSteps = new vector<string>();
-#define FUNCTION_NOT_IMPLEMENTED "Someone forgot to define this!"
+
+	const char* FUNCTION_NOT_IMPLEMENTED = "Someone forgot to define this!";
 
 	/// <summary>
 	/// The class the holds a bunch of IMathObjects that modify each other. 
@@ -156,8 +157,8 @@ namespace mth
 			this->denominator = denominator;
 		}
 
-		//void add(Fraction& a, IMathObject& b, IMathObject& ret);
-		//void add(Fraction& a, Fraction& b, IMathObject& ret);
+		void add(Fraction& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
+		void add(Fraction& a, Fraction& b, IMathObject& ret, __int8& errorCode);
 
 		//void subtract(IMathObject& a, IMathObject& b, IMathObject& ret);
 		//void multiply(IMathObject& a, IMathObject& b, IMathObject& ret);
