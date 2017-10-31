@@ -222,6 +222,7 @@ namespace mth
 		/// <returns></returns>
 		static Number multiply(Number a, Number b, __int8& errorCode);
 		static IMathObject multiply(Fraction a, Fraction b, __int8& errorCode);
+		static IMathObject multiply(Fraction a, IMathObject b, __int8& errorCode);
 
 		/// <summary>
 		/// Divides 'b' from 'a'.

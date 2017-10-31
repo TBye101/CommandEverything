@@ -122,6 +122,11 @@ IMathObject mth::StepMath::multiply(Fraction a, Fraction b, __int8& errorCode)
 	return StepMath::simplifyFraction(StepMath::multiply(a.numerator, b.numerator, errorCode), StepMath::multiply(a.denominator, b.denominator, errorCode), errorCode);
 }
 
+IMathObject mth::StepMath::multiply(Fraction a, IMathObject b, __int8& errorCode)
+{
+	return StepMath::multiply(a, StepMath::createFraction(b), errorCode);
+}
+
 mth::IMathObject mth::StepMath::divide(Number a, Number b, __int8& errorCode)
 {
 	//Throw a divide by zero error here.
