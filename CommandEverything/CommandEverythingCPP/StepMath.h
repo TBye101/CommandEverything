@@ -187,14 +187,12 @@ namespace mth
 
 	public:
 
-		//These functions will throw a exception if you do not define them for each type.
+		//These functions will throw a exception if you do not define them for each type and each type combination that could be called.
 		static IMathObject add(IMathObject& a, IMathObject& b, __int8& errorCode);
 		static IMathObject subtract(IMathObject& a, IMathObject& b, __int8& errorCode);
 		static IMathObject multiply(IMathObject& a, IMathObject& b, __int8& errorCode);
 		static IMathObject divide(IMathObject& a, IMathObject& b, __int8& errorCode);
 		static bool equals(IMathObject& a, IMathObject& b, __int8& errorCode);
-
-
 
 		/// <summary>
 		/// Adds 'b' to 'a'.
@@ -203,8 +201,8 @@ namespace mth
 		/// <param name="b"></param>
 		/// <returns></returns>
 		static Number add(Number a, Number b, __int8& errorCode);
-		static IMathObject add(Fraction& a, IMathObject& b, __int8& errorCode);
-		static IMathObject add(Fraction& a, Fraction& b, __int8& errorCode);
+		static IMathObject add(Fraction a, IMathObject b, __int8& errorCode);
+		static IMathObject add(Fraction a, Fraction b, __int8& errorCode);
 
 		/// <summary>
 		/// Subtracts 'b' from 'a'.
@@ -213,6 +211,8 @@ namespace mth
 		/// <param name="b"></param>
 		/// <returns></returns>
 		static Number subtract(Number a, Number b, __int8& errorCode);
+		static IMathObject subtract(Fraction a, Fraction b, __int8& errorCode);
+		static IMathObject subtract(Fraction a, IMathObject b, __int8& errorCode);
 
 		/// <summary>
 		/// Multiplies 'a' by 'b'.
@@ -221,6 +221,7 @@ namespace mth
 		/// <param name="b"></param>
 		/// <returns></returns>
 		static Number multiply(Number a, Number b, __int8& errorCode);
+		static IMathObject multiply(Fraction a, Fraction b, __int8& errorCode);
 
 		/// <summary>
 		/// Divides 'b' from 'a'.
@@ -270,6 +271,13 @@ namespace mth
 		/// <param name="fraction"></param>
 		static Fraction simplifyFraction(IMathObject& numerator, IMathObject& denominator, __int8& errorCode);
 		static Fraction simplifyFraction(Number& numerator, Number& denominator, __int8& errorCode);
+
+		/// <summary>
+		/// Puts 'a' over 1, making it a fraction. If a is already a fraction, this will not affect it mathmatically.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <returns></returns>
+		static Fraction createFraction(IMathObject a);
 
 		/// <summary>
 		/// Pushes the error code and message into the steps stack.

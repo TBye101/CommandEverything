@@ -76,6 +76,27 @@ Number mth::StepMath::subtract(Number a, Number b, __int8& errorCode)
 	return ret;
 }
 
+IMathObject mth::StepMath::subtract(Fraction a, Fraction b, __int8& errorCode)
+{
+	/*
+	Equation used:
+	a / b + c / d = (ad + cb) / bd
+	*/
+
+	IMathObject numerator = StepMath::subtract(StepMath::multiply(a.numerator, b.denominator, errorCode), StepMath::multiply(b.numerator, a.denominator, errorCode), errorCode);
+	IMathObject denominator = StepMath::multiply(a.denominator, b.denominator, errorCode);
+
+	Fraction ret = StepMath::simplifyFraction(numerator, denominator, errorCode);
+
+	return ret;
+}
+
+IMathObject mth::StepMath::subtract(Fraction a, IMathObject b, __int8& errorCode)
+{
+	Fraction newB = StepMath::createFraction(b);
+	return StepMath::subtract(a, newB, errorCode);
+}
+
 Number mth::StepMath::multiply(Number a, Number b, __int8& errorCode)
 {
 	Number ret;
@@ -90,6 +111,15 @@ Number mth::StepMath::multiply(Number a, Number b, __int8& errorCode)
 	ret =  Number(a.number * b.number);
 
 	return ret;
+}
+
+IMathObject mth::StepMath::multiply(Fraction a, Fraction b, __int8& errorCode)
+{
+	/*
+	a/b * c/d = ac/bd
+	*/
+
+	return StepMath::simplifyFraction(StepMath::multiply(a.numerator, b.numerator, errorCode), StepMath::multiply(a.denominator, b.denominator, errorCode), errorCode);
 }
 
 mth::IMathObject mth::StepMath::divide(Number a, Number b, __int8& errorCode)
@@ -175,6 +205,11 @@ Fraction mth::StepMath::simplifyFraction(Number& numerator, Number& denominator,
 	return ret;
 }
 
+Fraction mth::StepMath::createFraction(IMathObject a)
+{
+	return Fraction(a, Number(1));
+}
+
 void mth::StepMath::publishError(__int8& errorCode)
 {
 	shownSteps->push_back("Error code: " + to_string(errorCode));
@@ -215,13 +250,13 @@ string mth::IMathObject::toString()
 	return FUNCTION_NOT_IMPLEMENTED;
 }
 
-IMathObject mth::StepMath::add(Fraction& a, IMathObject& b, __int8& errorCode)
+IMathObject mth::StepMath::add(Fraction a, IMathObject b, __int8& errorCode)
 {
-	Fraction newB = Fraction(b, Number(1));
+	Fraction newB = StepMath::createFraction(b);
 	return StepMath::add(a, newB, errorCode);
 }
 
-IMathObject mth::StepMath::add(Fraction& a, Fraction& b, __int8& errorCode)
+IMathObject mth::StepMath::add(Fraction a, Fraction b, __int8& errorCode)
 {
 	/*
 	Equation used:
