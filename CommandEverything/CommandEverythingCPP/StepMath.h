@@ -43,13 +43,6 @@ namespace mth
 	{
 	public:
 
-		//These functions will throw a exception if you do not define them.
-		virtual IMathObject add(IMathObject& a, IMathObject& b, __int8& errorCode);
-		virtual IMathObject subtract(IMathObject& a, IMathObject& b, __int8& errorCode);
-		virtual IMathObject multiply(IMathObject& a, IMathObject& b, __int8& errorCode);
-		virtual IMathObject divide(IMathObject& a, IMathObject& b, __int8& errorCode);
-		virtual bool equals(IMathObject& a, IMathObject& b, __int8& errorCode);
-
 		/// <summary>
 		/// Converts the object to a string.
 		/// </summary>
@@ -71,72 +64,6 @@ namespace mth
 		{
 			number = a;
 		}
-
-		/// <summary>
-		/// Adds 'b' to 'a'.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		Number add(Number a, Number b, __int8& errorCode);
-
-		/// <summary>
-		/// Subtracts 'b' from 'a'.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		Number subtract(Number a, Number b, __int8& errorCode);
-
-		/// <summary>
-		/// Multiplies 'a' by 'b'.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		Number multiply(Number a, Number b, __int8& errorCode);
-
-		/// <summary>
-		/// Divides 'b' from 'a'.
-		/// This does not keep precision if a % b != 0.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		IMathObject divide(Number a, Number b, __int8& errorCode);
-
-		/// <summary>
-		/// Determines if the two Number objects are equal.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <param name="errorCode"></param>
-		/// <returns></returns>
-		virtual bool equals(Number& a, Number& b, __int8& errorCode);
-
-		/// <summary>
-		/// Checks to make sure that the addition operation will not cause the integer to fall out of an integer's range.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		__int8 rangeCheckAdd(Number a, Number b);
-
-		/// <summary>
-		/// Checks to make sure that the subtraction operation will not cause the integer to fall out of an integer's range.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		__int8 rangeCheckSubtract(Number a, Number b);
-
-		/// <summary>
-		/// Checks to make sure that the multiplication operation will not cause the integer to fall out of an integer's range.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		__int8 rangeCheckMultiply(Number a, Number b);
 	};
 
 	/// <summary>
@@ -162,13 +89,6 @@ namespace mth
 			this->numerator = numerator;
 			this->denominator = denominator;
 		}
-
-		IMathObject add(Fraction& a, IMathObject& b, __int8& errorCode);
-		IMathObject add(Fraction& a, Fraction& b, __int8& errorCode);
-
-		//void subtract(IMathObject& a, IMathObject& b, IMathObject& ret);
-		//void multiply(IMathObject& a, IMathObject& b, IMathObject& ret);
-		//void divide(IMathObject& a, IMathObject& c, IMathObject& ret);
 	};
 
 	///// <summary>
@@ -266,6 +186,79 @@ namespace mth
 		~StepMath();
 
 	public:
+
+		//These functions will throw a exception if you do not define them for each type.
+		static IMathObject add(IMathObject& a, IMathObject& b, __int8& errorCode);
+		static IMathObject subtract(IMathObject& a, IMathObject& b, __int8& errorCode);
+		static IMathObject multiply(IMathObject& a, IMathObject& b, __int8& errorCode);
+		static IMathObject divide(IMathObject& a, IMathObject& b, __int8& errorCode);
+		static bool equals(IMathObject& a, IMathObject& b, __int8& errorCode);
+
+
+
+		/// <summary>
+		/// Adds 'b' to 'a'.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		static Number add(Number a, Number b, __int8& errorCode);
+		static IMathObject add(Fraction& a, IMathObject& b, __int8& errorCode);
+		static IMathObject add(Fraction& a, Fraction& b, __int8& errorCode);
+
+		/// <summary>
+		/// Subtracts 'b' from 'a'.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		static Number subtract(Number a, Number b, __int8& errorCode);
+
+		/// <summary>
+		/// Multiplies 'a' by 'b'.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		static Number multiply(Number a, Number b, __int8& errorCode);
+
+		/// <summary>
+		/// Divides 'b' from 'a'.
+		/// This does not keep precision if a % b != 0.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		static IMathObject divide(Number a, Number b, __int8& errorCode);
+
+
+#pragma region Range Checks
+
+		/// <summary>
+		/// Checks to make sure that the addition operation will not cause the integer to fall out of an integer's range.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		static __int8 rangeCheckAdd(Number a, Number b);
+
+		/// <summary>
+		/// Checks to make sure that the subtraction operation will not cause the integer to fall out of an integer's range.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		static __int8 rangeCheckSubtract(Number a, Number b);
+
+		/// <summary>
+		/// Checks to make sure that the multiplication operation will not cause the integer to fall out of an integer's range.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		static __int8 rangeCheckMultiply(Number a, Number b);
+
+#pragma endregion
 
 #pragma region Utility
 
