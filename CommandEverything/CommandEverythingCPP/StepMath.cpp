@@ -41,7 +41,7 @@ Number mth::Number::add(Number a, Number b, __int8& errorCode)
 
 Number mth::Number::subtract(Number a, Number b, __int8& errorCode)
 {
-	Number ret = Number(0);
+	Number ret;
 
 	errorCode = this->rangeCheckSubtract(a, b);
 	if (b.number == 0)
@@ -78,7 +78,7 @@ Number mth::Number::subtract(Number a, Number b, __int8& errorCode)
 
 Number mth::Number::multiply(Number a, Number b, __int8& errorCode)
 {
-	Number ret = Number(0);
+	Number ret;
 	errorCode = this->rangeCheckMultiply(a, b);
 
 	string step1 = to_string(a.number);
@@ -99,7 +99,7 @@ mth::IMathObject mth::Number::divide(Number a, Number b, __int8& errorCode)
 	{
 		errorCode = MTH_DIVIDE_BY_ZERO;
 		mth::shownSteps->push_back("Divide by Zero: Undefined");
-		return mth::Number(0);
+		return Number(0);
 	}
 
 	
