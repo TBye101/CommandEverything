@@ -163,8 +163,8 @@ namespace mth
 			this->denominator = denominator;
 		}
 
-		void add(Fraction& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
-		void add(Fraction& a, Fraction& b, IMathObject& ret, __int8& errorCode);
+		IMathObject add(Fraction& a, IMathObject& b, __int8& errorCode);
+		IMathObject add(Fraction& a, Fraction& b, __int8& errorCode);
 
 		//void subtract(IMathObject& a, IMathObject& b, IMathObject& ret);
 		//void multiply(IMathObject& a, IMathObject& b, IMathObject& ret);

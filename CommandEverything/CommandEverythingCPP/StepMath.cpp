@@ -220,24 +220,24 @@ string mth::IMathObject::toString()
 	return FUNCTION_NOT_IMPLEMENTED;
 }
 
-void mth::Fraction::add(Fraction& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
+IMathObject mth::Fraction::add(Fraction& a, IMathObject& b, __int8& errorCode)
 {
 
 }
 
-void mth::Fraction::add(Fraction& a, Fraction& b, IMathObject& ret, __int8& errorCode)
+IMathObject mth::Fraction::add(Fraction& a, Fraction& b, __int8& errorCode)
 {
 	/*
 	Equation used:
 	a/b + c/d = (ad + cb)/bd
 	*/
 
-	IMathObject numerator;
-	IMathObject denominator;
+	//IMathObject numerator = a.numerator.add(a.numerator.add(a.numerator, b.denominator, errorCode), b.numerator.add(b.numerator, a.denominator, errorCode), errorCode);
+	//IMathObject denominator;
 
 	//b.numerator.multiply(a.denominator, b.numerator, numerator, errorCode);
 	//a.numerator.multiply(a.numerator, b.denominator, denominator, errorCode);
 	
 
-	ret = Fraction(numerator, denominator);
+	return Fraction(numerator, denominator);
 }
