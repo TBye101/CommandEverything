@@ -12,7 +12,7 @@ StepMath::~StepMath()
 {
 }
 
-void mth::Number::add(Number a, Number b, Number& ret, __int8& errorCode)
+Number mth::Number::add(Number a, Number b, __int8& errorCode)
 {
 	errorCode = this->rangeCheckAdd(a, b);
 
@@ -23,7 +23,7 @@ void mth::Number::add(Number a, Number b, Number& ret, __int8& errorCode)
 		step1.append(to_string(b.number));
 		step1.append(" = ");
 		shownSteps->push_back(step1);
-		return this->subtract(a, Number(b.number * -1), ret, errorCode);
+		return this->subtract(a, Number(b.number * -1), errorCode);
 	}
 	else
 	{
@@ -35,11 +35,14 @@ void mth::Number::add(Number a, Number b, Number& ret, __int8& errorCode)
 		shownSteps->push_back(step2);
 
 	}
-	ret = a.number + b.number;
+
+	return Number(number + b.number);
 }
 
-void mth::Number::subtract(Number a, Number b, Number& ret, __int8& errorCode)
+Number mth::Number::subtract(Number a, Number b, __int8& errorCode)
 {
+	Number ret = Number(0);
+
 	errorCode = this->rangeCheckSubtract(a, b);
 	if (b.number == 0)
 	{
@@ -67,12 +70,15 @@ void mth::Number::subtract(Number a, Number b, Number& ret, __int8& errorCode)
 		step3.append(to_string(b.number));
 		step3.append(" = ");
 		shownSteps->push_back(step3);
-		this->add(a, Number(b.number * -1), ret, errorCode);
+		ret =  this->add(a, Number(b.number * -1), errorCode);
 	}
+
+	return ret;
 }
 
-void mth::Number::multiply(Number a, Number b, Number& ret, __int8& errorCode)
+Number mth::Number::multiply(Number a, Number b, __int8& errorCode)
 {
+	Number ret = Number(0);
 	errorCode = this->rangeCheckMultiply(a, b);
 
 	string step1 = to_string(a.number);
@@ -80,18 +86,20 @@ void mth::Number::multiply(Number a, Number b, Number& ret, __int8& errorCode)
 	step1.append(to_string(b.number));
 	step1.append(" = ");
 	step1.append(to_string(a.number * b.number));
-	shownSteps->push_back(step1);
+	mth::shownSteps->push_back(step1);
 	ret =  Number(a.number * b.number);
+
+	return ret;
 }
 
-void mth::Number::divide(Number a, Number b, IMathObject& ret, __int8& errorCode)
+mth::IMathObject mth::Number::divide(Number a, Number b, __int8& errorCode)
 {
 	//Throw a divide by zero error here.
 	if (b.number == 0)
 	{
 		errorCode = MTH_DIVIDE_BY_ZERO;
-		//this->shownSteps->push_back("Divide by Zero: Undefined");
-		ret = Number(0);
+		mth::shownSteps->push_back("Divide by Zero: Undefined");
+		return mth::Number(0);
 	}
 
 	
@@ -100,12 +108,13 @@ void mth::Number::divide(Number a, Number b, IMathObject& ret, __int8& errorCode
 	step.append(to_string(b.number));
 	step.append(" = ");
 
-	Fraction r = Fraction(a, b);
-	mth::StepMath::simplifyFraction(r.numerator, r.denominator, r, errorCode);
+	mth::Fraction r = mth::Fraction(a, b);
+	r = mth::StepMath::simplifyFraction(r.numerator, r.denominator, errorCode);
 
 	step.append(r.toString());
-	ret = r;
-	shownSteps->push_back(step);
+	mth::shownSteps->push_back(step);
+
+	return r;
 }
 
 bool mth::Number::equals(Number& a, Number& b, __int8& errorCode)
@@ -116,7 +125,7 @@ bool mth::Number::equals(Number& a, Number& b, __int8& errorCode)
 __int8 mth::Number::rangeCheckAdd(Number a, Number b)
 {
 	Number c = b;
-	c.number * -1;
+	c.number *= -1;
 
 	return this->rangeCheckSubtract(a, c);
 }
@@ -156,16 +165,19 @@ __int8 mth::Number::rangeCheckMultiply(Number a, Number b)
 	return MTH_NO_ERROR;
 }
 
-void mth::StepMath::simplifyFraction(IMathObject& numerator, IMathObject& denominator, Fraction& ret, __int8 & errorCode)
+Fraction mth::StepMath::simplifyFraction(IMathObject& numerator, IMathObject& denominator, __int8 & errorCode)
 {
 	errorCode = MTH_UNSIMPLIFIABLE;
+	return Fraction(numerator, denominator);
 }
 
-void mth::StepMath::simplifyFraction(Number& numerator, Number& denominator, Fraction& ret, __int8& errorCode)
+Fraction mth::StepMath::simplifyFraction(Number& numerator, Number& denominator, __int8& errorCode)
 {
+	Fraction ret;
 	Number gcd = Number(StepMath::greatestCommonDivisor(numerator.number, denominator.number));
-	numerator.divide(numerator, gcd, ret.numerator, errorCode);
-	denominator.divide(denominator, gcd, ret.denominator, errorCode);
+	ret.numerator = numerator.divide(numerator, gcd, errorCode);
+	ret.denominator = denominator.divide(denominator, gcd, errorCode);
+	return ret;
 }
 
 void mth::StepMath::publishError(__int8& errorCode)
@@ -178,22 +190,22 @@ __int64 mth::StepMath::greatestCommonDivisor(__int64 a, __int64 b)
 		return b == 0 ? a : mth::StepMath::greatestCommonDivisor(b, a % b);
 }
 
-void mth::IMathObject::add(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
+IMathObject mth::IMathObject::add(IMathObject& a, IMathObject& b, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
 
-void mth::IMathObject::subtract(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
+IMathObject mth::IMathObject::subtract(IMathObject& a, IMathObject& b, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
 
-void mth::IMathObject::multiply(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode)
+IMathObject mth::IMathObject::multiply(IMathObject& a, IMathObject& b, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }
 
-void mth::IMathObject::divide(IMathObject& a, IMathObject& c, IMathObject& ret, __int8& errorCode)
+IMathObject mth::IMathObject::divide(IMathObject& a, IMathObject& c, __int8& errorCode)
 {
 	throw new exception(FUNCTION_NOT_IMPLEMENTED);
 }

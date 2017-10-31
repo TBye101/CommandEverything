@@ -23,7 +23,7 @@ namespace mth
 	/// </summary>
 	static vector<string>* shownSteps = new vector<string>();
 
-	const char* FUNCTION_NOT_IMPLEMENTED = "Someone forgot to define this!";
+	static const char* FUNCTION_NOT_IMPLEMENTED = "Someone forgot to define this!";
 
 	/// <summary>
 	/// The class the holds a bunch of IMathObjects that modify each other. 
@@ -44,10 +44,10 @@ namespace mth
 	public:
 
 		//These functions will throw a exception if you do not define them.
-		virtual void add(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
-		virtual void subtract(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
-		virtual void multiply(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
-		virtual void divide(IMathObject& a, IMathObject& b, IMathObject& ret, __int8& errorCode);
+		virtual IMathObject add(IMathObject& a, IMathObject& b, __int8& errorCode);
+		virtual IMathObject subtract(IMathObject& a, IMathObject& b, __int8& errorCode);
+		virtual IMathObject multiply(IMathObject& a, IMathObject& b, __int8& errorCode);
+		virtual IMathObject divide(IMathObject& a, IMathObject& b, __int8& errorCode);
 		virtual bool equals(IMathObject& a, IMathObject& b, __int8& errorCode);
 
 		/// <summary>
@@ -61,6 +61,12 @@ namespace mth
 	{
 	public:
 		__int64 number;
+
+		Number()
+		{
+			number = 0;
+		}
+
 		Number(__int64 a)
 		{
 			number = a;
@@ -72,7 +78,41 @@ namespace mth
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		void add(Number a, Number b, Number& ret, __int8& errorCode);
+		Number add(Number a, Number b, __int8& errorCode);
+
+		/// <summary>
+		/// Subtracts 'b' from 'a'.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		Number subtract(Number a, Number b, __int8& errorCode);
+
+		/// <summary>
+		/// Multiplies 'a' by 'b'.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		Number multiply(Number a, Number b, __int8& errorCode);
+
+		/// <summary>
+		/// Divides 'b' from 'a'.
+		/// This does not keep precision if a % b != 0.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		IMathObject divide(Number a, Number b, __int8& errorCode);
+
+		/// <summary>
+		/// Determines if the two Number objects are equal.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <param name="errorCode"></param>
+		/// <returns></returns>
+		virtual bool equals(Number& a, Number& b, __int8& errorCode);
 
 		/// <summary>
 		/// Checks to make sure that the addition operation will not cause the integer to fall out of an integer's range.
@@ -97,40 +137,6 @@ namespace mth
 		/// <param name="b"></param>
 		/// <returns></returns>
 		__int8 rangeCheckMultiply(Number a, Number b);
-
-		/// <summary>
-		/// Subtracts 'b' from 'a'.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		void subtract(Number a, Number b, Number& ret, __int8& errorCode);
-
-		/// <summary>
-		/// Multiplies 'a' by 'b'.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		void multiply(Number a, Number b, Number& ret, __int8& errorCode);
-
-		/// <summary>
-		/// Divides 'b' from 'a'.
-		/// This does not keep precision if a % b != 0.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		void divide(Number a, Number b, IMathObject& ret, __int8& errorCode);
-
-		/// <summary>
-		/// Determines if the two Number objects are equal.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <param name="errorCode"></param>
-		/// <returns></returns>
-		virtual bool equals(Number& a, Number& b, __int8& errorCode);
 	};
 
 	/// <summary>
@@ -150,7 +156,7 @@ namespace mth
 		/// </summary>
 		IMathObject denominator;
 
-
+		Fraction() {}
 		Fraction(IMathObject numerator, IMathObject denominator)
 		{
 			this->numerator = numerator;
@@ -269,8 +275,8 @@ namespace mth
 		/// Currently only supports when the fraction has two integers as it's numerator and denominator.
 		/// </summary>
 		/// <param name="fraction"></param>
-		static void simplifyFraction(IMathObject& numerator, IMathObject& denominator, Fraction& ret, __int8& errorCode);
-		static void simplifyFraction(Number& numerator, Number& denominator, Fraction& ret, __int8& errorCode);
+		static Fraction simplifyFraction(IMathObject& numerator, IMathObject& denominator, __int8& errorCode);
+		static Fraction simplifyFraction(Number& numerator, Number& denominator, __int8& errorCode);
 
 		/// <summary>
 		/// Pushes the error code and message into the steps stack.
