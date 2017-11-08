@@ -93,6 +93,8 @@ public:
 	/// <returns></returns>
 	char* getTime();
 
+	std::string GetLastErrorAsString();
+
 private:
 	ifstream* crypt;
 	unsigned __int64 FilesFound = 0;

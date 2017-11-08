@@ -68,7 +68,6 @@ void CommandKill::run(ParsedCommand* Parsed)
 			{
 				string msg = "Failed to kill a process";
 				Console->WriteLine(&msg);
-				Console->WriteLine(&to_string(GetLastError()));
 			}
 		}
 	}
